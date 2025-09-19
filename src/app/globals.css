@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+}
+
+html, body, :root {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  zoom: 0.75;
+}
+
+/* Utilitaires */
+.container-wrapper {
+  /* Centrage global strict sur 1728px sans padding latéral */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1728px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typographie – améliorer la lisibilité du lettrage sans changer la taille */
+.text-outline-light {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 0 1px rgba(0, 0, 0, 0.14);
+}
+.text-stroke-white {
+  -webkit-text-stroke: 0.3px rgba(255, 255, 255, 0.35);
+}
+.text-stroke-navy {
+  -webkit-text-stroke: 0.25px rgba(36, 55, 104, 0.35);
+}
+
+
