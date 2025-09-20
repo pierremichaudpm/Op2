@@ -53,17 +53,18 @@ export function Portfolio() {
   const currentProject = projectsData[activeVariant % projectsData.length];
 
   return (
-    <section id="realisations" className="py-12 md:py-20 bg-white overflow-hidden">
-      <div className="container-wrapper max-w-[1728px] px-4 md:px-0">
-        {/* Titre de la section aligné à gauche */}
-        <h2 className="text-left font-display text-[#243768] uppercase text-[48px] leading-[84px] font-bold mb-12" style={{ letterSpacing: '0.02em' }}>
-          Nos Réalisations
-        </h2>
+    <section id="realisations" className="py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
+      <div className="container-wrapper max-w-[1728px] px-4 md:px-8 lg:px-0">
+        <div className="relative w-full lg:w-[1692px] mx-auto">
+            {/* Titre de la section aligné à gauche */}
+          <h2 className="text-left font-display text-[#243768] uppercase text-[48px] leading-[84px] font-bold mb-8" style={{ letterSpacing: '0.02em' }}>
+            Nos Réalisations
+          </h2>
 
-        {/* Grille d'images style Figma */}
-        <div className="relative w-full max-w-[1692px] mx-auto" style={{ height: '737px' }}>
-          {/* Image-13 portrait étroite à droite (image-5 dans Figma) */}
-          <div 
+            {/* Grille d'images style Figma */}
+          <div className="relative w-full" style={{ height: '737px' }}>
+              {/* Image-13 portrait étroite à droite (image-5 dans Figma) */}
+            <div 
             className="absolute overflow-hidden border border-[#243768]/20"
             style={{
               right: '0',
@@ -80,8 +81,8 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-15 centrale (img dans Figma) */}
-          <div 
+              {/* Image-15 centrale (img dans Figma) */}
+            <div 
             className="absolute overflow-hidden  border border-[#243768]/20"
             style={{
               left: '39.52%',
@@ -98,16 +99,16 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-10 en haut à gauche (image-2 dans Figma) */}
-          <div 
-            className="absolute overflow-hidden  border border-[#243768]/20"
-            style={{
-              left: '0',
-              top: '2px',
-              width: '33.30%',
-              height: '286px'
-            }}
-          >
+              {/* Image-10 en haut à gauche (image-2 dans Figma) */}
+            <div 
+              className="absolute overflow-hidden border border-[#243768]/20"
+              style={{
+                left: '0',
+                top: '0',
+                width: '33.30%',
+                height: '286px'
+              }}
+            >
             <Image
               src="/images/nos_realisations/image-10.png"
               alt="Réalisation"
@@ -116,7 +117,7 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-12 droite centre (image-3 dans Figma) */}
+            {/* Image-12 droite centre (image-3 dans Figma) */}
           <div 
             className="absolute overflow-hidden  border border-[#243768]/20"
             style={{
@@ -134,7 +135,7 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-14 en bas à gauche (image-4 dans Figma) */}
+            {/* Image-14 en bas à gauche (image-4 dans Figma) */}
           <div 
             className="absolute overflow-hidden  border border-[#243768]/20"
             style={{
@@ -152,7 +153,7 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-16 en bas à droite (image dans Figma) */}
+            {/* Image-16 en bas à droite (image dans Figma) */}
           <div 
             className="absolute overflow-hidden  border border-[#243768]/20"
             style={{
@@ -170,16 +171,16 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Image-11 centre gauche (image-6 dans Figma) */}
-          <div 
-            className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20"
-            style={{
-              left: '33.30%',
-              top: '0',
-              width: '28.22%',
-              height: '352px'
-            }}
-          >
+              {/* Image-11 centre gauche (image-6 dans Figma) */}
+            <div 
+              className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20"
+              style={{
+                left: 'calc(33.30% - 1px)',
+                top: '0',
+                width: 'calc(28.22% + 1px)',
+                height: '352px'
+              }}
+            >
             <Image
               src="/images/nos_realisations/image-11.png"
               alt="Réalisation"
@@ -188,7 +189,7 @@ export function Portfolio() {
             />
           </div>
 
-          {/* Rectangle orange overlay */}
+            {/* Rectangle orange overlay */}
           <div 
             className="absolute bg-[#F36911] opacity-80"
             style={{
@@ -199,7 +200,7 @@ export function Portfolio() {
             }}
           />
 
-          {/* Rectangle bleu overlay */}
+            {/* Rectangle bleu overlay */}
           <div 
             className="absolute bg-[#243768] opacity-80"
             style={{
@@ -208,7 +209,8 @@ export function Portfolio() {
               width: '11.62%',
               height: '8.68%'
             }}
-          />
+            />
+          </div>
         </div>
       </div>
     </section>
