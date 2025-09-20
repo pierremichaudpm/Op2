@@ -7,8 +7,8 @@ import { VideoBackground } from '@/components/ui/video-background';
 export function HeroSection() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden py-8 md:py-12 lg:py-16 bg-white">
-      <div className="container-wrapper max-w-[1728px]">
+    <section className="relative overflow-hidden">
+      <div className="container-wrapper pt-1 pb-5 max-w-[1728px]">
         <div className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]">
           {/* Fixed height per design (Figma: 896px) */}
           <div className="relative h-[896px] w-full">
@@ -57,7 +57,8 @@ export function HeroSection() {
                 whileInView={reduce ? undefined : { opacity: 1 }}
                 viewport={{ once: true, amount: 0.6, margin: '-10% 0% -10% 0%' }}
                 transition={{ duration: 0.6, delay: reduce ? 0 : 0.8 }}
-                className="font-display subpixel-antialiased text-[#FFD3B7] text-[30px] leading-[44px] font-medium tracking-[0.02em] capitalize max-w-[1100px] text-outline-light text-stroke-white"
+                className="font-display subpixel-antialiased text-[#FFD3B7] text-[30px] leading-[44px] font-semibold tracking-[0.03em] capitalize max-w-[1100px] text-outline-light text-stroke-white"
+                style={{ textShadow: '0 2px 6px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.22)' }}
               >
                 Plus que du conseil: nous redressons, optimisons et pérennisons vos projets industriels.
               </motion.p>

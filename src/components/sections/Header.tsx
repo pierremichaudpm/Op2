@@ -6,7 +6,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header
-      className="sticky top-0 z-50 relative overflow-hidden pt-1"
+      className="sticky top-0 z-50 relative overflow-hidden"
       style={{
         background: 'rgba(255,255,255,1)'
       }}

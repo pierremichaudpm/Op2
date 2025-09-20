@@ -81,7 +81,7 @@ export function Services() {
   return (
     <section 
       id="offres" 
-      className="py-8 md:py-12 lg:py-16 bg-white overflow-hidden relative"
+      className="pt-6 md:pt-8 lg:pt-11 pb-8 md:pb-12 lg:pb-16 bg-white overflow-hidden relative"
     >
       <div className="container-wrapper max-w-[1728px] px-4 md:px-8 lg:px-0">
         <div ref={sectionRef} className="relative w-full lg:w-[1692px] mx-auto" style={{ minHeight: '760px' }}>

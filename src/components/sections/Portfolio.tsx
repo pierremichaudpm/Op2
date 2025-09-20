@@ -53,7 +53,7 @@ export function Portfolio() {
   const currentProject = projectsData[activeVariant % projectsData.length];
 
   return (
-    <section id="realisations" className="py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
+    <section id="realisations" className="pt-6 md:pt-8 lg:pt-11 pb-8 md:pb-12 lg:pb-16 bg-white overflow-hidden">
       <div className="container-wrapper max-w-[1728px] px-4 md:px-8 lg:px-0">
         <div className="relative w-full lg:w-[1692px] mx-auto">
             {/* Titre de la section aligné à gauche */}
@@ -99,9 +99,9 @@ export function Portfolio() {
             />
           </div>
 
-              {/* Image-10 en haut à gauche (image-2 dans Figma) */}
+            {/* Image-10 en haut à gauche (image-2 dans Figma) */}
             <div 
-              className="absolute overflow-hidden border border-[#243768]/20"
+              className="absolute overflow-hidden border-t border-l border-r border-[#243768]/20"
               style={{
                 left: '0',
                 top: '0',
@@ -137,10 +137,10 @@ export function Portfolio() {
 
             {/* Image-14 en bas à gauche (image-4 dans Figma) */}
           <div 
-            className="absolute overflow-hidden  border border-[#243768]/20"
+            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20"
             style={{
               left: '0',
-              top: '288px',
+              top: '286px',
               width: '39.83%',
               height: '449px'
             }}
