@@ -7,8 +7,8 @@ import { VideoBackground } from '@/components/ui/video-background';
 export function HeroSection() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden">
-      <div className="container-wrapper pt-2 pb-5 max-w-[1728px]">
+    <section className="relative overflow-hidden py-8 md:py-12 lg:py-16 bg-white">
+      <div className="container-wrapper max-w-[1728px]">
         <div className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]">
           {/* Fixed height per design (Figma: 896px) */}
           <div className="relative h-[896px] w-full">

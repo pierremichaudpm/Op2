@@ -33,7 +33,7 @@ export function Statistics() {
   const c2 = useCounter(300);
   const c3 = useCounter(100);
   return (
-    <section className="py-2 md:py-3">
+    <section className="py-8 md:py-12 lg:py-16 bg-white">
       <div className="container-wrapper max-w-[1728px]">
         {/* Rectangle 1728x256 avec coins de 50px et décors (cercles plein #213E76) */}
         <div className="relative overflow-hidden rounded-[50px] text-white w-full h-[256px]" style={{ background: '#243768' }}>

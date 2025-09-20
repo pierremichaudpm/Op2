@@ -7,7 +7,7 @@ const team = [
 
 export function TeamSection() {
   return (
-    <section className="py-12 md:py-20">
+    <section id="equipe" className="py-8 md:py-12 lg:py-16 bg-white">
       <div className="container-wrapper max-w-[1728px]">
         <h2 className="text-center font-display text-primary uppercase text-[32px] leading-[48px] md:text-[48px] md:leading-[84px] font-bold">
           Nos Experts

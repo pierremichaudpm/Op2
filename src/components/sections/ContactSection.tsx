@@ -2,7 +2,7 @@ import { CTAButton } from '@/components/ui/cta-button';
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-12 md:py-20">
+    <section id="contact" className="py-8 md:py-12 lg:py-16 bg-white">
       <div className="container-wrapper max-w-[1728px]">
         <h2 className="font-display text-primary uppercase text-[32px] leading-[48px] md:text-[48px] md:leading-[84px] font-bold">
           Parlons de votre projet
