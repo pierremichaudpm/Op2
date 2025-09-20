@@ -20,6 +20,7 @@ export function TeamSection() {
     '/images/experts/ted.png'
   ];
   const [randomPhotos, setRandomPhotos] = useState<string[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     // Mélange le pool unique puis répète en alternant sans doublons adjacents
     const pool = [...photoPool];
@@ -43,10 +44,19 @@ export function TeamSection() {
     }
     setRandomPhotos(sequence);
   }, []);
+  const STEP = 448 + 24; // largeur carte (448) + gap-6 (24)
   const scrollBy = (delta: number) => {
     const el = scrollRef.current;
     if (!el) return;
     el.scrollBy({ left: delta, behavior: 'smooth' });
+  };
+
+  const scrollToIndex = (index: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const clamped = Math.max(0, Math.min(index, team.length - 1));
+    el.scrollTo({ left: clamped * STEP, behavior: 'smooth' });
+    setActiveIndex(clamped);
   };
 
   return (
@@ -63,6 +73,11 @@ export function TeamSection() {
           ref={scrollRef}
           className="mt-6 flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-1"
           style={{ scrollbarWidth: 'none' }}
+          onScroll={(e) => {
+            const target = e.currentTarget;
+            const idx = Math.round(target.scrollLeft / STEP);
+            if (idx !== activeIndex) setActiveIndex(Math.max(0, Math.min(idx, team.length - 1)));
+          }}
         >
           {team.map((m, idx) => (
             <article
@@ -135,7 +150,7 @@ export function TeamSection() {
             type="button"
             className="h-10 w-10 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition"
             aria-label="Précédent"
-            onClick={() => scrollBy(-500)}
+            onClick={() => scrollBy(-STEP)}
           >
             ‹
           </button>
@@ -145,7 +160,9 @@ export function TeamSection() {
                 key={`dot-${i}`}
                 type="button"
                 aria-label={`Aller à l’expert ${i + 1}`}
-                className={`h-2.5 w-2.5 rounded-full transition ${i === 0 ? 'bg-primary' : 'bg-primary/20 hover:bg-primary/40'}`}
+                aria-current={i === activeIndex}
+                onClick={() => scrollToIndex(i)}
+                className={`h-2.5 w-2.5 rounded-full transition ${i === activeIndex ? 'bg-primary' : 'bg-primary/20 hover:bg-primary/40'}`}
               />
             ))}
           </div>
@@ -153,7 +170,7 @@ export function TeamSection() {
             type="button"
             className="h-10 w-10 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition"
             aria-label="Suivant"
-            onClick={() => scrollBy(500)}
+            onClick={() => scrollBy(STEP)}
           >
             ›
           </button>

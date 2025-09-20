@@ -62,14 +62,14 @@ export function Portfolio() {
           </h2>
 
             {/* Grille d'images style Figma */}
-          <div className="relative w-full" style={{ height: '737px' }}>
+          <div className="relative" style={{ height: '767px', left: '-15px', width: 'calc(100% + 30px)' }}>
             {/* Image-13 portrait étroite à droite (image-5 dans Figma) */}
             <div 
             className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20"
             style={{
               left: 'calc(61.52% + 26.56% - 1px)',
               top: '0',
-              width: 'calc(11.62% + 1px)',
+              width: '11.62%',
               height: '416px'
             }}
             >
@@ -140,7 +140,7 @@ export function Portfolio() {
             className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20"
             style={{
               left: '0',
-              top: '286px',
+            top: '286px',
               width: '39.83%',
               height: '449px'
             }}
@@ -155,11 +155,11 @@ export function Portfolio() {
 
             {/* Image-16 en bas à droite (image dans Figma) */}
           <div 
-            className="absolute overflow-hidden  border border-[#243768]/20"
+            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20"
             style={{
-              right: '0',
-              top: '408px',
-              width: '26.97%',
+              right: '6px',
+              top: '409px',
+              width: 'calc(26.97% - 1px)',
               height: '328px'
             }}
           >

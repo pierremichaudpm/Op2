@@ -20,7 +20,7 @@ export function Header() {
       />
 
       <div className="container-wrapper relative z-10">
-        <div className="w-[1728px] mx-auto flex items-center h-[128px] relative z-10">
+        <div className="w-[1728px] mx-auto flex items-center h-[148px] relative z-10">
         {/* Left: logo */}
         <div className="flex items-center gap-6 shrink-0 ml-[6px]">
           <a href="/" className="block">

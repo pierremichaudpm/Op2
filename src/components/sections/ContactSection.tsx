@@ -12,7 +12,7 @@ export function ContactSection() {
           <br />
           Nos experts sont là pour vous guider.
         </p>
-        <div className="mt-6">
+        <div className="mt-[59px]">
           <CTAButton
             href="#contact"
             hoverIcon
