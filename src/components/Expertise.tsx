@@ -242,15 +242,18 @@ function LogoContainer({
 
   // Déterminer le filtre à appliquer
   let filter = '';
-  if (isSelected || isHovered) {
-    // Logo sélectionné OU survolé : couleurs normales
-    filter = 'none';
+  if (isSelected) {
+    // Logo sélectionné : couleurs normales avec effet
+    filter = 'brightness(1.1) saturate(1.2)';
   } else if (hasAnySelection) {
     // Un autre logo est sélectionné : blur double pour disparaître davantage
     filter = 'saturate(0.2) brightness(1.2) opacity(0.3) blur(1px)';
+  } else if (isHovered) {
+    // Logo survolé : légère amélioration
+    filter = 'brightness(1.05) saturate(1.1)';
   } else {
-    // État par défaut : filtre bleu monochrome avec flou modéré
-    filter = 'grayscale(40%) sepia(80%) hue-rotate(180deg) saturate(200%) blur(1px)';
+    // État par défaut : logos en couleur, pas de filtre
+    filter = 'none';
   }
   
   return (

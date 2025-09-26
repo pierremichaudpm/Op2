@@ -178,6 +178,7 @@ export function Services() {
                 alt="Conseil en gestion de projet"
                 fill
                 className="object-cover"
+                style={{ objectPosition: 'calc(50% + 50px) center' }}
               />
             </div>
 
@@ -201,7 +202,7 @@ export function Services() {
                 alt="Placement opérationnel"
                 fill
                 className="object-cover"
-                style={{ objectPosition: 'calc(50% + 75px) center' }}
+                style={{ objectPosition: 'calc(50% + 20px) center' }}
               />
             </div>
 
@@ -269,10 +270,12 @@ export function Services() {
                 alt="Background"
                 fill
                 className="object-cover"
-                style={{ 
-                  objectPosition: open === 'placement' ? 'calc(50% + 75px) 20%' : '50% 20%',
-                  filter: 'brightness(1.1) contrast(1.05)'
-                }}
+              style={{ 
+                objectPosition: open === 'conseil' ? 'calc(50% + 50px) 60%' : 
+                               open === 'placement' ? 'calc(50% + 20px) 60%' : 
+                               '50% 60%',
+                filter: 'brightness(1.1) contrast(1.05)'
+              }}
               />
               
               {/* Overlay bleu avec plus de transparence */}
