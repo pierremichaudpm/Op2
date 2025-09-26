@@ -1,0 +1,89 @@
+{
+  "name": "OP2 (mobile)",
+  "lastModified": "2025-09-25T09:30:16Z",
+  "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/9b2a2a36-5dd7-450a-bc4b-4a9c3f09af85?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCVSWHJJFD%2F20250925%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250925T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=834ceaccbb6616f39acda4f8800609dbd828f81b64b78278625b516ac1ad2d31",
+  "version": "2267732858705626670",
+  "role": "viewer",
+  "editorType": "figma",
+  "linkAccess": "inherit",
+  "nodes": {
+    "2089:300": {
+      "document": {
+        "id": "2089:300",
+        "name": "image 7",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "STRETCH",
+            "imageRef": "a5b72bed7d58de7144a357e531aa1912cfa7ac99",
+            "imageTransform": [
+              [
+                0.86903852224349976,
+                0.0,
+                0.091876216232776642
+              ],
+              [
+                0.0,
+                0.93423604965209961,
+                0.065764024853706360
+              ]
+            ]
+          },
+          {
+            "opacity": 0.85000002384185791,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.14117647707462311,
+              "g": 0.21568627655506134,
+              "b": 0.40784314274787903,
+              "a": 1.0
+            }
+          }
+        ],
+        "strokes": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.14117647707462311,
+              "g": 0.21568627655506134,
+              "b": 0.40784314274787903,
+              "a": 1.0
+            }
+          }
+        ],
+        "strokeWeight": 1.0,
+        "strokeAlign": "INSIDE",
+        "cornerRadius": 20.0,
+        "cornerSmoothing": 0.0,
+        "absoluteBoundingBox": {
+          "x": 4992.0,
+          "y": 1381.0,
+          "width": 362.38848876953125,
+          "height": 340.0
+        },
+        "absoluteRenderBounds": {
+          "x": 4992.0,
+          "y": 1381.0,
+          "width": 362.3886718750,
+          "height": 340.0
+        },
+        "constraints": {
+          "vertical": "SCALE",
+          "horizontal": "SCALE"
+        },
+        "effects": [],
+        "interactions": []
+      },
+      "components": {},
+      "componentSets": {},
+      "schemaVersion": 0,
+      "styles": {}
+    }
+  }
+}
