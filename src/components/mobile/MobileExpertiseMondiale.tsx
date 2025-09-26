@@ -570,7 +570,7 @@ export function MobileExpertiseMondiale() {
           // Fermer si on clique en dehors du modal
           const target = e.target as HTMLElement;
           if (!target.closest('[data-modal-content]')) {
-            setShowVariant2(false);
+            setSelectedLogo(null);
           }
         }}
       >

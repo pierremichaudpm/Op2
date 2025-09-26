@@ -52,7 +52,6 @@ export function MobileStatistics() {
         height: '102px',
         backgroundColor: '#243768',
         borderRadius: '20px',
-        position: 'relative',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around',
