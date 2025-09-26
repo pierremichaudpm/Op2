@@ -82,7 +82,7 @@ export function MobileHero() {
             letterSpacing: '-0.3px', // Resserrer légèrement les lettres
             whiteSpace: 'pre-line' // Force le respect des sauts de ligne
           }}>
-            Votre partenaire<br />d'excellence en<br />projets complexes
+            Votre partenaire<br />d&apos;excellence en<br />projets complexes
           </h1>
 
           {/* Sous-titre - plus lisible */}

@@ -62,7 +62,7 @@ export function Footer() {
                 width: '300px',
                 marginLeft: '15px'
               }}>
-                Votre partenaire d'excellence<br/>
+                Votre partenaire d&apos;excellence<br/>
                 en projets complexes
               </p>
           </div>

@@ -50,7 +50,7 @@ export function MobileFooter() {
         opacity: 0.7,
         margin: 0
       }}>
-        Votre partenaire d'excellence<br />
+        Votre partenaire d&apos;excellence<br />
         en projets complexes
       </p>
 

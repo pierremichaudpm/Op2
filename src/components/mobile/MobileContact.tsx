@@ -34,7 +34,7 @@ export function MobileContact() {
         marginBottom: '40px'
       }}>
         Vous démarrez un projet complexe, votre projet en cours est en 
-        difficulté, ou vos équipes ont besoin d'accompagnement ? 
+        difficulté, ou vos équipes ont besoin d&apos;accompagnement ? 
         <br /><br />
         Nos experts sont là pour vous guider.
       </p>
