@@ -1,62 +1,71 @@
 #!/bin/bash
 
-echo "🖼️ Optimisation des images..."
+# Installation des outils d'optimisation si nécessaire
+echo "Installation des outils d'optimisation d'images..."
 
-# Installer les outils si nécessaire
+# Vérifier si les outils sont installés
 if ! command -v convert &> /dev/null; then
     echo "Installation d'ImageMagick..."
     sudo apt-get update && sudo apt-get install -y imagemagick
 fi
 
-# Créer un dossier de backup
+if ! command -v pngquant &> /dev/null; then
+    echo "Installation de pngquant..."
+    sudo apt-get install -y pngquant
+fi
+
+if ! command -v jpegoptim &> /dev/null; then
+    echo "Installation de jpegoptim..."
+    sudo apt-get install -y jpegoptim
+fi
+
+echo "Optimisation des images en cours..."
+
+# Créer un dossier de sauvegarde
 mkdir -p public/images/backup
 
-# Fonction pour optimiser une image
-optimize_image() {
-    local file=$1
-    local max_width=$2
-    local quality=$3
+# Optimiser les PNG
+echo "Optimisation des fichiers PNG..."
+find public/images -name "*.png" -type f | while read file; do
+    # Sauvegarde
+    cp "$file" "public/images/backup/$(basename "$file")"
     
-    # Backup
-    cp "$file" "public/images/backup/$(basename $file)"
+    # Réduire la taille si l'image est trop grande
+    width=$(identify -format "%w" "$file")
+    height=$(identify -format "%h" "$file")
     
-    # Optimiser
-    convert "$file" \
-        -resize "${max_width}x>" \
-        -quality "$quality" \
-        -strip \
-        "$file"
+    if [ "$width" -gt 2000 ] || [ "$height" -gt 2000 ]; then
+        echo "Redimensionnement de $file..."
+        convert "$file" -resize "2000x2000>" "$file"
+    fi
     
-    echo "✓ Optimisé: $file"
-}
+    # Optimisation avec pngquant
+    pngquant --force --quality=85-95 --skip-if-larger --output "$file" "$file" || true
+done
 
-# Optimiser les plus grosses images
-echo "Optimisation de slider-1.png (2.4MB)..."
-optimize_image "public/images/slider-1.png" 1920 85
-
-echo "Optimisation de expertise.png (950KB)..."
-optimize_image "public/images/world-expertise/expertise.png" 1200 85
-
-echo "Optimisation des images de réalisations..."
-for img in public/images/nos_realisations/*.png; do
-    size=$(stat -c%s "$img")
-    if [ $size -gt 300000 ]; then  # Si plus de 300KB
-        optimize_image "$img" 1200 85
+# Optimiser les JPG/JPEG
+echo "Optimisation des fichiers JPG/JPEG..."
+find public/images -name "*.jpg" -o -name "*.jpeg" -type f | while read file; do
+    # Sauvegarde
+    cp "$file" "public/images/backup/$(basename "$file")"
+    
+    # Réduire la taille si l'image est trop grande
+    width=$(identify -format "%w" "$file")
+    height=$(identify -format "%h" "$file")
+    
+    if [ "$width" -gt 2000 ] || [ "$height" -gt 2000 ]; then
+        echo "Redimensionnement de $file..."
+        convert "$file" -resize "2000x2000>" -quality 90 "$file"
+    else
+        # Optimisation avec jpegoptim
+        jpegoptim --max=90 "$file"
     fi
 done
 
-echo "Optimisation des images d'experts..."
-for img in public/images/experts/*.png; do
-    optimize_image "$img" 600 90
-done
+echo "Optimisation terminée !"
 
-echo "Optimisation des autres grandes images..."
-optimize_image "public/images/image-collee.png" 1200 85
-optimize_image "public/images/image-8.png" 1000 85
-optimize_image "public/images/image-7.png" 1000 85
-optimize_image "public/images/image-9.png" 1000 85
-optimize_image "public/images/rectangle-2.png" 800 85
-
-echo "✅ Optimisation terminée!"
-echo "📊 Nouvelles tailles:"
-ls -lh public/images/*.png public/images/*/*.png | grep -E "(slider-1|expertise|image-[0-9]|rectangle)" | head -10
+# Afficher les tailles avant/après
+echo ""
+echo "Comparaison des tailles:"
+echo "Avant: $(du -sh public/images/backup | cut -f1)"
+echo "Après: $(du -sh public/images --exclude=backup | cut -f1)"
