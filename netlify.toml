@@ -1,7 +1,6 @@
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
   publish = ".next"
-  base = "Op2-main"
 
 [build.environment]
   NODE_VERSION = "20.10.0"
