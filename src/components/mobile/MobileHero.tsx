@@ -2,7 +2,7 @@
 import { useI18n } from '@/lib/i18n';
 
 export function MobileHero() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <section style={{
@@ -82,7 +82,9 @@ export function MobileHero() {
             letterSpacing: '-0.3px', // Resserrer légèrement les lettres
             whiteSpace: 'pre-line' // Force le respect des sauts de ligne
           }}>
-            Votre partenaire<br />d&apos;excellence en<br />projets complexes
+            {locale === 'en' 
+              ? 'Your partner of\nexcellence in\ncomplex projects'
+              : 'Votre partenaire\nd\'excellence en\nprojets complexes'}
           </h1>
 
           {/* Sous-titre - plus lisible */}
@@ -96,8 +98,9 @@ export function MobileHero() {
             maxWidth: '320px', // Limite la largeur pour une meilleure lecture
             textShadow: '0 1px 3px rgba(0,0,0,0.3)' // Ombre légère pour garantir la lisibilité
           }}>
-            Plus que du conseil: nous redressons,<br />
-            optimisons et pérennisons vos projets industriels.
+            {locale === 'en'
+              ? 'More than consulting: we turn around,\noptimize and sustain your industrial projects.'
+              : 'Plus que du conseil: nous redressons,\noptimisons et pérennisons vos projets industriels.'}
           </p>
 
           {/* CTA Button - proportions ajustées */}
@@ -133,7 +136,7 @@ export function MobileHero() {
             e.currentTarget.style.transform = 'scale(1)';
             e.currentTarget.style.boxShadow = '0 4px 12px rgba(243, 105, 17, 0.3)';
           }}>
-            Parlons de votre projet
+            {locale === 'en' ? "Let's talk about your project" : 'Parlons de votre projet'}
           </button>
         </div>
       </div>

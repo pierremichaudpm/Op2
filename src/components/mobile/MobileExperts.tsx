@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
+import { useI18n } from '@/lib/i18n';
 
 interface Expert {
   id: number;
@@ -10,6 +11,7 @@ interface Expert {
 }
 
 export function MobileExperts() {
+  const { locale } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedExpert, setSelectedExpert] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState(0);
@@ -23,42 +25,54 @@ export function MobileExperts() {
       name: 'Jack Smith', 
       role: 'Project Manager', 
       image: '/images/experts/jack.png',
-      description: 'Passionné par la réussite des projets, Jack sécurise coûts, délais et qualité avec une approche pragmatique et terrain. Il coordonne les équipes pluridisciplinaires et clarifie les priorités pour livrer sans compromis.'
+      description: locale === 'en' 
+        ? 'Passionate about project success, Jack secures costs, deadlines and quality with a pragmatic, hands-on approach. He coordinates multidisciplinary teams and clarifies priorities to deliver without compromise.'
+        : 'Passionné par la réussite des projets, Jack sécurise coûts, délais et qualité avec une approche pragmatique et terrain. Il coordonne les équipes pluridisciplinaires et clarifie les priorités pour livrer sans compromis.'
     },
     { 
       id: 2, 
       name: 'Joe Martin', 
       role: 'Technical Lead', 
       image: '/images/experts/joe.png',
-      description: 'Expert technique avec 15 ans d\'expérience, Joe guide les équipes dans les choix architecturaux critiques. Sa vision stratégique et son leadership technique garantissent des solutions robustes et évolutives.'
+      description: locale === 'en'
+        ? 'Technical expert with 15 years of experience, Joe guides teams through critical architectural choices. His strategic vision and technical leadership ensure robust and scalable solutions.'
+        : 'Expert technique avec 15 ans d\'expérience, Joe guide les équipes dans les choix architecturaux critiques. Sa vision stratégique et son leadership technique garantissent des solutions robustes et évolutives.'
     },
     { 
       id: 3, 
       name: 'Mike Johnson', 
       role: 'Business Analyst', 
       image: '/images/experts/mike.png',
-      description: 'Mike transforme les besoins complexes en solutions concrètes. Son expertise en analyse d\'affaires et sa capacité à faire le pont entre technique et métier sont des atouts majeurs pour vos projets.'
+      description: locale === 'en'
+        ? 'Mike transforms complex needs into concrete solutions. His business analysis expertise and ability to bridge technical and business worlds are major assets for your projects.'
+        : 'Mike transforme les besoins complexes en solutions concrètes. Son expertise en analyse d\'affaires et sa capacité à faire le pont entre technique et métier sont des atouts majeurs pour vos projets.'
     },
     { 
       id: 4, 
       name: 'Ted Wilson', 
       role: 'Scrum Master', 
       image: '/images/experts/ted.png',
-      description: 'Ted optimise la performance des équipes agiles. Sa maîtrise des méthodologies Scrum et SAFe permet d\'accélérer la livraison tout en maintenant une qualité exceptionnelle.'
+      description: locale === 'en'
+        ? 'Ted optimizes agile team performance. His mastery of Scrum and SAFe methodologies accelerates delivery while maintaining exceptional quality.'
+        : 'Ted optimise la performance des équipes agiles. Sa maîtrise des méthodologies Scrum et SAFe permet d\'accélérer la livraison tout en maintenant une qualité exceptionnelle.'
     },
     { 
       id: 5, 
       name: 'Sarah Lee', 
       role: 'Product Owner', 
       image: '/images/experts/jack.png',
-      description: 'Sarah maximise la valeur produit en alignant vision business et exécution. Son approche data-driven et sa proximité avec les utilisateurs garantissent des produits qui font la différence.'
+      description: locale === 'en'
+        ? 'Sarah maximizes product value by aligning business vision and execution. Her data-driven approach and proximity to users ensure products that make a difference.'
+        : 'Sarah maximise la valeur produit en alignant vision business et exécution. Son approche data-driven et sa proximité avec les utilisateurs garantissent des produits qui font la différence.'
     },
     { 
       id: 6, 
       name: 'Emma Davis', 
       role: 'UX Designer', 
       image: '/images/experts/joe.png',
-      description: 'Emma crée des expériences utilisateur exceptionnelles. Sa méthodologie centrée utilisateur et son expertise en design thinking transforment les contraintes en opportunités d\'innovation.'
+      description: locale === 'en'
+        ? 'Emma creates exceptional user experiences. Her user-centered methodology and design thinking expertise transform constraints into innovation opportunities.'
+        : 'Emma crée des expériences utilisateur exceptionnelles. Sa méthodologie centrée utilisateur et son expertise en design thinking transforment les contraintes en opportunités d\'innovation.'
     }
   ];
 
@@ -134,7 +148,7 @@ export function MobileExperts() {
         textAlign: 'left',
         marginBottom: '30px'
       }}>
-        Nos Experts
+        {locale === 'en' ? 'Our Experts' : 'Nos Experts'}
       </h2>
 
       {/* Container du carrousel */}

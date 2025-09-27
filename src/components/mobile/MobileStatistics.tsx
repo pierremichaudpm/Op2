@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
+import { useI18n } from '@/lib/i18n';
 
 function useCounter(target: number, durationMs = 1200) {
   const [value, setValue] = useState(0);
@@ -29,6 +30,7 @@ function useCounter(target: number, durationMs = 1200) {
 }
 
 export function MobileStatistics() {
+  const { locale } = useI18n();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -106,7 +108,7 @@ export function MobileStatistics() {
             lineHeight: '0.957em',
             textTransform: 'uppercase'
           }}>
-            consultants
+            {locale === 'en' ? 'consultants' : 'consultants'}
           </div>
         </div>
 
@@ -135,7 +137,7 @@ export function MobileStatistics() {
             lineHeight: '0.957em',
             textTransform: 'uppercase'
           }}>
-            projets / an
+            {locale === 'en' ? 'projects / year' : 'projets / an'}
           </div>
         </div>
 
@@ -164,7 +166,7 @@ export function MobileStatistics() {
             lineHeight: '0.957em',
             textTransform: 'uppercase'
           }}>
-            revenus
+            {locale === 'en' ? 'revenue' : 'revenus'}
           </div>
         </div>
       </div>

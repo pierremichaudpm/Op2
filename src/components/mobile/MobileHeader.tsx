@@ -29,7 +29,7 @@ export function MobileHeader() {
       <div style={{
         width: '180px', // Logo plus grand
         height: '60px', // Proportions augmentées
-        backgroundImage: 'url(/images/logo-1.png)',
+        backgroundImage: `url(/images/${locale === 'en' ? 'logo-site-en.png' : 'logo-1.png'})`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'left center'
@@ -118,11 +118,11 @@ export function MobileHeader() {
             marginBottom: '15px'
           }}>
             {[
-              { name: 'Accueil', href: locale === 'en' ? '/en/mobile' : '/mobile' },
+              { name: locale === 'en' ? 'Home' : 'Accueil', href: locale === 'en' ? '/en/mobile' : '/mobile' },
               { name: 'Expertise', href: '#expertise' },
-              { name: 'Offre', href: '#offre' },
-              { name: 'Réalisations', href: '#realisations' },
-              { name: 'Équipe', href: '#experts' }
+              { name: locale === 'en' ? 'Offer' : 'Offre', href: '#offre' },
+              { name: locale === 'en' ? 'Achievements' : 'Réalisations', href: '#realisations' },
+              { name: locale === 'en' ? 'Team' : 'Équipe', href: '#experts' }
             ].map((item, index) => (
               <a
                 key={index}

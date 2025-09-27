@@ -1,6 +1,9 @@
 "use client";
 
+import { useI18n } from '@/lib/i18n';
+
 export function MobileContact() {
+  const { locale } = useI18n();
   return (
     <section id="contact" style={{
       width: '100%',
@@ -18,7 +21,7 @@ export function MobileContact() {
         textAlign: 'left',
         marginBottom: '30px'
       }}>
-        Parlons de votre projet
+        {locale === 'en' ? "Let's talk about your project" : 'Parlons de votre projet'}
       </h2>
 
       {/* Description - Augmentée de 20% */}
@@ -33,10 +36,14 @@ export function MobileContact() {
         maxWidth: '353px',
         marginBottom: '40px'
       }}>
-        Vous démarrez un projet complexe, votre projet en cours est en 
-        difficulté, ou vos équipes ont besoin d&apos;accompagnement ? 
-        <br /><br />
-        Nos experts sont là pour vous guider.
+        {locale === 'en' 
+          ? <>Starting a complex project, your current project is in difficulty, or your teams need support?
+            <br /><br />
+            Our experts are here to guide you.</>
+          : <>Vous démarrez un projet complexe, votre projet en cours est en 
+            difficulté, ou vos équipes ont besoin d&apos;accompagnement ? 
+            <br /><br />
+            Nos experts sont là pour vous guider.</>}
       </p>
 
       {/* Container pour le bouton */}
@@ -63,7 +70,7 @@ export function MobileContact() {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          Échanger avec un expert
+          {locale === 'en' ? 'Talk to an expert' : 'Échanger avec un expert'}
         </button>
       </div>
     </section>

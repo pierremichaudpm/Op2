@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n';
 
 type ServiceKey = 'conseil' | 'placement' | 'formation';
 
 export function MobileOffreGlobale() {
+  const { locale } = useI18n();
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState<ServiceKey>('conseil');
 
@@ -16,27 +18,33 @@ export function MobileOffreGlobale() {
 
   const services = {
     conseil: {
-      title: 'Conseil stratégique',
-      shortDesc: 'Transformez vos projets en leviers de performance.',
-      modalTitle: 'Conseil stratégique',
-      modalSubtitle: 'Transformez vos projets en leviers de performance.',
-      modalContent: "Nous aidons les organisations à prendre les bonnes décisions au bon moment. En combinant vision stratégique et rigueur en gestion de projet, nous vous permettons d'anticiper les risques, d'accélérer vos initiatives et de maximiser l'impact de vos investissements.",
+      title: locale === 'en' ? 'Strategic Consulting' : 'Conseil stratégique',
+      shortDesc: locale === 'en' ? 'Transform your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
+      modalTitle: locale === 'en' ? 'Strategic Consulting' : 'Conseil stratégique',
+      modalSubtitle: locale === 'en' ? 'Transform your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
+      modalContent: locale === 'en' 
+        ? "We help organizations make the right decisions at the right time. By combining strategic vision and project management rigor, we enable you to anticipate risks, accelerate your initiatives, and maximize the impact of your investments."
+        : "Nous aidons les organisations à prendre les bonnes décisions au bon moment. En combinant vision stratégique et rigueur en gestion de projet, nous vous permettons d'anticiper les risques, d'accélérer vos initiatives et de maximiser l'impact de vos investissements.",
       image: '/images/image-7.png'
     },
     placement: {
-      title: 'Placement opérationnel', 
-      shortDesc: 'Des experts qui livrent, là où ça compte.',
-      modalTitle: 'Placement opérationnel',
-      modalSubtitle: 'Des experts qui livrent, là où ça compte.',
-      modalContent: "Quand vos projets exigent des renforts immédiats et qualifiés, nous intégrons rapidement des consultants capables de générer de la valeur dès le premier jour. Plus que de l'expertise technique, nous apportons une capacité de redressement, d'exécution et de leadership sur le terrain.",
+      title: locale === 'en' ? 'Operational Placement' : 'Placement opérationnel', 
+      shortDesc: locale === 'en' ? 'Experts who deliver, where it counts.' : 'Des experts qui livrent, là où ça compte.',
+      modalTitle: locale === 'en' ? 'Operational Placement' : 'Placement opérationnel',
+      modalSubtitle: locale === 'en' ? 'Experts who deliver, where it counts.' : 'Des experts qui livrent, là où ça compte.',
+      modalContent: locale === 'en'
+        ? "When your projects require immediate and qualified reinforcement, we quickly integrate consultants capable of generating value from day one. More than technical expertise, we bring turnaround, execution, and leadership capabilities in the field."
+        : "Quand vos projets exigent des renforts immédiats et qualifiés, nous intégrons rapidement des consultants capables de générer de la valeur dès le premier jour. Plus que de l'expertise technique, nous apportons une capacité de redressement, d'exécution et de leadership sur le terrain.",
       image: '/images/image-8.png'
     },
     formation: {
-      title: 'Formation spécialisée',
-      shortDesc: 'Faites monter vos équipes en puissance.',
-      modalTitle: 'Formation spécialisée',
-      modalSubtitle: 'Faites monter vos équipes en puissance.',
-      modalContent: "Nos formations pratiques, conçues à partir de cas réels et de notre expérience multisectorielle, permettent à vos équipes d'acquérir les compétences clés pour livrer des projets performants et durables.",
+      title: locale === 'en' ? 'Specialized Training' : 'Formation spécialisée',
+      shortDesc: locale === 'en' ? 'Power up your teams.' : 'Faites monter vos équipes en puissance.',
+      modalTitle: locale === 'en' ? 'Specialized Training' : 'Formation spécialisée',
+      modalSubtitle: locale === 'en' ? 'Power up your teams.' : 'Faites monter vos équipes en puissance.',
+      modalContent: locale === 'en'
+        ? "Our practical training, designed from real cases and our multi-sector experience, allows your teams to acquire the key skills to deliver high-performing and sustainable projects."
+        : "Nos formations pratiques, conçues à partir de cas réels et de notre expérience multisectorielle, permettent à vos équipes d'acquérir les compétences clés pour livrer des projets performants et durables.",
       image: '/images/image-9.png'
     }
   };
@@ -57,7 +65,7 @@ export function MobileOffreGlobale() {
         textAlign: 'left',
         marginBottom: '30px'
       }}>
-        Une offre globale
+        {locale === 'en' ? 'A comprehensive offer' : 'Une offre globale'}
       </h2>
       
       {/* Container qui contient soit les services, soit la modale */}

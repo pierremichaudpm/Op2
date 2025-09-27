@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n';
 
 export function MobileRealisations() {
+  const { locale } = useI18n();
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -16,51 +18,65 @@ export function MobileRealisations() {
     {
       id: 1,
       image: '/images/nos_realisations/image-10.png',
-      title: 'Parc éolien offshore',
-      description: 'Installation de 80 éoliennes en mer du Nord',
-      fullDescription: 'Gestion complète du projet d\'installation d\'un parc éolien offshore de 400MW. Coordination de 12 navires spécialisés, gestion des contraintes météorologiques et livraison avec 2 mois d\'avance sur le planning initial.'
+      title: locale === 'en' ? 'Offshore Wind Farm' : 'Parc éolien offshore',
+      description: locale === 'en' ? 'Installation of 80 wind turbines in the North Sea' : 'Installation de 80 éoliennes en mer du Nord',
+      fullDescription: locale === 'en' 
+        ? 'Complete management of a 400MW offshore wind farm installation project. Coordination of 12 specialized vessels, management of weather constraints and delivery 2 months ahead of initial schedule.'
+        : 'Gestion complète du projet d\'installation d\'un parc éolien offshore de 400MW. Coordination de 12 navires spécialisés, gestion des contraintes météorologiques et livraison avec 2 mois d\'avance sur le planning initial.'
     },
     {
       id: 2,
       image: '/images/nos_realisations/image-11.png', 
-      title: 'Ligne ferroviaire haute vitesse',
-      description: 'Nouvelle ligne TGV de 300km',
-      fullDescription: 'Pilotage du projet de construction d\'une nouvelle ligne haute vitesse. Gestion de 50 ouvrages d\'art, coordination avec 200 sous-traitants et mise en service commerciale réussie.'
+      title: locale === 'en' ? 'High-Speed Rail Line' : 'Ligne ferroviaire haute vitesse',
+      description: locale === 'en' ? 'New 300km high-speed rail line' : 'Nouvelle ligne TGV de 300km',
+      fullDescription: locale === 'en'
+        ? 'Management of a new high-speed rail line construction project. Management of 50 engineering structures, coordination with 200 subcontractors and successful commercial commissioning.'
+        : 'Pilotage du projet de construction d\'une nouvelle ligne haute vitesse. Gestion de 50 ouvrages d\'art, coordination avec 200 sous-traitants et mise en service commerciale réussie.'
     },
     {
       id: 3,
       image: '/images/nos_realisations/image-12.png',
-      title: 'Centrale hydroélectrique',
-      description: 'Construction d\'un barrage de 150m',
-      fullDescription: 'Projet de barrage hydroélectrique de 500MW. Gestion des enjeux environnementaux, déplacement de 2 villages et mise en eau réussie après 5 ans de travaux.'
+      title: locale === 'en' ? 'Hydroelectric Power Plant' : 'Centrale hydroélectrique',
+      description: locale === 'en' ? 'Construction of a 150m dam' : 'Construction d\'un barrage de 150m',
+      fullDescription: locale === 'en'
+        ? '500MW hydroelectric dam project. Management of environmental issues, relocation of 2 villages and successful impoundment after 5 years of work.'
+        : 'Projet de barrage hydroélectrique de 500MW. Gestion des enjeux environnementaux, déplacement de 2 villages et mise en eau réussie après 5 ans de travaux.'
     },
     {
       id: 4,
       image: '/images/nos_realisations/image-13.png',
-      title: 'Centre de lancement spatial',
-      description: 'Modernisation d\'un pas de tir',
-      fullDescription: 'Refonte complète d\'un pas de tir pour lanceurs nouvelle génération. Intégration de systèmes cryogéniques avancés et première mise à feu réussie en 18 mois.'
+      title: locale === 'en' ? 'Space Launch Center' : 'Centre de lancement spatial',
+      description: locale === 'en' ? 'Launch pad modernization' : 'Modernisation d\'un pas de tir',
+      fullDescription: locale === 'en'
+        ? 'Complete overhaul of a launch pad for new generation launchers. Integration of advanced cryogenic systems and successful first firing in 18 months.'
+        : 'Refonte complète d\'un pas de tir pour lanceurs nouvelle génération. Intégration de systèmes cryogéniques avancés et première mise à feu réussie en 18 mois.'
     },
     {
       id: 5,
       image: '/images/nos_realisations/image-14.png',
-      title: 'Construction navale militaire',
-      description: 'Modernisation d\'un porte-avions',
-      fullDescription: 'Refonte complète des systèmes de combat et de navigation d\'un porte-avions. Projet classifié de 800M$ livré dans les délais avec certification NATO.'
+      title: locale === 'en' ? 'Military Shipbuilding' : 'Construction navale militaire',
+      description: locale === 'en' ? 'Aircraft carrier modernization' : 'Modernisation d\'un porte-avions',
+      fullDescription: locale === 'en'
+        ? 'Complete overhaul of combat and navigation systems of an aircraft carrier. $800M classified project delivered on time with NATO certification.'
+        : 'Refonte complète des systèmes de combat et de navigation d\'un porte-avions. Projet classifié de 800M$ livré dans les délais avec certification NATO.'
     },
     {
       id: 6,
       image: '/images/nos_realisations/image-15.png',
-      title: 'Extension ligne de métro',
-      description: 'Nouvelle ligne de métro automatique',
-      fullDescription: 'Construction de 15km de tunnel et 12 stations de métro automatique. Gestion des interfaces avec le réseau existant et minimisation de l\'impact sur la circulation urbaine.'
+      title: locale === 'en' ? 'Metro Line Extension' : 'Extension ligne de métro',
+      description: locale === 'en' ? 'New automated metro line' : 'Nouvelle ligne de métro automatique',
+      fullDescription: locale === 'en'
+        ? 'Construction of 15km of tunnel and 12 automated metro stations. Management of interfaces with existing network and minimization of impact on urban traffic.'
+        : 'Construction de 15km de tunnel et 12 stations de métro automatique. Gestion des interfaces avec le réseau existant et minimisation de l\'impact sur la circulation urbaine.'
     },
     {
       id: 7,
       image: '/images/nos_realisations/image-16.png',
-      title: 'Usine pharmaceutique 4.0',
-      description: 'Construction d\'une usine de vaccins',
-      fullDescription: 'Projet greenfield d\'une usine de production de vaccins aux normes FDA. Qualification de 12 lignes de production et obtention de la certification en un temps record.'
+      title: locale === 'en' ? 'Pharmaceutical Plant 4.0' : 'Usine pharmaceutique 4.0',
+      description: locale === 'en' ? 'Vaccine production facility construction' : 'Construction d\'une usine de vaccins',
+      fullDescription: locale === 'en'
+        ? 'Greenfield project for a vaccine production facility meeting FDA standards. Qualification of 12 production lines and certification obtained in record time.'
+        : 'Projet greenfield d\'une usine de production de vaccins aux normes FDA. Qualification de 12 lignes de production et obtention de la certification en un temps record.'
     }
   ];
 
@@ -93,7 +109,7 @@ export function MobileRealisations() {
         textAlign: 'left',
         marginBottom: '30px'
       }}>
-        Nos réalisations
+        {locale === 'en' ? 'Our achievements' : 'Nos réalisations'}
       </h2>
 
       {/* Container principal - Plus large, même largeur que les autres sections */}

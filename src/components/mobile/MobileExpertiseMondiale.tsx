@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import { useI18n } from '@/lib/i18n';
 
 interface LogoInfo {
   id: string;
@@ -32,6 +33,7 @@ const logosData: LogoInfo[] = [
 ];
 
 export function MobileExpertiseMondiale() {
+  const { locale } = useI18n();
   const [selectedLogo, setSelectedLogo] = useState<string | null>(null);
 
   // Variant 1 (Default) - Adapté depuis Figma avec positionnement proportionnel
@@ -54,7 +56,7 @@ export function MobileExpertiseMondiale() {
             marginBottom: '-20px'
           }}
         >
-          Une expertise mondiale
+          {locale === 'en' ? 'Global expertise' : 'Une expertise mondiale'}
         </h2>
 
         {/* Container adaptatif basé sur Figma 385x554 */}

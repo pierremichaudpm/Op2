@@ -1,6 +1,9 @@
 "use client";
 
+import { useI18n } from '@/lib/i18n';
+
 export function MobileFooter() {
+  const { locale } = useI18n();
   return (
     <footer style={{
       position: 'relative',
@@ -22,7 +25,7 @@ export function MobileFooter() {
       }} />
       {/* Logo OP2 footer - Image exacte du Figma */}
       <img 
-        src="/images/logo-footer.png" 
+        src={locale === 'en' ? "/images/logo-site-en.png" : "/images/logo-footer.png"} 
         alt="OP2" 
         style={{
           position: 'absolute',
@@ -50,8 +53,9 @@ export function MobileFooter() {
         opacity: 0.7,
         margin: 0
       }}>
-        Votre partenaire d&apos;excellence<br />
-        en projets complexes
+        {locale === 'en' 
+          ? <>Your partner of excellence<br />in complex projects</>
+          : <>Votre partenaire d&apos;excellence<br />en projets complexes</>}
       </p>
 
       {/* Menu principal - EXACT Figma node 2082:361 - Orange */}
@@ -69,11 +73,11 @@ export function MobileFooter() {
         color: '#F36911',
         zIndex: 1
       }}>
-        <div>Accueil</div>
+        <div>{locale === 'en' ? 'Home' : 'Accueil'}</div>
         <div>Expertise</div>
-        <div>Offre</div>
-        <div>Réalisations</div>
-        <div>Équipe</div>
+        <div>{locale === 'en' ? 'Offer' : 'Offre'}</div>
+        <div>{locale === 'en' ? 'Achievements' : 'Réalisations'}</div>
+        <div>{locale === 'en' ? 'Team' : 'Équipe'}</div>
       </nav>
 
       {/* Services - Titre orange, sous-éléments blancs */}
@@ -91,9 +95,9 @@ export function MobileFooter() {
         zIndex: 1
       }}>
         <div style={{ color: '#F36911' }}>Services</div>
-        <div style={{ color: '#FFFFFF' }}>Conseil en gestion de projet</div>
-        <div style={{ color: '#FFFFFF' }}>Placement de personnel</div>
-        <div style={{ color: '#FFFFFF' }}>Formation</div>
+        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Project management consulting' : 'Conseil en gestion de projet'}</div>
+        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Staff placement' : 'Placement de personnel'}</div>
+        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Training' : 'Formation'}</div>
       </div>
 
       {/* Contact - Titre orange, détails blancs */}
@@ -112,7 +116,7 @@ export function MobileFooter() {
         <div style={{ color: '#F36911' }}>Contact</div>
         <div style={{ color: '#FFFFFF' }}>contact@op2.com</div>
         <div style={{ color: '#FFFFFF' }}>+1 514 123 4567</div>
-        <div style={{ color: '#FFFFFF' }}>Montréal, QC, Canada</div>
+        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Montreal, QC, Canada' : 'Montréal, QC, Canada'}</div>
       </div>
 
       {/* Suivez-nous - Position relative au footer: y:325px environ */}
@@ -130,7 +134,7 @@ export function MobileFooter() {
         margin: 0,
         zIndex: 1
       }}>
-        Suivez-nous
+        {locale === 'en' ? 'Follow us' : 'Suivez-nous'}
       </p>
 
       {/* Icône LinkedIn - Image exacte du Figma */}
