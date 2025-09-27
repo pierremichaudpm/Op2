@@ -1,5 +1,6 @@
 "use client";
 import { useI18n } from '@/lib/i18n';
+import { motion } from 'framer-motion';
 
 export function MobileHero() {
   const { t, locale } = useI18n();
@@ -70,41 +71,52 @@ export function MobileHero() {
           gap: '25px' // Espacement uniforme entre les éléments
         }}>
           {/* Titre principal - plus grand et plus impactant */}
-          <h1 style={{
-            color: '#FFFFFF',
-            fontFamily: 'Gotham, sans-serif',
-            fontSize: '22px', // Réduit de 26px à 22px
-            fontWeight: 500, // Poids moyen, moins bold
-            lineHeight: '26px', // Proportionnel
-            textTransform: 'uppercase',
-            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-            margin: 0,
-            letterSpacing: '-0.3px', // Resserrer légèrement les lettres
-            whiteSpace: 'pre-line' // Force le respect des sauts de ligne
-          }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            style={{
+              color: '#FFFFFF',
+              fontFamily: 'Gotham, sans-serif',
+              fontSize: '22px', // Réduit de 26px à 22px
+              fontWeight: 500, // Poids moyen, moins bold
+              lineHeight: '26px', // Proportionnel
+              textTransform: 'uppercase',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              margin: 0,
+              letterSpacing: '-0.3px', // Resserrer légèrement les lettres
+              whiteSpace: 'pre-line' // Force le respect des sauts de ligne
+            }}>
             {locale === 'en' 
               ? 'Your partner in\nexcellence for\ncomplex projects'
               : 'Votre partenaire\nd\'excellence en\nprojets complexes'}
-          </h1>
+          </motion.h1>
 
           {/* Sous-titre - plus lisible */}
-          <p style={{
-            color: '#FFFFFF', // Blanc pour meilleure lisibilité
-            fontFamily: 'Gotham, sans-serif',
-            fontSize: '14px', // Réduit de 17px à 14px
-            fontWeight: 400,
-            lineHeight: '20px', // Proportionnel à la nouvelle taille
-            margin: 0,
-            maxWidth: '320px', // Limite la largeur pour une meilleure lecture
-            textShadow: '0 1px 3px rgba(0,0,0,0.3)' // Ombre légère pour garantir la lisibilité
-          }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            style={{
+              color: '#FFFFFF', // Blanc pour meilleure lisibilité
+              fontFamily: 'Gotham, sans-serif',
+              fontSize: '14px', // Réduit de 17px à 14px
+              fontWeight: 400,
+              lineHeight: '20px', // Proportionnel à la nouvelle taille
+              margin: 0,
+              maxWidth: '320px', // Limite la largeur pour une meilleure lecture
+              textShadow: '0 1px 3px rgba(0,0,0,0.3)' // Ombre légère pour garantir la lisibilité
+            }}>
             {locale === 'en'
               ? 'Beyond consulting: we recover,\noptimise and sustain your industrial projects.'
               : 'Plus que du conseil: nous redressons,\noptimisons et pérennisons vos projets industriels.'}
-          </p>
+          </motion.p>
 
           {/* CTA Button - proportions ajustées */}
-          <button 
+          <motion.button
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.1 }} 
           onClick={() => {
             const element = document.querySelector('#experts');
             if (element) {
@@ -137,7 +149,7 @@ export function MobileHero() {
             e.currentTarget.style.boxShadow = '0 4px 12px rgba(243, 105, 17, 0.3)';
           }}>
             {locale === 'en' ? "Let's talk about your project" : 'Parlons de votre projet'}
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>
