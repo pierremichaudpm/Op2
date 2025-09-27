@@ -18,32 +18,32 @@ export function MobileOffreGlobale() {
 
   const services = {
     conseil: {
-      title: locale === 'en' ? 'Strategic Consulting' : 'Conseil stratégique',
-      shortDesc: locale === 'en' ? 'Transform your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
-      modalTitle: locale === 'en' ? 'Strategic Consulting' : 'Conseil stratégique',
-      modalSubtitle: locale === 'en' ? 'Transform your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
+      title: locale === 'en' ? 'Strategic Advisory' : 'Conseil stratégique',
+      shortDesc: locale === 'en' ? 'Turn your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
+      modalTitle: locale === 'en' ? 'Strategic Advisory' : 'Conseil stratégique',
+      modalSubtitle: locale === 'en' ? 'Turn your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
       modalContent: locale === 'en' 
-        ? "We help organizations make the right decisions at the right time. By combining strategic vision and project management rigor, we enable you to anticipate risks, accelerate your initiatives, and maximize the impact of your investments."
+        ? "We help organisations make the right decisions at the right time. Combining strategic vision with rigorous project management, we enable you to anticipate risks, accelerate initiatives and maximise the impact of your investments."
         : "Nous aidons les organisations à prendre les bonnes décisions au bon moment. En combinant vision stratégique et rigueur en gestion de projet, nous vous permettons d'anticiper les risques, d'accélérer vos initiatives et de maximiser l'impact de vos investissements.",
       image: '/images/image-7.png'
     },
     placement: {
-      title: locale === 'en' ? 'Operational Placement' : 'Placement opérationnel', 
-      shortDesc: locale === 'en' ? 'Experts who deliver, where it counts.' : 'Des experts qui livrent, là où ça compte.',
-      modalTitle: locale === 'en' ? 'Operational Placement' : 'Placement opérationnel',
-      modalSubtitle: locale === 'en' ? 'Experts who deliver, where it counts.' : 'Des experts qui livrent, là où ça compte.',
+      title: locale === 'en' ? 'Operational staffing' : 'Placement opérationnel', 
+      shortDesc: locale === 'en' ? 'Experts who deliver where it matters.' : 'Des experts qui livrent, là où ça compte.',
+      modalTitle: locale === 'en' ? 'Operational staffing' : 'Placement opérationnel',
+      modalSubtitle: locale === 'en' ? 'Experts who deliver where it matters.' : 'Des experts qui livrent, là où ça compte.',
       modalContent: locale === 'en'
-        ? "When your projects require immediate and qualified reinforcement, we quickly integrate consultants capable of generating value from day one. More than technical expertise, we bring turnaround, execution, and leadership capabilities in the field."
+        ? "When your projects require immediate, qualified reinforcements, we rapidly integrate consultants who create value from day one. Beyond technical expertise, we bring turnaround capability, execution and on-the-ground leadership."
         : "Quand vos projets exigent des renforts immédiats et qualifiés, nous intégrons rapidement des consultants capables de générer de la valeur dès le premier jour. Plus que de l'expertise technique, nous apportons une capacité de redressement, d'exécution et de leadership sur le terrain.",
       image: '/images/image-8.png'
     },
     formation: {
-      title: locale === 'en' ? 'Specialized Training' : 'Formation spécialisée',
-      shortDesc: locale === 'en' ? 'Power up your teams.' : 'Faites monter vos équipes en puissance.',
-      modalTitle: locale === 'en' ? 'Specialized Training' : 'Formation spécialisée',
-      modalSubtitle: locale === 'en' ? 'Power up your teams.' : 'Faites monter vos équipes en puissance.',
+      title: locale === 'en' ? 'Specialised training' : 'Formation spécialisée',
+      shortDesc: locale === 'en' ? 'Empower your teams to perform.' : 'Faites monter vos équipes en puissance.',
+      modalTitle: locale === 'en' ? 'Specialised training' : 'Formation spécialisée',
+      modalSubtitle: locale === 'en' ? 'Empower your teams to perform.' : 'Faites monter vos équipes en puissance.',
       modalContent: locale === 'en'
-        ? "Our practical training, designed from real cases and our multi-sector experience, allows your teams to acquire the key skills to deliver high-performing and sustainable projects."
+        ? "Our hands-on training, built from real cases and multi-sector experience, enables your teams to acquire the key skills to deliver high-performing, sustainable projects."
         : "Nos formations pratiques, conçues à partir de cas réels et de notre expérience multisectorielle, permettent à vos équipes d'acquérir les compétences clés pour livrer des projets performants et durables.",
       image: '/images/image-9.png'
     }

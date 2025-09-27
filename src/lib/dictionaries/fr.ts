@@ -99,11 +99,11 @@ export const fr = {
       description: 'Transformation numérique complète d\'une usine de production automobile.'
     },
     modal: {
-      headline_l1: 'Des projets au cœur de la transition',
-      headline_l2: 'énergétique',
-      body_1: "Notre client est un important  gestionnaire de réseau d'électricité, dont le rôle est d'acheminer  l'énergie vers les clients finaux. Orlade travaille avec ce dernier  depuis 2018, notamment sur des missions support liées au pilotage des  projets de raccordement des parcs éoliens offshore.",
-      body_2: 'Notre portefeuille dans ce domaine est riche de sept projets à forts enjeux stratégiques. Ils sont au cœur de  la transition énergétique du pays puisqu\'ils concernent le développement des énergies renouvelables.',
-      body_3: 'La complexité des projets est conférée par plusieurs paramètres : enjeux forts, interfaces multiples, budgets  importants (de 500 à 1 500 M€ selon la technologie utilisée), visibilité internationale…'
+      headline_l1: 'Parc éolien offshore',
+      headline_l2: '',
+      body_1: 'Installation de 80 éoliennes en mer du Nord.',
+      body_2: 'Gestion complète du projet d\'installation d\'un parc éolien offshore de 400MW. Coordination de 12 navires spécialisés, gestion des contraintes météorologiques et livraison avec 2 mois d\'avance sur le planning initial.',
+      body_3: ''
     }
   },
   team: {

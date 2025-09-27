@@ -109,7 +109,7 @@ export function MobileRealisations() {
         textAlign: 'left',
         marginBottom: '30px'
       }}>
-        {locale === 'en' ? 'Our achievements' : 'Nos réalisations'}
+        {locale === 'en' ? 'Our Projects' : 'Nos réalisations'}
       </h2>
 
       {/* Container principal - Plus large, même largeur que les autres sections */}

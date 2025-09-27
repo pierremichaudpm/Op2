@@ -81,13 +81,6 @@ export function HeroSection() {
               </motion.div>
             </div>
 
-            {/* Bottom-left logotype (color-dodge) */}
-            <img
-              src="/images/logo-shape2-1.png"
-              alt="Logotype"
-              className="absolute left-0 z-20"
-              style={{ width: '480px', height: '288px', bottom: '1px', mixBlendMode: 'color-dodge' }}
-            />
           </div>
         </div>
       </div>

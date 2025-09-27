@@ -54,7 +54,7 @@ export function MobileFooter() {
         margin: 0
       }}>
         {locale === 'en' 
-          ? <>Your partner of excellence<br />in complex projects</>
+          ? <>Your partner in excellence<br />for complex projects</>
           : <>Votre partenaire d&apos;excellence<br />en projets complexes</>}
       </p>
 
@@ -76,7 +76,7 @@ export function MobileFooter() {
         <div>{locale === 'en' ? 'Home' : 'Accueil'}</div>
         <div>Expertise</div>
         <div>{locale === 'en' ? 'Offer' : 'Offre'}</div>
-        <div>{locale === 'en' ? 'Achievements' : 'Réalisations'}</div>
+        <div>{locale === 'en' ? 'Projects' : 'Réalisations'}</div>
         <div>{locale === 'en' ? 'Team' : 'Équipe'}</div>
       </nav>
 
@@ -96,7 +96,7 @@ export function MobileFooter() {
       }}>
         <div style={{ color: '#F36911' }}>Services</div>
         <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Project management consulting' : 'Conseil en gestion de projet'}</div>
-        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Staff placement' : 'Placement de personnel'}</div>
+        <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Staff augmentation' : 'Placement de personnel'}</div>
         <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Training' : 'Formation'}</div>
       </div>
 

@@ -37,9 +37,9 @@ export function MobileContact() {
         marginBottom: '40px'
       }}>
         {locale === 'en' 
-          ? <>Starting a complex project, your current project is in difficulty, or your teams need support?
+          ? <>Starting a complex initiative, facing project difficulties, or need team support?
             <br /><br />
-            Our experts are here to guide you.</>
+            Our experts are here to help.</>
           : <>Vous démarrez un projet complexe, votre projet en cours est en 
             difficulté, ou vos équipes ont besoin d&apos;accompagnement ? 
             <br /><br />

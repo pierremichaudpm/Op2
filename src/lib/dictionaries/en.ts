@@ -99,11 +99,11 @@ export const en = {
       description: 'Complete digital transformation of an automotive production plant.'
     },
     modal: {
-      headline_l1: 'Projects at the heart of the energy',
-      headline_l2: 'transition',
-      body_1: "Our client is a major electricity grid operator whose role is to deliver energy to end customers. Orlade has worked with them since 2018, notably on support missions related to managing offshore wind farm connection projects.",
-      body_2: 'Our portfolio in this area includes seven projects with significant strategic stakes. They are at the heart of the country’s energy transition as they concern the development of renewable energy.',
-      body_3: 'Project complexity stems from several factors: high stakes, multiple interfaces, large budgets (€500M to €1.5B depending on technology), and international visibility.'
+      headline_l1: 'Offshore Wind Farm',
+      headline_l2: '',
+      body_1: 'Installation of 80 wind turbines in the North Sea.',
+      body_2: 'Complete management of a 400MW offshore wind farm installation project. Coordination of 12 specialized vessels, management of weather constraints and delivery 2 months ahead of initial schedule.',
+      body_3: ''
     }
   },
   team: {

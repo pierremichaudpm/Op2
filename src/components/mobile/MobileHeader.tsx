@@ -121,7 +121,7 @@ export function MobileHeader() {
               { name: locale === 'en' ? 'Home' : 'Accueil', href: locale === 'en' ? '/en/mobile' : '/mobile' },
               { name: 'Expertise', href: '#expertise' },
               { name: locale === 'en' ? 'Offer' : 'Offre', href: '#offre' },
-              { name: locale === 'en' ? 'Achievements' : 'Réalisations', href: '#realisations' },
+              { name: locale === 'en' ? 'Projects' : 'Réalisations', href: '#realisations' },
               { name: locale === 'en' ? 'Team' : 'Équipe', href: '#experts' }
             ].map((item, index) => (
               <a

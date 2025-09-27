@@ -83,7 +83,7 @@ export function MobileHero() {
             whiteSpace: 'pre-line' // Force le respect des sauts de ligne
           }}>
             {locale === 'en' 
-              ? 'Your partner of\nexcellence in\ncomplex projects'
+              ? 'Your partner in\nexcellence for\ncomplex projects'
               : 'Votre partenaire\nd\'excellence en\nprojets complexes'}
           </h1>
 
@@ -99,7 +99,7 @@ export function MobileHero() {
             textShadow: '0 1px 3px rgba(0,0,0,0.3)' // Ombre légère pour garantir la lisibilité
           }}>
             {locale === 'en'
-              ? 'More than consulting: we turn around,\noptimize and sustain your industrial projects.'
+              ? 'Beyond consulting: we recover,\noptimise and sustain your industrial projects.'
               : 'Plus que du conseil: nous redressons,\noptimisons et pérennisons vos projets industriels.'}
           </p>
 
