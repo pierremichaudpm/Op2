@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -31,6 +30,10 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.43 seconds (réduit le blanc)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
+      // Show the site now
+      if (typeof document !== 'undefined') {
+        document.body.classList.add('site-ready');
+      }
     }, 3430);
 
     return () => {
@@ -105,14 +108,6 @@ export function SplashScreen() {
     </div>
   );
 
-  // Create a div for the portal if it doesn't exist
-  let portalRoot = document.getElementById('splash-portal');
-  if (!portalRoot) {
-    portalRoot = document.createElement('div');
-    portalRoot.id = 'splash-portal';
-    document.body.appendChild(portalRoot);
-  }
-  
-  // Use portal to mount directly on body to avoid React DOM manipulation issues
-  return createPortal(splashContent, portalRoot);
+  // Don't use portal - render directly
+  return splashContent;
 }

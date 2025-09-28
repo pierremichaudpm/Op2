@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide everything except splash initially */
+main, header, footer {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+body.site-ready main,
+body.site-ready header, 
+body.site-ready footer {
+  opacity: 1;
+}
+
 :root {
   --background: 255 255 255;
   --foreground: 17 24 39;
