@@ -34,8 +34,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${inter.className} ${montserrat.variable}`}>
+        <SplashScreen />
         <I18nProvider locale="fr" dict={fr}>
-          <SplashScreen />
           {children}
         </I18nProvider>
       </body>

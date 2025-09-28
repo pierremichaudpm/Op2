@@ -1,14 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useI18n } from '@/lib/i18n';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
   const [isFadingToWhite, setIsFadingToWhite] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { locale } = useI18n();
 
   useEffect(() => {
     setMounted(true);
