@@ -22,19 +22,19 @@ export function SplashScreen() {
       setIsFadingToWhite(true);
     }, 1860);
     
-    // Start fade out animation after 2.63 seconds (fond vers le site)
+    // Start fade out animation after 2.2 seconds (fond vers le site plus tôt)
     const fadeOutTimer = setTimeout(() => {
       setIsAnimatingOut(true);
-    }, 2630);
-
-    // Remove splash screen completely after 3.43 seconds (réduit le blanc)
-    const removeTimer = setTimeout(() => {
-      setIsVisible(false);
-      // Show the site now
+      // Show the site now while splash fades
       if (typeof document !== 'undefined') {
         document.body.classList.add('site-ready');
       }
-    }, 3430);
+    }, 2200);
+
+    // Remove splash screen completely after 3.4 seconds
+    const removeTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3400);
 
     return () => {
       clearTimeout(logoTimer);
