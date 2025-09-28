@@ -12,6 +12,10 @@ export function SplashScreen() {
 
   useEffect(() => {
     setIsMounted(true);
+    // Make body visible immediately when splash mounts
+    if (typeof document !== 'undefined') {
+      document.body.classList.add('ready');
+    }
     
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
@@ -51,8 +55,11 @@ export function SplashScreen() {
     <div 
       style={{
         position: 'fixed',
-        inset: 0,
-        zIndex: 10000,
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 999999,
         background: '#FDFCFB', // Fond très légèrement teinté (pas blanc pur)
         display: 'flex',
         alignItems: 'center',

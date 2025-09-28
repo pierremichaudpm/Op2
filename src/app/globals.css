@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide everything until splash is done */
-body {
-  visibility: hidden;
-}
-
-body.splash-done {
-  visibility: visible;
-}
-
 :root {
   --background: 255 255 255;
   --foreground: 17 24 39;
