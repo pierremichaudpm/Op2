@@ -90,7 +90,7 @@ export function MobileExpertiseMondiale() {
             playsInline
             style={{
               position: 'absolute',
-              left: '27.27%', // 105/385
+              left: '27%', // Déplacé de 1px vers la gauche (104/385)
               top: '37.91%', // 210/554
               width: '48.83%', // 188/385
               height: '33.94%', // 188/554
@@ -127,7 +127,7 @@ export function MobileExpertiseMondiale() {
             onClick={() => setSelectedLogo('10')}
             style={{
               position: 'absolute',
-              left: '27.27%',
+              left: '27%', // Déplacé de 1px vers la gauche
               top: '20.04%',
               width: '19.48%',
               height: '4.51%',
@@ -600,7 +600,7 @@ export function MobileExpertiseMondiale() {
           playsInline
           style={{
             position: 'absolute',
-            left: '27.27%',
+            left: '27%', // Déplacé de 1px vers la gauche
             top: '37.91%',
             width: '48.83%',
             height: '33.94%',
@@ -634,7 +634,7 @@ export function MobileExpertiseMondiale() {
           alt=""
           style={{
             position: 'absolute',
-            left: '27.27%',
+            left: '27%', // Déplacé de 1px vers la gauche
             top: '20.04%',
             width: '19.48%',
             height: '4.51%',

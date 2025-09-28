@@ -25,7 +25,7 @@ export function MobileFooter() {
       }} />
       {/* Logo OP2 footer - Image exacte du Figma */}
       <img 
-        src={locale === 'en' ? "/images/logo-site-en.png" : "/images/logo-footer.png"} 
+        src="/images/logo-footer.png" 
         alt="OP2" 
         style={{
           position: 'absolute',
