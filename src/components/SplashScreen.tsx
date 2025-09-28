@@ -18,20 +18,20 @@ export function SplashScreen() {
       setLogoAnimated(true);
     }, 50);
     
-    // Start fading logo after 1.2 seconds
+    // Start fading logo after 1.53 seconds (ajout de 0.33s)
     const fadeToWhiteTimer = setTimeout(() => {
       setIsFadingToWhite(true);
-    }, 1200);
+    }, 1530);
     
-    // Start fade out animation after 2.2 seconds (fond vers le site)
+    // Start fade out animation after 2.53 seconds (fond vers le site)
     const fadeOutTimer = setTimeout(() => {
       setIsAnimatingOut(true);
-    }, 2200);
+    }, 2530);
 
-    // Remove splash screen completely after 3 seconds
+    // Remove splash screen completely after 3.33 seconds
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 3000);
+    }, 3330);
 
     return () => {
       clearTimeout(logoTimer);
