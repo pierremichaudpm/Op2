@@ -9,6 +9,9 @@ export function SplashScreen() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Ensure we're in the browser
+    if (typeof window === 'undefined') return;
+    
     setMounted(true);
     
     // Start fading logo after 1.2 seconds
@@ -33,7 +36,8 @@ export function SplashScreen() {
     };
   }, []);
 
-  if (!isVisible) return null;
+  // Don't render on server or if not visible
+  if (!mounted || !isVisible) return null;
 
   return (
     <div 
@@ -75,60 +79,37 @@ export function SplashScreen() {
       />
 
       {/* Logo extrait en haute qualité avec disparition rapide */}
-      {mounted && (
-        <img 
-          src="/images/logo-op2-clean.png" 
-          alt="OP2" 
-          className="splash-logo"
-          style={{
-            width: 'clamp(200px, 30vw, 350px)', // Taille optimale pour la résolution native
-            height: 'auto',
-            opacity: isFadingToWhite ? 0 : 1,
-            animation: 'fadeInScale 0.3s ease-out forwards', // Logo arrive TRÈS vite
-            transition: 'opacity 0.3s ease-out', // Disparition rapide
-            // Pas de filter ni d'ombres pour un rendu propre
-            position: 'relative',
-            zIndex: 3,
-            willChange: 'opacity, transform',
-            transform: 'translateZ(0)',
-            WebkitTransform: 'translateZ(0)'
-          }}
-        />
-      )}
+      <img 
+        src="/images/logo-op2-clean.png" 
+        alt="OP2" 
+        style={{
+          width: 'clamp(200px, 30vw, 350px)', // Taille optimale pour la résolution native
+          height: 'auto',
+          opacity: mounted ? (isFadingToWhite ? 0 : 1) : 0,
+          transition: mounted ? 'opacity 0.3s ease-out, transform 0.3s ease-out' : 'none',
+          transform: mounted ? 'scale(1)' : 'scale(0.9)',
+          // Pas de filter ni d'ombres pour un rendu propre
+          position: 'relative',
+          zIndex: 3,
+          willChange: 'opacity, transform'
+        }}
+      />
 
-      {/* Animations CSS élégantes */}
-      <style jsx>{`
-        @keyframes fadeInSoft {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
+      {/* Styles CSS inline pour éviter les problèmes */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes fadeInScale {
+            0% {
+              opacity: 0;
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
           }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes fadeInScale {
-          0% {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes fadeOutSoft {
-          0% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-      `}</style>
+        `
+      }} />
     </div>
   );
 }
