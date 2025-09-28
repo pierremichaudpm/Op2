@@ -27,9 +27,8 @@ body.site-ready footer {
 
 /* Remove splash background when site is ready */
 body.site-ready {
-  background: white;
-  background-image: none;
-  transition: background 0.5s ease-in;
+  background: white !important;
+  background-image: none !important;
 }
 
 :root {

@@ -28,6 +28,9 @@ export function SplashScreen() {
       // Show the site now while splash fades
       if (typeof document !== 'undefined') {
         document.body.classList.add('site-ready');
+        // Remove inline style to let CSS take over
+        document.body.style.background = '';
+        document.body.style.backgroundImage = '';
       }
     }, 2200);
 
