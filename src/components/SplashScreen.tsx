@@ -23,15 +23,15 @@ export function SplashScreen() {
       setIsFadingToWhite(true);
     }, 1530);
     
-    // Start fade out animation after 2.53 seconds (fond vers le site)
+    // Start fade out animation after 2.3 seconds (fond vers le site - plus tôt pour un fondu plus long)
     const fadeOutTimer = setTimeout(() => {
       setIsAnimatingOut(true);
-    }, 2530);
+    }, 2300);
 
-    // Remove splash screen completely after 3.33 seconds
+    // Remove splash screen completely after 3.5 seconds (plus de temps pour le fondu)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 3330);
+    }, 3500);
 
     return () => {
       clearTimeout(logoTimer);
@@ -61,7 +61,7 @@ export function SplashScreen() {
         flexDirection: 'column',
         overflow: 'hidden',
         opacity: isAnimatingOut ? 0 : 1,
-        transition: 'opacity 0.8s ease-out',
+        transition: 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
         pointerEvents: isAnimatingOut ? 'none' : 'auto'
       }}
     >
