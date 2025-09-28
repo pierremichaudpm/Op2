@@ -13,6 +13,11 @@ export function SplashScreen() {
   useEffect(() => {
     setIsMounted(true);
     
+    // Add class to body to hide content
+    if (typeof document !== 'undefined') {
+      document.body.classList.add('splash-loading');
+    }
+    
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
       setLogoAnimated(true);
@@ -31,6 +36,10 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.83 seconds (plus de temps pour le fondu)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
+      // Remove class to show content
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('splash-loading');
+      }
     }, 3830);
 
     return () => {
@@ -38,6 +47,10 @@ export function SplashScreen() {
       clearTimeout(fadeToWhiteTimer);
       clearTimeout(fadeOutTimer);
       clearTimeout(removeTimer);
+      // Cleanup - ensure content is visible
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('splash-loading');
+      }
     };
   }, []);
 
@@ -102,6 +115,14 @@ export function SplashScreen() {
     </div>
   );
 
+  // Create a div for the portal if it doesn't exist
+  let portalRoot = document.getElementById('splash-portal');
+  if (!portalRoot) {
+    portalRoot = document.createElement('div');
+    portalRoot.id = 'splash-portal';
+    document.body.appendChild(portalRoot);
+  }
+  
   // Use portal to mount directly on body to avoid React DOM manipulation issues
-  return createPortal(splashContent, document.body);
+  return createPortal(splashContent, portalRoot);
 }
