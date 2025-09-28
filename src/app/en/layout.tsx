@@ -3,6 +3,7 @@ import { Inter, Montserrat } from 'next/font/google';
 import '../globals.css';
 import { I18nProvider } from '@/lib/i18n';
 import { en } from '@/lib/dictionaries/en';
+import { SplashScreen } from '@/components/SplashScreen';
 
 const inter = Inter({ subsets: ['latin'] });
 const montserrat = Montserrat({ 
@@ -12,11 +13,19 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Op2 | Agency',
-  description: 'Showcase site Next.js 14 + Tailwind',
+  title: 'Op² | North America',
+  description: 'Your partner in excellence for complex projects. Beyond consulting: we recover, optimise and sustain your industrial projects.',
   icons: {
-    icon: '/favicon.ico'
-  }
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico' }
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  themeColor: '#F36911',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
 };
 
 export default function RootLayoutEN({
@@ -26,6 +35,7 @@ export default function RootLayoutEN({
     <html lang="en">
       <body className={`${inter.className} ${montserrat.variable}`}>
         <I18nProvider locale="en" dict={en}>
+          <SplashScreen />
           {children}
         </I18nProvider>
       </body>
