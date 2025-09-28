@@ -38,7 +38,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} ${montserrat.variable}`}>
+      <body 
+        className={`${inter.className} ${montserrat.variable}`}
+        style={{ visibility: 'hidden' }}
+      >
         <SplashScreen />
         <I18nProvider locale="fr" dict={fr}>
           {children}
