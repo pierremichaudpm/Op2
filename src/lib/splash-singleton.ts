@@ -2,6 +2,7 @@
 class SplashSingleton {
   private static instance: SplashSingleton;
   private hasShown: boolean = false;
+  private isShowing: boolean = false;
   
   private constructor() {}
   
@@ -15,13 +16,17 @@ class SplashSingleton {
   public shouldShowSplash(): boolean {
     if (typeof window === 'undefined') return false;
     
-    // Vérifier si on a déjà montré le splash dans cette session
+    // Si un splash est déjà en cours, ne pas en montrer un autre
+    if (this.isShowing) return false;
+    
+    // Si on a déjà montré le splash dans cette instance, ne pas le remontrer
     if (this.hasShown) return false;
     
-    // Vérifier sessionStorage pour éviter de montrer le splash après navigation
-    const splashShown = sessionStorage.getItem('splashShown');
-    if (splashShown === 'true') {
-      this.hasShown = true;
+    // Vérifier si c'est une navigation interne (après le premier chargement)
+    // Si performance.navigation existe et type === 1, c'est un refresh
+    // Si sessionStorage a une marque de navigation interne, c'est une navigation
+    const isInternalNavigation = sessionStorage.getItem('internalNavigation');
+    if (isInternalNavigation === 'true') {
       return false;
     }
     
@@ -30,9 +35,15 @@ class SplashSingleton {
   
   public markAsShown(): void {
     this.hasShown = true;
+    this.isShowing = true;
+    // Marquer qu'on est maintenant dans une session avec navigation interne
     if (typeof window !== 'undefined') {
-      sessionStorage.setItem('splashShown', 'true');
+      sessionStorage.setItem('internalNavigation', 'true');
     }
+  }
+  
+  public markAsComplete(): void {
+    this.isShowing = false;
   }
 }
 

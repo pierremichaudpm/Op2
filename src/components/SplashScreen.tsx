@@ -52,6 +52,7 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.4 seconds
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
+      splashSingleton.markAsComplete();
     }, 3400);
 
     return () => {
@@ -59,6 +60,8 @@ export function SplashScreen() {
       clearTimeout(fadeToWhiteTimer);
       clearTimeout(fadeOutTimer);
       clearTimeout(removeTimer);
+      // Si le composant est démonté avant la fin, marquer comme complet
+      splashSingleton.markAsComplete();
     };
   }, []);
 

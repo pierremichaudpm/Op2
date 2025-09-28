@@ -4,6 +4,7 @@ import './globals.css';
 import { I18nProvider } from '@/lib/i18n';
 import { fr } from '@/lib/dictionaries/fr';
 import { SplashScreen } from '@/components/SplashScreen';
+import { NavigationMarker } from '@/components/NavigationMarker';
 
 const inter = Inter({ subsets: ['latin'] });
 const montserrat = Montserrat({ 
@@ -52,6 +53,7 @@ export default function RootLayout({
         }}
       >
         <SplashScreen />
+        <NavigationMarker />
         <I18nProvider locale="fr" dict={fr}>
           {children}
         </I18nProvider>
