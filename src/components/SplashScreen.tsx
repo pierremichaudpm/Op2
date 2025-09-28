@@ -8,9 +8,15 @@ export function SplashScreen() {
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
   const [isFadingToWhite, setIsFadingToWhite] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [logoAnimated, setLogoAnimated] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    
+    // Start logo animation immediately after mount
+    const logoTimer = setTimeout(() => {
+      setLogoAnimated(true);
+    }, 50);
     
     // Start fading logo after 1.2 seconds
     const fadeToWhiteTimer = setTimeout(() => {
@@ -28,6 +34,7 @@ export function SplashScreen() {
     }, 3000);
 
     return () => {
+      clearTimeout(logoTimer);
       clearTimeout(fadeToWhiteTimer);
       clearTimeout(fadeOutTimer);
       clearTimeout(removeTimer);
@@ -77,18 +84,19 @@ export function SplashScreen() {
         }}
       />
 
-      {/* Logo extrait en haute qualité avec disparition rapide */}
+      {/* Logo extrait en haute qualité avec effet d'entrée et disparition rapide */}
       <img 
         src="/images/logo-op2-clean.png" 
         alt="OP2" 
         style={{
           width: 'clamp(200px, 30vw, 350px)', // Taille optimale pour la résolution native
           height: 'auto',
-          opacity: isFadingToWhite ? 0 : 1,
-          transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
-          transform: 'scale(1)',
+          opacity: logoAnimated ? (isFadingToWhite ? 0 : 1) : 0,
+          transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: logoAnimated ? 'scale(1) translateY(0)' : 'scale(0.85) translateY(10px)',
           position: 'relative',
-          zIndex: 3
+          zIndex: 3,
+          filter: logoAnimated ? 'none' : 'blur(2px)'
         }}
       />
     </div>
