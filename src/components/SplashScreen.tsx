@@ -1,25 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
   const [isFadingToWhite, setIsFadingToWhite] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Ensure we're in the browser
-    if (typeof window === 'undefined') return;
-    
-    setMounted(true);
+    setIsMounted(true);
     
     // Start fading logo after 1.2 seconds
     const fadeToWhiteTimer = setTimeout(() => {
       setIsFadingToWhite(true);
     }, 1200);
     
-    // Start fade out animation after 2.2 seconds (fond vers le site) - Plus de temps de blanc
+    // Start fade out animation after 2.2 seconds (fond vers le site)
     const fadeOutTimer = setTimeout(() => {
       setIsAnimatingOut(true);
     }, 2200);
@@ -36,10 +34,13 @@ export function SplashScreen() {
     };
   }, []);
 
-  // Don't render on server or if not visible
-  if (!mounted || !isVisible) return null;
+  // Don't render on server
+  if (typeof window === 'undefined') return null;
+  
+  // Don't render if not mounted or not visible
+  if (!isMounted || !isVisible) return null;
 
-  return (
+  const splashContent = (
     <div 
       style={{
         position: 'fixed',
@@ -54,9 +55,7 @@ export function SplashScreen() {
         overflow: 'hidden',
         opacity: isAnimatingOut ? 0 : 1,
         transition: 'opacity 0.8s ease-out',
-        willChange: 'opacity',
-        transform: 'translateZ(0)',
-        WebkitTransform: 'translateZ(0)'
+        pointerEvents: isAnimatingOut ? 'none' : 'auto'
       }}
     >
       {/* Gradient overlay subtil orange/bleu qui reste tout le long - légèrement plus visible */}
@@ -85,31 +84,16 @@ export function SplashScreen() {
         style={{
           width: 'clamp(200px, 30vw, 350px)', // Taille optimale pour la résolution native
           height: 'auto',
-          opacity: mounted ? (isFadingToWhite ? 0 : 1) : 0,
-          transition: mounted ? 'opacity 0.3s ease-out, transform 0.3s ease-out' : 'none',
-          transform: mounted ? 'scale(1)' : 'scale(0.9)',
-          // Pas de filter ni d'ombres pour un rendu propre
+          opacity: isFadingToWhite ? 0 : 1,
+          transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
+          transform: 'scale(1)',
           position: 'relative',
-          zIndex: 3,
-          willChange: 'opacity, transform'
+          zIndex: 3
         }}
       />
-
-      {/* Styles CSS inline pour éviter les problèmes */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes fadeInScale {
-            0% {
-              opacity: 0;
-              transform: scale(0.9);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
-          }
-        `
-      }} />
     </div>
   );
+
+  // Use portal to mount directly on body to avoid React DOM manipulation issues
+  return createPortal(splashContent, document.body);
 }
