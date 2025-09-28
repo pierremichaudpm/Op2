@@ -42,6 +42,19 @@ export default function RootLayout({
         className={`${inter.className} ${montserrat.variable}`}
         style={{ visibility: 'hidden' }}
       >
+        <div 
+          id="white-cover" 
+          style={{ 
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0, 
+            background: '#FDFCFB', 
+            zIndex: 9999,
+            visibility: 'visible'
+          }} 
+        />
         <SplashScreen />
         <I18nProvider locale="fr" dict={fr}>
           {children}

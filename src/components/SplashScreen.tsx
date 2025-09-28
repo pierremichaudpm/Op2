@@ -13,9 +13,10 @@ export function SplashScreen() {
   useEffect(() => {
     setIsMounted(true);
     
-    // Keep body hidden, only splash is visible
+    // Remove white cover immediately when splash mounts
     if (typeof document !== 'undefined') {
-      // Don't change visibility here - body stays hidden
+      const cover = document.getElementById('white-cover');
+      if (cover) cover.style.display = 'none';
     }
     
     // Start logo animation immediately after mount
