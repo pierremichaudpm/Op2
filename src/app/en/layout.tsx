@@ -38,23 +38,7 @@ export default function RootLayoutEN({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body 
-        className={`${inter.className} ${montserrat.variable}`}
-        style={{ visibility: 'hidden' }}
-      >
-        <div 
-          id="white-cover" 
-          style={{ 
-            position: 'fixed', 
-            top: 0, 
-            left: 0, 
-            right: 0, 
-            bottom: 0, 
-            background: '#FDFCFB', 
-            zIndex: 9999,
-            visibility: 'visible'
-          }} 
-        />
+      <body className={`${inter.className} ${montserrat.variable}`}>
         <SplashScreen />
         <I18nProvider locale="en" dict={en}>
           {children}

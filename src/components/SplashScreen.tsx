@@ -13,12 +13,6 @@ export function SplashScreen() {
   useEffect(() => {
     setIsMounted(true);
     
-    // Remove white cover immediately when splash mounts
-    if (typeof document !== 'undefined') {
-      const cover = document.getElementById('white-cover');
-      if (cover) cover.style.display = 'none';
-    }
-    
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
       setLogoAnimated(true);
@@ -37,11 +31,6 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.43 seconds (réduit le blanc)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
-      // NOW make body visible
-      if (typeof document !== 'undefined') {
-        document.body.style.visibility = 'visible';
-        document.body.classList.add('splash-done');
-      }
     }, 3430);
 
     return () => {
@@ -49,11 +38,6 @@ export function SplashScreen() {
       clearTimeout(fadeToWhiteTimer);
       clearTimeout(fadeOutTimer);
       clearTimeout(removeTimer);
-      // Cleanup - ensure content is visible
-      if (typeof document !== 'undefined') {
-        document.body.classList.add('splash-done');
-        document.body.style.visibility = 'visible';
-      }
     };
   }, []);
 
