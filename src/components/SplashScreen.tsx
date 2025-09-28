@@ -12,10 +12,6 @@ export function SplashScreen() {
 
   useEffect(() => {
     setIsMounted(true);
-    // Make body visible immediately when splash mounts
-    if (typeof document !== 'undefined') {
-      document.body.classList.add('ready');
-    }
     
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
