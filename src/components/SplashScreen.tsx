@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { splashSingleton } from '@/lib/splash-singleton';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -10,6 +11,20 @@ export function SplashScreen() {
   const [logoAnimated, setLogoAnimated] = useState(false);
 
   useEffect(() => {
+    // Vérifier si on doit montrer le splash
+    if (!splashSingleton.shouldShowSplash()) {
+      setIsVisible(false);
+      // S'assurer que le site est visible
+      if (typeof document !== 'undefined') {
+        document.body.classList.add('site-ready');
+        document.body.style.background = '';
+        document.body.style.backgroundImage = '';
+      }
+      return;
+    }
+    
+    // Marquer le splash comme affiché
+    splashSingleton.markAsShown();
     setIsMounted(true);
     
     // Start logo animation immediately after mount
