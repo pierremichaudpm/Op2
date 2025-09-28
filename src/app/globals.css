@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide body until splash is ready */
-body.splash-loading > *:not(#splash-portal) {
-  opacity: 0 !important;
+/* Hide everything until splash is done */
+body {
+  visibility: hidden;
+}
+
+body.splash-done {
+  visibility: visible;
 }
 
 :root {
