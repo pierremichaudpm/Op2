@@ -13,9 +13,9 @@ export function SplashScreen() {
   useEffect(() => {
     setIsMounted(true);
     
-    // Body is already hidden by CSS, just make splash visible
+    // Keep body hidden, only splash is visible
     if (typeof document !== 'undefined') {
-      document.body.style.visibility = 'visible';
+      // Don't change visibility here - body stays hidden
     }
     
     // Start logo animation immediately after mount
@@ -36,8 +36,9 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.43 seconds (réduit le blanc)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
-      // Add class to keep body visible after splash
+      // NOW make body visible
       if (typeof document !== 'undefined') {
+        document.body.style.visibility = 'visible';
         document.body.classList.add('splash-done');
       }
     }, 3430);
@@ -66,7 +67,7 @@ export function SplashScreen() {
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 100,
+        zIndex: 10000,
         background: '#FDFCFB', // Fond très légèrement teinté (pas blanc pur)
         display: 'flex',
         alignItems: 'center',
