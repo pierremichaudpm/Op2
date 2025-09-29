@@ -424,7 +424,7 @@
 .infoCircle {
   width: 490px;
   height: 490px;
-  background: linear-gradient(180deg, #476dce, #243768);
+  background: linear-gradient(180deg, #6B94E0 0%, #5A82D8 15%, #476dce 30%, #3A5BA5 65%, #243768 100%);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   border: 1px solid #243768;

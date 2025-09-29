@@ -249,7 +249,7 @@ export function MobileOffreGlobale() {
                 right: 0,
                 bottom: 0,
                 backgroundColor: 'transparent',
-                zIndex: 998
+                zIndex: 45
               }}
             />
             
@@ -265,7 +265,7 @@ export function MobileOffreGlobale() {
                 border: '1px solid #243768',
                 overflow: 'hidden',
                 animation: 'dissolveIn 0.3s ease-out',
-                zIndex: 999
+                zIndex: 46
               }}
             >
             <Image

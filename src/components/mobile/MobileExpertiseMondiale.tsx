@@ -9,27 +9,24 @@ interface LogoInfo {
   image: string;
 }
 
-// Données des logos avec leurs informations
+// Données des logos avec leurs informations - Réduit à 16 logos selon Figma
 const logosData: LogoInfo[] = [
   { id: '9', name: 'Société du Grand Paris', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 9.png' },
   { id: '10', name: 'Pomerleau', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 10.png' },
   { id: '11', name: 'Partenaire 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 11.png' },
   { id: '8', name: 'Partenaire 8', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 8.png' },
   { id: '3', name: 'Partenaire 3', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 3.png' },
-  { id: '7', name: 'Partenaire 7', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 7.png' },
   { id: '12', name: 'Partenaire 12', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 12.png' },
   { id: '14', name: 'Partenaire 14', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 14.png' },
-  { id: '13', name: 'Partenaire 13', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 13.png' },
   { id: '15', name: 'Partenaire 15', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 15.png' },
   { id: '24', name: 'Partenaire 24', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 24.png' },
   { id: '28', name: 'Partenaire 28', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 28.png' },
-  { id: '27', name: 'Partenaire 27', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 27.png' },
   { id: '22', name: 'Partenaire 22', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 22.png' },
   { id: '23', name: 'Partenaire 23', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 23.png' },
-  { id: '21', name: 'Partenaire 21', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 21.png' },
   { id: '17', name: 'Partenaire 17', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 17.png' },
   { id: '18', name: 'Partenaire 18', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 18.png' },
-  { id: '20', name: 'Partenaire 20', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 20.png' },
+  { id: '14', name: 'Partenaire 14', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 14.png' },
+  { id: '15', name: 'Partenaire 15', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 15.png' },
 ];
 
 export function MobileExpertiseMondiale() {
@@ -90,10 +87,10 @@ export function MobileExpertiseMondiale() {
             playsInline
             style={{
               position: 'absolute',
-              left: '27%', // Déplacé de 1px vers la gauche (104/385)
-              top: '37.91%', // 210/554
-              width: '48.83%', // 188/385
-              height: '33.94%', // 188/554
+              left: '27.27%', // Ajusté pour centrer avec la nouvelle taille
+              top: '38.09%', // Ajusté pour centrer avec la nouvelle taille
+              width: '48.31%', // Réduit de 1px (186/385 au lieu de 188/385)
+              height: '33.57%', // Réduit de 1px (186/554 au lieu de 188/554)
               borderRadius: '50%',
               objectFit: 'cover',
               zIndex: 2
@@ -102,432 +99,237 @@ export function MobileExpertiseMondiale() {
             <source src="/videos/globe4.mp4" type="video/mp4" />
           </video>
 
-          {/* Logos avec positions exactes de Figma */}
+          {/* Logos avec positions exactes de Figma - 16 logos avec tailles augmentées */}
           
-          {/* image006 9 - Position: x:90, y:74, w:100, h:33 - CLICKABLE */}
+          {/* image006 9 1 - Position Figma: x:92, y:88, w:100, h:33 - CLICKABLE */}
           <img
             src="/images/logos/image006 9.png"
             alt=""
             onClick={() => setSelectedLogo('9')}
             style={{
               position: 'absolute',
-              left: '23.38%',
-              top: '13.36%',
-              width: '25.97%',
-              height: '5.96%',
+              left: '22.5%', // Ajusté pour centrer avec la nouvelle taille
+              top: '14.5%', // Ajusté pour centrer avec la nouvelle taille
+              width: '31%', // Augmenté de ~20%
+              height: '7.2%', // Augmenté de ~20%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 10 - Position: x:105, y:111, w:75, h:25 - CLICKABLE */}
+          {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 - CLICKABLE */}
           <img
             src="/images/logos/image006 10.png"
             alt=""
             onClick={() => setSelectedLogo('10')}
             style={{
               position: 'absolute',
-              left: '27%', // Déplacé de 1px vers la gauche
-              top: '20.04%',
-              width: '19.48%',
-              height: '4.51%',
+              left: '25.5%', // Ajusté pour centrer avec la nouvelle taille
+              top: '22%', // Ajusté pour centrer avec la nouvelle taille
+              width: '23%', // Augmenté de ~18%
+              height: '5.4%', // Augmenté de ~20%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 11 - Position: x:217, y:110, w:75, h:24 - CLICKABLE */}
+          {/* image006 11 1 - Position Figma: x:223, y:127, w:75, h:24 - CLICKABLE */}
           <img
             src="/images/logos/image006 11.png"
             alt=""
             onClick={() => setSelectedLogo('11')}
             style={{
               position: 'absolute',
-              left: '56.36%',
-              top: '19.86%',
-              width: '19.48%',
-              height: '4.33%',
+              left: '56%', // Ajusté pour centrer avec la nouvelle taille
+              top: '21.5%', // Ajusté pour centrer avec la nouvelle taille
+              width: '23%', // Augmenté de ~18%
+              height: '5.2%', // Augmenté de ~20%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 8 - Position: x:0, y:186, w:75, h:25 - CLICKABLE */}
+          {/* image006 8 1 - Position Figma: x:-1, y:206, w:75, h:25 - CLICKABLE */}
           <img
             src="/images/logos/image006 8.png"
             alt=""
             onClick={() => setSelectedLogo('8')}
             style={{
               position: 'absolute',
-              left: '0%',
-              top: '33.57%',
-              width: '19.48%',
-              height: '4.51%',
+              left: '-2%', // Ajusté pour centrer avec la nouvelle taille
+              top: '36%', // Ajusté pour centrer avec la nouvelle taille
+              width: '23%', // Augmenté de ~18%
+              height: '5.4%', // Augmenté de ~20%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 3 - Position: x:14, y:158, w:60, h:20 - CLICKABLE */}
+          {/* image006 3 1 - Position Figma: x:10, y:171, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 3.png"
             alt=""
             onClick={() => setSelectedLogo('3')}
             style={{
               position: 'absolute',
-              left: '3.64%',
-              top: '28.52%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '3.6%', // Déplacé de 10px vers la droite
+              top: '28.6%', // Remonté de 5px
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 7 - Position: x:15, y:131, w:60, h:19 - CLICKABLE */}
-          <img
-            src="/images/logos/image006 7.png"
-            alt=""
-            onClick={() => setSelectedLogo('7')}
-            style={{
-              position: 'absolute',
-              left: '3.90%',
-              top: '23.65%',
-              width: '15.58%',
-              height: '3.43%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
 
-          {/* image006 12 - Position: x:310, y:186, w:75, h:25 - CLICKABLE */}
+          {/* image006 12 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE */}
           <img
             src="/images/logos/image006 12.png"
             alt=""
             onClick={() => setSelectedLogo('12')}
             style={{
               position: 'absolute',
-              left: '80.52%',
-              top: '33.57%',
-              width: '19.48%',
-              height: '4.51%',
+              left: '78.5%', // Ajusté pour centrer avec la nouvelle taille plus grande
+              top: '32%', // Ajusté pour centrer avec la nouvelle taille plus grande
+              width: '25.3%', // Augmenté de 10% supplémentaire (23% * 1.1)
+              height: '5.94%', // Augmenté de 10% supplémentaire (5.4% * 1.1)
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 14 - Position: x:322, y:385, w:60, h:20 - CLICKABLE */}
+          {/* image006 14 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 14.png"
             alt=""
             onClick={() => setSelectedLogo('14')}
             style={{
               position: 'absolute',
-              left: '83.64%',
-              top: '69.49%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '82.2%', // Déplacé de 20px vers la droite (324/385 au lieu de 304/385)
+              top: '68%', // Ajusté pour centrer avec la nouvelle taille
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 13 - Position: x:329, y:407, w:46, h:15 - CLICKABLE */}
-          <img
-            src="/images/logos/image006 13.png"
-            alt=""
-            onClick={() => setSelectedLogo('13')}
-            style={{
-              position: 'absolute',
-              left: '85.45%',
-              top: '73.47%',
-              width: '11.95%',
-              height: '2.71%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
 
-          {/* image006 15 - Position: x:322, y:426, w:60, h:20 - CLICKABLE */}
+          {/* image006 15 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 15.png"
             alt=""
             onClick={() => setSelectedLogo('15')}
             style={{
               position: 'absolute',
-              left: '83.64%',
-              top: '76.90%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '78%', // Ajusté pour centrer avec la nouvelle taille
+              top: '73.5%', // Ajusté pour centrer avec la nouvelle taille
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 24 - Position: x:14, y:388, w:60, h:20 - CLICKABLE */}
+          {/* image006 24 1 - Position Figma: x:14, y:388, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 24.png"
             alt=""
             onClick={() => setSelectedLogo('24')}
             style={{
               position: 'absolute',
-              left: '3.64%',
-              top: '70.04%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '-3.2%', // Déplacé de 20px vers la gauche (-6/385 au lieu de 14/385)
+              top: '68.86%', // Descendu de 2px au total (390/554)
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 28 - Position: x:16, y:413, w:60, h:20 - CLICKABLE */}
+          {/* image006 28 1 - Position Figma: x:14, y:411, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 28.png"
             alt=""
             onClick={() => setSelectedLogo('28')}
             style={{
               position: 'absolute',
-              left: '4.16%',
-              top: '74.55%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '2%', // Ajusté pour centrer avec la nouvelle taille
+              top: '75.21%', // Descendu de 10px supplémentaires
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 27 - Position: x:11, y:433, w:75, h:25 - CLICKABLE */}
-          <img
-            src="/images/logos/image006 27.png"
-            alt=""
-            onClick={() => setSelectedLogo('27')}
-            style={{
-              position: 'absolute',
-              left: '2.86%',
-              top: '78.16%',
-              width: '19.48%',
-              height: '4.51%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
 
-          {/* image006 22 - Position: x:115, y:477, w:60, h:19 - CLICKABLE */}
+          {/* image006 22 1 - Position Figma: x:115, y:467, w:60, h:19 - CLICKABLE */}
           <img
             src="/images/logos/image006 22.png"
             alt=""
             onClick={() => setSelectedLogo('22')}
             style={{
               position: 'absolute',
-              left: '29.87%',
-              top: '86.10%',
-              width: '15.58%',
-              height: '3.43%',
+              left: '28%', // Ajusté pour centrer avec la nouvelle taille
+              top: '82.5%', // Ajusté pour centrer avec la nouvelle taille
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.1%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 23 - Position: x:115, y:504, w:60, h:20 - CLICKABLE */}
+          {/* image006 23 1 - Position Figma: x:115, y:504, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 23.png"
             alt=""
             onClick={() => setSelectedLogo('23')}
             style={{
               position: 'absolute',
-              left: '29.87%',
-              top: '90.97%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '28%', // Ajusté pour centrer avec la nouvelle taille
+              top: '89%', // Ajusté pour centrer avec la nouvelle taille
+              width: '18.5%', // Augmenté de ~19%
+              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 21 - Position: x:108, y:529, w:75, h:25 - CLICKABLE */}
-          <img
-            src="/images/logos/image006 21.png"
-            alt=""
-            onClick={() => setSelectedLogo('21')}
-            style={{
-              position: 'absolute',
-              left: '28.05%',
-              top: '95.49%',
-              width: '19.48%',
-              height: '4.51%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
 
-          {/* image006 17 - Position: x:218, y:477, w:60, h:20 - CLICKABLE */}
+          {/* image006 17 1 - Position Figma: x:218, y:467, w:60, h:20 - CLICKABLE */}
           <img
             src="/images/logos/image006 17.png"
             alt=""
             onClick={() => setSelectedLogo('17')}
             style={{
               position: 'absolute',
-              left: '56.62%',
-              top: '86.10%',
-              width: '15.58%',
-              height: '3.61%',
+              left: '53.8%', // Ajusté pour centrer avec la nouvelle taille plus grande
+              top: '82.9%', // Remonté de 5px
+              width: '22.39%', // Augmenté de 10% supplémentaire (20.35% * 1.1)
+              height: '5.20%', // Augmenté de 10% supplémentaire (4.73% * 1.1)
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 18 - Position: x:226, y:499, w:48, h:16 - CLICKABLE */}
+          {/* image006 18 1 - Position Figma: x:226, y:497, w:48, h:16 - CLICKABLE */}
           <img
             src="/images/logos/image006 18.png"
             alt=""
             onClick={() => setSelectedLogo('18')}
             style={{
               position: 'absolute',
-              left: '58.70%',
-              top: '90.07%',
-              width: '12.47%',
-              height: '2.89%',
+              left: '57%', // Ajusté pour centrer avec la nouvelle taille
+              top: '89.8%', // Descendu de 10px
+              width: '15%', // Augmenté de ~20%
+              height: '3.5%', // Augmenté de ~21%
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 20 - Position: x:227, y:522, w:49, h:16 - CLICKABLE */}
-          <img
-            src="/images/logos/image006 20.png"
-            alt=""
-            onClick={() => setSelectedLogo('20')}
-            style={{
-              position: 'absolute',
-              left: '58.96%',
-              top: '94.22%',
-              width: '12.73%',
-              height: '2.89%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
 
-          {/* Vectors (lignes oranges) */}
-          {/* Vector 1 - Position: x:21, y:221.5, w:37, h:31 */}
-          <img
-            src="/images/vector-line-1.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '5.45%',
-              top: '39.98%',
-              width: '9.61%',
-              height: '5.60%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 2 - Position: x:337, y:221.5, w:37, h:31 */}
-          <img
-            src="/images/vector-line-2.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '87.53%',
-              top: '39.98%',
-              width: '9.61%',
-              height: '5.60%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 3 - Position: x:338, y:350.5, w:37, h:31 */}
-          <img
-            src="/images/vector-line-3.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '87.79%',
-              top: '63.27%',
-              width: '9.61%',
-              height: '5.60%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 4 - Position: x:17, y:353.5, w:37, h:31 */}
-          <img
-            src="/images/vector-line-4.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '4.42%',
-              top: '63.81%',
-              width: '9.61%',
-              height: '5.60%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 5 - Position: x:126, y:142.5, w:37, h:19.5 */}
-          <img
-            src="/images/vector-line-5.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '32.73%',
-              top: '25.72%',
-              width: '9.61%',
-              height: '3.52%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 6 - Position: x:229, y:142.5, w:37, h:19.5 */}
-          <img
-            src="/images/vector-line-6.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '59.48%',
-              top: '25.72%',
-              width: '9.61%',
-              height: '3.52%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 7 - Position: x:130, y:448, w:37, h:19.5 */}
-          <img
-            src="/images/vector-line-7.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '33.77%',
-              top: '80.87%',
-              width: '9.61%',
-              height: '3.52%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
-
-          {/* Vector 8 - Position: x:229, y:448, w:37, h:19.5 */}
-          <img
-            src="/images/vector-line-8.svg"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '59.48%',
-              top: '80.87%',
-              width: '9.61%',
-              height: '3.52%',
-              opacity: 0.5,
-              zIndex: 2
-            }}
-          />
         </div>
       </section>
     );
@@ -600,10 +402,10 @@ export function MobileExpertiseMondiale() {
           playsInline
           style={{
             position: 'absolute',
-            left: '27%', // Déplacé de 1px vers la gauche
-            top: '37.91%',
-            width: '48.83%',
-            height: '33.94%',
+            left: '27.27%', // Ajusté pour centrer avec la nouvelle taille
+            top: '38.09%', // Ajusté pour centrer avec la nouvelle taille
+            width: '48.31%', // Réduit de 1px (186/385 au lieu de 188/385)
+            height: '33.57%', // Réduit de 1px (186/554 au lieu de 188/554)
             borderRadius: '50%',
             objectFit: 'cover',
             zIndex: 2
@@ -612,291 +414,417 @@ export function MobileExpertiseMondiale() {
           <source src="/videos/globe4.mp4" type="video/mp4" />
         </video>
 
-        {/* Logos avec mêmes positions que variante 1 mais en arrière-plan */}
-        {/* image006 9 - Position: x:90, y:74, w:100, h:33 */}
-        <img
-          src="/images/logos/image006 9.png"
-          alt=""
+        {/* Logos avec mêmes positions que variante 1 mais en arrière-plan - 16 logos */}
+        {/* image006 9 1 - Position Figma: x:92, y:88, w:100, h:33 */}
+        <div
           style={{
             position: 'absolute',
-            left: '23.38%',
-            top: '13.36%',
-            width: '25.97%',
-            height: '5.96%',
+            left: '22.5%', // Ajusté pour centrer avec la nouvelle taille
+            top: '14.5%', // Ajusté pour centrer avec la nouvelle taille
+            width: '31%', // Augmenté de ~20%
+            height: '7.2%', // Augmenté de ~20%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '9' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 9.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 10 - Position: x:105, y:111, w:75, h:25 */}
-        <img
-          src="/images/logos/image006 10.png"
-          alt=""
+        {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 */}
+        <div
           style={{
             position: 'absolute',
-            left: '27%', // Déplacé de 1px vers la gauche
-            top: '20.04%',
-            width: '19.48%',
-            height: '4.51%',
+            left: '25.5%', // Ajusté pour centrer avec la nouvelle taille
+            top: '22%', // Ajusté pour centrer avec la nouvelle taille
+            width: '23%', // Augmenté de ~18%
+            height: '5.4%', // Augmenté de ~20%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '10' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 10.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 11 - Position: x:217, y:110, w:75, h:24 */}
-        <img
-          src="/images/logos/image006 11.png"
-          alt=""
+        {/* image006 11 1 - Position Figma: x:223, y:127, w:75, h:24 */}
+        <div
           style={{
             position: 'absolute',
-            left: '56.36%',
-            top: '19.86%',
-            width: '19.48%',
-            height: '4.33%',
+            left: '56%', // Ajusté pour centrer avec la nouvelle taille
+            top: '21.5%', // Ajusté pour centrer avec la nouvelle taille
+            width: '23%', // Augmenté de ~18%
+            height: '5.2%', // Augmenté de ~20%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '11' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 11.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 8 - Position: x:0, y:186, w:75, h:25 */}
-        <img
-          src="/images/logos/image006 8.png"
-          alt=""
+        {/* image006 8 1 - Position Figma: x:-1, y:206, w:75, h:25 */}
+        <div
           style={{
             position: 'absolute',
-            left: '0%',
-            top: '33.57%',
-            width: '19.48%',
-            height: '4.51%',
+            left: '-2%', // Ajusté pour centrer avec la nouvelle taille
+            top: '36%', // Ajusté pour centrer avec la nouvelle taille
+            width: '23%', // Augmenté de ~18%
+            height: '5.4%', // Augmenté de ~20%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '8' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 8.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 3 - Position: x:14, y:158, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 3.png"
-          alt=""
+        {/* image006 3 1 - Position Figma: x:10, y:171, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '3.64%',
-            top: '28.52%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '3.6%', // Déplacé de 10px vers la droite
+            top: '28.6%', // Remonté de 5px
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '3' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 3.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 7 - Position: x:15, y:131, w:60, h:19 */}
-        <img
-          src="/images/logos/image006 7.png"
-          alt=""
+
+        {/* image006 12 1 - Position Figma: x:293, y:188, w:75, h:25 */}
+        <div
           style={{
             position: 'absolute',
-            left: '3.90%',
-            top: '23.65%',
-            width: '15.58%',
-            height: '3.43%',
-            opacity: selectedLogo === '7' ? 1 : 0.3,
-            zIndex: 1
-          }}
-        />
-
-        {/* image006 12 - Position: x:310, y:186, w:75, h:25 */}
-        <img
-          src="/images/logos/image006 12.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '80.52%',
-            top: '33.57%',
-            width: '19.48%',
-            height: '4.51%',
+            left: '78.5%', // Ajusté pour centrer avec la nouvelle taille plus grande
+            top: '32%', // Ajusté pour centrer avec la nouvelle taille plus grande
+            width: '25.3%', // Augmenté de 10% supplémentaire (23% * 1.1)
+            height: '5.94%', // Augmenté de 10% supplémentaire (5.4% * 1.1)
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '12' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 12.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 14 - Position: x:322, y:385, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 14.png"
-          alt=""
+        {/* image006 14 1 - Position Figma: x:304, y:385, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '83.64%',
-            top: '69.49%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '82.2%', // Déplacé de 20px vers la droite (324/385 au lieu de 304/385)
+            top: '68%', // Ajusté pour centrer avec la nouvelle taille
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '14' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 14.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 13 - Position: x:329, y:407, w:46, h:15 */}
-        <img
-          src="/images/logos/image006 13.png"
-          alt=""
+
+        {/* image006 15 1 - Position Figma: x:308, y:416, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '85.45%',
-            top: '73.47%',
-            width: '11.95%',
-            height: '2.71%',
-            opacity: selectedLogo === '13' ? 1 : 0.3,
-            zIndex: 1
-          }}
-        />
-
-        {/* image006 15 - Position: x:322, y:426, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 15.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '83.64%',
-            top: '76.90%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '78%', // Ajusté pour centrer avec la nouvelle taille
+            top: '73.5%', // Ajusté pour centrer avec la nouvelle taille
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '15' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 15.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 24 - Position: x:14, y:388, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 24.png"
-          alt=""
+        {/* image006 24 1 - Position Figma: x:14, y:388, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '3.64%',
-            top: '70.04%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '-3.2%', // Déplacé de 20px vers la gauche (-6/385 au lieu de 14/385)
+            top: '68.86%', // Descendu de 2px au total (390/554)
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '24' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 24.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 28 - Position: x:16, y:413, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 28.png"
-          alt=""
+        {/* image006 28 1 - Position Figma: x:14, y:411, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '4.16%',
-            top: '74.55%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '2%', // Ajusté pour centrer avec la nouvelle taille
+            top: '75.21%', // Descendu de 10px supplémentaires
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '28' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 28.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 27 - Position: x:11, y:433, w:75, h:25 */}
-        <img
-          src="/images/logos/image006 27.png"
-          alt=""
+
+        {/* image006 22 1 - Position Figma: x:115, y:467, w:60, h:19 */}
+        <div
           style={{
             position: 'absolute',
-            left: '2.86%',
-            top: '78.16%',
-            width: '19.48%',
-            height: '4.51%',
-            opacity: selectedLogo === '27' ? 1 : 0.3,
-            zIndex: 1
-          }}
-        />
-
-        {/* image006 22 - Position: x:115, y:477, w:60, h:19 */}
-        <img
-          src="/images/logos/image006 22.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '29.87%',
-            top: '86.10%',
-            width: '15.58%',
-            height: '3.43%',
+            left: '28%', // Ajusté pour centrer avec la nouvelle taille
+            top: '82.5%', // Ajusté pour centrer avec la nouvelle taille
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.1%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '22' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 22.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 23 - Position: x:115, y:504, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 23.png"
-          alt=""
+        {/* image006 23 1 - Position Figma: x:115, y:504, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '29.87%',
-            top: '90.97%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '28%', // Ajusté pour centrer avec la nouvelle taille
+            top: '89%', // Ajusté pour centrer avec la nouvelle taille
+            width: '18.5%', // Augmenté de ~19%
+            height: '4.3%', // Augmenté de ~19%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '23' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 23.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 21 - Position: x:108, y:529, w:75, h:25 */}
-        <img
-          src="/images/logos/image006 21.png"
-          alt=""
+
+        {/* image006 17 1 - Position Figma: x:218, y:467, w:60, h:20 */}
+        <div
           style={{
             position: 'absolute',
-            left: '28.05%',
-            top: '95.49%',
-            width: '19.48%',
-            height: '4.51%',
-            opacity: selectedLogo === '21' ? 1 : 0.3,
-            zIndex: 1
-          }}
-        />
-
-        {/* image006 17 - Position: x:218, y:477, w:60, h:20 */}
-        <img
-          src="/images/logos/image006 17.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '56.62%',
-            top: '86.10%',
-            width: '15.58%',
-            height: '3.61%',
+            left: '53.8%', // Ajusté pour centrer avec la nouvelle taille plus grande
+            top: '82.9%', // Remonté de 5px
+            width: '22.39%', // Augmenté de 10% supplémentaire (20.35% * 1.1)
+            height: '5.20%', // Augmenté de 10% supplémentaire (4.73% * 1.1)
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '17' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 17.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 18 - Position: x:226, y:499, w:48, h:16 */}
-        <img
-          src="/images/logos/image006 18.png"
-          alt=""
+        {/* image006 18 1 - Position Figma: x:226, y:497, w:48, h:16 */}
+        <div
           style={{
             position: 'absolute',
-            left: '58.70%',
-            top: '90.07%',
-            width: '12.47%',
-            height: '2.89%',
+            left: '57%', // Ajusté pour centrer avec la nouvelle taille
+            top: '89.8%', // Descendu de 10px
+            width: '15%', // Augmenté de ~20%
+            height: '3.5%', // Augmenté de ~21%
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
             opacity: selectedLogo === '18' ? 1 : 0.3,
-            zIndex: 1
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        />
+        >
+          <img
+            src="/images/logos/image006 18.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
 
-        {/* image006 20 - Position: x:227, y:522, w:49, h:16 */}
-        <img
-          src="/images/logos/image006 20.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '58.96%',
-            top: '94.22%',
-            width: '12.73%',
-            height: '2.89%',
-            opacity: selectedLogo === '20' ? 1 : 0.3,
-            zIndex: 1
-          }}
-        />
 
         
         {/* Group 19 - Modal - Position exacte: x:39, y:150, w:314, h:358 */}
@@ -919,7 +847,7 @@ export function MobileExpertiseMondiale() {
             top: '0',
             width: '100%',
             height: '85.92%', // 307.62/358
-            background: 'linear-gradient(180deg, #476DCE 0%, #243768 100%)',
+            background: 'linear-gradient(180deg, #6B94E0 0%, #5A82D8 15%, #476DCE 30%, #3A5BA5 65%, #243768 100%)',
             borderRadius: '50%',
             boxShadow: '0px 4px 24px rgba(0, 0, 0, 0.25)'
           }} />
@@ -945,141 +873,35 @@ export function MobileExpertiseMondiale() {
           </div>
 
           {/* Logo dynamique basé sur la sélection - Toujours en pleine couleur */}
-          <img
-            src={logoInfo?.image || '/images/logos/image006 1.png'}
-            alt=""
+          <div
             style={{
               position: 'absolute',
               left: '30.57%', // 95.98/314
               top: '12.46%', // 44.59/358
               width: '36.91%', // 115.92/314
               height: '10.73%', // 38.4/358
+              backgroundColor: 'white',
+              borderRadius: '6px',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               opacity: 1, // Toujours en pleine couleur
               zIndex: 11 // Au-dessus de tout
             }}
-          />
+          >
+            <img
+              src={logoInfo?.image || '/images/logos/image006 1.png'}
+              alt=""
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
         </div>
 
-        {/* Vectors (lignes oranges) - Mêmes que variante 1 */}
-        {/* Vector 1 - Position: x:21, y:221.5, w:37, h:31 */}
-        <img
-          src="/images/vector-line-1.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '5.45%',
-            top: '39.98%',
-            width: '9.61%',
-            height: '5.60%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 2 - Position: x:337, y:221.5, w:37, h:31 */}
-        <img
-          src="/images/vector-line-2.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '87.53%',
-            top: '39.98%',
-            width: '9.61%',
-            height: '5.60%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 3 - Position: x:338, y:350.5, w:37, h:31 */}
-        <img
-          src="/images/vector-line-3.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '87.79%',
-            top: '63.27%',
-            width: '9.61%',
-            height: '5.60%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 4 - Position: x:17, y:353.5, w:37, h:31 */}
-        <img
-          src="/images/vector-line-4.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '4.42%',
-            top: '63.81%',
-            width: '9.61%',
-            height: '5.60%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 5 - Position: x:126, y:142.5, w:37, h:19.5 */}
-        <img
-          src="/images/vector-line-5.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '32.73%',
-            top: '25.72%',
-            width: '9.61%',
-            height: '3.52%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 6 - Position: x:229, y:142.5, w:37, h:19.5 */}
-        <img
-          src="/images/vector-line-6.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '59.48%',
-            top: '25.72%',
-            width: '9.61%',
-            height: '3.52%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 7 - Position: x:130, y:448, w:37, h:19.5 */}
-        <img
-          src="/images/vector-line-7.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '33.77%',
-            top: '80.87%',
-            width: '9.61%',
-            height: '3.52%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
-
-        {/* Vector 8 - Position: x:229, y:448, w:37, h:19.5 */}
-        <img
-          src="/images/vector-line-8.svg"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: '59.48%',
-            top: '80.87%',
-            width: '9.61%',
-            height: '3.52%',
-            opacity: 0.5,
-            zIndex: 2
-          }}
-        />
 
         {/* Bouton fermeture - Style rond orange avec croix blanche */}
         <button
