@@ -25,6 +25,18 @@ export function MobileOffreGlobale() {
       modalContent: locale === 'en' 
         ? "We help organisations make the right decisions at the right time. Combining strategic vision with rigorous project management, we enable you to anticipate risks, accelerate initiatives and maximise the impact of your investments."
         : "Nous aidons les organisations à prendre les bonnes décisions au bon moment. En combinant vision stratégique et rigueur en gestion de projet, nous vous permettons d'anticiper les risques, d'accélérer vos initiatives et de maximiser l'impact de vos investissements.",
+      bulletPoint1: locale === 'en' 
+        ? '• Build clear and ambitious roadmaps.'
+        : '• Construire des feuilles de route claires et ambitieuses.',
+      bulletPoint2: locale === 'en'
+        ? '• Structure project governance that drives results.'
+        : '• Structurer une gouvernance projet qui favorise les résultats.',
+      bulletPoint3: locale === 'en'
+        ? '• Define monitoring mechanisms that enable quick action.'
+        : "• Définir des mécanismes de suivi qui permettent d'agir vite.",
+      bulletPoint4: locale === 'en'
+        ? '• Turn around struggling projects.'
+        : '• Redresser les projets en difficulté.',
       image: '/images/image-7.png'
     },
     placement: {
@@ -35,6 +47,18 @@ export function MobileOffreGlobale() {
       modalContent: locale === 'en'
         ? "When your projects require immediate, qualified reinforcements, we rapidly integrate consultants who create value from day one. Beyond technical expertise, we bring turnaround capability, execution and on-the-ground leadership."
         : "Quand vos projets exigent des renforts immédiats et qualifiés, nous intégrons rapidement des consultants capables de générer de la valeur dès le premier jour. Plus que de l'expertise technique, nous apportons une capacité de redressement, d'exécution et de leadership sur le terrain.",
+      bulletPoint1: locale === 'en'
+        ? '• Drive your strategic projects with rigor and agility.'
+        : '• Piloter vos projets stratégiques avec rigueur et agilité.',
+      bulletPoint2: locale === 'en'
+        ? '• Ensure cost, schedule and risk control.'
+        : '• Assurer la maîtrise des coûts, délais et risques.',
+      bulletPoint3: locale === 'en'
+        ? '• Secure contractual milestones and manage risks.'
+        : "• Sécuriser l'atteinte de jalons contractuels et maitriser les risques.",
+      bulletPoint4: locale === 'en'
+        ? '• Strengthen your teams during critical moments.'
+        : '• Renforcer vos équipes dans les moments critiques.',
       image: '/images/image-8.png'
     },
     formation: {
@@ -45,6 +69,18 @@ export function MobileOffreGlobale() {
       modalContent: locale === 'en'
         ? "Our hands-on training, built from real cases and multi-sector experience, enables your teams to acquire the key skills to deliver high-performing, sustainable projects."
         : "Nos formations pratiques, conçues à partir de cas réels et de notre expérience multisectorielle, permettent à vos équipes d'acquérir les compétences clés pour livrer des projets performants et durables.",
+      bulletPoint1: locale === 'en'
+        ? '• Train your teams on best practices in planning and governance.'
+        : '• Former vos équipes sur les meilleures pratiques de planification et de gouvernance.',
+      bulletPoint2: locale === 'en'
+        ? '• Equip your managers for change management.'
+        : '• Outiller vos gestionnaires dans la conduite du changement.',
+      bulletPoint3: locale === 'en'
+        ? '• Develop leadership and project management skills.'
+        : '• Développer le leadership et les compétences en gestion de projet.',
+      bulletPoint4: locale === 'en'
+        ? '• Explore new challenges (AI applied to projects, benefits management, etc.).'
+        : '• Explorer de nouveaux enjeux (IA appliquée aux projets, gestion des bénéfices, etc.).',
       image: '/images/image-9.png'
     }
   };
@@ -323,14 +359,20 @@ export function MobileOffreGlobale() {
                 ×
               </button>
 
-              {/* Contenu structuré */}
+              {/* Contenu structuré avec scroll */}
               <div style={{
-                marginTop: '45px'
+                marginTop: '45px',
+                maxHeight: 'calc(100% - 60px)',
+                overflowY: 'auto',
+                paddingRight: '10px',
+                WebkitOverflowScrolling: 'touch',
+                scrollbarWidth: 'thin',
+                scrollbarColor: '#F36911 transparent'
               }}>
                 {/* Titre principal */}
                 <h3 style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '26px',
+                  fontSize: '22px',
                   fontWeight: 700,
                   color: '#F36911',
                   marginBottom: '12px',
@@ -342,10 +384,10 @@ export function MobileOffreGlobale() {
                 {/* Sous-titre accrocheur */}
                 <h4 style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   fontWeight: 600,
                   color: '#FFD4B3',
-                  marginBottom: '25px',
+                  marginBottom: '20px',
                   lineHeight: '1.3'
                 }}>
                   {services[selectedService].modalSubtitle}
@@ -354,14 +396,40 @@ export function MobileOffreGlobale() {
                 {/* Description principale */}
                 <p style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '15px',
+                  fontSize: '14px',
                   fontWeight: 400,
                   color: '#FFFFFF',
-                  lineHeight: '1.6',
-                  textAlign: 'left'
+                  lineHeight: '1.5',
+                  textAlign: 'left',
+                  marginBottom: '20px'
                 }}>
                   {services[selectedService].modalContent}
                 </p>
+
+                {/* Bullet points */}
+                <div style={{
+                  fontFamily: 'Gotham, sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  color: '#FFFFFF',
+                  lineHeight: '1.8'
+                }}>
+                  <div style={{ marginBottom: '10px' }}>
+                    {services[selectedService].bulletPoint1}
+                  </div>
+                  <div style={{ marginBottom: '10px' }}>
+                    {services[selectedService].bulletPoint2}
+                  </div>
+                  <div style={{ marginBottom: '10px' }}>
+                    {services[selectedService].bulletPoint3}
+                  </div>
+                  <div style={{ marginBottom: '10px' }}>
+                    {services[selectedService].bulletPoint4}
+                  </div>
+                </div>
+
+                {/* Espace vide en bas */}
+                <div style={{ height: '20px' }} />
               </div>
 
             </div>

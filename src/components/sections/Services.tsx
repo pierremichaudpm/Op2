@@ -284,6 +284,39 @@ export function Services() {
                 style={{ background: 'rgba(36, 55, 104, 0.82)' }}
               />
               
+              {/* Bouton de fermeture */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(null);
+                }}
+                className="absolute z-[51]"
+                style={{
+                  top: '30px',
+                  right: '30px',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  backgroundColor: '#F36911',
+                  border: 'none',
+                  color: '#FFFFFF',
+                  fontSize: '28px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: 0.9,
+                  padding: 0,
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                  outline: 'none',
+                  lineHeight: 1,
+                  textDecoration: 'none'
+                }}
+              >
+                ×
+              </button>
+              
               {/* Contenu colonne gauche */}
               <div 
                 className="absolute flex flex-col justify-center"
@@ -294,12 +327,13 @@ export function Services() {
                   height: '400px'
                 }}
               >
-                {/* Titre principal */}
+                {/* Sous-titre en orange pâle */}
                 <p 
-                  className={`text-white font-inter font-bold mb-16`}
+                  className={`font-inter font-semibold mb-6`}
                   style={{
-                    fontSize: '28px',
-                    lineHeight: '38px'
+                    fontSize: '29px',
+                    lineHeight: '38px',
+                    color: '#FFD4B3'
                   }}
                 >
                   {open === 'conseil' && t('services.conseil.modal.title')}
