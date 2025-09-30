@@ -42,7 +42,7 @@ export function HeroSection() {
             />
 
             {/* Centered content */}
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center gap-4">
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center gap-4" style={{ transform: 'translateY(-40px)' }}>
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
