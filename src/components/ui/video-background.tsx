@@ -7,9 +7,10 @@ export type VideoBackgroundProps = {
   children?: React.ReactNode;
   className?: string;
   opacity?: number;
+  objectPosition?: string;
 };
 
-export function VideoBackground({ videoSrc, posterSrc, children, className, opacity = 0.6 }: VideoBackgroundProps) {
+export function VideoBackground({ videoSrc, posterSrc, children, className, opacity = 0.6, objectPosition = 'center' }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasError, setHasError] = useState(false);
 
@@ -39,6 +40,7 @@ export function VideoBackground({ videoSrc, posterSrc, children, className, opac
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
+          style={{ objectPosition }}
           autoPlay
           muted
           loop

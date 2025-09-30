@@ -16,9 +16,10 @@ export function HeroSection() {
           <div className="relative h-[896px] w-full">
             {/* Video as true background (poster = slider 1.png) */}
             <VideoBackground
-              videoSrc="/videos/hero_animation.mp4"
+              videoSrc={`/videos/hero_animation.mp4?v=${Date.now()}`}
               posterSrc="/images/slider-1.png"
               opacity={1}
+              objectPosition="center bottom"
               className="absolute inset-0 z-0"
             />
 
