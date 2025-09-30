@@ -17,6 +17,11 @@ export function VideoBackground({ videoSrc, posterSrc, children, className, opac
   useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
+    
+    // Force le volume à 0
+    el.volume = 0;
+    el.muted = true;
+    
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

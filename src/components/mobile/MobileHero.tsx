@@ -1,9 +1,18 @@
 "use client";
 import { useI18n } from '@/lib/i18n';
 import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
 export function MobileHero() {
   const { t, locale } = useI18n();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = 0;
+      videoRef.current.muted = true;
+    }
+  }, []);
 
   return (
     <section style={{
@@ -21,17 +30,25 @@ export function MobileHero() {
         borderRadius: '20px',
         overflow: 'hidden'
       }}>
-        {/* Image de fond - train */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundImage: 'url(/images/train.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }} />
+        {/* Vidéo de fond - train */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center bottom'
+          }}
+        >
+          <source src="/videos/hero_mobile_animation.mp4" type="video/mp4" />
+        </video>
 
         {/* Overlay bleu */}
         <div style={{
@@ -72,7 +89,7 @@ export function MobileHero() {
         {/* Contenu textuel avec proportions améliorées */}
         <div style={{
           position: 'absolute',
-          top: 'calc(50% + 20px)', // Descendu de 20px
+          top: 'calc(50% - 20px)', // Remonté de 40px (était +20px, maintenant -20px)
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: '85%', // Largeur optimisée pour le texte
@@ -151,7 +168,7 @@ export function MobileHero() {
             cursor: 'pointer',
             boxShadow: '0 4px 12px rgba(243, 105, 17, 0.3)', // Ombre pour profondeur
             transition: 'all 0.3s ease',
-            marginTop: '115px' // Descendu de 15px supplémentaires
+            marginTop: '-5px' // Encore remonté de 40px
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'scale(1.05)';
