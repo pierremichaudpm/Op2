@@ -41,7 +41,7 @@ export function MobileHero() {
           width: '100%',
           height: '100%',
           backgroundColor: '#243768',
-          opacity: 0.5
+          opacity: 0.6
         }} />
 
         {/* Overlay gradient */}
@@ -52,8 +52,21 @@ export function MobileHero() {
           width: '100%',
           height: '100%',
           background: 'linear-gradient(180deg, #243768 0%, #F36911 100%)',
-          opacity: 0.6,
+          opacity: 0.42,
           mixBlendMode: 'color'
+        }} />
+
+        {/* Bottom orange emphasis (blurred) */}
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: '45%',
+          background: 'linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)',
+          mixBlendMode: 'color',
+          filter: 'blur(12px)',
+          borderRadius: '0 0 20px 20px'
         }} />
 
         {/* Contenu textuel avec proportions améliorées */}
