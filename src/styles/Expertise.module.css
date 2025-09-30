@@ -116,16 +116,29 @@
   z-index: 10;
 }
 
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
 .logoContainer {
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 10;
 }
 
 .logoContainer:hover {
   transform: scale(1.1);
   z-index: 20;
+}
+
+.logoPulsing {
+  animation: logoPulse 2.5s ease-in-out infinite;
 }
 
 
@@ -418,7 +431,8 @@
   top: 0;
   left: 0;
   z-index: 100;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .infoCircle {

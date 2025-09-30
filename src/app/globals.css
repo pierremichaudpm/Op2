@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animation pulse pour logos */
+@keyframes logoPulseMobile {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
 /* Set initial background to match splash */
 body {
   background: #FDFCFB;

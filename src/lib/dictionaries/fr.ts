@@ -21,7 +21,8 @@ export const fr = {
     contact: 'Contact'
   },
   world: {
-    title: 'Une expertise mondiale'
+    title: 'Une expertise mondiale',
+    subtitle: 'Cliquez sur un logo pour découvrir nos projets'
   },
   hero: {
     title: {

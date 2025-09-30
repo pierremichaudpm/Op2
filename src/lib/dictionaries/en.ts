@@ -21,7 +21,8 @@ export const en = {
     contact: 'Contact'
   },
   world: {
-    title: 'Global expertise'
+    title: 'Global expertise',
+    subtitle: 'Click a logo to discover our projects'
   },
   hero: {
     title: {

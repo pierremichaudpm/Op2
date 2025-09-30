@@ -1,5 +1,6 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n';
 
 interface LogoInfo {
@@ -32,11 +33,54 @@ const logosData: LogoInfo[] = [
 export function MobileExpertiseMondiale() {
   const { locale } = useI18n();
   const [selectedLogo, setSelectedLogo] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Détection de visibilité avec IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 } // Déclenche quand 30% de la section est visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  // Ouverture automatique de démo la première fois quand visible
+  useEffect(() => {
+    const hasSeenDemo = localStorage.getItem('expertise-mobile-demo-seen');
+    
+    if (!hasSeenDemo && isVisible) {
+      // Ouvrir automatiquement après 0.5 seconde
+      const openTimer = setTimeout(() => {
+        setSelectedLogo('10'); // Logo Pomerleau
+      }, 500);
+      
+      // Fermer automatiquement après 3 secondes
+      const closeTimer = setTimeout(() => {
+        setSelectedLogo(null);
+        localStorage.setItem('expertise-mobile-demo-seen', 'true');
+      }, 3500);
+      
+      return () => {
+        clearTimeout(openTimer);
+        clearTimeout(closeTimer);
+      };
+    }
+  }, [isVisible]);
 
   // Variant 1 (Default) - Adapté depuis Figma avec positionnement proportionnel
   if (!selectedLogo) {
     return (
-      <section id="expertise" style={{
+      <section ref={sectionRef} id="expertise" style={{
         width: '100%',
         marginBottom: '20px',
         padding: '0 4.5%'
@@ -102,32 +146,49 @@ export function MobileExpertiseMondiale() {
           {/* Logos avec positions exactes de Figma - 16 logos avec tailles augmentées */}
           
           {/* image006 9 1 - Position Figma: x:92, y:88, w:100, h:33 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 9.png"
             alt=""
             onClick={() => setSelectedLogo('9')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
             style={{
               position: 'absolute',
-              left: '22.5%', // Ajusté pour centrer avec la nouvelle taille
-              top: '14.5%', // Ajusté pour centrer avec la nouvelle taille
-              width: '31%', // Augmenté de ~20%
-              height: '7.2%', // Augmenté de ~20%
+              left: '22.5%',
+              top: '14.5%',
+              width: '31%',
+              height: '7.2%',
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
           {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 10.png"
             alt=""
             onClick={() => setSelectedLogo('10')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
             style={{
               position: 'absolute',
-              left: '25.5%', // Ajusté pour centrer avec la nouvelle taille
-              top: '22%', // Ajusté pour centrer avec la nouvelle taille
-              width: '23%', // Augmenté de ~18%
-              height: '5.4%', // Augmenté de ~20%
+              left: '25.5%',
+              top: '22%',
+              width: '23%',
+              height: '5.4%',
               cursor: 'pointer',
               zIndex: 3
             }}
@@ -340,7 +401,7 @@ export function MobileExpertiseMondiale() {
     const logoInfo = logosData.find(logo => logo.id === selectedLogo);
     
     return (
-    <section style={{
+    <section ref={sectionRef} style={{
       position: 'relative',
       width: '100%',
       marginBottom: '20px',

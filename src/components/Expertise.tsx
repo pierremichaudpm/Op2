@@ -1,5 +1,5 @@
  'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/Expertise.module.css';
 
 // Mapping des logos avec leurs fichiers correspondants
@@ -225,13 +225,15 @@ function LogoContainer({
   logoKey, 
   onClick,
   isSelected,
-  hasAnySelection
+  hasAnySelection,
+  isPulsing
 }: { 
   className: string; 
   logoKey: string; 
   onClick: (key: string) => void;
   isSelected: boolean;
   hasAnySelection: boolean;
+  isPulsing?: boolean;
 }) {
   const logoFile = logoMapping[logoKey as keyof typeof logoMapping];
   const [isHovered, setIsHovered] = useState(false);
@@ -258,7 +260,7 @@ function LogoContainer({
   
   return (
     <div 
-      className={`${className} ${styles.logoContainer}`}
+      className={`${className} ${styles.logoContainer} ${isPulsing && !isSelected && !hasAnySelection ? styles.logoPulsing : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={(e) => {
@@ -290,6 +292,49 @@ function LogoContainer({
 
 export default function Expertise() {
   const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Détection de visibilité avec IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 } // Déclenche quand 30% de la section est visible
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+  
+  // Ouverture automatique de démo la première fois quand visible
+  useEffect(() => {
+    const hasSeenDemo = localStorage.getItem('expertise-demo-seen');
+    
+    if (!hasSeenDemo && isVisible) {
+      // Ouvrir automatiquement après 0.5 seconde
+      const openTimer = setTimeout(() => {
+        setSelectedCompany('Image006_10_311_221'); // Logo Pomerleau
+      }, 500);
+      
+      // Fermer automatiquement après 3 secondes
+      const closeTimer = setTimeout(() => {
+        setSelectedCompany(null);
+        localStorage.setItem('expertise-demo-seen', 'true');
+      }, 3500);
+      
+      return () => {
+        clearTimeout(openTimer);
+        clearTimeout(closeTimer);
+      };
+    }
+  }, [isVisible]);
   
   const handleLogoClick = (logoKey: string) => {
     setSelectedCompany(logoKey);
@@ -303,7 +348,7 @@ export default function Expertise() {
   const hasAnySelection = selectedCompany !== null;
 
   return (
-    <div className={styles.Expertise_311_396} onClick={handleCloseInfo}>
+    <div ref={containerRef} className={styles.Expertise_311_396} onClick={handleCloseInfo}>
       {/* Globe avec vidéo */}
       <div className={styles.Globe_311_217}>
         <video 
@@ -324,7 +369,7 @@ export default function Expertise() {
       
       {/* Overlay d'information */}
       {selectedInfo && (
-        <div className={styles.infoOverlay}>
+        <div className={styles.infoOverlay} onClick={handleCloseInfo}>
           <div className={styles.infoCircle} onClick={(e) => e.stopPropagation()}>
             <button 
               className={styles.closeButton}
@@ -358,8 +403,8 @@ export default function Expertise() {
       
       {/* Tous les logos avec leurs positions exactes */}
       <LogoContainer className={styles.Image006_1_311_219} logoKey="Image006_1_311_219" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_1_311_219'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_9_311_220} logoKey="Image006_9_311_220" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_9_311_220'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_10_311_221} logoKey="Image006_10_311_221" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_10_311_221'} hasAnySelection={hasAnySelection} />
+      <LogoContainer className={styles.Image006_9_311_220} logoKey="Image006_9_311_220" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_9_311_220'} hasAnySelection={hasAnySelection} isPulsing={true} />
+      <LogoContainer className={styles.Image006_10_311_221} logoKey="Image006_10_311_221" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_10_311_221'} hasAnySelection={hasAnySelection} isPulsing={true} />
       <LogoContainer className={styles.Image006_11_311_222} logoKey="Image006_11_311_222" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_11_311_222'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_12_311_223} logoKey="Image006_12_311_223" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_12_311_223'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_13_311_224} logoKey="Image006_13_311_224" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_13_311_224'} hasAnySelection={hasAnySelection} />
