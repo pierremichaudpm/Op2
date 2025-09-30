@@ -24,9 +24,9 @@ export function HeroSection() {
             />
 
             {/* Overlays above video (adoucies) */}
-            <div className="absolute inset-0 z-10 opacity-[0.5] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]" style={{ backgroundColor: '#243768' }} />
+            <div className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]" style={{ backgroundColor: '#243768' }} />
             <div
-              className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
+              className="absolute inset-0 z-10 opacity-[0.48] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
               style={{ background: 'linear-gradient(180deg, #243768 0%, #F36911 100%)', mixBlendMode: 'color' }}
             />
             {/* Bottom orange emphasis (blurred) */}

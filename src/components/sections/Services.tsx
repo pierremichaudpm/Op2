@@ -323,7 +323,7 @@ export function Services() {
                 style={{
                   width: '720px',
                   left: '60px',
-                  top: '40px',
+                  top: '10px',
                   height: '400px'
                 }}
               >
@@ -331,9 +331,9 @@ export function Services() {
                 <p 
                   className={`font-inter font-semibold mb-6`}
                   style={{
-                    fontSize: '29px',
+                    fontSize: '30px',
                     lineHeight: '38px',
-                    color: '#FFD4B3'
+                    color: '#F36911'
                   }}
                 >
                   {open === 'conseil' && t('services.conseil.modal.title')}
