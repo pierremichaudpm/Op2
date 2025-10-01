@@ -37,9 +37,13 @@ export function MobileContact() {
         marginBottom: '40px'
       }}>
         {locale === 'en' 
-          ? <>Starting a complex initiative, facing project difficulties, or need team support?
+          ? <>At Op2 NA, we see every project <strong>as an opportunity to create value and accelerate change</strong>.
             <br /><br />
-            Our experts are here to help.</>
+            <strong>Our difference?</strong> We are an operational consulting firm. We don&apos;t just make recommendations: we stay by your side, in the field, <strong>until full deployment and achievement of the objectives</strong> we build together.
+            <br /><br />
+            <strong>Our promise?</strong> Support that combines strategic vision, field expertise, and tangible, lasting results. <strong>Because a well-guided project always becomes a success</strong>.
+            <br /><br />
+            <strong>Let&apos;s talk about your project</strong> today and <strong>transform your ambitions into concrete results</strong>.</>
           : <>Chez Op2 NA, nous voyons chaque projet <strong>comme une occasion de créer de la valeur et d&apos;accélérer le changement</strong>.
             <br /><br />
             <strong>Notre différence?</strong> Nous sommes une firme de consultation opérationnelle. Nous ne limitons pas aux recommandations : nous restons à vos côtés, sur le terrain, <strong>jusqu&apos;au déploiement complet et l&apos;atteinte des objectifs</strong> que nous construisons ensemble.
