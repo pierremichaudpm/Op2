@@ -195,10 +195,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 11 1 - Position Figma: x:223, y:127, w:75, h:24 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 11.png"
             alt=""
             onClick={() => setSelectedLogo('11')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
             style={{
               position: 'absolute',
               left: '56%', // Ajusté pour centrer avec la nouvelle taille
@@ -211,10 +220,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 8 1 - Position Figma: x:-1, y:206, w:75, h:25 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 8.png"
             alt=""
             onClick={() => setSelectedLogo('8')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5
+            }}
             style={{
               position: 'absolute',
               left: '-2%', // Ajusté pour centrer avec la nouvelle taille
@@ -227,10 +245,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 5 1 - Position Figma: x:10, y:171, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 5.png"
             alt=""
             onClick={() => setSelectedLogo('5')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
             style={{
               position: 'absolute',
               left: '3.6%', // Déplacé de 10px vers la droite
@@ -244,10 +271,19 @@ export function MobileExpertiseMondiale() {
 
 
           {/* image006 12 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 12.png"
             alt=""
             onClick={() => setSelectedLogo('12')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3
+            }}
             style={{
               position: 'absolute',
               left: '78.5%', // Ajusté pour centrer avec la nouvelle taille plus grande
@@ -260,10 +296,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 14 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 14.png"
             alt=""
             onClick={() => setSelectedLogo('14')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.8
+            }}
             style={{
               position: 'absolute',
               left: '82.2%', // Déplacé de 20px vers la droite (324/385 au lieu de 304/385)
@@ -277,10 +322,19 @@ export function MobileExpertiseMondiale() {
 
 
           {/* image006 15 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 15.png"
             alt=""
             onClick={() => setSelectedLogo('15')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.3
+            }}
             style={{
               position: 'absolute',
               left: '78%', // Ajusté pour centrer avec la nouvelle taille
@@ -293,10 +347,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 24 1 - Position Figma: x:14, y:388, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 24.png"
             alt=""
             onClick={() => setSelectedLogo('24')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.8
+            }}
             style={{
               position: 'absolute',
               left: '-3.2%', // Déplacé de 20px vers la gauche (-6/385 au lieu de 14/385)
@@ -309,10 +372,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 28 1 - Position Figma: x:14, y:411, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 28.png"
             alt=""
             onClick={() => setSelectedLogo('28')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2.3
+            }}
             style={{
               position: 'absolute',
               left: '2%', // Ajusté pour centrer avec la nouvelle taille
@@ -326,10 +398,19 @@ export function MobileExpertiseMondiale() {
 
 
           {/* image006 22 1 - Position Figma: x:115, y:467, w:60, h:19 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 22.png"
             alt=""
             onClick={() => setSelectedLogo('22')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.2
+            }}
             style={{
               position: 'absolute',
               left: '28%', // Ajusté pour centrer avec la nouvelle taille
@@ -342,10 +423,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 23 1 - Position Figma: x:115, y:504, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 23.png"
             alt=""
             onClick={() => setSelectedLogo('23')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.7
+            }}
             style={{
               position: 'absolute',
               left: '28%', // Ajusté pour centrer avec la nouvelle taille
@@ -359,10 +449,19 @@ export function MobileExpertiseMondiale() {
 
 
           {/* image006 17 1 - Position Figma: x:218, y:467, w:60, h:20 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 17.png"
             alt=""
             onClick={() => setSelectedLogo('17')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.2
+            }}
             style={{
               position: 'absolute',
               left: '53.8%', // Ajusté pour centrer avec la nouvelle taille plus grande
@@ -375,10 +474,19 @@ export function MobileExpertiseMondiale() {
           />
 
           {/* image006 18 1 - Position Figma: x:226, y:497, w:48, h:16 - CLICKABLE */}
-          <img
+          <motion.img
             src="/images/logos/image006 18.png"
             alt=""
             onClick={() => setSelectedLogo('18')}
+            animate={{
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.7
+            }}
             style={{
               position: 'absolute',
               left: '57%', // Ajusté pour centrer avec la nouvelle taille
