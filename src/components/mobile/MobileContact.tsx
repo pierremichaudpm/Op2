@@ -34,6 +34,7 @@ export function MobileContact() {
         textAlign: 'left',
         width: '100%',
         maxWidth: '353px',
+        marginTop: '20px',
         marginBottom: '40px'
       }}>
         {locale === 'en' 

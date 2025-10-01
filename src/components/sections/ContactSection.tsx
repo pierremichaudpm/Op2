@@ -10,7 +10,7 @@ export function ContactSection() {
         <h2 className="font-display text-primary uppercase text-[32px] leading-[48px] md:text-[48px] md:leading-[84px] font-bold">
           {t('contact.title')}
         </h2>
-        <p className="mt-4 max-w-[66.67%] text-primary text-[18px] leading-[28px] md:text-[32px] md:leading-[40px]">
+        <p className="mt-[36px] max-w-[66.67%] text-primary text-[18px] leading-[28px] md:text-[32px] md:leading-[40px]">
           {locale === 'en' 
             ? <>At Op2 NA, we see every project <strong>as an opportunity to create value and accelerate change</strong>.
             <br /><br />
