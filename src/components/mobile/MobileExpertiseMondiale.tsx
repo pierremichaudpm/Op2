@@ -151,7 +151,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('9')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -175,7 +175,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('10')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -200,7 +200,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('11')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -225,7 +225,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('8')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -250,7 +250,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('5')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -276,7 +276,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('12')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -301,7 +301,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('14')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -327,7 +327,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('15')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -352,7 +352,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('24')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -377,7 +377,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('28')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -403,7 +403,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('22')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -428,7 +428,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('23')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -454,7 +454,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('17')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
@@ -479,7 +479,7 @@ export function MobileExpertiseMondiale() {
             alt=""
             onClick={() => setSelectedLogo('18')}
             animate={{
-              scale: [1, 1.08, 1]
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 2.5,
