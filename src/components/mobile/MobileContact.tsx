@@ -46,7 +46,7 @@ export function MobileContact() {
             <strong>Let&apos;s talk about your project</strong> today and <strong>transform your ambitions into concrete results</strong>.</>
           : <>Chez Op2 NA, nous voyons chaque projet <strong>comme une occasion de créer de la valeur et d&apos;accélérer le changement</strong>.
             <br /><br />
-            <strong>Notre différence?</strong> Nous sommes une firme de consultation opérationnelle. Nous ne limitons pas aux recommandations : nous restons à vos côtés, sur le terrain, <strong>jusqu&apos;au déploiement complet et l&apos;atteinte des objectifs</strong> que nous construisons ensemble.
+            <strong>Notre différence?</strong> Nous sommes une firme de consultation opérationnelle. Nous ne nous limitons pas aux recommandations : nous restons à vos côtés, sur le terrain, <strong>jusqu&apos;au déploiement complet et l&apos;atteinte des objectifs</strong> que nous construisons ensemble.
             <br /><br />
             <strong>Notre promesse?</strong> Un accompagnement qui allie vision stratégique, expertise terrain, résultats tangibles et durables. <strong>Parce qu&apos;un projet bien guidé devient toujours une réussite</strong>.
             <br /><br />
