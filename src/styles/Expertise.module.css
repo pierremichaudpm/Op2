@@ -490,8 +490,8 @@
 
 .closeButton {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 307px;
+  right: 439px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -512,6 +512,7 @@
   outline: none;
   line-height: 1;
   text-decoration: none;
+  pointer-events: auto;
 }
 
 .closeButton:hover {

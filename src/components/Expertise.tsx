@@ -379,13 +379,13 @@ export default function Expertise() {
       {/* Overlay d'information */}
       {selectedInfo && (
         <div className={styles.infoOverlay} onClick={handleCloseInfo}>
+          <button 
+            className={styles.closeButton}
+            onClick={handleCloseInfo}
+          >
+            ×
+          </button>
           <div className={styles.infoCircle} onClick={(e) => e.stopPropagation()}>
-            <button 
-              className={styles.closeButton}
-              onClick={handleCloseInfo}
-            >
-              ×
-            </button>
             <div className={styles.infoContent}>
               {/* Logo */}
               <div className={styles.logoHeader}>
