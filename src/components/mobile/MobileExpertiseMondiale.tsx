@@ -16,7 +16,8 @@ const logosData: LogoInfo[] = [
   { id: '11', name: 'Partenaire 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 11.png' },
   { id: '8', name: 'Partenaire 8', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 8.png' },
   { id: '5', name: 'Partenaire 5', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 5.png' },
-  { id: '12', name: 'Partenaire 12', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 12.png' },
+  { id: '29', name: 'Partenaire 29', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 29.png' },
+  { id: '30', name: 'Partenaire 30', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 30.png' },
   { id: '24', name: 'Partenaire 24', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 24.png' },
   { id: '28', name: 'Partenaire 28', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 28.png' },
   { id: '22', name: 'Partenaire 22', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 22.png' },
@@ -241,11 +242,11 @@ export function MobileExpertiseMondiale() {
           />
 
 
-          {/* image006 12 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE */}
+          {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE */}
           <motion.img
-            src="/images/logos/image006 12.png"
+            src="/images/logos/image006 29.png"
             alt=""
-            onClick={() => setSelectedLogo('12')}
+            onClick={() => setSelectedLogo('29')}
             animate={{
               scale: [1, 1.15, 1]
             }}
@@ -257,10 +258,35 @@ export function MobileExpertiseMondiale() {
             }}
             style={{
               position: 'absolute',
-              left: '78.5%', // Ajusté pour centrer avec la nouvelle taille plus grande
-              top: '32%', // Ajusté pour centrer avec la nouvelle taille plus grande
-              width: '25.3%', // Augmenté de 10% supplémentaire (23% * 1.1)
-              height: '5.94%', // Augmenté de 10% supplémentaire (5.4% * 1.1)
+              left: '78.5%',
+              top: '28%',
+              width: '20%',
+              height: '4.8%',
+              cursor: 'pointer',
+              zIndex: 3
+            }}
+          />
+
+          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE */}
+          <motion.img
+            src="/images/logos/image006 30.png"
+            alt=""
+            onClick={() => setSelectedLogo('30')}
+            animate={{
+              scale: [1, 1.15, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.4
+            }}
+            style={{
+              position: 'absolute',
+              left: '78.5%',
+              top: '34%',
+              width: '18%',
+              height: '4.2%',
               cursor: 'pointer',
               zIndex: 3
             }}
@@ -650,18 +676,18 @@ export function MobileExpertiseMondiale() {
         </div>
 
 
-        {/* image006 12 1 - Position Figma: x:293, y:188, w:75, h:25 */}
+        {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 */}
         <div
           style={{
             position: 'absolute',
-            left: '78.5%', // Ajusté pour centrer avec la nouvelle taille plus grande
-            top: '32%', // Ajusté pour centrer avec la nouvelle taille plus grande
-            width: '25.3%', // Augmenté de 10% supplémentaire (23% * 1.1)
-            height: '5.94%', // Augmenté de 10% supplémentaire (5.4% * 1.1)
+            left: '78.5%',
+            top: '28%',
+            width: '20%',
+            height: '4.8%',
             backgroundColor: 'white',
             borderRadius: '4px',
             padding: '2px',
-            opacity: selectedLogo === '12' ? 1 : 0.3,
+            opacity: selectedLogo === '29' ? 1 : 0.3,
             zIndex: 1,
             display: 'flex',
             alignItems: 'center',
@@ -669,7 +695,36 @@ export function MobileExpertiseMondiale() {
           }}
         >
           <img
-            src="/images/logos/image006 12.png"
+            src="/images/logos/image006 29.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+
+        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '78.5%',
+            top: '34%',
+            width: '18%',
+            height: '4.2%',
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
+            opacity: selectedLogo === '30' ? 1 : 0.3,
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <img
+            src="/images/logos/image006 30.png"
             alt=""
             style={{
               width: '100%',
