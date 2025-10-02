@@ -19,6 +19,8 @@ const logoMapping = {
   'Image006_26_311_235': 'image006 26.png',
   'Image006_27_311_236': 'image006 27.png',
   'Image006_28_311_234': 'image006 28.png',
+  'Image006_29_311_246': 'image006 29.png',
+  'Image006_30_311_247': 'image006 30.png',
   'Image006_2_311_239': 'image006 2.png',
   'Image006_3_311_240': 'image006 3.png',
   'Image006_4_311_241': 'image006 4.png',
@@ -194,6 +196,18 @@ const companyInfo: { [key: string]: { name: string; description: string; sector:
     description: 'Use following files generated from Figma design as specification guide. Adapt with existing elements but maintain design consistency.',
     sector: 'i18n Implementation',
     projects: 'React Intl, next-i18next, locale routing, RTL support'
+  },
+  'Image006_29_311_246': {
+    name: 'Partenaire 29',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate. Est donec interdum sollicitudin neque quisque cursus non.',
+    sector: 'Secteur 29',
+    projects: 'Projet 29'
+  },
+  'Image006_30_311_247': {
+    name: 'Partenaire 30',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate. Est donec interdum sollicitudin neque quisque cursus non.',
+    sector: 'Secteur 30',
+    projects: 'Projet 30'
   },
   'Image006_6_311_243': {
     name: 'Security Best Practices',
@@ -408,6 +422,8 @@ export default function Expertise() {
       <LogoContainer className={styles.Image006_22_311_232} logoKey="Image006_22_311_232" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_22_311_232'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_24_311_233} logoKey="Image006_24_311_233" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_24_311_233'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_28_311_234} logoKey="Image006_28_311_234" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_28_311_234'} hasAnySelection={hasAnySelection} />
+      <LogoContainer className={styles.Image006_29_311_246} logoKey="Image006_29_311_246" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_29_311_246'} hasAnySelection={hasAnySelection} />
+      <LogoContainer className={styles.Image006_30_311_247} logoKey="Image006_30_311_247" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_30_311_247'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_26_311_235} logoKey="Image006_26_311_235" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_26_311_235'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_27_311_236} logoKey="Image006_27_311_236" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_27_311_236'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_23_311_237} logoKey="Image006_23_311_237" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_23_311_237'} hasAnySelection={hasAnySelection} />

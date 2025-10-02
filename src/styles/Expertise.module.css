@@ -200,8 +200,8 @@
   width: 285.739px;
   height: 93.065px;
   position: absolute;
-  left: 1401px;
-  top: 382px;
+  left: 1391px;
+  top: 397px;
 }
 
 .Image006_13_311_224 {
@@ -210,8 +210,8 @@
   width: 137px;
   height: 44.621px;
   position: absolute;
-  left: 1407px;
-  top: 628px;
+  left: 1417px;
+  top: 638px;
 }
 
 .Image006_14_311_225 {
@@ -350,8 +350,8 @@
   width: 246px;
   height: 80px;
   position: absolute;
-  left: 1401px;
-  top: 691px;
+  left: 1391px;
+  top: 701px;
 }
 
 .Image006_2_311_239 {
@@ -422,6 +422,26 @@
   position: absolute;
   left: 421px;
   top: 325px;
+}
+
+.Image006_29_311_246 {
+  aspect-ratio: 3/1;
+  flex-shrink: 0;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  left: 1391px;
+  top: 332px;
+}
+
+.Image006_30_311_247 {
+  aspect-ratio: 3/1;
+  flex-shrink: 0;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  left: 1391px;
+  top: 267px;
 }
 
 .infoOverlay {
