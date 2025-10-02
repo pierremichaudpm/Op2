@@ -328,11 +328,12 @@
 .Image006_27_311_236 {
   aspect-ratio: 230.4/75.04;
   flex-shrink: 0;
-  width: 230.399px;
+  width: 228px;
   height: 75.041px;
   position: absolute;
   left: 456.77px;
   top: 794px;
+  overflow: hidden;
 }
 
 .Image006_23_311_237 {
