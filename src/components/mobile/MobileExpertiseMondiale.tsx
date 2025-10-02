@@ -10,24 +10,19 @@ interface LogoInfo {
   image: string;
 }
 
-// Données des logos avec leurs informations - Réduit à 16 logos selon Figma
+// Données des logos avec leurs informations
 const logosData: LogoInfo[] = [
-  { id: '9', name: 'Société du Grand Paris', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 9.png' },
   { id: '10', name: 'Pomerleau', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 10.png' },
   { id: '11', name: 'Partenaire 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 11.png' },
   { id: '8', name: 'Partenaire 8', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 8.png' },
   { id: '5', name: 'Partenaire 5', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 5.png' },
   { id: '12', name: 'Partenaire 12', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 12.png' },
-  { id: '14', name: 'Partenaire 14', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 14.png' },
-  { id: '15', name: 'Partenaire 15', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 15.png' },
   { id: '24', name: 'Partenaire 24', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 24.png' },
   { id: '28', name: 'Partenaire 28', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 28.png' },
   { id: '22', name: 'Partenaire 22', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 22.png' },
   { id: '23', name: 'Partenaire 23', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 23.png' },
   { id: '17', name: 'Partenaire 17', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 17.png' },
   { id: '18', name: 'Partenaire 18', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 18.png' },
-  { id: '14', name: 'Partenaire 14', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 14.png' },
-  { id: '15', name: 'Partenaire 15', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 15.png' },
 ];
 
 export function MobileExpertiseMondiale() {
@@ -143,32 +138,8 @@ export function MobileExpertiseMondiale() {
             <source src="/videos/globe4.mp4" type="video/mp4" />
           </video>
 
-          {/* Logos avec positions exactes de Figma - 16 logos avec tailles augmentées */}
+          {/* Logos avec positions exactes de Figma */}
           
-          {/* image006 9 1 - Position Figma: x:92, y:88, w:100, h:33 - CLICKABLE */}
-          <motion.img
-            src="/images/logos/image006 9.png"
-            alt=""
-            onClick={() => setSelectedLogo('9')}
-            animate={{
-              scale: [1, 1.15, 1]
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            style={{
-              position: 'absolute',
-              left: '22.5%',
-              top: '14.5%',
-              width: '31%',
-              height: '7.2%',
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
-
           {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 - CLICKABLE */}
           <motion.img
             src="/images/logos/image006 10.png"
@@ -290,57 +261,6 @@ export function MobileExpertiseMondiale() {
               top: '32%', // Ajusté pour centrer avec la nouvelle taille plus grande
               width: '25.3%', // Augmenté de 10% supplémentaire (23% * 1.1)
               height: '5.94%', // Augmenté de 10% supplémentaire (5.4% * 1.1)
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
-
-          {/* image006 14 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE */}
-          <motion.img
-            src="/images/logos/image006 14.png"
-            alt=""
-            onClick={() => setSelectedLogo('14')}
-            animate={{
-              scale: [1, 1.15, 1]
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.8
-            }}
-            style={{
-              position: 'absolute',
-              left: '82.2%', // Déplacé de 20px vers la droite (324/385 au lieu de 304/385)
-              top: '68%', // Ajusté pour centrer avec la nouvelle taille
-              width: '18.5%', // Augmenté de ~19%
-              height: '4.3%', // Augmenté de ~19%
-              cursor: 'pointer',
-              zIndex: 3
-            }}
-          />
-
-
-          {/* image006 15 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE */}
-          <motion.img
-            src="/images/logos/image006 15.png"
-            alt=""
-            onClick={() => setSelectedLogo('15')}
-            animate={{
-              scale: [1, 1.15, 1]
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.3
-            }}
-            style={{
-              position: 'absolute',
-              left: '78%', // Ajusté pour centrer avec la nouvelle taille
-              top: '73.5%', // Ajusté pour centrer avec la nouvelle taille
-              width: '18.5%', // Augmenté de ~19%
-              height: '4.3%', // Augmenté de ~19%
               cursor: 'pointer',
               zIndex: 3
             }}
@@ -750,65 +670,6 @@ export function MobileExpertiseMondiale() {
         >
           <img
             src="/images/logos/image006 12.png"
-            alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain'
-            }}
-          />
-        </div>
-
-        {/* image006 14 1 - Position Figma: x:304, y:385, w:60, h:20 */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '82.2%', // Déplacé de 20px vers la droite (324/385 au lieu de 304/385)
-            top: '68%', // Ajusté pour centrer avec la nouvelle taille
-            width: '18.5%', // Augmenté de ~19%
-            height: '4.3%', // Augmenté de ~19%
-            backgroundColor: 'white',
-            borderRadius: '4px',
-            padding: '2px',
-            opacity: selectedLogo === '14' ? 1 : 0.3,
-            zIndex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <img
-            src="/images/logos/image006 14.png"
-            alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain'
-            }}
-          />
-        </div>
-
-
-        {/* image006 15 1 - Position Figma: x:308, y:416, w:60, h:20 */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '78%', // Ajusté pour centrer avec la nouvelle taille
-            top: '73.5%', // Ajusté pour centrer avec la nouvelle taille
-            width: '18.5%', // Augmenté de ~19%
-            height: '4.3%', // Augmenté de ~19%
-            backgroundColor: 'white',
-            borderRadius: '4px',
-            padding: '2px',
-            opacity: selectedLogo === '15' ? 1 : 0.3,
-            zIndex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <img
-            src="/images/logos/image006 15.png"
             alt=""
             style={{
               width: '100%',

@@ -4,19 +4,14 @@ import styles from '../styles/Expertise.module.css';
 
 // Mapping des logos avec leurs fichiers correspondants
 const logoMapping = {
-  'Image006_1_311_219': 'image006 1.png',
-  'Image006_9_311_220': 'image006 9.png',
   'Image006_10_311_221': 'image006 10.png',
   'Image006_11_311_222': 'image006 11.png',
   'Image006_12_311_223': 'image006 12.png',
   'Image006_13_311_224': 'image006 13.png',
-  'Image006_14_311_225': 'image006 14.png',
-  'Image006_15_311_226': 'image006 15.png',
   'Image006_16_311_238': 'image006 16.png',
   'Image006_17_311_227': 'image006 17.png',
   'Image006_18_311_228': 'image006 18.png',
   'Image006_19_311_229': 'image006 19.png',
-  'Image006_20_311_230': 'image006 20.png',
   'Image006_21_311_231': 'image006 21.png',
   'Image006_22_311_232': 'image006 22.png',
   'Image006_23_311_237': 'image006 23.png',
@@ -402,18 +397,13 @@ export default function Expertise() {
       )}
       
       {/* Tous les logos avec leurs positions exactes */}
-      <LogoContainer className={styles.Image006_1_311_219} logoKey="Image006_1_311_219" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_1_311_219'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_9_311_220} logoKey="Image006_9_311_220" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_9_311_220'} hasAnySelection={hasAnySelection} isPulsing={true} />
       <LogoContainer className={styles.Image006_10_311_221} logoKey="Image006_10_311_221" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_10_311_221'} hasAnySelection={hasAnySelection} isPulsing={true} />
       <LogoContainer className={styles.Image006_11_311_222} logoKey="Image006_11_311_222" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_11_311_222'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_12_311_223} logoKey="Image006_12_311_223" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_12_311_223'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_13_311_224} logoKey="Image006_13_311_224" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_13_311_224'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_14_311_225} logoKey="Image006_14_311_225" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_14_311_225'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_15_311_226} logoKey="Image006_15_311_226" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_15_311_226'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_17_311_227} logoKey="Image006_17_311_227" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_17_311_227'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_18_311_228} logoKey="Image006_18_311_228" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_18_311_228'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_19_311_229} logoKey="Image006_19_311_229" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_19_311_229'} hasAnySelection={hasAnySelection} />
-      <LogoContainer className={styles.Image006_20_311_230} logoKey="Image006_20_311_230" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_20_311_230'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_21_311_231} logoKey="Image006_21_311_231" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_21_311_231'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_22_311_232} logoKey="Image006_22_311_232" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_22_311_232'} hasAnySelection={hasAnySelection} />
       <LogoContainer className={styles.Image006_24_311_233} logoKey="Image006_24_311_233" onClick={handleLogoClick} isSelected={selectedCompany === 'Image006_24_311_233'} hasAnySelection={hasAnySelection} />
