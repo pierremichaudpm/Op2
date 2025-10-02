@@ -140,7 +140,7 @@ export function MobileExpertiseMondiale() {
 
           {/* Logos avec positions exactes de Figma */}
           
-          {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 - CLICKABLE */}
+          {/* image006 10 1 - Position Figma: x:89, y:129, w:75, h:25 - CLICKABLE (déplacé de 15px vers la gauche) */}
           <motion.img
             src="/images/logos/image006 10.png"
             alt=""
@@ -156,7 +156,7 @@ export function MobileExpertiseMondiale() {
             }}
             style={{
               position: 'absolute',
-              left: '25.5%',
+              left: '21.6%',
               top: '22%',
               width: '23%',
               height: '5.4%',
@@ -533,11 +533,11 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 10 1 - Position Figma: x:104, y:129, w:75, h:25 */}
+        {/* image006 10 1 - Position Figma: x:89, y:129, w:75, h:25 (déplacé de 15px vers la gauche) */}
         <div
           style={{
             position: 'absolute',
-            left: '25.5%', // Ajusté pour centrer avec la nouvelle taille
+            left: '21.6%', // Ajusté pour centrer avec la nouvelle taille
             top: '22%', // Ajusté pour centrer avec la nouvelle taille
             width: '23%', // Augmenté de ~18%
             height: '5.4%', // Augmenté de ~20%
