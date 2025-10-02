@@ -244,7 +244,7 @@ export function MobileExpertiseMondiale() {
           />
 
 
-          {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE (réduit de 25%) */}
+          {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE (réduit de 25%, descendu de 10px) */}
           <motion.img
             src="/images/logos/image006 29.png"
             alt=""
@@ -261,7 +261,7 @@ export function MobileExpertiseMondiale() {
             style={{
               position: 'absolute',
               left: '78.5%',
-              top: '28%',
+              top: '29.8%',
               width: '15%',
               height: '3.6%',
               cursor: 'pointer',
@@ -269,7 +269,7 @@ export function MobileExpertiseMondiale() {
             }}
           />
 
-          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE (réduit de 20%) */}
+          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE (réduit de 20%, descendu de 10px, déplacé de 15px à droite) */}
           <motion.img
             src="/images/logos/image006 30.png"
             alt=""
@@ -285,8 +285,8 @@ export function MobileExpertiseMondiale() {
             }}
             style={{
               position: 'absolute',
-              left: '78.5%',
-              top: '34%',
+              left: '82.4%',
+              top: '35.8%',
               width: '14.4%',
               height: '3.36%',
               cursor: 'pointer',
@@ -294,7 +294,7 @@ export function MobileExpertiseMondiale() {
             }}
           />
 
-          {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE (ancien emplacement du 14) */}
+          {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE (ancien emplacement du 14, descendu de 10px, grossi de 20%) */}
           <motion.img
             src="/images/logos/image006 13.png"
             alt=""
@@ -311,15 +311,15 @@ export function MobileExpertiseMondiale() {
             style={{
               position: 'absolute',
               left: '82.2%',
-              top: '68%',
-              width: '18.5%',
-              height: '4.3%',
+              top: '69.8%',
+              width: '22.2%',
+              height: '5.16%',
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE (ancien emplacement du 15) */}
+          {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE (ancien emplacement du 15, descendu de 10px, grossi de 20%) */}
           <motion.img
             src="/images/logos/image006 16.png"
             alt=""
@@ -336,9 +336,9 @@ export function MobileExpertiseMondiale() {
             style={{
               position: 'absolute',
               left: '78%',
-              top: '73.5%',
-              width: '18.5%',
-              height: '4.3%',
+              top: '75.3%',
+              width: '22.2%',
+              height: '5.16%',
               cursor: 'pointer',
               zIndex: 3
             }}
@@ -728,12 +728,12 @@ export function MobileExpertiseMondiale() {
         </div>
 
 
-        {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 (réduit de 25%) */}
+        {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 (réduit de 25%, descendu de 10px) */}
         <div
           style={{
             position: 'absolute',
             left: '78.5%',
-            top: '28%',
+            top: '29.8%',
             width: '15%',
             height: '3.6%',
             backgroundColor: 'white',
@@ -757,12 +757,12 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 (réduit de 20%) */}
+        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 (réduit de 20%, descendu de 10px, déplacé de 15px à droite) */}
         <div
           style={{
             position: 'absolute',
-            left: '78.5%',
-            top: '34%',
+            left: '82.4%',
+            top: '35.8%',
             width: '14.4%',
             height: '3.36%',
             backgroundColor: 'white',
@@ -786,14 +786,14 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 (ancien emplacement du 14) */}
+        {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 (ancien emplacement du 14, descendu de 10px, grossi de 20%) */}
         <div
           style={{
             position: 'absolute',
             left: '82.2%',
-            top: '68%',
-            width: '18.5%',
-            height: '4.3%',
+            top: '69.8%',
+            width: '22.2%',
+            height: '5.16%',
             backgroundColor: 'white',
             borderRadius: '4px',
             padding: '2px',
@@ -815,14 +815,14 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 (ancien emplacement du 15) */}
+        {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 (ancien emplacement du 15, descendu de 10px, grossi de 20%) */}
         <div
           style={{
             position: 'absolute',
             left: '78%',
-            top: '73.5%',
-            width: '18.5%',
-            height: '4.3%',
+            top: '75.3%',
+            width: '22.2%',
+            height: '5.16%',
             backgroundColor: 'white',
             borderRadius: '4px',
             padding: '2px',
