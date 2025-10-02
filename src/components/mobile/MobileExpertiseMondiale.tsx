@@ -18,6 +18,8 @@ const logosData: LogoInfo[] = [
   { id: '5', name: 'Partenaire 5', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 5.png' },
   { id: '29', name: 'Partenaire 29', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 29.png' },
   { id: '30', name: 'Partenaire 30', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 30.png' },
+  { id: '13', name: 'Partenaire 13', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 13.png' },
+  { id: '16', name: 'Partenaire 16', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 16.png' },
   { id: '24', name: 'Partenaire 24', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 24.png' },
   { id: '28', name: 'Partenaire 28', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 28.png' },
   { id: '22', name: 'Partenaire 22', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 22.png' },
@@ -242,7 +244,7 @@ export function MobileExpertiseMondiale() {
           />
 
 
-          {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE */}
+          {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 - CLICKABLE (réduit de 25%) */}
           <motion.img
             src="/images/logos/image006 29.png"
             alt=""
@@ -260,14 +262,14 @@ export function MobileExpertiseMondiale() {
               position: 'absolute',
               left: '78.5%',
               top: '28%',
-              width: '20%',
-              height: '4.8%',
+              width: '15%',
+              height: '3.6%',
               cursor: 'pointer',
               zIndex: 3
             }}
           />
 
-          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE */}
+          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE (réduit de 20%) */}
           <motion.img
             src="/images/logos/image006 30.png"
             alt=""
@@ -285,8 +287,58 @@ export function MobileExpertiseMondiale() {
               position: 'absolute',
               left: '78.5%',
               top: '34%',
-              width: '18%',
-              height: '4.2%',
+              width: '14.4%',
+              height: '3.36%',
+              cursor: 'pointer',
+              zIndex: 3
+            }}
+          />
+
+          {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 - CLICKABLE (ancien emplacement du 14) */}
+          <motion.img
+            src="/images/logos/image006 13.png"
+            alt=""
+            onClick={() => setSelectedLogo('13')}
+            animate={{
+              scale: [1, 1.15, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.8
+            }}
+            style={{
+              position: 'absolute',
+              left: '82.2%',
+              top: '68%',
+              width: '18.5%',
+              height: '4.3%',
+              cursor: 'pointer',
+              zIndex: 3
+            }}
+          />
+
+          {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 - CLICKABLE (ancien emplacement du 15) */}
+          <motion.img
+            src="/images/logos/image006 16.png"
+            alt=""
+            onClick={() => setSelectedLogo('16')}
+            animate={{
+              scale: [1, 1.15, 1]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.3
+            }}
+            style={{
+              position: 'absolute',
+              left: '78%',
+              top: '73.5%',
+              width: '18.5%',
+              height: '4.3%',
               cursor: 'pointer',
               zIndex: 3
             }}
@@ -676,14 +728,14 @@ export function MobileExpertiseMondiale() {
         </div>
 
 
-        {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 */}
+        {/* image006 29 1 - Position Figma: x:293, y:188, w:75, h:25 (réduit de 25%) */}
         <div
           style={{
             position: 'absolute',
             left: '78.5%',
             top: '28%',
-            width: '20%',
-            height: '4.8%',
+            width: '15%',
+            height: '3.6%',
             backgroundColor: 'white',
             borderRadius: '4px',
             padding: '2px',
@@ -705,14 +757,14 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 */}
+        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 (réduit de 20%) */}
         <div
           style={{
             position: 'absolute',
             left: '78.5%',
             top: '34%',
-            width: '18%',
-            height: '4.2%',
+            width: '14.4%',
+            height: '3.36%',
             backgroundColor: 'white',
             borderRadius: '4px',
             padding: '2px',
@@ -725,6 +777,64 @@ export function MobileExpertiseMondiale() {
         >
           <img
             src="/images/logos/image006 30.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+
+        {/* image006 13 1 - Position Figma: x:304, y:385, w:60, h:20 (ancien emplacement du 14) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '82.2%',
+            top: '68%',
+            width: '18.5%',
+            height: '4.3%',
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
+            opacity: selectedLogo === '13' ? 1 : 0.3,
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <img
+            src="/images/logos/image006 13.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+
+        {/* image006 16 1 - Position Figma: x:308, y:416, w:60, h:20 (ancien emplacement du 15) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '78%',
+            top: '73.5%',
+            width: '18.5%',
+            height: '4.3%',
+            backgroundColor: 'white',
+            borderRadius: '4px',
+            padding: '2px',
+            opacity: selectedLogo === '16' ? 1 : 0.3,
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <img
+            src="/images/logos/image006 16.png"
             alt=""
             style={{
               width: '100%',
