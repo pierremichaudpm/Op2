@@ -269,7 +269,7 @@ export function MobileExpertiseMondiale() {
             }}
           />
 
-          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE (réduit de 20%, descendu de 10px, déplacé de 25px à droite) */}
+          {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 - CLICKABLE (réduit de 20%, descendu de 10px, déplacé de 35px à droite) */}
           <motion.img
             src="/images/logos/image006 30.png"
             alt=""
@@ -285,7 +285,7 @@ export function MobileExpertiseMondiale() {
             }}
             style={{
               position: 'absolute',
-              left: '85%',
+              left: '87.6%',
               top: '35.8%',
               width: '14.4%',
               height: '3.36%',
@@ -581,36 +581,7 @@ export function MobileExpertiseMondiale() {
           <source src="/videos/globe4.mp4" type="video/mp4" />
         </video>
 
-        {/* Logos avec mêmes positions que variante 1 mais en arrière-plan - 16 logos */}
-        {/* image006 9 1 - Position Figma: x:92, y:88, w:100, h:33 */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '22.5%', // Ajusté pour centrer avec la nouvelle taille
-            top: '14.5%', // Ajusté pour centrer avec la nouvelle taille
-            width: '31%', // Augmenté de ~20%
-            height: '7.2%', // Augmenté de ~20%
-            backgroundColor: 'white',
-            borderRadius: '4px',
-            padding: '2px',
-            opacity: selectedLogo === '9' ? 1 : 0.3,
-            zIndex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <img
-            src="/images/logos/image006 9.png"
-            alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain'
-            }}
-          />
-        </div>
-
+        {/* Logos avec mêmes positions que variante 1 mais en arrière-plan */}
         {/* image006 10 1 - Position Figma: x:89, y:129, w:75, h:25 (déplacé de 15px vers la gauche) */}
         <div
           style={{
@@ -757,11 +728,11 @@ export function MobileExpertiseMondiale() {
           />
         </div>
 
-        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 (réduit de 20%, descendu de 10px, déplacé de 25px à droite) */}
+        {/* image006 30 1 - Position Figma: x:293, y:212, w:60, h:20 (réduit de 20%, descendu de 10px, déplacé de 35px à droite) */}
         <div
           style={{
             position: 'absolute',
-            left: '85%',
+            left: '87.6%',
             top: '35.8%',
             width: '14.4%',
             height: '3.36%',
