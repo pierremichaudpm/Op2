@@ -88,7 +88,7 @@ export const en = {
       l2: 'our operational expertise'
     },
     subtitle: 'Industrial experience. Field approach. Concrete results. Our consultants master your reality because they have lived it.',
-    cta: 'Connect with an expert'
+    cta: 'Let\'s talk about your project'
   },
   stats: {
     consultants: 'consultants',
