@@ -39,17 +39,7 @@ export default function RootLayoutEN({
   return (
     <html lang="en">
       <body 
-        className={`${inter.className} ${montserrat.variable} site-ready`}
-        style={{
-          background: '#FDFCFB',
-          backgroundImage: `
-            radial-gradient(ellipse 150% 100% at 20% 30%, rgba(243, 105, 17, 0.09) 0%, transparent 50%),
-            radial-gradient(ellipse 120% 90% at 80% 70%, rgba(14, 58, 91, 0.08) 0%, transparent 45%),
-            radial-gradient(ellipse 140% 110% at 50% 50%, rgba(243, 105, 17, 0.05) 0%, transparent 60%),
-            radial-gradient(ellipse 100% 80% at 70% 20%, rgba(14, 58, 91, 0.06) 0%, transparent 50%),
-            linear-gradient(135deg, rgba(243, 105, 17, 0.03), rgba(255, 255, 255, 0.94), rgba(14, 58, 91, 0.03))
-          `
-        }}
+        className={`${inter.className} ${montserrat.variable}`}
       >
         <NavigationMarker />
         <I18nProvider locale="en" dict={en}>
