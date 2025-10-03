@@ -508,7 +508,7 @@ export function MobileExpertiseMondiale() {
   if (selectedLogo) {
     const logoInfo = logosData.find(logo => logo.id === selectedLogo);
     const logoTranslation = locale === 'en' ? en.logos[selectedLogo as keyof typeof en.logos] : fr.logos[selectedLogo as keyof typeof fr.logos];
-
+    
     return (
     <section ref={sectionRef} style={{
       position: 'relative',
