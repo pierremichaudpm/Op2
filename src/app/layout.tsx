@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body 
-        className={`${inter.className} ${montserrat.variable}`}
+        className={`${inter.className} ${montserrat.variable} site-ready`}
         style={{
           background: '#FDFCFB',
           backgroundImage: `
