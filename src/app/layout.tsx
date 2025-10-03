@@ -52,7 +52,7 @@ export default function RootLayout({
           `
         }}
       >
-        <SplashScreen />
+        {/* <SplashScreen /> Temporairement désactivé pour éviter erreur removeChild */}
         <NavigationMarker />
         <I18nProvider locale="fr" dict={fr}>
           {children}
