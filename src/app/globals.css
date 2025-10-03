@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fix global pour les lignes clignotantes - Force l'accélération GPU */
+/* Reset complet - DOIT venir après @tailwind base pour override */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force margin/padding à 0 pour éliminer l'espace blanc en haut */
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Prévention des artefacts de rendu sur les éléments transformés */
@@ -84,8 +95,6 @@ html, body, :root {
   height: 100%;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -96,14 +105,19 @@ body {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  margin: 0;
-  padding: 0;
 }
 
 /* Pas de zoom sur mobile */
 @media (max-width: 768px) {
   body {
     zoom: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
