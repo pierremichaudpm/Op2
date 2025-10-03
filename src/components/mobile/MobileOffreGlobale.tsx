@@ -88,7 +88,7 @@ export function MobileOffreGlobale() {
   return (
     <section id="offre" style={{
       width: '100%',
-      padding: '20px 20px',
+      padding: '0 20px',
       backgroundColor: '#FFFFFF'
     }}>
       {/* Titre */}
@@ -99,7 +99,7 @@ export function MobileOffreGlobale() {
         color: '#243768',
         textTransform: 'uppercase',
         textAlign: 'left',
-        marginBottom: '30px'
+        marginBottom: '20px'
       }}>
         {locale === 'en' ? 'A comprehensive offer' : 'Une offre globale'}
       </h2>
