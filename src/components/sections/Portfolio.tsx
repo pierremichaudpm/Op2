@@ -4,42 +4,56 @@ import { useEffect, useState } from 'react';
 import { X, ArrowRight, Wind, Zap, Globe } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 
-// Configuration des projets - tous affichent le même contenu pour l'instant
+// Configuration des projets avec contenus spécifiques
 const projectsData = [
   {
     id: 1,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Parc Éolien offshore',
     image: '/images/nos_realisations/image-10.png',
+    modalTitle: 'Parc Éolien offshore',
+    modalContent: 'Notre équipe possède une solide expertise en pilotage de projets énergétiques complexes. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en management de projet, contrôle des coûts et délais, gestion des risques et coordination d\'opérations offshore à grande échelle. À titre de référence, nous accompagnons depuis 2018 un gestionnaire de réseau d\'électricité sur le déploiement de sept parcs éoliens offshore, incluant notamment l\'installation de 80 éoliennes en mer du Nord pour un parc de 400MW. Ce projet a impliqué la coordination de 12 navires spécialisés, la gestion des contraintes météorologiques et a été livré avec 2 mois d\'avance sur le planning initial, avec des budgets pouvant atteindre 1,5 milliard d\'euros.'
   },
   {
     id: 2,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Ligne ferroviaire haute vitesse',
     image: '/images/nos_realisations/image-11.png',
+    modalTitle: 'Ligne ferroviaire haute vitesse',
+    modalContent: 'Forts de notre expérience dans le pilotage de projets innovants du secteur des transports, nous pouvons vous offrir des solutions en planification stratégique, gestion documentaire, coordination d\'équipes multidisciplinaires et sécurisation de la chaîne d\'approvisionnement. À titre de référence, nous accompagnons depuis 2019 un leader mondial du transport (74 000 employés, 15,5 milliards d\'euros de chiffre d\'affaires) sur le développement et l\'industrialisation de sa prochaine génération de solutions de mobilité à grande vitesse, avec des objectifs ambitieux : augmentation de 20% de la capacité, réduction de 20% des coûts d\'acquisition et de la consommation d\'énergie, et diminution de 30% des coûts de maintenance.'
   },
   {
     id: 3,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Centrale hydroélectrique',
     image: '/images/nos_realisations/image-12.png',
+    modalTitle: 'Centrale hydroélectrique',
+    modalContent: 'Nous mettons notre expertise en amélioration continue et benchmarking au service de grands acteurs du secteur énergétique. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en analyse de pratiques de gestion de projet, identification d\'axes d\'amélioration, élaboration de feuilles de route et conduite du changement. À titre de référence, nous accompagnons depuis octobre 2021 une entreprise publique canadienne (production, transport et distribution d\'électricité) dans la rénovation et l\'amélioration de ses centrales hydrauliques. Après une phase de benchmark de six mois analysant les bonnes pratiques à travers diverses industries et pays, nous déployons actuellement nos préconisations sur deux projets pilotes pour démontrer leur efficacité opérationnelle et répondre aux enjeux de décarbonisation et d\'augmentation de la capacité de production.'
   },
   {
     id: 4,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Centre de lancement spatial',
     image: '/images/nos_realisations/image-13.png',
+    modalTitle: 'Centre de lancement spatial',
+    modalContent: 'Partenaires de longue date de l\'industrie spatiale française, nous accompagnons des programmes d\'envergure depuis la création de notre entreprise. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions complètes en support PMO, pilotage de plannings, gestion des risques et des coûts à tous les niveaux de programme. À titre de référence, nous accompagnons depuis 2017 un fleuron de l\'industrie française dans le développement d\'un nouveau lanceur spatial civil pour l\'Union Européenne, le premier depuis une vingtaine d\'années. Nous intervenons sur deux sites et supportons l\'ensemble des groupes du programme jusqu\'au Product Managers et à la Direction, en gérant la complexité liée à la coordination de nombreux métiers et à l\'exposition médiatique régulière du projet.'
   },
   {
     id: 5,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Construction navale militaire',
     image: '/images/nos_realisations/image-14.png',
+    modalTitle: 'Construction navale militaire',
+    modalContent: 'Nous disposons d\'une expertise reconnue en optimisation de la performance de l\'ingénierie et en gestion de projets complexes multi-sites. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en planification robuste, gestion des ressources et compétences clés, mise en place d\'indicateurs de performance et cycles de gouvernance agiles. À titre de référence, nous avons déployé sur deux ans un Plan Directeur des Études (PDE) pour un acteur majeur de la défense spécialisé dans les bâtiments de guerre marins, impliquant 2 000 acteurs répartis sur plusieurs sites. Les solutions mises en place, notamment les indicateurs d\'adhérence et d\'exécutabilité, ont permis de réduire significativement les retards et sont désormais intégrées dès le démarrage de tous les nouveaux projets du client.'
   },
   {
     id: 6,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Extension ligne de métro',
     image: '/images/nos_realisations/image-15.png',
+    modalTitle: 'Extension ligne de métro',
+    modalContent: 'Avec une présence internationale, nous accompagnons nos clients dans la réalisation de projets d\'envergure mondiale. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en pilotage intégral de programmes complexes, gestion de partenariats public-privé (PPP), coordination multi-sites internationaux et maîtrise des délais contractuels. À titre de référence, nous avons piloté pendant quatre ans le projet New Generation Rollingstock (NGR) au Queensland en Australie : fabrication de 75 trains (450 voitures) pour un budget de 4,4 milliards d\'euros, avec un design réalisé en Australie, une fabrication en Inde et seize devises différentes. Le projet a été livré sans aucune pénalité de retard et a été reconnu "Best in Class" par notre client à l\'échelle mondiale.'
   },
   {
     id: 7,
-    title: 'Des projets au cœur de la transition énergétique',
+    title: 'Usine pharmaceutique 4.0',
     image: '/images/nos_realisations/image-16.png',
+    modalTitle: 'Usine pharmaceutique 4.0',
+    modalContent: 'Notre capacité à intervenir rapidement sur des projets exceptionnels et inédits nous permet d\'accompagner nos clients face à des défis sans précédent. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en structuration rapide de programmes complexes, mise en place d\'organisation et de modes de pilotage adaptés, et gestion de contraintes logistiques critiques. À titre de référence, nous avons été mobilisés dès décembre 2020 pour contribuer à l\'organisation de la campagne nationale de vaccination COVID-19, incluant la coordination du transport de vaccins à -80° sur l\'ensemble du territoire en temps record. Le succès de cette mission a conduit notre client à renouveler sa confiance pour une durée de quatre ans comme partenaire privilégié pour les projets hors normes.'
   }
 ];
 
@@ -286,23 +300,15 @@ export function Portfolio() {
                     marginBottom: '35px',
                     letterSpacing: '0.02em'
                   }}>
-                    {t('portfolio.modal.headline_l1')}
-                    <br />
-                    {t('portfolio.modal.headline_l2')}
+                    {project.modalTitle}
                   </p>
-                  
+
                   <p className="notre-client-est-un" style={{
                     fontSize: '17px',
                     lineHeight: '1.65',
                     opacity: 0.95
                   }}>
-                    {t('portfolio.modal.body_1')}
-                    <br />
-                    <br />
-                    {t('portfolio.modal.body_2')}
-                    <br />
-                    <br />
-                    {t('portfolio.modal.body_3')}
+                    {project.modalContent}
                   </p>
                 </div>
                 

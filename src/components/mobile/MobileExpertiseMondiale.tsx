@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n';
+import { fr } from '@/lib/dictionaries/fr';
+import { en } from '@/lib/dictionaries/en';
 
 interface LogoInfo {
   id: string;
@@ -12,20 +14,20 @@ interface LogoInfo {
 
 // Données des logos avec leurs informations
 const logosData: LogoInfo[] = [
-  { id: '10', name: 'Pomerleau', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 10.png' },
-  { id: '11', name: 'Partenaire 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 11.png' },
-  { id: '8', name: 'Partenaire 8', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 8.png' },
-  { id: '5', name: 'Partenaire 5', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 5.png' },
-  { id: '29', name: 'Partenaire 29', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 29.png' },
-  { id: '30', name: 'Partenaire 30', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 30.png' },
-  { id: '13', name: 'Partenaire 13', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 13.png' },
-  { id: '16', name: 'Partenaire 16', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 16.png' },
-  { id: '24', name: 'Partenaire 24', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 24.png' },
-  { id: '28', name: 'Partenaire 28', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 28.png' },
-  { id: '22', name: 'Partenaire 22', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 22.png' },
-  { id: '23', name: 'Partenaire 23', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 23.png' },
-  { id: '17', name: 'Partenaire 17', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 17.png' },
-  { id: '18', name: 'Partenaire 18', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat.', image: '/images/logos/image006 18.png' },
+  { id: '10', name: 'Réfection d\'un axe routier majeur', description: 'Un chantier d\'envergure où l\'imprévu devient la norme. La dégradation de la voûte a doublé le budget, mais pas question d\'arrêter : 120 000 véhicules circulent chaque jour. Notre défi? Piloter cette réfection sous-marine complexe en gardant le cap sur les délais, tout en assurant la fluidité du trafic.', image: '/images/logos/image006 10.png' },
+  { id: '11', name: 'Partenariat Project Management Institute', description: 'Connecter la recherche, le terrain et les meilleures pratiques : c\'est l\'ambition de ce partenariat. Op2 collabore avec le Project Management Institute pour outiller et inspirer les professionnels de projet au Québec. Ensemble, nous élevons les standards de l\'industrie.', image: '/images/logos/image006 11.png' },
+  { id: '8', name: 'Déploiement outil gestion de portefeuille', description: 'Pilotage homogène du portefeuille et des ressources : un dispositif unique pour toutes les équipes. Déploiement de l\'outil, optimisation des charges et capacités, accompagnement des équipes et conduite du changement pour ancrer durablement la transformation.', image: '/images/logos/image006 8.png' },
+  { id: '5', name: 'Réponse au plan 2035', description: 'Le Plan 2035 change la donne : l\'organisation doit évoluer pour atteindre ses objectifs ambitieux. Nous avons agilisé et standardisé les pratiques dans l\'objectif de renforcer les capacités de l\'organisation. Recommandations claires et accompagnement terrain pour ancrer durablement le changement.', image: '/images/logos/image006 5.png' },
+  { id: '29', name: 'Implication universitaire', description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.', image: '/images/logos/image006 29.png' },
+  { id: '30', name: 'Implication universitaire', description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.', image: '/images/logos/image006 30.png' },
+  { id: '13', name: 'Logistique externalisée', description: 'Externaliser sa logistique sans perdre le contrôle : c\'est tout l\'enjeu. Direction d\'un projet de transition en assurant le transfert d\'activités en interface avec le client final, la montée en compétence des opérateurs et zéro interruption dans les livraisons.', image: '/images/logos/image006 13.png' },
+  { id: '16', name: 'Capitalisation projets antérieurs', description: 'Accélérer la livraison en capitalisant sur l\'expérience. Transformation des enseignements des premières phases en leviers concrets d\'amélioration et de sécurisation, appuyés par les meilleures pratiques en gestion de projet.', image: '/images/logos/image006 16.png' },
+  { id: '24', name: 'Projets ferroviaires clés en main', description: 'Des projets ferroviaires clé en main, de l\'offre à la livraison. Plusieurs chantiers simultanés, différents stades d\'avancement, une complexité qui s\'additionne. Formation des équipes à la planification de haut niveau et coordination d\'ensemble pour transformer la complexité en performance.', image: '/images/logos/image006 24.png' },
+  { id: '28', name: 'Transformation des pratiques projet', description: 'Une transformation portée au plus haut niveau : renforcement des fondamentaux en gestion de projet, pilotage standardisé et KPI homogènes pour sécuriser les engagements et renforcer la compétitivité. Parce qu\'une organisation performante repose sur des bases solides.', image: '/images/logos/image006 28.png' },
+  { id: '22', name: 'Formation planification complexe', description: 'Maîtriser la planification, c\'est maîtriser ses projets. Formation spécialisée en planification de projets complexes pour 40 professionnels. Approche terrain avec exercices pratiques, cas d\'étude réels, partage d\'expérience et quiz interactifs.', image: '/images/logos/image006 22.png' },
+  { id: '23', name: 'Réorientation stratégique programme', description: 'Changement de cap : la stratégie de développement et de construction évolue, et tout le programme doit suivre. Formalisation et partage de cette nouvelle vision pour garantir la mise sous contrôle opérationnel. Nous avons embarqué les acteurs terrain pour ancrer ce virage stratégique.', image: '/images/logos/image006 23.png' },
+  { id: '17', name: 'Campagne Covid-19', description: 'Une mission critique, à l\'échelle nationale, sans droit à l\'erreur. Vacciner un pays entier exige synchronisation parfaite, logistique rigoureuse et adaptation constante. Nous avons coordonné les ressources et les acteurs pour livrer cette campagne dans un contexte sanitaire sans précédent.', image: '/images/logos/image006 17.png' },
+  { id: '18', name: 'Programme anticontrefaçon', description: 'Protéger votre marque, c\'est protéger vos revenus. Pilotage du déploiement d\'un système anticontrefaçon sur l\'ensemble du portfolio produits. Traçabilité, authentification, coordination multifonctionnelle à l\'échelle globale pour sécuriser votre position concurrentielle.', image: '/images/logos/image006 18.png' },
 ];
 
 export function MobileExpertiseMondiale() {
@@ -505,7 +507,8 @@ export function MobileExpertiseMondiale() {
   // Variant 2 - Modal pour afficher les détails du logo sélectionné
   if (selectedLogo) {
     const logoInfo = logosData.find(logo => logo.id === selectedLogo);
-    
+    const logoTranslation = locale === 'en' ? en.logos[selectedLogo as keyof typeof en.logos] : fr.logos[selectedLogo as keyof typeof fr.logos];
+
     return (
     <section ref={sectionRef} style={{
       position: 'relative',
@@ -526,7 +529,7 @@ export function MobileExpertiseMondiale() {
           marginBottom: '-20px'
         }}
       >
-        Une expertise mondiale
+        {locale === 'en' ? 'Global expertise' : 'Une expertise mondiale'}
       </h2>
 
       {/* Container adaptatif basé sur Figma 385x554 */}
@@ -1035,7 +1038,7 @@ export function MobileExpertiseMondiale() {
             userSelect: 'none',
             cursor: 'default'
           }}>
-            {logoInfo?.description || ''}
+            {logoTranslation?.description || ''}
           </div>
 
           {/* Logo dynamique basé sur la sélection - Toujours en pleine couleur */}

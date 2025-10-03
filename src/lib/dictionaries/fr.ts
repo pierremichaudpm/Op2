@@ -24,6 +24,64 @@ export const fr = {
     title: 'Une expertise mondiale',
     subtitle: 'Cliquez sur un logo pour découvrir nos projets'
   },
+  logos: {
+    '10': {
+      name: 'Réfection d\'un axe routier majeur',
+      description: 'Un chantier d\'envergure où l\'imprévu devient la norme. La dégradation de la voûte a doublé le budget, mais pas question d\'arrêter : 120 000 véhicules circulent chaque jour. Notre défi? Piloter cette réfection sous-marine complexe en gardant le cap sur les délais, tout en assurant la fluidité du trafic.'
+    },
+    '11': {
+      name: 'Partenariat Project Management Institute',
+      description: 'Connecter la recherche, le terrain et les meilleures pratiques : c\'est l\'ambition de ce partenariat. Op2 collabore avec le Project Management Institute pour outiller et inspirer les professionnels de projet au Québec. Ensemble, nous élevons les standards de l\'industrie.'
+    },
+    '8': {
+      name: 'Déploiement outil gestion de portefeuille',
+      description: 'Pilotage homogène du portefeuille et des ressources : un dispositif unique pour toutes les équipes. Déploiement de l\'outil, optimisation des charges et capacités, accompagnement des équipes et conduite du changement pour ancrer durablement la transformation.'
+    },
+    '5': {
+      name: 'Réponse au plan 2035',
+      description: 'Le Plan 2035 change la donne : l\'organisation doit évoluer pour atteindre ses objectifs ambitieux. Nous avons agilisé et standardisé les pratiques dans l\'objectif de renforcer les capacités de l\'organisation. Recommandations claires et accompagnement terrain pour ancrer durablement le changement.'
+    },
+    '29': {
+      name: 'Implication universitaire',
+      description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.'
+    },
+    '30': {
+      name: 'Implication universitaire',
+      description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.'
+    },
+    '13': {
+      name: 'Logistique externalisée',
+      description: 'Externaliser sa logistique sans perdre le contrôle : c\'est tout l\'enjeu. Direction d\'un projet de transition en assurant le transfert d\'activités en interface avec le client final, la montée en compétence des opérateurs et zéro interruption dans les livraisons.'
+    },
+    '16': {
+      name: 'Capitalisation projets antérieurs',
+      description: 'Accélérer la livraison en capitalisant sur l\'expérience. Transformation des enseignements des premières phases en leviers concrets d\'amélioration et de sécurisation, appuyés par les meilleures pratiques en gestion de projet.'
+    },
+    '24': {
+      name: 'Projets ferroviaires clés en main',
+      description: 'Des projets ferroviaires clé en main, de l\'offre à la livraison. Plusieurs chantiers simultanés, différents stades d\'avancement, une complexité qui s\'additionne. Formation des équipes à la planification de haut niveau et coordination d\'ensemble pour transformer la complexité en performance.'
+    },
+    '28': {
+      name: 'Transformation des pratiques projet',
+      description: 'Une transformation portée au plus haut niveau : renforcement des fondamentaux en gestion de projet, pilotage standardisé et KPI homogènes pour sécuriser les engagements et renforcer la compétitivité. Parce qu\'une organisation performante repose sur des bases solides.'
+    },
+    '22': {
+      name: 'Formation planification complexe',
+      description: 'Maîtriser la planification, c\'est maîtriser ses projets. Formation spécialisée en planification de projets complexes pour 40 professionnels. Approche terrain avec exercices pratiques, cas d\'étude réels, partage d\'expérience et quiz interactifs.'
+    },
+    '23': {
+      name: 'Réorientation stratégique programme',
+      description: 'Changement de cap : la stratégie de développement et de construction évolue, et tout le programme doit suivre. Formalisation et partage de cette nouvelle vision pour garantir la mise sous contrôle opérationnel. Nous avons embarqué les acteurs terrain pour ancrer ce virage stratégique.'
+    },
+    '17': {
+      name: 'Campagne Covid-19',
+      description: 'Une mission critique, à l\'échelle nationale, sans droit à l\'erreur. Vacciner un pays entier exige synchronisation parfaite, logistique rigoureuse et adaptation constante. Nous avons coordonné les ressources et les acteurs pour livrer cette campagne dans un contexte sanitaire sans précédent.'
+    },
+    '18': {
+      name: 'Programme anticontrefaçon',
+      description: 'Protéger votre marque, c\'est protéger vos revenus. Pilotage du déploiement d\'un système anticontrefaçon sur l\'ensemble du portfolio produits. Traçabilité, authentification, coordination multifonctionnelle à l\'échelle globale pour sécuriser votre position concurrentielle.'
+    }
+  },
   hero: {
     title: {
       l1: "Votre partenaire d'excellence",

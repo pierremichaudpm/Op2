@@ -59,31 +59,31 @@ const companyInfo: { [key: string]: { name: string; description: string; sector:
     theme: 'naval'
   },
   'Image006_10_311_221': {
-    name: 'Tunnel Lafontaine - Montréal',
-    description: 'La réfection du tunnel Louis-Hippolyte-La Fontaine représente un défi technique exceptionnel. La dégradation imprévue de la voûte a doublé le budget initial. L\'entreprise doit gérer ce chantier sous-marin complexe tout en maintenant la circulation de 120 000 véhicules quotidiens.',
-    sector: 'Infrastructure Majeure',
-    projects: 'Réfection tunnel sous-marin',
+    name: 'Réfection d\'un axe routier majeur',
+    description: 'Un chantier d\'envergure où l\'imprévu devient la norme. La dégradation de la voûte a doublé le budget, mais pas question d\'arrêter : 120 000 véhicules circulent chaque jour. Notre défi? Piloter cette réfection sous-marine complexe en gardant le cap sur les délais, tout en assurant la fluidité du trafic.',
+    sector: 'Infrastructure',
+    projects: 'Réfection sous-marine',
     theme: 'infrastructure'
   },
   'Image006_11_311_222': {
-    name: 'Solutions Énergétiques',
-    description: 'sectetur adipiscing elit. Nunc sed vulputate est. Donec interdum sollicitudin neque. Quisque cursus non felis vitae egestas. Morbi vel euismod leo, id rutrum dui. Mauris est ex, lacinia nec pulvinar eu, eleifend a tortor. Donec ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat\n\nRead more',
-    sector: 'Énergie',
-    projects: 'Production électrique',
+    name: 'Partenariat Project Management Institute',
+    description: 'Connecter la recherche, le terrain et les meilleures pratiques : c\'est l\'ambition de ce partenariat. Op2 collabore avec le Project Management Institute pour outiller et inspirer les professionnels de projet au Québec. Ensemble, nous élevons les standards de l\'industrie.',
+    sector: 'Formation et partenariat',
+    projects: 'Collaboration PMI',
     theme: 'energie'
   },
   'Image006_12_311_223': {
-    name: 'Component Architecture',
-    description: 'Implement responsive design patterns with CSS modules. Adapt existing elements while maintaining design consistency and accessibility standards.',
-    sector: 'Frontend Architecture',
-    projects: 'font-style: normal; font-weight: 400; line-height: 23px; text-decoration-line: underline;',
+    name: 'Formation dirigeants projets industriels',
+    description: 'Vos projets grandissent en complexité, vos équipes doivent suivre le rythme. Parcours pragmatique pour dirigeants : définir, planifier et piloter des projets industriels d\'envergure avec lucidité. Approche terrain combinant méthodologie rigoureuse et comportements efficaces.',
+    sector: 'Formation',
+    projects: 'Formation dirigeants',
     theme: 'tech'
   },
   'Image006_13_311_224': {
-    name: 'Module CSS Patterns',
-    description: 'text-decoration-style: solid; text-decoration-thickness: auto; display: inline-block. Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-    sector: 'CSS Architecture',
-    projects: 'width: 447.345px; height: 463.177px; color: #e7f2ff; text-align: center;',
+    name: 'Logistique externalisée',
+    description: 'Externaliser sa logistique sans perdre le contrôle : c\'est tout l\'enjeu. Direction d\'un projet de transition en assurant le transfert d\'activités en interface avec le client final, la montée en compétence des opérateurs et zéro interruption dans les livraisons.',
+    sector: 'Logistique',
+    projects: 'Transition logistique',
     theme: 'tech'
   },
   'Image006_14_311_225': {
@@ -101,29 +101,29 @@ const companyInfo: { [key: string]: { name: string; description: string; sector:
     theme: 'tech'
   },
   'Image006_16_311_238': {
-    name: 'TypeScript Definitions',
-    description: 'Id lectus phasellus ultrices nulla sit amet diam consequat. Implement following design in React with type safety.',
-    sector: 'Type System',
-    projects: 'interface Props { className?: string; children: React.ReactNode; }',
+    name: 'Capitalisation projets antérieurs',
+    description: 'Accélérer la livraison en capitalisant sur l\'expérience. Transformation des enseignements des premières phases en leviers concrets d\'amélioration et de sécurisation, appuyés par les meilleures pratiques en gestion de projet.',
+    sector: 'Capitalisation',
+    projects: 'Amélioration continue',
     theme: 'tech'
   },
   'Image006_17_311_227': {
-    name: 'Component Library',
-    description: 'Use following files generated from Figma design as specification guide but adapt with existing elements and design tokens.',
-    sector: 'Design Tokens',
-    projects: 'Storybook documentation, prop validation, accessibility testing'
+    name: 'Campagne Covid-19',
+    description: 'Une mission critique, à l\'échelle nationale, sans droit à l\'erreur. Vacciner un pays entier exige synchronisation parfaite, logistique rigoureuse et adaptation constante. Nous avons coordonné les ressources et les acteurs pour livrer cette campagne dans un contexte sanitaire sans précédent.',
+    sector: 'Santé publique',
+    projects: 'Vaccination nationale'
   },
   'Image006_18_311_228': {
-    name: 'CSS-in-JS Solutions',
-    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate est donec interdum sollicitudin neque quisque.',
-    sector: 'Styling Solutions',
-    projects: 'styled-components, emotion, CSS modules, Tailwind integration patterns'
+    name: 'Programme anticontrefaçon',
+    description: 'Protéger votre marque, c\'est protéger vos revenus. Pilotage du déploiement d\'un système anticontrefaçon sur l\'ensemble du portfolio produits. Traçabilité, authentification, coordination multifonctionnelle à l\'échelle globale pour sécuriser votre position concurrentielle.',
+    sector: 'Sécurité produit',
+    projects: 'Protection anticontrefaçon'
   },
   'Image006_19_311_229': {
-    name: 'Performance Optimization',
-    description: 'Cursus non felis vitae egestas morbi vel euismod leo id rutrum dui. Mauris est ex lacinia nec pulvinar eu eleifend a tortor.',
-    sector: 'Web Performance',
-    projects: 'Code splitting, lazy loading, bundle optimization, Core Web Vitals'
+    name: 'Coaching gestion de portefeuille',
+    description: 'Nous outillons et accompagnons les PMO pour déployer, renforcer et améliorer leurs pratiques de gestion de portefeuille. Plus qu\'un coaching : un transfert d\'expertise qui a rendu les équipes autonomes et performantes pour une gouvernance projet solide.',
+    sector: 'Coaching PMO',
+    projects: 'Amélioration gouvernance'
   },
   'Image006_20_311_230': {
     name: 'Accessibility Standards',
@@ -132,100 +132,100 @@ const companyInfo: { [key: string]: { name: string; description: string; sector:
     projects: 'ARIA labels, semantic HTML, keyboard navigation, screen reader support'
   },
   'Image006_21_311_231': {
-    name: 'Testing Frameworks',
-    description: 'Dolor sit amet consectetur adipiscing elit nunc sed vulputate est. Donec interdum sollicitudin neque quisque cursus non felis.',
-    sector: 'Quality Assurance',
-    projects: 'Jest, React Testing Library, Cypress, Playwright automation'
+    name: 'Harmonisation pratiques projet',
+    description: 'Capitaliser sur ce qui fonctionne : diffusion des bonnes pratiques à travers l\'organisation et harmonisation de la culture projet. Des outils améliorés, des processus cohérents, des équipes qui parlent le même langage. Résultat : une performance collective renforcée.',
+    sector: 'Harmonisation',
+    projects: 'Culture projet unifiée'
   },
   'Image006_22_311_232': {
-    name: 'Build Tool Configuration',
-    description: 'Vitae egestas morbi vel euismod leo id rutrum dui mauris est ex. Lacinia nec pulvinar eu eleifend a tortor donec ut odio.',
-    sector: 'Development Tools',
-    projects: 'Webpack, Vite, ESLint, Prettier, Husky pre-commit hooks'
+    name: 'Formation planification complexe',
+    description: 'Maîtriser la planification, c\'est maîtriser ses projets. Formation spécialisée en planification de projets complexes pour 40 professionnels. Approche terrain avec exercices pratiques, cas d\'étude réels, partage d\'expérience et quiz interactifs.',
+    sector: 'Formation',
+    projects: 'Formation planification'
   },
   'Image006_23_311_237': {
-    name: 'API Integration Patterns',
-    description: 'In nibh condimentum sodales dignissim id lectus phasellus. Ultrices nulla sit amet diam consequat implement following design.',
-    sector: 'Data Management',
-    projects: 'REST APIs, GraphQL, SWR, React Query, error handling patterns'
+    name: 'Réorientation stratégique programme',
+    description: 'Changement de cap : la stratégie de développement et de construction évolue, et tout le programme doit suivre. Formalisation et partage de cette nouvelle vision pour garantir la mise sous contrôle opérationnel. Nous avons embarqué les acteurs terrain pour ancrer ce virage stratégique.',
+    sector: 'Réorientation',
+    projects: 'Virage stratégique'
   },
   'Image006_24_311_233': {
-    name: 'Deployment Strategies',
-    description: 'In React use following files generated from Figma design as specification guide. Adapt with existing elements and maintain consistency.',
-    sector: 'DevOps Integration',
-    projects: 'CI/CD pipelines, Docker containers, Vercel, Netlify deployments'
+    name: 'Projets ferroviaires clés en main',
+    description: 'Des projets ferroviaires clé en main, de l\'offre à la livraison. Plusieurs chantiers simultanés, différents stades d\'avancement, une complexité qui s\'additionne. Formation des équipes à la planification de haut niveau et coordination d\'ensemble pour transformer la complexité en performance.',
+    sector: 'Transport ferroviaire',
+    projects: 'Clé en main ferroviaire'
   },
   'Image006_26_311_235': {
-    name: 'State Management Patterns',
-    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Nunc sed vulputate est donec interdum sollicitudin neque quisque cursus.',
-    sector: 'Redux & Context',
-    projects: 'Redux Toolkit, Zustand, Context API, state normalization patterns'
+    name: 'Planification et contrôle ingénierie',
+    description: 'Piloter les activités d\'ingénierie avec précision : planification renforcée, optimisation charge-capacité et standardisation produits entre sites. Des données exploitées, des décisions éclairées, une ingénierie qui livre à temps.',
+    sector: 'Ingénierie',
+    projects: 'Contrôle ingénierie'
   },
   'Image006_27_311_236': {
-    name: 'Server-Side Rendering',
-    description: 'Non felis vitae egestas morbi vel euismod leo id rutrum dui. Mauris est ex lacinia nec pulvinar eu eleifend a tortor donec.',
-    sector: 'Next.js Framework',
-    projects: 'SSR, SSG, ISR, API routes, middleware, dynamic imports'
+    name: 'Formation management de projet',
+    description: 'Former pour transformer : programme complet de formation aux fondamentaux du management de projet. Plus de 330 chefs de projet formés avec une approche terrain mêlant exercices pratiques, cas réels, quiz et jeux pédagogiques. Résultat : des équipes outillées et alignées sur les meilleures pratiques.',
+    sector: 'Formation',
+    projects: 'Formation management'
   },
   'Image006_28_311_234': {
-    name: 'Design System Implementation',
-    description: 'Ut odio in nibh condimentum sodales dignissim id lectus. Phasellus ultrices nulla sit amet diam consequat lorem ipsum dolor.',
-    sector: 'Component Library',
-    projects: 'Design tokens, theme provider, variant systems, documentation'
+    name: 'Transformation des pratiques projet',
+    description: 'Une transformation portée au plus haut niveau : renforcement des fondamentaux en gestion de projet, pilotage standardisé et KPI homogènes pour sécuriser les engagements et renforcer la compétitivité. Parce qu\'une organisation performante repose sur des bases solides.',
+    sector: 'Transformation',
+    projects: 'Standardisation projet'
   },
   'Image006_2_311_239': {
-    name: 'Animation Libraries',
-    description: 'Sit amet consectetur adipiscing elit nunc sed vulputate est. Donec interdum sollicitudin neque quisque cursus non felis vitae.',
-    sector: 'Motion Design',
-    projects: 'Framer Motion, React Spring, CSS animations, GSAP integration'
+    name: 'Projets stratégiques parallèles',
+    description: 'Deux chantiers en simultané, un pilotage intégré. Nous avons assuré la livraison à temps du premier projet, tout en structurant le suivant à travers la standardisation de l\'ingénierie système. Résultat : double livraison maîtrisée, efficacité renforcée.',
+    sector: 'Gestion de projets',
+    projects: 'Projets parallèles'
   },
   'Image006_3_311_240': {
-    name: 'Form Validation Systems',
-    description: 'Egestas morbi vel euismod leo id rutrum dui mauris est ex. Lacinia nec pulvinar eu eleifend a tortor donec ut odio in nibh.',
-    sector: 'User Input Handling',
-    projects: 'React Hook Form, Formik, Yup validation, custom validators'
+    name: 'Création d\'une joint venture',
+    description: 'Sécuriser et accélérer la collaboration entre équipes : c\'est tout l\'enjeu d\'une joint venture. Nous avons coordonné l\'intégration des équipes, renforcé la confiance et sécurisé l\'avancement des projets. Parce qu\'une JV réussie se construit sur la coordination et la clarté.',
+    sector: 'Joint venture',
+    projects: 'Coordination JV'
   },
   'Image006_4_311_241': {
-    name: 'Error Boundary Implementation',
-    description: 'Condimentum sodales dignissim id lectus phasellus ultrices nulla. Sit amet diam consequat implement following design in React.',
-    sector: 'Error Handling',
-    projects: 'Error boundaries, fallback UI, error reporting, recovery strategies'
+    name: 'Programme nucléaire',
+    description: 'Un projet à 50G€ qui redéfinit l\'avenir énergétique français. Nous avons fluidifié les interfaces entre toutes les parties prenantes en créant des règles de planification claires et des tableaux de bord digitaux accessibles en temps réel. Résultat : visibilité totale, collaboration renforcée, pilotage par les données.',
+    sector: 'Énergie nucléaire',
+    projects: 'Programme EPR'
   },
   'Image006_5_311_242': {
-    name: 'Internationalization Setup',
-    description: 'Use following files generated from Figma design as specification guide. Adapt with existing elements but maintain design consistency.',
-    sector: 'i18n Implementation',
-    projects: 'React Intl, next-i18next, locale routing, RTL support'
+    name: 'Réponse au plan 2035',
+    description: 'Le Plan 2035 change la donne : l\'organisation doit évoluer pour atteindre ses objectifs ambitieux. Nous avons agilisé et standardisé les pratiques dans l\'objectif de renforcer les capacités de l\'organisation. Recommandations claires et accompagnement terrain pour ancrer durablement le changement.',
+    sector: 'Transformation organisationnelle',
+    projects: 'Plan 2035'
   },
   'Image006_29_311_246': {
-    name: 'Partenaire 29',
-    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate. Est donec interdum sollicitudin neque quisque cursus non.',
-    sector: 'Secteur 29',
-    projects: 'Projet 29'
+    name: 'Implication universitaire',
+    description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.',
+    sector: 'Formation académique',
+    projects: 'Partenariat universitaire'
   },
   'Image006_30_311_247': {
-    name: 'Partenaire 30',
-    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate. Est donec interdum sollicitudin neque quisque cursus non.',
-    sector: 'Secteur 30',
-    projects: 'Projet 30'
+    name: 'Implication universitaire',
+    description: 'Former la relève, c\'est investir dans l\'avenir de notre industrie. Partage de notre expertise terrain à travers conférences, animation de sessions et participation comme juge dans des concours universitaires. Nous créons des ponts entre pratique professionnelle et excellence en formation.',
+    sector: 'Formation académique',
+    projects: 'Partenariat universitaire'
   },
   'Image006_6_311_243': {
-    name: 'Security Best Practices',
-    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit nunc sed vulputate. Est donec interdum sollicitudin neque quisque cursus non.',
-    sector: 'Web Security',
-    projects: 'XSS prevention, CSRF protection, content security policy, sanitization'
+    name: 'Audit projet industriel',
+    description: 'L\'expertise technique est solide, le potentiel d\'affaires est immense. Nous avons audité un projet en lancement et proposé une feuille de route concrète : intégration de l\'ingénierie système, optimisation Q,C,D et sécurité renforcée sur tout le cycle de vie.',
+    sector: 'Audit industriel',
+    projects: 'Audit projet'
   },
   'Image006_7_311_244': {
-    name: 'Progressive Web App',
-    description: 'Felis vitae egestas morbi vel euismod leo id rutrum dui. Mauris est ex lacinia nec pulvinar eu eleifend a tortor donec ut.',
-    sector: 'PWA Features',
-    projects: 'Service workers, offline functionality, app manifest, push notifications'
+    name: 'Rationalisation échéancier complexe',
+    description: 'Faire cohabiter stratégie et coordination fine. Nous avons transformé la richesse du détail d\'un échéancier complexe en pouvoir de décision : planning directeur opérationnel avec hypothèses structurées, identification du chemin critique et analyse de risques sur les activités clés.',
+    sector: 'Planification',
+    projects: 'Échéancier complexe'
   },
   'Image006_8_311_245': {
-    name: 'Micro-Frontend Architecture',
-    description: 'Odio in nibh condimentum sodales dignissim id lectus phasellus. Ultrices nulla sit amet diam consequat read more implementation.',
-    sector: 'Scalable Architecture',
-    projects: 'Module federation, single-spa, micro-frontend communication patterns'
+    name: 'Déploiement outil gestion de portefeuille',
+    description: 'Pilotage homogène du portefeuille et des ressources : un dispositif unique pour toutes les équipes. Déploiement de l\'outil, optimisation des charges et capacités, accompagnement des équipes et conduite du changement pour ancrer durablement la transformation.',
+    sector: 'Gestion portefeuille',
+    projects: 'Outil PPM'
   }
 };
 

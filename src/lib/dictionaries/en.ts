@@ -24,6 +24,64 @@ export const en = {
     title: 'Global expertise',
     subtitle: 'Click a logo to discover our projects'
   },
+  logos: {
+    '10': {
+      name: 'Major road axis refurbishment',
+      description: 'A large-scale project where the unexpected becomes the norm. Vault deterioration doubled the budget, but no stopping: 120,000 vehicles circulate daily. Our challenge? To pilot this complex underwater refurbishment while keeping deadlines on track and ensuring traffic flow.'
+    },
+    '11': {
+      name: 'Project Management Institute Partnership',
+      description: 'Connecting research, fieldwork and best practices: this is the ambition of this partnership. Op2 collaborates with the Project Management Institute to equip and inspire project professionals in Quebec. Together, we raise industry standards.'
+    },
+    '8': {
+      name: 'Portfolio management tool deployment',
+      description: 'Homogeneous portfolio and resource management: a single system for all teams. Tool deployment, workload and capacity optimization, team support and change management to sustainably anchor the transformation.'
+    },
+    '5': {
+      name: 'Response to the 2035 Plan',
+      description: 'The 2035 Plan changes the game: the organization must evolve to achieve its ambitious goals. We have made practices more agile and standardized with the aim of strengthening the organization\'s capabilities. Clear recommendations and field support to sustainably anchor change.'
+    },
+    '29': {
+      name: 'University involvement',
+      description: 'Training the next generation means investing in the future of our industry. Sharing our field expertise through conferences, session facilitation and participation as judges in university competitions. We create bridges between professional practice and training excellence.'
+    },
+    '30': {
+      name: 'University involvement',
+      description: 'Training the next generation means investing in the future of our industry. Sharing our field expertise through conferences, session facilitation and participation as judges in university competitions. We create bridges between professional practice and training excellence.'
+    },
+    '13': {
+      name: 'Outsourced logistics',
+      description: 'Outsource your logistics without losing control: this is the whole challenge. Management of a transition project ensuring activity transfer in interface with the end client, operator skills development and zero interruption in deliveries.'
+    },
+    '16': {
+      name: 'Capitalization of previous projects',
+      description: 'Accelerate delivery by capitalizing on experience. Transformation of lessons learned from initial phases into concrete improvement and security levers, supported by best practices in project management.'
+    },
+    '24': {
+      name: 'Turnkey railway projects',
+      description: 'Turnkey railway projects, from offer to delivery. Several simultaneous construction sites, different stages of progress, complexity that adds up. Training teams in high-level planning and overall coordination to transform complexity into performance.'
+    },
+    '28': {
+      name: 'Project practices transformation',
+      description: 'A transformation driven at the highest level: strengthening project management fundamentals, standardized steering and homogeneous KPIs to secure commitments and strengthen competitiveness. Because a high-performing organization is built on solid foundations.'
+    },
+    '22': {
+      name: 'Complex planning training',
+      description: 'Mastering planning means mastering your projects. Specialized training in complex project planning for 40 professionals. Field approach with practical exercises, real case studies, experience sharing and interactive quizzes.'
+    },
+    '23': {
+      name: 'Strategic program reorientation',
+      description: 'Change of direction: the development and construction strategy is evolving, and the entire program must follow. Formalization and sharing of this new vision to guarantee operational control. We have brought stakeholders on board to anchor this strategic shift.'
+    },
+    '17': {
+      name: 'Covid-19 campaign',
+      description: 'A critical mission, on a national scale, with no room for error. Vaccinating an entire country requires perfect synchronization, rigorous logistics and constant adaptation. We coordinated resources and stakeholders to deliver this campaign in an unprecedented health context.'
+    },
+    '18': {
+      name: 'Anti-counterfeiting program',
+      description: 'Protecting your brand means protecting your revenues. Management of the deployment of an anti-counterfeiting system across the entire product portfolio. Traceability, authentication, multifunctional coordination on a global scale to secure your competitive position.'
+    }
+  },
   hero: {
     title: {
       l1: 'Your partner in excellence',
