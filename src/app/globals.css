@@ -84,6 +84,8 @@ html, body, :root {
   height: 100%;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -94,6 +96,8 @@ body {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Pas de zoom sur mobile */
