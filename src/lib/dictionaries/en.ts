@@ -80,6 +80,46 @@ export const en = {
     '18': {
       name: 'Anti-counterfeiting program',
       description: 'Protecting your brand means protecting your revenues. Management of the deployment of an anti-counterfeiting system across the entire product portfolio. Traceability, authentication, multifunctional coordination on a global scale to secure your competitive position.'
+    },
+    '12': {
+      name: 'Industrial project leaders training',
+      description: 'Your projects grow in complexity, your teams must keep pace. Pragmatic course for leaders: define, plan and pilot large-scale industrial projects with clarity. Field approach combining rigorous methodology and effective behaviors.'
+    },
+    '19': {
+      name: 'Portfolio management coaching',
+      description: 'We equip and support PMOs to deploy, strengthen and improve their portfolio management practices. More than coaching: knowledge transfer that made teams autonomous and high-performing for solid project governance.'
+    },
+    '21': {
+      name: 'Project practices harmonization',
+      description: 'Capitalize on what works: dissemination of best practices throughout the organization and harmonization of project culture. Improved tools, consistent processes, teams speaking the same language. Result: strengthened collective performance.'
+    },
+    '26': {
+      name: 'Engineering planning and control',
+      description: 'Pilot engineering activities with precision: strengthened planning, workload-capacity optimization and product standardization across sites. Exploited data, informed decisions, engineering that delivers on time.'
+    },
+    '27': {
+      name: 'Project management training',
+      description: 'Train to transform: comprehensive training program on project management fundamentals. Over 330 project managers trained with a field approach combining practical exercises, real cases, quizzes and educational games. Result: equipped teams aligned on best practices.'
+    },
+    '2': {
+      name: 'Parallel strategic projects',
+      description: 'Two simultaneous projects, integrated management. We ensured on-time delivery of the first project while structuring the next through systems engineering standardization. Result: controlled double delivery, reinforced efficiency.'
+    },
+    '3': {
+      name: 'Joint venture creation',
+      description: 'Secure and accelerate collaboration between teams: this is the whole challenge of a joint venture. We coordinated team integration, strengthened trust and secured project progress. Because a successful JV is built on coordination and clarity.'
+    },
+    '4': {
+      name: 'Nuclear program',
+      description: 'A €50B project redefining France\'s energy future. We streamlined interfaces between all stakeholders by creating clear planning rules and digital dashboards accessible in real-time. Result: total visibility, strengthened collaboration, data-driven management.'
+    },
+    '6': {
+      name: 'Industrial project audit',
+      description: 'Technical expertise is solid, business potential is immense. We audited a launching project and proposed a concrete roadmap: systems engineering integration, Q,C,D optimization and enhanced security throughout the lifecycle.'
+    },
+    '7': {
+      name: 'Complex schedule rationalization',
+      description: 'Combine strategy and fine coordination. We transformed the richness of a complex schedule\'s detail into decision-making power: operational master plan with structured assumptions, critical path identification and risk analysis on key activities.'
     }
   },
   hero: {
@@ -127,43 +167,50 @@ export const en = {
   },
   portfolio: {
     title: 'Our Projects',
-    project1: {
-      title: 'Lafontaine Tunnel',
-      category: 'Infrastructure',
-      description: 'Major refurbishment of underwater tunnel managing 120,000 daily vehicles.'
-    },
-    project2: {
-      title: 'Offshore Wind Farm',
-      category: 'Energy',
-      description: 'Installation of 50 sea turbines with 400 MW capacity.'
-    },
-    project3: {
-      title: 'Hospital Center',
-      category: 'Healthcare',
-      description: 'Construction of a 500-bed medical complex with cutting-edge technology.'
-    },
-    project4: {
-      title: 'Port of Montreal',
-      category: 'Maritime',
-      description: 'Container terminal extension to double handling capacity.'
-    },
-    project5: {
-      title: 'Railway Network',
-      category: 'Transport',
-      description: 'Modernization of 200 km of railway tracks and signaling systems.'
-    },
-    project6: {
-      title: 'Industry 4.0 Plant',
-      category: 'Manufacturing',
-      description: 'Complete digital transformation of an automotive production plant.'
-    },
-    modal: {
-      headline_l1: 'Offshore Wind Farm',
-      headline_l2: '',
-      body_1: 'Installation of 80 wind turbines in the North Sea.',
-      body_2: 'Complete management of a 400MW offshore wind farm installation project. Coordination of 12 specialized vessels, management of weather constraints and delivery 2 months ahead of initial schedule.',
-      body_3: ''
-    }
+    projects: [
+      {
+        title: 'Offshore Wind Farm',
+        modalTitle: 'Offshore Wind Farm',
+        description: 'Expertise in offshore energy projects',
+        modalContent: 'Our team has solid expertise in managing complex energy projects. Thanks to the projects we have successfully completed, we can offer you solutions in project management, cost and schedule control, risk management and large-scale offshore operations coordination. As a reference, since 2018 we have been supporting an electricity network operator on the deployment of seven offshore wind farms, including the installation of 80 turbines in the North Sea for a 400MW farm. This project involved coordinating 12 specialized vessels, managing weather constraints and was delivered 2 months ahead of the initial schedule, with budgets up to €1.5 billion.'
+      },
+      {
+        title: 'High-speed rail line',
+        modalTitle: 'High-speed rail line',
+        description: 'Expertise in high-speed mobility solutions',
+        modalContent: 'Drawing on our experience in managing innovative transport sector projects, we can offer you solutions in strategic planning, document management, multidisciplinary team coordination and supply chain security. As a reference, since 2019 we have been supporting a global transport leader (74,000 employees, €15.5 billion revenue) on the development and industrialization of its next generation of high-speed mobility solutions, with ambitious objectives: 20% capacity increase, 20% reduction in acquisition costs and energy consumption, and 30% reduction in maintenance costs.'
+      },
+      {
+        title: 'Hydroelectric power plant',
+        modalTitle: 'Hydroelectric power plant',
+        description: 'Expertise in continuous improvement and benchmarking',
+        modalContent: 'We put our expertise in continuous improvement and benchmarking at the service of major energy sector players. Thanks to the projects we have successfully completed, we can offer you solutions in project management practices analysis, improvement areas identification, roadmap development and change management. As a reference, since October 2021 we have been supporting a Canadian public company (electricity production, transmission and distribution) in the renovation and improvement of its hydraulic plants. After a six-month benchmark phase analyzing best practices across various industries and countries, we are currently deploying our recommendations on two pilot projects to demonstrate their operational effectiveness and address decarbonization and production capacity increase challenges.'
+      },
+      {
+        title: 'Space launch center',
+        modalTitle: 'Space launch center',
+        description: 'Expertise in space program management',
+        modalContent: 'Long-time partners of the French space industry, we have been supporting large-scale programs since our company\'s creation. Thanks to the projects we have successfully completed, we can offer you comprehensive solutions in PMO support, schedule management, risk and cost management at all program levels. As a reference, since 2017 we have been supporting a flagship of French industry in the development of a new civil space launcher for the European Union, the first in about twenty years. We operate on two sites and support all program groups up to Product Managers and Management, managing the complexity linked to coordinating numerous trades and the project\'s regular media exposure.'
+      },
+      {
+        title: 'Military naval construction',
+        modalTitle: 'Military naval construction',
+        description: 'Expertise in engineering performance optimization',
+        modalContent: 'We have recognized expertise in engineering performance optimization and complex multi-site project management. Thanks to the projects we have successfully completed, we can offer you solutions in robust planning, key resources and skills management, performance indicators implementation and agile governance cycles. As a reference, we deployed a two-year Master Engineering Plan (MEP) for a major defense player specialized in marine warships, involving 2,000 stakeholders across multiple sites. The solutions implemented, including adherence and executability indicators, have significantly reduced delays and are now integrated from the start of all the client\'s new projects.'
+      },
+      {
+        title: 'Metro line extension',
+        modalTitle: 'Metro line extension',
+        description: 'Expertise in international project management',
+        modalContent: 'With an international presence, we support our clients in delivering world-class projects. Thanks to the projects we have successfully completed, we can offer you solutions in comprehensive complex program management, public-private partnership (PPP) management, international multi-site coordination and contractual deadline control. As a reference, we managed for four years the New Generation Rollingstock (NGR) project in Queensland, Australia: manufacturing 75 trains (450 cars) for a budget of €4.4 billion, with design in Australia, manufacturing in India and sixteen different currencies. The project was delivered without any delay penalties and was recognized as "Best in Class" by our client globally.'
+      },
+      {
+        title: 'Pharmaceutical Plant 4.0',
+        modalTitle: 'Pharmaceutical Plant 4.0',
+        description: 'Expertise in exceptional and crisis project management',
+        modalContent: 'Our ability to intervene quickly on exceptional and unprecedented projects allows us to support our clients facing unprecedented challenges. Thanks to the projects we have successfully completed, we can offer you solutions in rapid structuring of complex programs, implementation of adapted organization and management methods, and critical logistics constraint management. As a reference, we were mobilized as early as December 2020 to contribute to the organization of the national COVID-19 vaccination campaign, including coordination of vaccine transport at -80° across the entire French territory in record time. The success of this mission led our client to renew their trust for a four-year period as a preferred partner for exceptional projects.'
+      }
+    ]
   },
   team: {
     title: 'Our Experts',

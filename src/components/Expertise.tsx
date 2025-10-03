@@ -48,7 +48,17 @@ const logoIdMapping: { [key: string]: string } = {
   'Image006_22_311_232': '22',
   'Image006_23_311_237': '23',
   'Image006_17_311_227': '17',
-  'Image006_18_311_228': '18'
+  'Image006_18_311_228': '18',
+  'Image006_12_311_223': '12',
+  'Image006_19_311_229': '19',
+  'Image006_21_311_231': '21',
+  'Image006_26_311_235': '26',
+  'Image006_27_311_236': '27',
+  'Image006_2_311_239': '2',
+  'Image006_3_311_240': '3',
+  'Image006_4_311_241': '4',
+  'Image006_6_311_243': '6',
+  'Image006_7_311_244': '7'
 };
 
 // Thèmes et couleurs associées - angles précis selon position des logos
