@@ -1,8 +1,8 @@
 // Singleton pour gérer l'état global du splash screen
 class SplashSingleton {
   private static instance: SplashSingleton;
-  private hasShown: boolean = false;
   private isShowing: boolean = false;
+  private pageLoadId: string = '';
   
   private constructor() {}
   
@@ -13,22 +13,31 @@ class SplashSingleton {
     return SplashSingleton.instance;
   }
   
+  private getCurrentPageLoadId(): string {
+    if (typeof window === 'undefined') return '';
+    // Utiliser le timestamp de navigation comme ID unique pour chaque chargement de page
+    return performance.timeOrigin.toString();
+  }
+  
   public shouldShowSplash(): boolean {
     if (typeof window === 'undefined') return false;
     
-    // Si un splash est déjà en cours, ne pas en montrer un autre
+    const currentPageLoadId = this.getCurrentPageLoadId();
+    
+    // Si c'est un nouveau chargement de page (F5 ou première visite), montrer le splash
+    if (currentPageLoadId !== this.pageLoadId) {
+      this.pageLoadId = currentPageLoadId;
+      this.isShowing = false; // Réinitialiser pour le nouveau chargement
+      return true;
+    }
+    
+    // Si le splash est déjà en cours pour ce chargement de page
     if (this.isShowing) return false;
     
-    // Si on a déjà montré le splash dans cette instance de la classe, ne pas le remontrer
-    if (this.hasShown) return false;
-    
-    // Toujours montrer le splash (chaque refresh de page)
-    // La variable this.hasShown empêche le double affichage dans une même session React
-    return true;
+    return false; // Déjà montré pour ce chargement
   }
   
   public markAsShown(): void {
-    this.hasShown = true;
     this.isShowing = true;
   }
   
