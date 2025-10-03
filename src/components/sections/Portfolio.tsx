@@ -127,7 +127,9 @@ export function Portfolio() {
               width: '11.62%',
               height: '416px',
               zIndex: openIdx !== null ? 1 : 2,
-              pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+              pointerEvents: openIdx !== null ? 'none' : 'auto',
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(0)}>
             <Image
               src="/images/nos_realisations/image-13.png"
@@ -146,7 +148,9 @@ export function Portfolio() {
               width: '33.51%',
               height: '390px',
               zIndex: openIdx !== null ? 1 : 2,
-              pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+              pointerEvents: openIdx !== null ? 'none' : 'auto',
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(1)}>
             <Image
               src="/images/nos_realisations/image-15.png"
@@ -165,7 +169,9 @@ export function Portfolio() {
                 width: '33.30%',
                 height: '286px',
                 zIndex: openIdx !== null ? 1 : 2,
-                pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+                pointerEvents: openIdx !== null ? 'none' : 'auto',
+                willChange: 'transform',
+                transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(2)}>
             <Image
               src="/images/nos_realisations/image-10.png"
@@ -184,7 +190,9 @@ export function Portfolio() {
               width: '26.56%',
               height: '415px',
               zIndex: openIdx !== null ? 1 : 2,
-              pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+              pointerEvents: openIdx !== null ? 'none' : 'auto',
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(3)}>
             <Image
               src="/images/nos_realisations/image-12.png"
@@ -203,7 +211,9 @@ export function Portfolio() {
               width: '39.83%',
               height: '451px',
               zIndex: openIdx !== null ? 1 : 2,
-              pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+              pointerEvents: openIdx !== null ? 'none' : 'auto',
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(4)}>
             <Image
               src="/images/nos_realisations/image-14.png"
@@ -222,7 +232,9 @@ export function Portfolio() {
               width: 'calc(26.97% - 1px)',
               height: '328px',
               zIndex: openIdx !== null ? 1 : 2,
-              pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+              pointerEvents: openIdx !== null ? 'none' : 'auto',
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(5)}>
             <Image
               src="/images/nos_realisations/image-16.png"
@@ -241,7 +253,9 @@ export function Portfolio() {
                 width: 'calc(28.22% + 1px)',
                 height: '352px',
                 zIndex: openIdx !== null ? 1 : 2,
-                pointerEvents: openIdx !== null ? 'none' : 'auto' }}
+                pointerEvents: openIdx !== null ? 'none' : 'auto',
+                willChange: 'transform',
+                transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(6)}>
             <Image
               src="/images/nos_realisations/image-11.png"

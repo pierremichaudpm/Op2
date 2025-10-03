@@ -2,13 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix global pour les lignes clignotantes - Force l'accélération GPU */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prévention des artefacts de rendu sur les éléments transformés */
+*[class*="transition"],
+*[class*="transform"],
+*[class*="hover:scale"],
+*[style*="transform"],
+*[style*="transition"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Fix pour les bordures qui clignotent - ciblage précis */
+img, svg, video, canvas {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Fix pour éléments avec bordures animées */
+[class*="border"][class*="transition"],
+[class*="border"][class*="hover"],
+button, a {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
 /* Animation pulse pour logos */
 @keyframes logoPulseMobile {
   0%, 100% {
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: scale(1.08);
+    transform: translate3d(0, 0, 0) scale(1.08);
   }
 }
 
@@ -48,12 +82,18 @@ body.site-ready {
 
 html, body, :root {
   height: 100%;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
   zoom: 0.75;
+  /* Force l'accélération matérielle pour tout le site */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Pas de zoom sur mobile */

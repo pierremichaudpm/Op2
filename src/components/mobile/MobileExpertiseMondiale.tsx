@@ -1022,6 +1022,45 @@ export function MobileExpertiseMondiale() {
           }} />
 
 
+          {/* Titre - Juste au-dessus du texte (descendu de 40px) */}
+          <div style={{
+            position: 'absolute',
+            left: '11.02%',
+            top: '29.17%',
+            width: '79.03%',
+            color: '#F36911',
+            fontFamily: 'Gotham, sans-serif',
+            fontSize: '15.96px',
+            fontWeight: 700,
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            letterSpacing: '0.02em',
+            userSelect: 'none',
+            cursor: 'default',
+            marginBottom: '8px'
+          }}>
+            {logoInfo?.name || ''}
+          </div>
+
+          {/* Texte - Position: x:34.62, y:96.57, w:248.17, h:261.43 (descendu de 40px) */}
+          <div style={{
+            position: 'absolute',
+            left: '11.02%', // 34.62/314
+            top: '38.16%', // 96.57/358 + 40px
+            width: '79.03%', // 248.17/314
+            height: '73.01%', // 261.43/358
+            color: '#FFFFFF',
+            fontFamily: 'Gotham, sans-serif',
+            fontSize: '13.2px',
+            fontWeight: 400,
+            textAlign: 'center',
+            lineHeight: '12.63px', // 13.2px * 0.957
+            userSelect: 'none',
+            cursor: 'default'
+          }}>
+            {logoInfo?.description || ''}
+          </div>
+
           {/* Logo dynamique basé sur la sélection - Toujours en pleine couleur */}
           <div
             style={{

@@ -195,7 +195,7 @@ const companyInfo: { [key: string]: { name: string; description: string; sector:
     name: 'Réponse au plan 2035',
     description: 'Le Plan 2035 change la donne : l\'organisation doit évoluer pour atteindre ses objectifs ambitieux. Nous avons agilisé et standardisé les pratiques dans l\'objectif de renforcer les capacités de l\'organisation. Recommandations claires et accompagnement terrain pour ancrer durablement le changement.',
     sector: 'Transformation organisationnelle',
-    projects: 'Plan 2035'
+    projects: 'Plan 2035 - Agilisation et standardisation'
   },
   'Image006_29_311_246': {
     name: 'Implication universitaire',
@@ -287,8 +287,10 @@ function LogoContainer({
             objectFit: 'contain',
             filter: filter,
             transition: 'all 0.4s ease',
-            transform: isSelected ? 'scale(1.15)' : (isHovered ? 'scale(1.1)' : 'scale(1)'),
-            zIndex: isSelected ? 25 : (isHovered ? 20 : 10)
+            transform: isSelected ? 'translate3d(0,0,0) scale(1.15)' : (isHovered ? 'translate3d(0,0,0) scale(1.1)' : 'translate3d(0,0,0) scale(1)'),
+            zIndex: isSelected ? 25 : (isHovered ? 20 : 10),
+            willChange: 'transform',
+            backfaceVisibility: 'hidden'
           }}
         />
         

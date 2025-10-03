@@ -5,8 +5,12 @@
   position: relative;
   margin: 0;
   margin-left: 25px;
-  transform: scale(0.85);
+  transform: scale(0.85) translateZ(0);
   transform-origin: top center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .Globe_311_217 {
@@ -21,6 +25,10 @@
   z-index: 2;
   border-radius: 50%;
   overflow: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .video {
@@ -31,6 +39,10 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .GlobeCircle_1_311_218 {
@@ -43,6 +55,10 @@
   left: 615px;
   top: 201px;
   z-index: 1;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .themeCircle {
@@ -59,42 +75,47 @@
   pointer-events: none;
   mask: radial-gradient(circle, transparent 250px, black 250px, black 320px, transparent 320px);
   -webkit-mask: radial-gradient(circle, transparent 250px, black 250px, black 320px, transparent 320px);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 @keyframes fadeInTheme {
   0% {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translate3d(0, 0, 0) scale(0.95);
   }
   to {
     opacity: 0.8;
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes pulseOrange {
   0% {
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: translate3d(0, 0, 0) scale(0.9);
   }
   50% {
     opacity: 0.8;
-    transform: scale(1.1);
+    transform: translate3d(0, 0, 0) scale(1.1);
   }
   100% {
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: translate3d(0, 0, 0) scale(0.9);
   }
 }
 
 @keyframes pulsePont {
   0% {
     opacity: 0.5;
-    transform: translateX(-50%) scale(0.9);
+    transform: translate3d(-50%, 0, 0) scale(0.9);
   }
   100% {
     opacity: 0.9;
-    transform: translateX(-50%) scale(1.1);
+    transform: translate3d(-50%, 0, 0) scale(1.1);
   }
 }
 
@@ -119,10 +140,10 @@
 
 @keyframes logoPulse {
   0%, 100% {
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: scale(1.15);
+    transform: translate3d(0, 0, 0) scale(1.15);
   }
 }
 
@@ -131,10 +152,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .logoContainer:hover {
-  transform: scale(1.1);
+  transform: translate3d(0, 0, 0) scale(1.1);
   z-index: 20;
 }
 
@@ -153,6 +177,41 @@
   top: 0;
   left: 0;
   transition: opacity 0.3s ease;
+}
+
+/* Optimisation GPU pour tous les conteneurs de logos */
+.Image006_1_311_219,
+.Image006_9_311_220,
+.Image006_10_311_221,
+.Image006_11_311_222,
+.Image006_12_311_223,
+.Image006_13_311_224,
+.Image006_14_311_225,
+.Image006_15_311_226,
+.Image006_17_311_227,
+.Image006_18_311_228,
+.Image006_19_311_229,
+.Image006_20_311_230,
+.Image006_21_311_231,
+.Image006_22_311_232,
+.Image006_24_311_233,
+.Image006_28_311_234,
+.Image006_26_311_235,
+.Image006_27_311_236,
+.Image006_23_311_237,
+.Image006_16_311_238,
+.Image006_2_311_239,
+.Image006_3_311_240,
+.Image006_4_311_241,
+.Image006_5_311_242,
+.Image006_6_311_243,
+.Image006_7_311_244,
+.Image006_8_311_245,
+.Image006_29_311_246,
+.Image006_30_311_247 {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .Image006_1_311_219 {
@@ -178,8 +237,8 @@
 .Image006_10_311_221 {
   aspect-ratio: 208.95/68.06;
   flex-shrink: 0;
-  width: 208.955px;
-  height: 68.057px;
+  width: 209px;
+  height: 68px;
   position: absolute;
   left: 750px;
   top: 115px;
@@ -456,15 +515,18 @@
   z-index: 100;
   pointer-events: auto;
   cursor: pointer;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .infoCircle {
   width: 490px;
   height: 490px;
   background: linear-gradient(180deg, #6B94E0 0%, #5A82D8 15%, #476dce 30%, #3A5BA5 65%, #243768 100%);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), inset 0 0 0 1px #243768;
   border-radius: 50%;
-  border: 1px solid #243768;
   position: absolute;
   left: 768px;
   top: 337px;
@@ -477,15 +539,21 @@
   overflow-y: auto;
   pointer-events: auto;
   z-index: 200;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 @keyframes scaleIn {
   0% {
-    transform: scale(0);
+    transform: translate3d(0, 0, 0) scale(0);
     opacity: 0;
   }
   to {
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
 }
@@ -515,12 +583,15 @@
   line-height: 1;
   text-decoration: none;
   pointer-events: auto;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .closeButton:hover {
   background: #F36911;
   opacity: 1;
-  transform: scale(1.05);
+  transform: translate3d(0, 0, 0) scale(1.05);
 }
 
 .infoContent {
@@ -545,6 +616,10 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .overlayLogo {
@@ -553,12 +628,16 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .companyName {
-  color: #fff;
+  color: #F36911;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 20.52px;
   font-weight: 700;
   margin-bottom: 15px;
   margin-top: 0px;
@@ -585,7 +664,7 @@
 }
 
 .infoSection p {
-  color: hsla(0, 0%, 100%, 0.95);
+  color: #FFFFFF;
   line-height: 1.5;
   margin: 0;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
@@ -600,7 +679,7 @@
 }
 
 .projectDescription p {
-  color: #e7f2ff;
+  color: #FFFFFF;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   font-size: 18px;
   line-height: 1.7;
@@ -644,7 +723,7 @@
   }
   
   .companyName {
-    font-size: 22px;
+    font-size: 25.08px;
   }
   
   .infoSection h3 {
