@@ -196,10 +196,10 @@ export const en = {
     sectionTitle: 'A comprehensive offer',
     learn_more: 'Learn more',
     conseil: {
-      title: 'Strategic Advisory',
+      title: 'Strategy & Execution',
       description: 'We help organizations make the right decisions at the right time.',
-      title_l1: 'Strategic',
-      title_l2: 'advisory',
+      title_l1: 'Strategy &',
+      title_l2: 'Execution',
       modal: {
         title: 'Turn your projects into performance drivers.',
         desc: 'We help organisations make the right decisions at the right time. Combining strategic vision with rigorous project management, we enable you to anticipate risks, accelerate initiatives and maximise the impact of your investments.',

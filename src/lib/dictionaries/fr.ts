@@ -196,10 +196,10 @@ export const fr = {
     sectionTitle: 'Une offre globale',
     learn_more: 'En savoir plus',
     conseil: {
-      title: 'Conseil stratégique',
+      title: 'Stratégie & Exécution',
       description: 'Nous aidons les organisations à prendre les bonnes décisions au bon moment.',
-      title_l1: 'Conseil',
-      title_l2: 'stratégique',
+      title_l1: 'Stratégie &',
+      title_l2: 'Exécution',
       modal: {
         title: 'Transformez vos projets en leviers de performance.',
         desc: "Nous aidons les organisations à prendre les bonnes décisions au bon moment. En combinant vision stratégique et rigueur en gestion de projet, nous vous permettons d'anticiper les risques, d'accélérer vos initiatives et de maximiser l'impact de vos investissements.",
