@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { splashSingleton } from '@/lib/splash-singleton';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
