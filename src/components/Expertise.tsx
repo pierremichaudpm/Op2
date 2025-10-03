@@ -288,8 +288,8 @@ function LogoContainer({
     // Logo sélectionné : couleurs normales avec effet
     filter = 'brightness(1.1) saturate(1.2)';
   } else if (hasAnySelection) {
-    // Un autre logo est sélectionné : blur double pour disparaître davantage
-    filter = 'saturate(0.2) brightness(1.2) opacity(0.3) blur(1px)';
+    // Un autre logo est sélectionné : blur réduit de 35% (0.65px au lieu de 1px)
+    filter = 'saturate(0.2) brightness(1.2) opacity(0.3) blur(0.65px)';
   } else if (isHovered) {
     // Logo survolé : légère amélioration
     filter = 'brightness(1.05) saturate(1.1)';
