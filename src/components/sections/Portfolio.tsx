@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react';
 import { X, ArrowRight, Wind, Zap, Globe } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 
-// Images des projets (ordre correspond aux index de clic)
+// Images des projets (ordre correspond aux index de clic) - WebP pour meilleure qualité
 const projectImages = [
-  '/images/nos_realisations/image-10.png',
-  '/images/nos_realisations/image-11.png',
-  '/images/nos_realisations/image-12.png',
-  '/images/nos_realisations/image-13.png',
-  '/images/nos_realisations/image-14.png',
-  '/images/nos_realisations/image-15.png',
-  '/images/nos_realisations/image-16.png'
+  '/images/nos_realisations/image-10.webp',
+  '/images/nos_realisations/image-11.webp',
+  '/images/nos_realisations/image-12.webp',
+  '/images/nos_realisations/image-13.webp',
+  '/images/nos_realisations/image-14.webp',
+  '/images/nos_realisations/image-15.webp',
+  '/images/nos_realisations/image-16.webp'
 ];
 
 export function Portfolio() {
@@ -89,7 +89,7 @@ export function Portfolio() {
               transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(0)}>
             <Image
-              src="/images/nos_realisations/image-13.png"
+              src="/images/nos_realisations/image-13.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -110,7 +110,7 @@ export function Portfolio() {
               transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(1)}>
             <Image
-              src="/images/nos_realisations/image-15.png"
+              src="/images/nos_realisations/image-15.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -131,7 +131,7 @@ export function Portfolio() {
                 transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(2)}>
             <Image
-              src="/images/nos_realisations/image-10.png"
+              src="/images/nos_realisations/image-10.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -152,7 +152,7 @@ export function Portfolio() {
               transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(3)}>
             <Image
-              src="/images/nos_realisations/image-12.png"
+              src="/images/nos_realisations/image-12.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -173,7 +173,7 @@ export function Portfolio() {
               transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(4)}>
             <Image
-              src="/images/nos_realisations/image-14.png"
+              src="/images/nos_realisations/image-14.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -194,7 +194,7 @@ export function Portfolio() {
               transform: 'translate3d(0,0,0)' }}
           onClick={() => setOpenIdx(5)}>
             <Image
-              src="/images/nos_realisations/image-16.png"
+              src="/images/nos_realisations/image-16.webp"
               alt="Réalisation"
               fill
               className="object-cover"
@@ -215,7 +215,7 @@ export function Portfolio() {
                 transform: 'translate3d(0,0,0)' }}
             onClick={() => setOpenIdx(6)}>
             <Image
-              src="/images/nos_realisations/image-11.png"
+              src="/images/nos_realisations/image-11.webp"
               alt="Réalisation"
               fill
               className="object-cover"

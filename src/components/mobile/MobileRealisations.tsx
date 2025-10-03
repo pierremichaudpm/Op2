@@ -17,7 +17,7 @@ export function MobileRealisations() {
   const projects = [
     {
       id: 1,
-      image: '/images/nos_realisations/image-10.png',
+      image: '/images/nos_realisations/image-10.webp',
       title: locale === 'en' ? 'Offshore Wind Farm' : 'Parc Éolien offshore',
       description: locale === 'en' ? 'Offshore wind energy project expertise' : 'Expertise en projets énergétiques offshore',
       fullDescription: locale === 'en'
@@ -26,7 +26,7 @@ export function MobileRealisations() {
     },
     {
       id: 2,
-      image: '/images/nos_realisations/image-11.png',
+      image: '/images/nos_realisations/image-11.webp',
       title: locale === 'en' ? 'High-Speed Rail Line' : 'Ligne ferroviaire haute vitesse',
       description: locale === 'en' ? 'High-speed mobility solutions expertise' : 'Expertise en solutions de mobilité à grande vitesse',
       fullDescription: locale === 'en'
@@ -35,7 +35,7 @@ export function MobileRealisations() {
     },
     {
       id: 3,
-      image: '/images/nos_realisations/image-12.png',
+      image: '/images/nos_realisations/image-12.webp',
       title: locale === 'en' ? 'Hydroelectric Power Plant' : 'Centrale hydroélectrique',
       description: locale === 'en' ? 'Continuous improvement and benchmarking expertise' : 'Expertise en amélioration continue et benchmarking',
       fullDescription: locale === 'en'
@@ -44,7 +44,7 @@ export function MobileRealisations() {
     },
     {
       id: 4,
-      image: '/images/nos_realisations/image-13.png',
+      image: '/images/nos_realisations/image-13.webp',
       title: locale === 'en' ? 'Space Launch Center' : 'Centre de lancement spatial',
       description: locale === 'en' ? 'Space industry program management expertise' : 'Expertise en gestion de programmes spatiaux',
       fullDescription: locale === 'en'
@@ -53,7 +53,7 @@ export function MobileRealisations() {
     },
     {
       id: 5,
-      image: '/images/nos_realisations/image-14.png',
+      image: '/images/nos_realisations/image-14.webp',
       title: locale === 'en' ? 'Military Shipbuilding' : 'Construction navale militaire',
       description: locale === 'en' ? 'Engineering performance optimization expertise' : 'Expertise en optimisation de la performance ingénierie',
       fullDescription: locale === 'en'
@@ -62,7 +62,7 @@ export function MobileRealisations() {
     },
     {
       id: 6,
-      image: '/images/nos_realisations/image-15.png',
+      image: '/images/nos_realisations/image-15.webp',
       title: locale === 'en' ? 'Metro Line Extension' : 'Extension ligne de métro',
       description: locale === 'en' ? 'International project management expertise' : 'Expertise en gestion de projets internationaux',
       fullDescription: locale === 'en'
@@ -71,7 +71,7 @@ export function MobileRealisations() {
     },
     {
       id: 7,
-      image: '/images/nos_realisations/image-16.png',
+      image: '/images/nos_realisations/image-16.webp',
       title: locale === 'en' ? 'Pharmaceutical Plant 4.0' : 'Usine pharmaceutique 4.0',
       description: locale === 'en' ? 'Crisis and exceptional project management expertise' : 'Expertise en gestion de projets exceptionnels et de crise',
       fullDescription: locale === 'en'
