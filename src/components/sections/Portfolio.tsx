@@ -305,7 +305,8 @@ export function Portfolio() {
                     fontWeight: 'bold',
                     lineHeight: '1.15',
                     marginBottom: '25px',
-                    letterSpacing: '0.02em'
+                    letterSpacing: '0.02em',
+                    color: '#F36911'
                   }}>
                     {project.modalTitle}
                   </p>
