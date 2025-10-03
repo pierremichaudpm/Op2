@@ -88,7 +88,7 @@ export const fr = {
       l2: 'notre expertise opérationnelle'
     },
     subtitle: 'Expérience industrielle. Approche terrain. Résultats concrets. Nos consultants maîtrisent votre réalité parce qu\'ils l\'ont vécue.',
-    cta: 'Parlons de votre projet'
+    cta: 'Échangez avec un expert'
   },
   stats: {
     consultants: 'consultants',
@@ -99,7 +99,7 @@ export const fr = {
     title: 'Parlons de votre projet',
     subtitle: 'Nos experts sont là pour vous accompagner',
     text: "Vous démarrez un projet complexe, votre projet en cours est en difficultés, ou vos équipes ont besoin d'accompagnement ?\nNos experts sont là pour vous guider.",
-    cta: 'Échanger avec un expert',
+    cta: 'Échangez avec un expert',
     phone_label: 'Téléphone',
     email_label: 'Email',
     address_label: 'Adresse',

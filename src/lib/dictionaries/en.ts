@@ -88,7 +88,7 @@ export const en = {
       l2: 'our operational expertise'
     },
     subtitle: 'Industrial experience. Field approach. Concrete results. Our consultants master your reality because they have lived it.',
-    cta: 'Let\'s talk about your project'
+    cta: 'Connect with an expert'
   },
   stats: {
     consultants: 'consultants',
@@ -99,7 +99,7 @@ export const en = {
     title: 'Let\'s talk about your project',
     subtitle: 'Our experts are here to support you',
     text: 'Starting a complex initiative, facing project difficulties, or need team support?\nOur experts are here to help.',
-    cta: 'Talk to an expert',
+    cta: 'Connect with an expert',
     phone_label: 'Phone',
     email_label: 'Email',
     address_label: 'Address',
