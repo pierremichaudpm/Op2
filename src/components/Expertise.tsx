@@ -1,6 +1,9 @@
  'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/Expertise.module.css';
+import { useI18n } from '@/lib/i18n';
+import { fr } from '@/lib/dictionaries/fr';
+import { en } from '@/lib/dictionaries/en';
 
 // Mapping des logos avec leurs fichiers correspondants
 const logoMapping = {
@@ -28,6 +31,24 @@ const logoMapping = {
   'Image006_6_311_243': 'image006 6.png',
   'Image006_7_311_244': 'image006 7.png',
   'Image006_8_311_245': 'image006 8.png'
+};
+
+// Mapping des clés de logo vers les IDs de traduction
+const logoIdMapping: { [key: string]: string } = {
+  'Image006_10_311_221': '10',
+  'Image006_11_311_222': '11',
+  'Image006_8_311_245': '8',
+  'Image006_5_311_242': '5',
+  'Image006_29_311_246': '29',
+  'Image006_30_311_247': '30',
+  'Image006_13_311_224': '13',
+  'Image006_16_311_238': '16',
+  'Image006_24_311_233': '24',
+  'Image006_28_311_234': '28',
+  'Image006_22_311_232': '22',
+  'Image006_23_311_237': '23',
+  'Image006_17_311_227': '17',
+  'Image006_18_311_228': '18'
 };
 
 // Thèmes et couleurs associées - angles précis selon position des logos
@@ -302,6 +323,7 @@ function LogoContainer({
 }
 
 export default function Expertise() {
+  const { locale } = useI18n();
   const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -355,7 +377,9 @@ export default function Expertise() {
     setSelectedCompany(null);
   };
 
-  const selectedInfo = selectedCompany ? companyInfo[selectedCompany] : null;
+  // Obtenir la traduction depuis les dictionnaires
+  const logoId = selectedCompany ? logoIdMapping[selectedCompany] : null;
+  const selectedInfo = logoId ? (locale === 'en' ? en.logos[logoId as keyof typeof en.logos] : fr.logos[logoId as keyof typeof fr.logos]) : null;
   const hasAnySelection = selectedCompany !== null;
 
   return (
