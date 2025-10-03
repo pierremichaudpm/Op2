@@ -1022,25 +1022,6 @@ export function MobileExpertiseMondiale() {
           }} />
 
 
-          {/* Texte - Position: x:34.62, y:96.57, w:248.17, h:261.43 */}
-          <div style={{
-            position: 'absolute',
-            left: '11.02%', // 34.62/314
-            top: '26.99%', // 96.57/358
-            width: '79.03%', // 248.17/314
-            height: '73.01%', // 261.43/358
-            color: '#FFFFFF',
-            fontFamily: 'Gotham, sans-serif',
-            fontSize: '12px',
-            fontWeight: 400,
-            textAlign: 'center',
-            lineHeight: '11.48px', // 12px * 0.957
-            userSelect: 'none',
-            cursor: 'default'
-          }}>
-            {logoTranslation?.description || ''}
-          </div>
-
           {/* Logo dynamique basé sur la sélection - Toujours en pleine couleur */}
           <div
             style={{
@@ -1068,6 +1049,59 @@ export function MobileExpertiseMondiale() {
                 objectFit: 'contain'
               }}
             />
+          </div>
+
+          {/* Conteneur pour titre + description avec espacement automatique */}
+          <div style={{
+            position: 'absolute',
+            left: '11.02%',
+            top: '25.5%', // Commence 15px sous le logo
+            width: '79.03%',
+            height: '69%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '10px', // Espacement fixe de 10px entre titre et description
+            zIndex: 11
+          }}>
+            {/* Titre du projet */}
+            <h2
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Gotham, sans-serif',
+                fontSize: '12px',
+                fontWeight: 700,
+                textAlign: 'center',
+                textTransform: 'uppercase',
+                letterSpacing: '0.02em',
+                lineHeight: '1.15',
+                margin: 0,
+                padding: '0 10px',
+                userSelect: 'none',
+                cursor: 'default',
+                width: '100%',
+                flexShrink: 0 // Ne pas rétrécir le titre
+              }}
+            >
+              {logoTranslation?.name || ''}
+            </h2>
+
+            {/* Description */}
+            <div style={{
+              color: '#FFFFFF',
+              fontFamily: 'Gotham, sans-serif',
+              fontSize: '12px',
+              fontWeight: 400,
+              textAlign: 'center',
+              lineHeight: '13px',
+              userSelect: 'none',
+              cursor: 'default',
+              overflowY: 'auto',
+              width: '100%',
+              flex: 1 // Prend l'espace restant
+            }}>
+              {logoTranslation?.description || ''}
+            </div>
           </div>
         </div>
 
