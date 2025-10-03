@@ -59,7 +59,7 @@ export const fr = {
     },
     '24': {
       name: 'Projets ferroviaires clés en main',
-      description: 'Des projets ferroviaires clé en main, de l\'offre à la livraison. Plusieurs chantiers simultanés, différents stades d\'avancement, une complexité qui s\'additionne. Formation des équipes à la planification de haut niveau et coordination d\'ensemble pour transformer la complexité en performance.'
+      description: 'Des projets ferroviaires clé en main, de l\'offre à la livraison. Plusieurs chantiers simultanés, différents stades d\'avancement, une complexité croissante. Formation des équipes à la planification et coordination d\'ensemble pour transformer la complexité en performance.'
     },
     '28': {
       name: 'Transformation des pratiques projet',

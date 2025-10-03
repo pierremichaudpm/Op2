@@ -59,7 +59,7 @@ export const en = {
     },
     '24': {
       name: 'Turnkey railway projects',
-      description: 'Turnkey railway projects, from offer to delivery. Several simultaneous construction sites, different stages of progress, complexity that adds up. Training teams in high-level planning and overall coordination to transform complexity into performance.'
+      description: 'Turnkey railway projects, from offer to delivery. Several simultaneous construction sites, different stages of progress, growing complexity. Training teams in planning and overall coordination to transform complexity into performance.'
     },
     '28': {
       name: 'Project practices transformation',
