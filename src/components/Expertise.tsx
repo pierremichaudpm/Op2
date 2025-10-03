@@ -377,9 +377,10 @@ export default function Expertise() {
     setSelectedCompany(null);
   };
 
-  // Obtenir la traduction depuis les dictionnaires
+  // Obtenir la traduction depuis les dictionnaires, avec fallback sur companyInfo
   const logoId = selectedCompany ? logoIdMapping[selectedCompany] : null;
-  const selectedInfo = logoId ? (locale === 'en' ? en.logos[logoId as keyof typeof en.logos] : fr.logos[logoId as keyof typeof fr.logos]) : null;
+  const translatedInfo = logoId ? (locale === 'en' ? en.logos[logoId as keyof typeof en.logos] : fr.logos[logoId as keyof typeof fr.logos]) : null;
+  const selectedInfo = translatedInfo || (selectedCompany ? companyInfo[selectedCompany] : null);
   const hasAnySelection = selectedCompany !== null;
 
   return (
