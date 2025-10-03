@@ -3,6 +3,7 @@ import { Inter, Montserrat } from 'next/font/google';
 import '../globals.css';
 import { I18nProvider } from '@/lib/i18n';
 import { en } from '@/lib/dictionaries/en';
+import { SplashScreen } from '@/components/SplashScreen';
 import { NavigationMarker } from '@/components/NavigationMarker';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -51,6 +52,7 @@ export default function RootLayoutEN({
           `
         }}
       >
+        <SplashScreen />
         <NavigationMarker />
         <I18nProvider locale="en" dict={en}>
           {children}

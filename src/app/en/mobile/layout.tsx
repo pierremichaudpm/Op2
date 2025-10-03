@@ -8,7 +8,7 @@ export default function MobileLayoutEN({
 }) {
   return (
     <I18nProvider locale="en" dict={en}>
-      <div className="mobile-container" style={{ maxWidth: '100%', padding: '0 20px', margin: '0 auto' }}>
+      <div className="mobile-container" style={{ maxWidth: '100%', padding: '0', margin: '0 auto' }}>
         {children}
       </div>
     </I18nProvider>
