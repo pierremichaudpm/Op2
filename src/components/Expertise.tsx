@@ -384,7 +384,7 @@ export default function Expertise() {
   const hasAnySelection = selectedCompany !== null;
 
   return (
-    <div ref={containerRef} className={styles.Expertise_311_396} onClick={handleCloseInfo}>
+    <div ref={containerRef} className={styles.Expertise_311_396}>
       {/* Globe avec vidéo */}
       <div className={styles.Globe_311_217}>
         <video 
