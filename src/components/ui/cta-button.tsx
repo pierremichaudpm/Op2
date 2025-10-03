@@ -49,7 +49,7 @@ export function CTAButton(props: AnchorVariantProps | ButtonVariantProps): JSX.E
       ? (
         <>
           <span className={cn(
-            'pointer-events-none absolute font-display text-white capitalize transition-all duration-200 whitespace-nowrap',
+            'pointer-events-none absolute font-display text-white transition-all duration-200 whitespace-nowrap',
             textTypography,
             weightClass,
             textPosCentered
@@ -60,7 +60,7 @@ export function CTAButton(props: AnchorVariantProps | ButtonVariantProps): JSX.E
       ) : (
         <>
           <span className={cn(
-            'pointer-events-none absolute font-display text-white capitalize transition-all duration-200 whitespace-nowrap',
+            'pointer-events-none absolute font-display text-white transition-all duration-200 whitespace-nowrap',
             textTypography,
             weightClass,
             textPos
