@@ -84,11 +84,11 @@ export const en = {
   },
   hero: {
     title: {
-      l1: 'Your partner in excellence',
-      l2: 'for complex projects'
+      l1: 'Your industrial challenges,',
+      l2: 'our operational expertise'
     },
-    subtitle: 'Beyond consulting: we recover, optimise and sustain your industrial projects.',
-    cta: 'Let’s talk about your project'
+    subtitle: 'Industrial experience. Field approach. Concrete results. Our consultants master your reality because they have lived it.',
+    cta: 'Let's talk about your project'
   },
   stats: {
     consultants: 'consultants',

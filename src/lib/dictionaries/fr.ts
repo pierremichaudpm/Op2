@@ -84,10 +84,10 @@ export const fr = {
   },
   hero: {
     title: {
-      l1: "Votre partenaire d'excellence",
-      l2: 'en projets complexes'
+      l1: "Vos défis industriels,",
+      l2: 'notre expertise opérationnelle'
     },
-    subtitle: 'Plus que du conseil: nous redressons, optimisons et pérennisons vos projets industriels.',
+    subtitle: 'Expérience industrielle. Approche terrain. Résultats concrets. Nos consultants maîtrisent votre réalité parce qu\'ils l\'ont vécue.',
     cta: 'Parlons de votre projet'
   },
   stats: {
