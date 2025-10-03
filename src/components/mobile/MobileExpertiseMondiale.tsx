@@ -94,7 +94,7 @@ export function MobileExpertiseMondiale() {
             fontWeight: 700,
             textTransform: 'uppercase',
             textAlign: 'left',
-            marginBottom: '-30px'
+            marginBottom: '-70px'
           }}
         >
           {locale === 'en' ? 'Global expertise' : 'Une expertise mondiale'}
