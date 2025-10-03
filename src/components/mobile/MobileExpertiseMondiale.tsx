@@ -1026,7 +1026,7 @@ export function MobileExpertiseMondiale() {
             style={{
               position: 'absolute',
               left: '30.57%', // 95.98/314
-              top: '12.46%', // 44.59/358
+              top: '12.46%',
               width: '36.91%', // 115.92/314
               height: '10.73%', // 38.4/358
               backgroundColor: 'white',
@@ -1054,7 +1054,7 @@ export function MobileExpertiseMondiale() {
           <div style={{
             position: 'absolute',
             left: '11.02%',
-            top: '29.69%', // Descendu de 15px
+            top: '29.69%',
             width: '79.03%',
             height: '69%',
             display: 'flex',
