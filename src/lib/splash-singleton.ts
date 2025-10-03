@@ -19,12 +19,22 @@ class SplashSingleton {
     // Si un splash est déjà en cours, ne pas en montrer un autre
     if (this.isShowing) return false;
     
+    // Détecter si c'est un reload/refresh de la page
+    const performance = window.performance;
+    const navEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    
+    // Si c'est un reload (F5, Ctrl+R), montrer le splash
+    if (navEntry && navEntry.type === 'reload') {
+      // Reset l'état pour permettre le splash
+      this.hasShown = false;
+      sessionStorage.removeItem('internalNavigation');
+      return true;
+    }
+    
     // Si on a déjà montré le splash dans cette instance, ne pas le remontrer
     if (this.hasShown) return false;
     
-    // Vérifier si c'est une navigation interne (après le premier chargement)
-    // Si performance.navigation existe et type === 1, c'est un refresh
-    // Si sessionStorage a une marque de navigation interne, c'est une navigation
+    // Vérifier si c'est une navigation interne (clic sur lien)
     const isInternalNavigation = sessionStorage.getItem('internalNavigation');
     if (isInternalNavigation === 'true') {
       return false;
