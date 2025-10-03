@@ -513,7 +513,7 @@ export function MobileExpertiseMondiale() {
     <section ref={sectionRef} style={{
       position: 'relative',
       width: '100%',
-      marginBottom: '20px',
+      marginBottom: '10px',
       padding: '0 4.5%',
       userSelect: 'none'
     }}>
@@ -526,7 +526,7 @@ export function MobileExpertiseMondiale() {
           fontWeight: 700,
           textTransform: 'uppercase',
           textAlign: 'left',
-          marginBottom: '-20px'
+          marginBottom: '-70px'
         }}
       >
         {locale === 'en' ? 'Global expertise' : 'Une expertise mondiale'}
