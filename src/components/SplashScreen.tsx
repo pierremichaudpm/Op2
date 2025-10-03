@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { splashSingleton } from '@/lib/splash-singleton';
 
 export function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -11,11 +10,8 @@ export function SplashScreen() {
   const [logoAnimated, setLogoAnimated] = useState(false);
 
   useEffect(() => {
-    // Toujours montrer le splash au premier montage du composant
+    // Toujours afficher le splash
     setIsMounted(true);
-    
-    // Marquer le splash comme affiché
-    splashSingleton.markAsShown();
     
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
@@ -42,7 +38,6 @@ export function SplashScreen() {
     // Remove splash screen completely after 3.4 seconds
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
-      splashSingleton.markAsComplete();
     }, 3400);
 
     return () => {
@@ -50,8 +45,6 @@ export function SplashScreen() {
       clearTimeout(fadeToWhiteTimer);
       clearTimeout(fadeOutTimer);
       clearTimeout(removeTimer);
-      // Si le composant est démonté avant la fin, marquer comme complet
-      splashSingleton.markAsComplete();
     };
   }, []);
 
