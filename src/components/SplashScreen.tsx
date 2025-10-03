@@ -11,21 +11,11 @@ export function SplashScreen() {
   const [logoAnimated, setLogoAnimated] = useState(false);
 
   useEffect(() => {
-    // Vérifier si on doit montrer le splash
-    if (!splashSingleton.shouldShowSplash()) {
-      setIsVisible(false);
-      // S'assurer que le site est visible
-      if (typeof document !== 'undefined') {
-        document.body.classList.add('site-ready');
-        document.body.style.background = '';
-        document.body.style.backgroundImage = '';
-      }
-      return;
-    }
+    // Toujours montrer le splash au premier montage du composant
+    setIsMounted(true);
     
     // Marquer le splash comme affiché
     splashSingleton.markAsShown();
-    setIsMounted(true);
     
     // Start logo animation immediately after mount
     const logoTimer = setTimeout(() => {
