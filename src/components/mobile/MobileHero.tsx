@@ -138,8 +138,8 @@ export function MobileHero() {
               textShadow: '0 1px 3px rgba(0,0,0,0.3)' // Ombre légère pour garantir la lisibilité
             }}>
             {locale === 'en'
-              ? 'Beyond consulting: we recover,\noptimise and sustain your industrial projects.'
-              : 'Plus que du conseil: nous redressons,\noptimisons et pérennisons vos projets industriels.'}
+              ? 'Industrial experience. Field approach.\nConcrete results. Our consultants master your reality\nbecause they have lived it.'
+              : 'Expérience industrielle. Approche terrain.\nRésultats concrets. Nos consultants maîtrisent\nvotre réalité parce qu\'ils l\'ont vécue.'}
           </motion.p>
 
           {/* CTA Button - proportions ajustées */}

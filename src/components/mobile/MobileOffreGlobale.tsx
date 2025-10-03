@@ -18,9 +18,9 @@ export function MobileOffreGlobale() {
 
   const services = {
     conseil: {
-      title: locale === 'en' ? 'Strategic Advisory' : 'Conseil stratégique',
+      title: locale === 'en' ? 'Strategy & Execution' : 'Stratégie & Exécution',
       shortDesc: locale === 'en' ? 'Turn your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
-      modalTitle: locale === 'en' ? 'Strategic Advisory' : 'Conseil stratégique',
+      modalTitle: locale === 'en' ? 'Strategy & Execution' : 'Stratégie & Exécution',
       modalSubtitle: locale === 'en' ? 'Turn your projects into performance drivers.' : 'Transformez vos projets en leviers de performance.',
       modalContent: locale === 'en' 
         ? "We help organisations make the right decisions at the right time. Combining strategic vision with rigorous project management, we enable you to anticipate risks, accelerate initiatives and maximise the impact of your investments."
