@@ -18,7 +18,7 @@ export function MobileHero() {
     <section style={{
       position: 'relative',
       width: '100%',
-      marginTop: '100px', // Ajusté pour le nouveau header (80px + 20px d'espace)
+      marginTop: '80px', // Aligné avec la hauteur du header fixed
       marginBottom: '20px',
       padding: '0 4.5%' // Padding proportionnel (17.5/393 = 4.5%)
     }}>
