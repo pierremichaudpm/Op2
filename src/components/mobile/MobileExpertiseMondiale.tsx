@@ -1054,7 +1054,7 @@ export function MobileExpertiseMondiale() {
           <div style={{
             position: 'absolute',
             left: '11.02%',
-            top: '25.5%', // Commence 15px sous le logo
+            top: '29.69%', // Descendu de 15px
             width: '79.03%',
             height: '69%',
             display: 'flex',
@@ -1066,7 +1066,7 @@ export function MobileExpertiseMondiale() {
             {/* Titre du projet */}
             <h2
               style={{
-                color: '#FFFFFF',
+                color: '#F36911',
                 fontFamily: 'Gotham, sans-serif',
                 fontSize: '12px',
                 fontWeight: 700,
