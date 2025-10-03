@@ -3,11 +3,12 @@ import React, { createContext, useContext, useMemo } from 'react';
 
 export type SupportedLocale = 'fr' | 'en';
 
-export type Dictionary = { [key: string]: string | Dictionary };
+export type Dictionary = { [key: string]: string | Dictionary | any };
 
 type I18nContextValue = {
   locale: SupportedLocale;
   t: (key: string) => string;
+  dict: any;
 };
 
 const I18nContext = createContext<I18nContextValue | null>(null);
@@ -25,9 +26,10 @@ export function I18nProvider({
   const value = useMemo<I18nContextValue>(
     () => ({
       locale,
-      t: (key: string) => flat[key] ?? key
+      t: (key: string) => flat[key] ?? key,
+      dict
     }),
-    [locale, flat]
+    [locale, flat, dict]
   );
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
