@@ -77,7 +77,7 @@ export function Portfolio() {
           <div className="relative group" style={{ height: '767px', left: '-15px', width: 'calc(100% + 30px)' }}>
             {/* Image-13 portrait étroite à droite (image-5 dans Figma) */}
             <div 
-            className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+            className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20 cursor-pointer"
             style={{
               left: 'calc(61.52% + 26.56% - 1px)',
               top: '0',
@@ -85,9 +85,10 @@ export function Portfolio() {
               height: '416px',
               zIndex: openIdx !== null ? 1 : 2,
               pointerEvents: openIdx !== null ? 'none' : 'auto',
-              willChange: 'transform'
+              willChange: 'transform',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={() => setOpenIdx(0)}>
             <Image
@@ -100,7 +101,7 @@ export function Portfolio() {
 
               {/* Image-15 centrale (img dans Figma) */}
             <div 
-            className="absolute overflow-hidden border border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+            className="absolute overflow-hidden border border-[#243768]/20 cursor-pointer"
             style={{
               left: '39.52%',
               top: '347px',
@@ -108,9 +109,10 @@ export function Portfolio() {
               height: '390px',
               zIndex: openIdx !== null ? 1 : 2,
               pointerEvents: openIdx !== null ? 'none' : 'auto',
-              willChange: 'transform'
+              willChange: 'transform',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           onClick={() => setOpenIdx(1)}>
             <Image
@@ -123,7 +125,7 @@ export function Portfolio() {
 
             {/* Image-10 en haut à gauche (image-2 dans Figma) */}
             <div 
-              className="absolute overflow-hidden border-t border-l border-r border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+              className="absolute overflow-hidden border-t border-l border-r border-[#243768]/20 cursor-pointer"
               style={{
                 left: '0',
                 top: '0',
@@ -131,9 +133,10 @@ export function Portfolio() {
                 height: '286px',
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? 'none' : 'auto',
-                willChange: 'transform'
+                willChange: 'transform',
+                transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={() => setOpenIdx(2)}>
             <Image
@@ -146,7 +149,7 @@ export function Portfolio() {
 
             {/* Image-12 droite centre (image-3 dans Figma) */}
             <div 
-            className="absolute overflow-hidden border-l border-t border-b border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+            className="absolute overflow-hidden border-t border-b border-[#243768]/20 cursor-pointer"
             style={{
               left: '61.52%',
               top: '0',
@@ -154,9 +157,10 @@ export function Portfolio() {
               height: '415px',
               zIndex: openIdx !== null ? 1 : 2,
               pointerEvents: openIdx !== null ? 'none' : 'auto',
-              willChange: 'transform'
+              willChange: 'transform',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={() => setOpenIdx(3)}>
             <Image
@@ -169,7 +173,7 @@ export function Portfolio() {
 
             {/* Image-14 en bas à gauche (image-4 dans Figma) */}
           <div 
-            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20 cursor-pointer"
             style={{
               left: '0',
               top: '286px',
@@ -177,9 +181,10 @@ export function Portfolio() {
               height: '451px',
               zIndex: openIdx !== null ? 1 : 2,
               pointerEvents: openIdx !== null ? 'none' : 'auto',
-              willChange: 'transform'
+              willChange: 'transform',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           onClick={() => setOpenIdx(4)}>
             <Image
@@ -192,7 +197,7 @@ export function Portfolio() {
 
             {/* Image-16 en bas à droite (image dans Figma) */}
           <div 
-            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+            className="absolute overflow-hidden border-l border-r border-b border-[#243768]/20 cursor-pointer"
             style={{
               right: '6px',
               top: '409px',
@@ -200,9 +205,10 @@ export function Portfolio() {
               height: '328px',
               zIndex: openIdx !== null ? 1 : 2,
               pointerEvents: openIdx !== null ? 'none' : 'auto',
-              willChange: 'transform'
+              willChange: 'transform',
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           onClick={() => setOpenIdx(5)}>
             <Image
@@ -215,7 +221,7 @@ export function Portfolio() {
 
               {/* Image-11 centre gauche (image-6 dans Figma) */}
             <div 
-              className="absolute overflow-hidden border-t border-r border-b border-[#243768]/20 transition-transform duration-150 cursor-pointer"
+              className="absolute overflow-hidden border-t border-b border-[#243768]/20 cursor-pointer"
               style={{
                 left: 'calc(33.30% - 1px)',
                 top: '0',
@@ -223,9 +229,10 @@ export function Portfolio() {
                 height: '352px',
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? 'none' : 'auto',
-                willChange: 'transform'
+                willChange: 'transform',
+                transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.015)'}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             onClick={() => setOpenIdx(6)}>
             <Image
