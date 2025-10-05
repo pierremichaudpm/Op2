@@ -91,7 +91,8 @@ export function MobileOffreGlobale() {
       padding: '0 20px',
       backgroundColor: '#FFFFFF',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      marginBottom: showModal ? '40px' : '0'
     }}>
       {/* Titre */}
       <h2 style={{
@@ -111,7 +112,7 @@ export function MobileOffreGlobale() {
         width: '100%',
         maxWidth: '400px',
         margin: '0 auto',
-        minHeight: '420px',
+        minHeight: showModal ? '480px' : '420px',
         position: 'relative'
       }}>
         {!showModal ? (
