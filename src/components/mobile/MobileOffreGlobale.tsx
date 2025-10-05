@@ -89,7 +89,9 @@ export function MobileOffreGlobale() {
     <section id="offre" style={{
       width: '100%',
       padding: '0 20px',
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FFFFFF',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
       {/* Titre */}
       <h2 style={{
