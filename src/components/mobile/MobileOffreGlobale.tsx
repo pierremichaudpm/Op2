@@ -298,7 +298,7 @@ export function MobileOffreGlobale() {
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '420px',
+                height: '400px',
                 borderRadius: '20px',
                 border: '1px solid #243768',
                 overflow: 'hidden',
