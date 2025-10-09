@@ -152,7 +152,7 @@ export function MobileOffreGlobale() {
               }}>
                 <h3 style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   fontWeight: 600,
                   color: '#DE5600',
                   marginBottom: '8px',
@@ -203,7 +203,7 @@ export function MobileOffreGlobale() {
               }}>
                 <h3 style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   fontWeight: 600,
                   color: '#DE5600',
                   marginBottom: '8px',
@@ -254,7 +254,7 @@ export function MobileOffreGlobale() {
               }}>
                 <h3 style={{
                   fontFamily: 'Gotham, sans-serif',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   fontWeight: 600,
                   color: '#DE5600',
                   marginBottom: '8px',
