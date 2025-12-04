@@ -98,8 +98,8 @@ export const fr = {
   contact: {
     title: 'Parlons de votre projet',
     subtitle: 'Nos experts sont là pour vous accompagner',
-    text: "Vous démarrez un projet complexe, votre projet en cours est en difficultés, ou vos équipes ont besoin d'accompagnement ?\nNos experts sont là pour vous guider.",
-    cta: 'Échangez avec un expert',
+    text: "Chez Op2 NA, chaque projet est une occasion de créer de la valeur. Notre différence? Nous sommes une firme de consultation opérationnelle qui reste à vos côtés jusqu'au déploiement complet. Vision stratégique, expertise terrain et résultats durables. Transformons vos ambitions en résultats concrets.",
+    cta: 'Échanger avec un expert',
     phone_label: 'Téléphone',
     email_label: 'Email',
     address_label: 'Adresse',

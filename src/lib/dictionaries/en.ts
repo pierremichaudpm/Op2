@@ -138,7 +138,7 @@ export const en = {
   contact: {
     title: 'Let\'s talk about your project',
     subtitle: 'Our experts are here to support you',
-    text: 'Starting a complex initiative, facing project difficulties, or need team support?\nOur experts are here to help.',
+    text: "At Op2 NA, every project is an opportunity to create value. Our difference? We are an operational consulting firm that stays by your side until full deployment. Strategic vision, field expertise, and lasting results. Let's transform your ambitions into concrete outcomes.",
     cta: 'Connect with an expert',
     phone_label: 'Phone',
     email_label: 'Email',

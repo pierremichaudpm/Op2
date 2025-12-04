@@ -24,35 +24,68 @@ export function MobileContact() {
         {locale === 'en' ? "Let's talk about your project" : 'Parlons de votre projet'}
       </h2>
 
-      {/* Description - Augmentée de 20% */}
-      <p style={{
-        color: '#243768',
-        fontFamily: 'Gotham, sans-serif',
-        fontSize: '14.4px', // 12px * 1.2
-        fontWeight: 400,
-        lineHeight: '1.35em', // Ajusté proportionnellement
-        textAlign: 'left',
+      {/* Description condensée - Paragraphes séparés */}
+      <div style={{
         width: '100%',
         maxWidth: '353px',
         marginTop: '20px',
         marginBottom: '40px'
       }}>
-        {locale === 'en' 
-          ? <>At Op2 NA, we see every project <strong>as an opportunity to create value and accelerate change</strong>.
-            <br /><br />
-            <strong>Our difference?</strong> We are an operational consulting firm. We don&apos;t just make recommendations: we stay by your side, in the field, <strong>until full deployment and achievement of the objectives</strong> we build together.
-            <br /><br />
-            <strong>Our promise?</strong> Support that combines strategic vision, field expertise, and tangible, lasting results. <strong>Because a well-guided project always becomes a success</strong>.
-            <br /><br />
-            <strong>Let&apos;s talk about your project</strong> today and <strong>transform your ambitions into concrete results</strong>.</>
-          : <>Chez Op2 NA, nous voyons chaque projet <strong>comme une occasion de créer de la valeur et d&apos;accélérer le changement</strong>.
-            <br /><br />
-            <strong>Notre différence?</strong> Nous sommes une firme de consultation opérationnelle. Nous ne nous limitons pas aux recommandations : nous restons à vos côtés, sur le terrain, <strong>jusqu&apos;au déploiement complet et l&apos;atteinte des objectifs</strong> que nous construisons ensemble.
-            <br /><br />
-            <strong>Notre promesse?</strong> Un accompagnement qui allie vision stratégique, expertise terrain, résultats tangibles et durables. <strong>Parce qu&apos;un projet bien guidé devient toujours une réussite</strong>.
-            <br /><br />
-            <strong>Parlons de votre projet</strong> dès aujourd&apos;hui et <strong>transformons vos ambitions en résultats concrets</strong>.</>}
-      </p>
+        <p style={{
+          color: '#243768',
+          fontFamily: 'Gotham, sans-serif',
+          fontSize: '14.4px',
+          fontWeight: 400,
+          lineHeight: '1.5em',
+          textAlign: 'left',
+          marginBottom: '16px'
+        }}>
+          {locale === 'en' 
+            ? <>At Op2 NA, every project is an opportunity to create value.</>
+            : <>Chez Op2 NA, chaque projet est une occasion de créer de la valeur.</>}
+        </p>
+        
+        <p style={{
+          color: '#243768',
+          fontFamily: 'Gotham, sans-serif',
+          fontSize: '14.4px',
+          fontWeight: 400,
+          lineHeight: '1.5em',
+          textAlign: 'left',
+          marginBottom: '16px'
+        }}>
+          {locale === 'en' 
+            ? <>Our difference? We are an operational consulting firm that stays by your side until full deployment.</>
+            : <>Notre différence? Nous sommes une firme de consultation opérationnelle qui reste à vos côtés jusqu&apos;au déploiement complet.</>}
+        </p>
+        
+        <p style={{
+          color: '#243768',
+          fontFamily: 'Gotham, sans-serif',
+          fontSize: '14.4px',
+          fontWeight: 400,
+          lineHeight: '1.5em',
+          textAlign: 'left',
+          marginBottom: '16px'
+        }}>
+          {locale === 'en' 
+            ? <>Strategic vision, field expertise, and lasting results.</>
+            : <>Vision stratégique, expertise terrain et résultats durables.</>}
+        </p>
+        
+        <p style={{
+          color: '#243768',
+          fontFamily: 'Gotham, sans-serif',
+          fontSize: '14.4px',
+          fontWeight: 400,
+          lineHeight: '1.5em',
+          textAlign: 'left'
+        }}>
+          {locale === 'en' 
+            ? <>Let&apos;s transform your ambitions into concrete outcomes.</>
+            : <>Transformons vos ambitions en résultats concrets.</>}
+        </p>
+      </div>
 
       {/* Container pour le bouton */}
       <div style={{
