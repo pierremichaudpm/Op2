@@ -35,30 +35,52 @@ export function MobileHeader() {
         backgroundPosition: 'left center'
       }} />
 
-      {/* Menu hamburger */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        style={{
-          width: '55px', // Zone de clic agrandie
-          height: '55px', // Carré pour meilleur équilibre
-          backgroundColor: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '10px'
-        }}
-      >
-        <img 
-          src="/images/burger.svg" 
-          alt="Menu"
+      {/* Container pour toggle langue et burger */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px'
+      }}>
+        {/* Toggle langue FR/EN */}
+        <a
+          href={locale === 'en' ? '/mobile' : '/en/mobile'}
           style={{
-            width: '44px', // Grossi de 25% supplémentaires (35 * 1.25 = 43.75 arrondi à 44)
-            height: '44px'
+            color: '#F36911',
+            fontFamily: 'Gotham, sans-serif',
+            fontSize: '16px',
+            fontWeight: 500,
+            textDecoration: 'none',
+            textTransform: 'lowercase'
           }}
-        />
-      </button>
+        >
+          {locale === 'en' ? 'fr' : 'eng'}
+        </a>
+
+        {/* Menu hamburger */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          style={{
+            width: '55px', // Zone de clic agrandie
+            height: '55px', // Carré pour meilleur équilibre
+            backgroundColor: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '10px'
+          }}
+        >
+          <img 
+            src="/images/burger.svg" 
+            alt="Menu"
+            style={{
+              width: '44px', // Grossi de 25% supplémentaires (35 * 1.25 = 43.75 arrondi à 44)
+              height: '44px'
+            }}
+          />
+        </button>
+      </div>
 
       {/* Menu mobile ouvert */}
       {isMenuOpen && (

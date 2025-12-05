@@ -67,8 +67,8 @@ export function MobileContact() {
           lineHeight: '1.5em',
           textAlign: 'left',
           marginBottom: '16px'
-        }}>
-          {locale === 'en' 
+      }}>
+        {locale === 'en' 
             ? <>Strategic vision, field expertise, and lasting results.</>
             : <>Vision stratégique, expertise terrain et résultats durables.</>}
         </p>
@@ -84,7 +84,7 @@ export function MobileContact() {
           {locale === 'en' 
             ? <>Let&apos;s transform your ambitions into concrete outcomes.</>
             : <>Transformons vos ambitions en résultats concrets.</>}
-        </p>
+      </p>
       </div>
 
       {/* Container pour le bouton */}

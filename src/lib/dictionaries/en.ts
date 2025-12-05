@@ -209,7 +209,7 @@ export const en = {
         modalTitle: 'Pharmaceutical Plant 4.0',
         description: 'Expertise in exceptional and crisis project management',
         modalContent: 'Our ability to intervene quickly on exceptional and unprecedented projects allows us to support our clients facing unprecedented challenges. Thanks to the projects we have successfully completed, we can offer you solutions in rapid structuring of complex programs, implementation of adapted organization and management methods, and critical logistics constraint management. As a reference, we were mobilized as early as December 2020 to contribute to the organization of the national COVID-19 vaccination campaign, including coordination of vaccine transport at -80° across the entire French territory in record time. The success of this mission led our client to renew their trust for a four-year period as a preferred partner for exceptional projects.'
-      }
+    }
     ]
   },
   team: {

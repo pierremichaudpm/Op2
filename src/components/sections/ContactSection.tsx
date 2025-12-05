@@ -30,7 +30,7 @@ export function ContactSection() {
           </p>
           
           <p className="text-primary text-[18px] leading-[32px] md:text-[32px] md:leading-[48px]">
-            {locale === 'en' 
+          {locale === 'en' 
               ? <>Let&apos;s transform your ambitions into concrete outcomes.</>
               : <>Transformons vos ambitions en résultats concrets.</>}
           </p>

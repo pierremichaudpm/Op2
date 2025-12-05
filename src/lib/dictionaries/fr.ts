@@ -169,7 +169,7 @@ export const fr = {
         modalTitle: 'Usine pharmaceutique 4.0',
         description: 'Expertise en gestion de projets exceptionnels et de crise',
         modalContent: 'Notre capacité à intervenir rapidement sur des projets exceptionnels et inédits nous permet d\'accompagner nos clients face à des défis sans précédent. Grâce aux projets que nous avons menés à bien, nous pouvons vous offrir des solutions en structuration rapide de programmes complexes, mise en place d\'organisation et de modes de pilotage adaptés, et gestion de contraintes logistiques critiques. À titre de référence, nous avons été mobilisés dès décembre 2020 pour contribuer à l\'organisation de la campagne nationale de vaccination COVID-19, incluant la coordination du transport de vaccins à -80° sur l\'ensemble du territoire français en temps record. Le succès de cette mission a conduit notre client à renouveler sa confiance pour une durée de quatre ans comme partenaire privilégié pour les projets hors normes.'
-      }
+    }
     ]
   },
   team: {

@@ -20,17 +20,17 @@ export function MobileExperts() {
 
   // Liste des 12 experts - Nouvel ordre avec vraies photos
   const experts: Expert[] = [
-    {
-      id: 1,
+    { 
+      id: 1, 
       name: 'Sébastien Klein',
       role: locale === 'en' ? 'Project Turnaround Expert' : 'Expert en Redressement de Projets',
       image: '/images/experts-optimized/Sébastien.jpg',
-      description: locale === 'en'
+      description: locale === 'en' 
         ? "For 10 years, he has led complex projects in America, Asia and Europe. Specialized in turnaround of critical situations, his pragmatic approach unlocks strategic issues with impact."
         : "Depuis 10 ans, il pilote des projets complexes en Amérique, Asie et Europe. Spécialisé dans le redressement de situations critiques, son approche pragmatique débloque les enjeux stratégiques."
     },
-    {
-      id: 2,
+    { 
+      id: 2, 
       name: 'Cindy Ehounou',
       role: locale === 'en' ? 'Project Management Expert' : 'Experte en Gestion de Projet',
       image: '/images/experts-optimized/Cindy.jpg',
@@ -38,8 +38,8 @@ export function MobileExperts() {
         ? "From civil engineering, she stands out for her rigor and mastery of planning tools. Her proactive approach optimizes performance. Driven by quality and excellence."
         : "Issue du génie civil, elle se distingue par sa rigueur et sa maîtrise des outils de planification. Son approche proactive optimise la performance. Animée par la qualité et l'excellence."
     },
-    {
-      id: 3,
+    { 
+      id: 3, 
       name: 'Abdesalam Paes',
       role: locale === 'en' ? 'Infrastructure and Governance Expert' : 'Expert en Infrastructures et Gouvernance',
       image: '/images/experts-optimized/Abdesalam.jpg',
@@ -47,8 +47,8 @@ export function MobileExperts() {
         ? "13 years of infrastructure experience. He leads complex projects with vision and clarity. Expert in governance and leadership, he generates coherence and lasting results through foresight."
         : "13 ans d'expérience en infrastructures. Il pilote des projets complexes avec vision et clarté. Expert en gouvernance et leadership, il génère cohérence et résultats durables par son anticipation."
     },
-    {
-      id: 4,
+    { 
+      id: 4, 
       name: 'Daniel Lone',
       role: locale === 'en' ? 'Senior Transformation Consultant' : 'Consultant Senior en Transformation',
       image: '/images/experts-optimized/Daniel.jpg',
@@ -56,8 +56,8 @@ export function MobileExperts() {
         ? "10 years of experience in organizational transformations. Expert in program management, risk and governance, he clarifies complex issues to support decision-making. MBA HEC Montreal distinction."
         : "10 ans d'expérience en transformations organisationnelles. Expert en gestion de programmes, risques et gouvernance, il clarifie les enjeux complexes pour soutenir la décision. MBA HEC Montréal distinction."
     },
-    {
-      id: 5,
+    { 
+      id: 5, 
       name: 'Roxane Toumi',
       role: locale === 'en' ? 'Senior Project Management Consultant' : 'Consultante Senior en Gestion de Projets',
       image: '/images/experts-optimized/Roxane.jpg',
@@ -65,8 +65,8 @@ export function MobileExperts() {
         ? "Engineer passionate about complex industrial projects. PMO and senior consultant, she excels at planning, multi-site coordination and change management. Rigorous and agile."
         : "Ingénieure passionnée par les projets industriels complexes. PMO et consultante senior, elle excelle en planification, coordination multi-sites et conduite du changement. Rigoureuse et agile."
     },
-    {
-      id: 6,
+    { 
+      id: 6, 
       name: 'Sandra Medina',
       role: locale === 'en' ? 'Senior Planning Consultant' : 'Consultante Senior en Planification',
       image: '/images/experts-optimized/Sandra.jpg',
@@ -209,12 +209,12 @@ export function MobileExperts() {
         }
       `}} />
       
-      <section id="experts" style={{
-        width: '100%',
-        margin: '20px 0',
-        padding: '0 4.5%',
-        position: 'relative'
-      }}>
+    <section id="experts" style={{
+      width: '100%',
+      margin: '20px 0',
+      padding: '0 4.5%',
+      position: 'relative'
+    }}>
       {/* Titre */}
       <h2 style={{
         color: '#243768',
@@ -329,44 +329,44 @@ export function MobileExperts() {
                       paddingRight: '4px'
                     }}>
                       {/* Nom en orange - aligné à gauche */}
-                      <div style={{
-                        fontFamily: 'Gotham, sans-serif',
+                    <div style={{
+                      fontFamily: 'Gotham, sans-serif',
                         fontSize: '16px',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
                         lineHeight: '1.2',
                         textAlign: 'left',
                         color: '#F36911',
                         marginBottom: '5px'
-                      }}>
-                        {expert.name}
-                      </div>
-                      
+                    }}>
+                      {expert.name}
+                    </div>
+                    
                       {/* Rôle en orange - aligné à gauche */}
-                      <div style={{
-                        fontFamily: 'Gotham, sans-serif',
+                    <div style={{
+                      fontFamily: 'Gotham, sans-serif',
                         fontSize: '11px',
-                        fontWeight: 700,
-                        textTransform: 'lowercase',
+                      fontWeight: 700,
+                      textTransform: 'lowercase',
                         lineHeight: '1.3',
                         textAlign: 'left',
-                        color: '#F36911',
+                      color: '#F36911',
                         marginBottom: '12px'
-                      }}>
-                        {expert.role}
-                      </div>
-                      
-                      {/* Description */}
-                      <div style={{
-                        fontFamily: 'Gotham, sans-serif',
-                        fontSize: '11px',
-                        fontWeight: 400,
+                    }}>
+                      {expert.role}
+                    </div>
+                    
+                    {/* Description */}
+                    <div style={{
+                      fontFamily: 'Gotham, sans-serif',
+                      fontSize: '11px',
+                      fontWeight: 400,
                         lineHeight: '1.4',
-                        textAlign: 'left',
-                        color: '#FFFFFF',
+                      textAlign: 'left',
+                      color: '#FFFFFF',
                         opacity: 0.95
-                      }}>
-                        {expert.description}
+                    }}>
+                      {expert.description}
                       </div>
                     </div>
                   </div>
@@ -476,7 +476,7 @@ export function MobileExperts() {
           </button>
         </div>
       )}
-      </section>
+    </section>
     </>
   );
 }
