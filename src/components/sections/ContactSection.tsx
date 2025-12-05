@@ -38,7 +38,7 @@ export function ContactSection() {
         
         <div className="mt-12 md:mt-16">
           <CTAButton
-            href="#contact"
+            href="mailto:na.contact@orlade.com"
             hoverIcon
             size="md"
             textWeight="bold"

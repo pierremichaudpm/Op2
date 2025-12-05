@@ -105,8 +105,8 @@ export function MobileFooter() {
         position: 'absolute',
         left: '151px',
         top: '220px',
-        width: '167px',
-        height: '96px',
+        width: '210px',
+        height: '72px',
         fontFamily: 'Gotham, sans-serif',
         fontSize: '16px',
         fontWeight: 500,
@@ -114,8 +114,11 @@ export function MobileFooter() {
         zIndex: 1
       }}>
         <div style={{ color: '#F36911' }}>Contact</div>
-        <div style={{ color: '#FFFFFF' }}>contact@op2.com</div>
-        <div style={{ color: '#FFFFFF' }}>+1 514 123 4567</div>
+        <div style={{ color: '#FFFFFF' }}>
+          <a href="mailto:na.contact@orlade.com" style={{ color: '#FFFFFF', textDecoration: 'underline' }}>
+            na.contact@orlade.com
+          </a>
+        </div>
         <div style={{ color: '#FFFFFF' }}>{locale === 'en' ? 'Montreal, QC, Canada' : 'Montréal, QC, Canada'}</div>
       </div>
 
@@ -137,14 +140,18 @@ export function MobileFooter() {
         {locale === 'en' ? 'Follow us' : 'Suivez-nous'}
       </p>
 
-      {/* Icône LinkedIn - Image exacte du Figma */}
-      <a href="#" style={{
+      {/* Icône LinkedIn uniquement */}
+      <a href="https://www.linkedin.com/company/op%C2%B2-na" target="_blank" rel="noopener noreferrer" style={{
         position: 'absolute',
-        left: '272px',
-        top: '342px',
-        width: '21px',
-        height: '22px',
-        display: 'block'
+        left: '262px',
+        top: '332px',
+        width: '40px',
+        height: '40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 10,
+        cursor: 'pointer'
       }}>
         <img 
           src="/images/social-linkedin.png" 
@@ -152,25 +159,6 @@ export function MobileFooter() {
           style={{
             width: '21px',
             height: '22px'
-          }}
-        />
-      </a>
-
-      {/* Icône Facebook - Image exacte du Figma */}
-      <a href="#" style={{
-        position: 'absolute',
-        left: '300px',
-        top: '342px',
-        width: '21px',
-        height: '21px',
-        display: 'block'
-      }}>
-        <img 
-          src="/images/social-facebook.png" 
-          alt="Facebook"
-          style={{
-            width: '21px',
-            height: '21px'
           }}
         />
       </a>

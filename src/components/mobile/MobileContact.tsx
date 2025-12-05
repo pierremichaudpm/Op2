@@ -94,25 +94,29 @@ export function MobileContact() {
         marginLeft: '1px' // Position x:1 dans Figma
       }}>
         {/* CTA Button - Style exact Figma */}
-        <button style={{
-          backgroundColor: '#F36911',
-          color: '#FFFFFF',
-          fontFamily: 'Gotham, sans-serif',
-          fontSize: '13px',
-          fontWeight: 500,
-          lineHeight: '3.076923076923077em', // Comme dans Figma
-          padding: '0',
-          borderRadius: '50px',
-          border: 'none',
-          cursor: 'pointer',
-          width: '237px',
-          height: '33px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
+        <a 
+          href="mailto:na.contact@orlade.com"
+          style={{
+            backgroundColor: '#F36911',
+            color: '#FFFFFF',
+            fontFamily: 'Gotham, sans-serif',
+            fontSize: '13px',
+            fontWeight: 500,
+            lineHeight: '3.076923076923077em', // Comme dans Figma
+            padding: '0',
+            borderRadius: '50px',
+            border: 'none',
+            cursor: 'pointer',
+            width: '237px',
+            height: '33px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none'
+          }}
+        >
           {locale === 'en' ? 'Talk to an expert' : 'Échanger avec un expert'}
-        </button>
+        </a>
       </div>
     </section>
   );

@@ -209,20 +209,12 @@ export function Footer() {
                 display: 'flex',
                 gap: '20px'
               }}>
-                <a href="#" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/op%C2%B2-na" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Image 
                     src="/images/social-linkedin.png" 
                     alt="LinkedIn" 
                     width={29} 
                     height={29}
-                  />
-                </a>
-                <a href="#" aria-label="Facebook">
-                  <Image 
-                    src="/images/social-facebook.png" 
-                    alt="Facebook" 
-                    width={26} 
-                    height={26}
                   />
                 </a>
               </div>
@@ -250,17 +242,19 @@ export function Footer() {
                 color: '#FFFFFF',
                 marginBottom: '10px'
               }}>
-                contact@op2.com
-              </p>
-              <p style={{
-                fontFamily: 'Gotham, sans-serif',
-                fontSize: '23px',
-                fontWeight: 500,
-                lineHeight: '36px',
-                color: '#FFFFFF',
-                marginBottom: '10px'
-              }}>
-                +1 514 123 4567
+                <a 
+                  href="mailto:na.contact@orlade.com" 
+                  style={{ 
+                    color: '#FFFFFF', 
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    transition: 'color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#F36911'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
+                >
+                  na.contact@orlade.com
+                </a>
               </p>
               <p style={{
                 fontFamily: 'Gotham, sans-serif',
