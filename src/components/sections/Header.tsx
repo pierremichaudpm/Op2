@@ -24,20 +24,30 @@ export function Header() {
 
       <div className="container-wrapper relative z-10">
         <div className="w-[1728px] mx-auto flex items-center h-[148px] relative z-10">
-        {/* Left: logo */}
+        {/* Left: logo Op2 + Part of Accenture */}
         <div className="flex items-center gap-6 shrink-0 ml-[6px]">
-          <a href="/" className="block">
+          <a href="/" className="hidden md:flex flex-col items-start gap-2">
+            {/* Logo Op2 principal - réduit légèrement */}
             <img
               src={logoSrc}
-              width={302}
-              height={98}
+              width={250}
+              height={81}
               alt="Op2 logo"
-              className="hidden md:block"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = 'none';
               }}
             />
-            <span className="md:hidden font-semibold tracking-tight">Op2</span>
+            {/* Logo Part of Accenture */}
+            <img
+              src="/images/PartofAccenture_logo.png"
+              width={180}
+              height={24}
+              alt="Part of Accenture"
+              style={{ marginLeft: '41px' }}
+            />
+          </a>
+          <a href="/" className="md:hidden">
+            <span className="font-semibold tracking-tight">Op2</span>
           </a>
         </div>
         {/* Right: nav + Eng group (equal gaps, Eng collé à droite) */}

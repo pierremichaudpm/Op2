@@ -25,15 +25,33 @@ export function MobileHeader() {
       boxSizing: 'border-box',
       zIndex: 50
     }}>
-      {/* Logo OP2 */}
+      {/* Logos Op2 + Part of Accenture */}
       <div style={{
-        width: '180px', // Logo plus grand
-        height: '60px', // Proportions augmentées
-        backgroundImage: `url(/images/${locale === 'en' ? 'logo-site-en.png' : 'logo-1.png'})`,
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'left center'
-      }} />
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '4px',
+        alignItems: 'flex-start'
+      }}>
+        {/* Logo Op2 principal - réduit */}
+        <div style={{
+          width: '140px',
+          height: '45px',
+          backgroundImage: `url(/images/${locale === 'en' ? 'logo-site-en.png' : 'logo-1.png'})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'left center'
+        }} />
+        {/* Logo Part of Accenture */}
+        <img
+          src="/images/PartofAccenture_logo.png"
+          alt="Part of Accenture"
+          style={{
+            width: '110px',
+            height: 'auto',
+            marginLeft: '22px'
+          }}
+        />
+      </div>
 
       {/* Container pour toggle langue et burger */}
       <div style={{
