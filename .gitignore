@@ -30,9 +30,18 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Netlify
+.netlify/
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
 # Backups
 public/images/backup/
+
+# Extracted/temp files
+extracted-html/
+*_data.json
+*_modele.json
+!railway.json

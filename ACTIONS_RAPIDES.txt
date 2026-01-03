@@ -1,0 +1,82 @@
+╔══════════════════════════════════════════════════════════════╗
+║         🚀 ACTIONS À FAIRE MAINTENANT - RAILWAY              ║
+╚══════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────┐
+│ 1️⃣  POUSSER LE CODE                                          │
+└──────────────────────────────────────────────────────────────┘
+
+Terminal :
+  cd /home/edgar/Documents/Op2/Op2_website
+  ./push.sh
+
+┌──────────────────────────────────────────────────────────────┐
+│ 2️⃣  AJOUTER LES VARIABLES (Railway Dashboard)                │
+└──────────────────────────────────────────────────────────────┘
+
+Navigateur :
+  https://railway.app/dashboard
+  → Cliquez sur projet "Op2"
+  → Onglet "Variables"
+  → Bouton "+ New Variable"
+
+Ajoutez 3 variables :
+  
+  ┌─────────────────────────────────┐
+  │ Name:  NODE_ENV                 │
+  │ Value: production               │
+  └─────────────────────────────────┘
+  
+  ┌─────────────────────────────────┐
+  │ Name:  PORT                     │
+  │ Value: 3000                     │
+  └─────────────────────────────────┘
+  
+  ┌─────────────────────────────────┐
+  │ Name:  NEXT_TELEMETRY_DISABLED  │
+  │ Value: 1                        │
+  └─────────────────────────────────┘
+
+OU Mode Raw Editor :
+  
+  NODE_ENV=production
+  PORT=3000
+  NEXT_TELEMETRY_DISABLED=1
+
+┌──────────────────────────────────────────────────────────────┐
+│ 3️⃣  ACTIVER ENFORCE HTTPS                                    │
+└──────────────────────────────────────────────────────────────┘
+
+Railway Dashboard :
+  → Settings (⚙️)
+  → Section "Networking"
+  → Cochez : ☑️ Enforce HTTPS
+  → Save (si demandé)
+
+┌──────────────────────────────────────────────────────────────┐
+│ 4️⃣  VÉRIFIER LE DÉPLOIEMENT                                  │
+└──────────────────────────────────────────────────────────────┘
+
+Railway Dashboard :
+  → Onglet "Deployments"
+  → Attendez "✅ Success" (2-3 minutes)
+  → Settings → Domains
+  → SSL Certificate doit être "✅ Active"
+
+┌──────────────────────────────────────────────────────────────┐
+│ 5️⃣  TESTER !                                                 │
+└──────────────────────────────────────────────────────────────┘
+
+Navigateur :
+  Ouvrez : https://votre-domaine.railway.app
+  
+  ✅ Cadenas vert 🔒
+  ✅ "Connexion sécurisée"
+  ✅ HTTP → HTTPS redirect
+
+╔══════════════════════════════════════════════════════════════╗
+║                    C'EST TOUT ! 🎉                           ║
+╚══════════════════════════════════════════════════════════════╝
+
+📖 Guide détaillé : GUIDE_RAILWAY_MAINTENANT.md
+🐛 Problèmes ?      README_SSL.md

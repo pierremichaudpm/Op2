@@ -1,0 +1,12 @@
+# Fichiers à ignorer lors du déploiement Railway
+node_modules/
+.next/
+.git/
+*.log
+.env*.local
+.netlify/
+extracted-html/
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
