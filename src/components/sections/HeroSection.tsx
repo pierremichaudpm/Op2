@@ -16,7 +16,7 @@ export function HeroSection() {
           <div className="relative h-[896px] w-full">
             {/* Video as true background (poster = slider 1.png) */}
             <VideoBackground
-              videoSrc={`/videos/hero_animation.mp4?v=${Date.now()}`}
+              videoSrc="/videos/hero_animation.mp4"
               posterSrc="/images/slider-1.png"
               opacity={1}
               objectPosition="center bottom"
@@ -29,7 +29,7 @@ export function HeroSection() {
               style={{ backgroundColor: "#243768" }}
             />
             <div
-              className="absolute inset-0 z-10 opacity-[0.25] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
+              className="absolute inset-0 z-10 opacity-[0.125] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
               style={{
                 background: "linear-gradient(180deg, #243768 0%, #F36911 100%)",
                 mixBlendMode: "multiply",
@@ -41,7 +41,7 @@ export function HeroSection() {
               style={{
                 height: "45%",
                 background:
-                  "linear-gradient(0deg, rgba(243,105,17,0.45) 0%, rgba(243,105,17,0.25) 35%, rgba(243,105,17,0) 70%)",
+                  "linear-gradient(0deg, rgba(243,105,17,0.225) 0%, rgba(243,105,17,0.125) 35%, rgba(243,105,17,0) 70%)",
                 mixBlendMode: "multiply",
                 filter: "blur(12px)",
               }}

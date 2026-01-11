@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export type VideoBackgroundProps = {
   videoSrc: string;
@@ -10,34 +10,46 @@ export type VideoBackgroundProps = {
   objectPosition?: string;
 };
 
-export function VideoBackground({ videoSrc, posterSrc, children, className, opacity = 0.6, objectPosition = 'center' }: VideoBackgroundProps) {
+export function VideoBackground({
+  videoSrc,
+  posterSrc,
+  children,
+  className,
+  opacity = 0.6,
+  objectPosition = "center",
+}: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasError, setHasError] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
-    
+
     // Force le volume à 0
     el.volume = 0;
     el.muted = true;
-    
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!el) return;
           if (entry.isIntersecting) {
+            setShouldLoad(true);
             el.play().catch(() => {});
           } else {
             el.pause();
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.1 },
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  // Extract base path without query string and extension
+  const baseVideoPath = videoSrc.split("?")[0].replace(/\.(mp4|webm)$/, "");
 
   return (
     <div className={className} style={{ opacity }}>
@@ -51,15 +63,22 @@ export function VideoBackground({ videoSrc, posterSrc, children, className, opac
           loop
           playsInline
           poster={posterSrc}
-          preload="metadata"
+          preload={shouldLoad ? "auto" : "none"}
           onError={() => setHasError(true)}
         >
-          <source src={videoSrc} type="video/mp4" />
+          {shouldLoad && (
+            <>
+              <source
+                src={`${baseVideoPath}_optimized.webm`}
+                type="video/webm"
+              />
+              <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
+              <source src={videoSrc} type="video/mp4" />
+            </>
+          )}
         </video>
       )}
       {children}
     </div>
   );
 }
-
-
