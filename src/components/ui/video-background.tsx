@@ -20,7 +20,6 @@ export function VideoBackground({
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasError, setHasError] = useState(false);
-  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -30,13 +29,30 @@ export function VideoBackground({
     el.volume = 0;
     el.muted = true;
 
+    // Forcer le chargement et lecture immédiate pour Webkit
+    const playVideo = () => {
+      el.play().catch(() => {
+        // Retry après un court délai si échec
+        setTimeout(() => {
+          el.play().catch(() => {});
+        }, 100);
+      });
+    };
+
+    // Démarrer la vidéo dès que possible
+    if (el.readyState >= 2) {
+      // HAVE_CURRENT_DATA
+      playVideo();
+    } else {
+      el.addEventListener("loadeddata", playVideo, { once: true });
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!el) return;
           if (entry.isIntersecting) {
-            setShouldLoad(true);
-            el.play().catch(() => {});
+            playVideo();
           } else {
             el.pause();
           }
@@ -45,7 +61,10 @@ export function VideoBackground({
       { threshold: 0.1 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      el.removeEventListener("loadeddata", playVideo);
+    };
   }, []);
 
   // Extract base path without query string and extension
@@ -63,19 +82,12 @@ export function VideoBackground({
           loop
           playsInline
           poster={posterSrc}
-          preload={shouldLoad ? "auto" : "none"}
+          preload="auto"
           onError={() => setHasError(true)}
         >
-          {shouldLoad && (
-            <>
-              <source
-                src={`${baseVideoPath}_optimized.webm`}
-                type="video/webm"
-              />
-              <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
-              <source src={videoSrc} type="video/mp4" />
-            </>
-          )}
+          <source src={`${baseVideoPath}_optimized.webm`} type="video/webm" />
+          <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
       )}
       {children}
