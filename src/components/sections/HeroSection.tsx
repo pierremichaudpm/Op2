@@ -1,9 +1,9 @@
 "use client";
-import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
-import { CTAButton } from '@/components/ui/cta-button';
-import { VideoBackground } from '@/components/ui/video-background';
-import { useI18n } from '@/lib/i18n';
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { CTAButton } from "@/components/ui/cta-button";
+import { VideoBackground } from "@/components/ui/video-background";
+import { useI18n } from "@/lib/i18n";
 
 export function HeroSection() {
   const reduce = useReducedMotion();
@@ -24,34 +24,43 @@ export function HeroSection() {
             />
 
             {/* Overlays above video (adoucies) */}
-            <div className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]" style={{ backgroundColor: '#243768' }} />
             <div
-              className="absolute inset-0 z-10 opacity-[0.48] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
-              style={{ background: 'linear-gradient(180deg, #243768 0%, #F36911 100%)', mixBlendMode: 'color' }}
+              className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]"
+              style={{ backgroundColor: "#243768" }}
+            />
+            <div
+              className="absolute inset-0 z-10 opacity-[0.25] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
+              style={{
+                background: "linear-gradient(180deg, #243768 0%, #F36911 100%)",
+                mixBlendMode: "multiply",
+              }}
             />
             {/* Bottom orange emphasis (blurred) */}
             <div
               className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
               style={{
-                height: '45%',
+                height: "45%",
                 background:
-                  'linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)',
-                mixBlendMode: 'color',
-                filter: 'blur(12px)'
+                  "linear-gradient(0deg, rgba(243,105,17,0.45) 0%, rgba(243,105,17,0.25) 35%, rgba(243,105,17,0) 70%)",
+                mixBlendMode: "multiply",
+                filter: "blur(12px)",
               }}
             />
 
             {/* Centered content */}
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center gap-4" style={{ transform: 'translateY(-40px)' }}>
+            <div
+              className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center gap-4"
+              style={{ transform: "translateY(-40px)" }}
+            >
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="font-display subpixel-antialiased text-white uppercase text-[66px] leading-[80px] font-bold tracking-[0.01em] max-w-[1426px] text-outline-light text-stroke-navy"
               >
-                {t('hero.title.l1')}
+                {t("hero.title.l1")}
                 <br />
-                {t('hero.title.l2')}
+                {t("hero.title.l2")}
               </motion.h1>
 
               <motion.p
@@ -59,9 +68,12 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="font-display subpixel-antialiased text-[#FFD3B7] text-[30px] leading-[44px] font-semibold tracking-[0.03em] max-w-[1100px] text-outline-light text-stroke-white"
-                style={{ textShadow: '0 2px 6px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.22)' }}
+                style={{
+                  textShadow:
+                    "0 2px 6px rgba(0,0,0,0.28), 0 0 2px rgba(0,0,0,0.22)",
+                }}
               >
-                {t('hero.subtitle')}
+                {t("hero.subtitle")}
               </motion.p>
 
               <motion.div
@@ -77,16 +89,13 @@ export function HeroSection() {
                   textWeight="bold"
                   className="relative w-[461px] h-[77px] rounded-[40px] bg-[#F36911]"
                 >
-                  {t('hero.cta')}
+                  {t("hero.cta")}
                 </CTAButton>
               </motion.div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
