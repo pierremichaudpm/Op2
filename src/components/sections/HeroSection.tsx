@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { CTAButton } from "@/components/ui/cta-button";
@@ -9,30 +8,6 @@ import { useI18n } from "@/lib/i18n";
 export function HeroSection() {
   const reduce = useReducedMotion();
   const { t } = useI18n();
-  const [isWebkit, setIsWebkit] = useState(false);
-
-  useEffect(() => {
-    // Detect Webkit browsers (Safari, GNOME Web/Epiphany)
-    const ua = navigator.userAgent;
-    const isWebkitBrowser =
-      /AppleWebKit/.test(ua) &&
-      !/Chrome/.test(ua) &&
-      !/Chromium/.test(ua) &&
-      !/Edg/.test(ua);
-    setIsWebkit(isWebkitBrowser);
-  }, []);
-
-  // Original values for Chrome/Firefox
-  const defaultGradientOpacity = 0.48;
-  const defaultBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)";
-  const defaultBlendMode = "color";
-
-  // Reduced values for Webkit
-  const webkitGradientOpacity = 0.125;
-  const webkitBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.225) 0%, rgba(243,105,17,0.125) 35%, rgba(243,105,17,0) 70%)";
-  const webkitBlendMode = "multiply";
 
   return (
     <section className="relative overflow-hidden">
@@ -55,24 +30,16 @@ export function HeroSection() {
               style={{ backgroundColor: "#243768" }}
             />
             <div
-              className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
+              className="hero-gradient-overlay absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
               style={{
                 background: "linear-gradient(180deg, #243768 0%, #F36911 100%)",
-                mixBlendMode: isWebkit ? webkitBlendMode : defaultBlendMode,
-                opacity: isWebkit
-                  ? webkitGradientOpacity
-                  : defaultGradientOpacity,
               }}
             />
             {/* Bottom orange emphasis (blurred) */}
             <div
-              className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
+              className="hero-bottom-gradient absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
               style={{
                 height: "45%",
-                background: isWebkit
-                  ? webkitBottomGradient
-                  : defaultBottomGradient,
-                mixBlendMode: isWebkit ? webkitBlendMode : defaultBlendMode,
                 filter: "blur(12px)",
               }}
             />
@@ -126,6 +93,62 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* CSS styles for browser-specific overlays */}
+      <style jsx>{`
+        /* Default styles for Chrome, Firefox, Edge */
+        .hero-gradient-overlay {
+          opacity: 0.48;
+          mix-blend-mode: color;
+        }
+
+        .hero-bottom-gradient {
+          background: linear-gradient(
+            0deg,
+            rgba(243, 105, 17, 0.92) 0%,
+            rgba(243, 105, 17, 0.65) 35%,
+            rgba(243, 105, 17, 0) 70%
+          );
+          mix-blend-mode: color;
+        }
+
+        /* Webkit-specific styles (Safari, GNOME Web) */
+        @supports (-webkit-appearance: none) and
+          (not (-webkit-backdrop-filter: blur(1px))) {
+          .hero-gradient-overlay {
+            opacity: 0.125;
+            mix-blend-mode: multiply;
+          }
+
+          .hero-bottom-gradient {
+            background: linear-gradient(
+              0deg,
+              rgba(243, 105, 17, 0.225) 0%,
+              rgba(243, 105, 17, 0.125) 35%,
+              rgba(243, 105, 17, 0) 70%
+            );
+            mix-blend-mode: multiply;
+          }
+        }
+
+        /* Additional Safari-specific targeting */
+        @supports (-webkit-hyphens: none) {
+          .hero-gradient-overlay {
+            opacity: 0.125;
+            mix-blend-mode: multiply;
+          }
+
+          .hero-bottom-gradient {
+            background: linear-gradient(
+              0deg,
+              rgba(243, 105, 17, 0.225) 0%,
+              rgba(243, 105, 17, 0.125) 35%,
+              rgba(243, 105, 17, 0) 70%
+            );
+            mix-blend-mode: multiply;
+          }
+        }
+      `}</style>
     </section>
   );
 }
