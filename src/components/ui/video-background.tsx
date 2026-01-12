@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 export type VideoBackgroundProps = {
   videoSrc: string;
@@ -18,108 +18,91 @@ export function VideoBackground({
   opacity = 0.6,
   objectPosition = "center",
 }: VideoBackgroundProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasError, setHasError] = useState(false);
   const [isWebkit, setIsWebkit] = useState<boolean | null>(null);
+  const [hasError, setHasError] = useState(false);
 
-  // Detect WebKit browser (Safari, GNOME Web)
+  // Double-buffer state for WebKit seamless loop workaround
+  const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
+  const v0Ref = useRef<HTMLVideoElement>(null);
+  const v1Ref = useRef<HTMLVideoElement>(null);
+  const rafRef = useRef<number>();
+
+  // Detect WebKit browsers (Safari, GNOME Web, iOS)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isWebkitBrowser =
-        /Safari/.test(navigator.userAgent) &&
-        !/Chrome/.test(navigator.userAgent) &&
-        !/Chromium/.test(navigator.userAgent) &&
-        !/Edg/.test(navigator.userAgent);
-      setIsWebkit(isWebkitBrowser);
+      const ua = navigator.userAgent;
+      const isSafari =
+        /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
+      const isWebkitBrowser = /WebKit/.test(ua) && !/Chrome/.test(ua);
+      setIsWebkit(isSafari || isWebkitBrowser);
     }
   }, []);
 
-  // Extract base video path without extension
-  const getOptimizedVideoSources = () => {
+  // Multi-format source selection based on browser optimization
+  const getSources = useCallback(() => {
     const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
-
-    // For WebKit browsers, prioritize WebM format (better performance)
-    if (isWebkit === true) {
+    if (isWebkit) {
       return [
         { src: `${basePath}_optimized.webm`, type: "video/webm" },
         { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
-        { src: `${basePath}_webkit_fix.mp4`, type: "video/mp4" }, // WebKit-specific fix
-        { src: videoSrc, type: "video/mp4" }, // Fallback to original
+        { src: `${basePath}_webkit_fix.mp4`, type: "video/mp4" },
+        {
+          src: videoSrc.includes(".") ? videoSrc : `${videoSrc}.mp4`,
+          type: "video/mp4",
+        },
       ];
     }
-
-    // For Chrome/Firefox/Edge, use optimized MP4 first
     return [
       { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
       { src: `${basePath}_optimized.webm`, type: "video/webm" },
-      { src: `${basePath}_perfect_loop.mp4`, type: "video/mp4" }, // Perfect loop version
-      { src: videoSrc, type: "video/mp4" }, // Fallback to original
+      {
+        src: videoSrc.includes(".") ? videoSrc : `${videoSrc}.mp4`,
+        type: "video/mp4",
+      },
     ];
-  };
+  }, [videoSrc, isWebkit]);
 
-  const videoSources = getOptimizedVideoSources();
+  const sources = getSources();
 
+  // Seamless Loop Logic (WebKit Only)
+  // This uses a double-buffer crossfade to bypass Safari's broken native loop
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    if (isWebkit !== true) return;
 
-    // WebKit-specific optimizations
-    if (isWebkit === true) {
-      // Force hardware acceleration for WebKit
-      video.style.transform = "translate3d(0,0,0)";
-      video.style.webkitTransform = "translate3d(0,0,0)";
+    const v0 = v0Ref.current;
+    const v1 = v1Ref.current;
+    if (!v0 || !v1) return;
 
-      // Additional WebKit CSS optimizations
-      video.style.webkitBackfaceVisibility = "hidden";
-      video.style.webkitPerspective = "1000px";
-      video.style.imageRendering = "crisp-edges";
+    // Start playback on initial buffer
+    v0.play().catch(() => {});
 
-      // Prefer 'metadata' preload for WebKit to avoid stuttering
-      video.preload = "metadata";
+    const checkLoop = () => {
+      const active = activeBuffer === 0 ? v0 : v1;
+      const next = activeBuffer === 0 ? v1 : v0;
 
-      // Set video attributes for WebKit optimization
-      video.setAttribute("webkit-playsinline", "true");
-      video.setAttribute("playsinline", "true");
-      video.setAttribute("x-webkit-airplay", "deny");
+      if (active.duration > 0) {
+        const timeLeft = active.duration - active.currentTime;
 
-      // Add event listeners for WebKit smooth playback
-      const handleCanPlay = () => {
-        // Small delay to ensure video is ready for WebKit
-        setTimeout(() => {
-          video.play().catch((e) => {
-            console.log("WebKit video play error:", e);
-            // Fallback: try again with different approach
-            video.load();
-            setTimeout(() => video.play().catch(() => {}), 100);
-          });
-        }, 50);
-      };
-
-      const handleLoadedMetadata = () => {
-        // WebKit benefits from waiting for metadata
-        if (video.readyState >= 1) {
-          handleCanPlay();
+        // Start crossfade 300ms before the end of the current video
+        // This hides the flash/jerk that happens at exactly duration-0.
+        if (timeLeft < 0.3 && next.paused) {
+          next.currentTime = 0;
+          next
+            .play()
+            .then(() => {
+              setActiveBuffer(activeBuffer === 0 ? 1 : 0);
+            })
+            .catch(() => {});
         }
-      };
-
-      video.addEventListener("canplay", handleCanPlay);
-      video.addEventListener("loadedmetadata", handleLoadedMetadata);
-
-      // Also try to play immediately if already loaded
-      if (video.readyState >= 1) {
-        handleCanPlay();
       }
+      rafRef.current = requestAnimationFrame(checkLoop);
+    };
 
-      return () => {
-        video.removeEventListener("canplay", handleCanPlay);
-        video.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      };
-    } else {
-      // Chrome/Firefox/Edge - use standard approach
-      video.muted = true;
-      video.play().catch(() => {});
-    }
-  }, [isWebkit]);
+    rafRef.current = requestAnimationFrame(checkLoop);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isWebkit, activeBuffer]);
 
   if (hasError) {
     return (
@@ -129,56 +112,94 @@ export function VideoBackground({
     );
   }
 
+  const commonStyle: React.CSSProperties = {
+    objectPosition,
+    transform: "translate3d(0,0,0)",
+    WebkitTransform: "translate3d(0,0,0)",
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    willChange: "transform",
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  };
+
+  // Prevent UI flash during hydration
+  if (isWebkit === null) {
+    return (
+      <div
+        className={className}
+        style={{ opacity, position: "relative", minHeight: "100%" }}
+      />
+    );
+  }
+
   return (
-    <div className={className} style={{ opacity }}>
-      <video
-        ref={videoRef}
-        className="h-full w-full object-cover"
-        style={{
-          objectPosition,
-          // Hardware acceleration for all browsers
-          transform: "translate3d(0,0,0)",
-          WebkitTransform: "translate3d(0,0,0)",
-          backfaceVisibility: "hidden",
-          WebkitBackfaceVisibility: "hidden",
-          // Force GPU rendering
-          willChange: "transform",
-          // WebKit-specific optimizations
-          ...(isWebkit === true && {
-            WebkitPerspective: "1000",
-            WebkitBackfaceVisibility: "hidden",
-            WebkitFontSmoothing: "antialiased",
-            // Additional WebKit video optimizations
-            WebkitTransformStyle: "preserve-3d",
-            WebkitFilter: "blur(0)",
-            // Prevent subpixel rendering issues
-            imageRendering: "crisp-edges",
-            // Optimize for video playback
-            WebkitVideoPlaybackInline: true,
-            // Force hardware video decoding
-            WebkitTransformOrigin: "0 0",
-          }),
-        }}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={posterSrc}
-        preload="auto"
-        onError={() => setHasError(true)}
-        // WebKit-specific attributes
-        {...(isWebkit === true && {
-          webkitPlaysInline: true,
-          playsInline: true,
-          // Additional WebKit video attributes
-          webkitInlinePlaysInline: true,
-        })}
-      >
-        {videoSources.map((source, index) => (
-          <source key={index} src={source.src} type={source.type} />
-        ))}
-        Your browser does not support the video tag.
-      </video>
+    <div
+      className={className}
+      style={{ opacity, position: "relative", overflow: "hidden" }}
+    >
+      {isWebkit ? (
+        <>
+          <video
+            ref={v0Ref}
+            style={{
+              ...commonStyle,
+              opacity: activeBuffer === 0 ? 1 : 0,
+              zIndex: activeBuffer === 0 ? 1 : 0,
+              transition: "opacity 0.3s ease-in-out",
+            }}
+            muted
+            playsInline
+            preload="auto"
+            poster={posterSrc}
+            onError={() => setHasError(true)}
+          >
+            {sources.map((s, i) => (
+              <source key={i} src={s.src} type={s.type} />
+            ))}
+          </video>
+          <video
+            ref={v1Ref}
+            style={{
+              ...commonStyle,
+              opacity: activeBuffer === 1 ? 1 : 0,
+              zIndex: activeBuffer === 1 ? 1 : 0,
+              transition: "opacity 0.3s ease-in-out",
+            }}
+            muted
+            playsInline
+            preload="auto"
+            onError={() => setHasError(true)}
+          >
+            {sources.map((s, i) => (
+              <source key={i} src={s.src} type={s.type} />
+            ))}
+          </video>
+        </>
+      ) : (
+        <video
+          className="h-full w-full object-cover"
+          style={{
+            objectPosition,
+            transform: "translate3d(0,0,0)",
+            willChange: "transform",
+          }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={posterSrc}
+          preload="auto"
+          onError={() => setHasError(true)}
+        >
+          {sources.map((s, i) => (
+            <source key={i} src={s.src} type={s.type} />
+          ))}
+        </video>
+      )}
       {children}
     </div>
   );
