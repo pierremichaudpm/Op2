@@ -27,18 +27,18 @@ export function VideoBackground({
   const v1Ref = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number>();
 
-  // Detect WebKit browsers (Safari, GNOME Web, iOS)
+  // Detect WebKit browsers (Safari, iOS)
   useEffect(() => {
     if (typeof window !== "undefined") {
       const ua = navigator.userAgent;
       const isSafari =
         /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
-      const isWebkitBrowser = /WebKit/.test(ua) && !/Chrome/.test(ua);
-      setIsWebkit(isSafari || isWebkitBrowser);
+      const isIOS = /iPhone|iPad|iPod/.test(ua);
+      setIsWebkit(isSafari || isIOS);
     }
   }, []);
 
-  // Multi-format source selection based on browser optimization
+  // Multi-format source selection
   const getSources = useCallback(() => {
     const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
     if (isWebkit) {
@@ -65,7 +65,6 @@ export function VideoBackground({
   const sources = getSources();
 
   // Seamless Loop Logic (WebKit Only)
-  // This uses a double-buffer crossfade to bypass Safari's broken native loop
   useEffect(() => {
     if (isWebkit !== true) return;
 
@@ -73,7 +72,11 @@ export function VideoBackground({
     const v1 = v1Ref.current;
     if (!v0 || !v1) return;
 
-    // Start playback on initial buffer
+    // Ensure they are muted for autoplay
+    v0.muted = true;
+    v1.muted = true;
+
+    // Play the first buffer
     v0.play().catch(() => {});
 
     const checkLoop = () => {
@@ -83,9 +86,8 @@ export function VideoBackground({
       if (active.duration > 0) {
         const timeLeft = active.duration - active.currentTime;
 
-        // Start crossfade 300ms before the end of the current video
-        // This hides the flash/jerk that happens at exactly duration-0.
-        if (timeLeft < 0.3 && next.paused) {
+        // Start crossfade 400ms before the end
+        if (timeLeft < 0.4 && next.paused) {
           next.currentTime = 0;
           next
             .play()
@@ -104,6 +106,20 @@ export function VideoBackground({
     };
   }, [isWebkit, activeBuffer]);
 
+  const videoStyle: React.CSSProperties = {
+    objectPosition,
+    objectFit: "cover",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    inset: 0,
+    transform: "translate3d(0,0,0)",
+    WebkitTransform: "translate3d(0,0,0)",
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    willChange: "transform",
+  };
+
   if (hasError) {
     return (
       <div className={className} style={{ opacity }}>
@@ -112,44 +128,17 @@ export function VideoBackground({
     );
   }
 
-  const commonStyle: React.CSSProperties = {
-    objectPosition,
-    transform: "translate3d(0,0,0)",
-    WebkitTransform: "translate3d(0,0,0)",
-    backfaceVisibility: "hidden",
-    WebkitBackfaceVisibility: "hidden",
-    willChange: "transform",
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  };
-
-  // Prevent UI flash during hydration
-  if (isWebkit === null) {
-    return (
-      <div
-        className={className}
-        style={{ opacity, position: "relative", minHeight: "100%" }}
-      />
-    );
-  }
-
   return (
-    <div
-      className={className}
-      style={{ opacity, position: "relative", overflow: "hidden" }}
-    >
-      {isWebkit ? (
-        <>
+    <div className={className} style={{ opacity }}>
+      {isWebkit === true ? (
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
             ref={v0Ref}
             style={{
-              ...commonStyle,
+              ...videoStyle,
               opacity: activeBuffer === 0 ? 1 : 0,
               zIndex: activeBuffer === 0 ? 1 : 0,
-              transition: "opacity 0.3s ease-in-out",
+              transition: "opacity 0.4s ease-in-out",
             }}
             muted
             playsInline
@@ -164,10 +153,10 @@ export function VideoBackground({
           <video
             ref={v1Ref}
             style={{
-              ...commonStyle,
+              ...videoStyle,
               opacity: activeBuffer === 1 ? 1 : 0,
               zIndex: activeBuffer === 1 ? 1 : 0,
-              transition: "opacity 0.3s ease-in-out",
+              transition: "opacity 0.4s ease-in-out",
             }}
             muted
             playsInline
@@ -178,7 +167,7 @@ export function VideoBackground({
               <source key={i} src={s.src} type={s.type} />
             ))}
           </video>
-        </>
+        </div>
       ) : (
         <video
           className="h-full w-full object-cover"
