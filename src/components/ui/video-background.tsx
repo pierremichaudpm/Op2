@@ -10,6 +10,12 @@ export type VideoBackgroundProps = {
   objectPosition?: string;
 };
 
+/**
+ * Optimized VideoBackground component
+ *
+ * Specifically engineered to solve Safari/WebKit's video looping "white flash" and "stutter"
+ * using a high-precision double-buffering technique with GPU visibility hacks.
+ */
 export function VideoBackground({
   videoSrc,
   posterSrc,
@@ -21,7 +27,7 @@ export function VideoBackground({
   const [isWebkit, setIsWebkit] = useState<boolean | null>(null);
   const [hasError, setHasError] = useState(false);
 
-  // Double-buffer state for WebKit
+  // Double-buffer state: two video elements cross-fading to bypass Safari's buffer reset bug
   const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
   const activeBufferRef = useRef<0 | 1>(0);
   const isTransitioningRef = useRef(false);
@@ -30,7 +36,7 @@ export function VideoBackground({
   const rafRef = useRef<number>();
 
   useEffect(() => {
-    // Detect Safari / WebKit specifically
+    // Detect Safari or iOS WebKit browsers
     const ua = navigator.userAgent;
     const isSafari =
       /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
@@ -40,7 +46,6 @@ export function VideoBackground({
 
   const getSources = useCallback(() => {
     const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
-    // WebKit often handles WebM poorly or not at all for background loops, prioritize optimized MP4
     return [
       { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
       { src: `${basePath}_optimized.webm`, type: "video/webm" },
@@ -50,7 +55,6 @@ export function VideoBackground({
 
   const sources = getSources();
 
-  // WebKit-only Loop Logic
   useEffect(() => {
     if (isWebkit !== true) return;
 
@@ -58,31 +62,33 @@ export function VideoBackground({
     const v1 = v1Ref.current;
     if (!v0 || !v1) return;
 
+    // Force muted for reliable autoplay in Safari
     v0.muted = true;
     v1.muted = true;
-
-    // Start playback
-    v0.play().catch(() => {
-      const retry = () => {
-        v0.play();
-        window.removeEventListener("touchstart", retry);
-        window.removeEventListener("click", retry);
-      };
-      window.addEventListener("touchstart", retry);
-      window.addEventListener("click", retry);
-    });
 
     const checkLoop = () => {
       const currentIndex = activeBufferRef.current;
       const active = currentIndex === 0 ? v0 : v1;
       const next = currentIndex === 0 ? v1 : v0;
 
+      // WATCHDOG: If video stalled or paused accidentally, force it to resume.
+      // Safari often "freezes" background videos if they aren't interaction-triggered.
+      if (
+        active.paused &&
+        !isTransitioningRef.current &&
+        active.readyState >= 2
+      ) {
+        active.play().catch(() => {});
+      }
+
+      // Seamless Loop Logic: Pass the baton 450ms before the end
       if (active.duration > 1 && active.currentTime > active.duration / 2) {
         const timeLeft = active.duration - active.currentTime;
 
-        // Transition 400ms before end
-        if (timeLeft < 0.4 && !isTransitioningRef.current) {
+        if (timeLeft < 0.45 && !isTransitioningRef.current) {
           isTransitioningRef.current = true;
+
+          // Prepare and start next buffer early
           next.currentTime = 0;
           next
             .play()
@@ -91,12 +97,14 @@ export function VideoBackground({
               activeBufferRef.current = nextIndex;
               setActiveBuffer(nextIndex);
 
+              // Allow the cross-fade to complete before locking out the next transition
               setTimeout(() => {
                 isTransitioningRef.current = false;
+                // Only pause the old video once the new one is fully visible
                 if (activeBufferRef.current !== currentIndex) {
                   active.pause();
                 }
-              }, 600);
+              }, 800);
             })
             .catch(() => {
               isTransitioningRef.current = false;
@@ -119,8 +127,7 @@ export function VideoBackground({
     height: "100%",
     position: "absolute",
     inset: 0,
-    transform: "translateZ(0)",
-    willChange: "transform",
+    willChange: "transform, opacity",
   };
 
   if (hasError) {
@@ -135,14 +142,26 @@ export function VideoBackground({
     <div className={className} style={{ opacity }}>
       {isWebkit === true ? (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
+          {/*
+            VISIBILITY HACK:
+            Safari pauses videos at opacity: 0.
+            We use opacity: 0.01 and scale(1.01) to keep the video active in the GPU pipeline
+            without it being visible to the user.
+          */}
           <video
             ref={v0Ref}
             style={{
               ...videoStyle,
-              opacity: activeBuffer === 0 ? 1 : 0,
+              opacity: activeBuffer === 0 ? 1 : 0.01,
+              transform:
+                activeBuffer === 0
+                  ? "scale(1) translateZ(0)"
+                  : "scale(1.01) translateZ(0)",
               zIndex: activeBuffer === 0 ? 1 : 0,
-              transition: "opacity 0.4s ease-in-out",
+              transition:
+                "opacity 0.6s ease-in-out, transform 0.6s ease-in-out",
             }}
+            autoPlay
             muted
             playsInline
             preload="auto"
@@ -157,10 +176,16 @@ export function VideoBackground({
             ref={v1Ref}
             style={{
               ...videoStyle,
-              opacity: activeBuffer === 1 ? 1 : 0,
+              opacity: activeBuffer === 1 ? 1 : 0.01,
+              transform:
+                activeBuffer === 1
+                  ? "scale(1) translateZ(0)"
+                  : "scale(1.01) translateZ(0)",
               zIndex: activeBuffer === 1 ? 1 : 0,
-              transition: "opacity 0.4s ease-in-out",
+              transition:
+                "opacity 0.6s ease-in-out, transform 0.6s ease-in-out",
             }}
+            autoPlay
             muted
             playsInline
             preload="auto"
