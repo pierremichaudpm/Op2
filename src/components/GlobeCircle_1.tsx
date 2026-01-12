@@ -4,113 +4,88 @@ import styles from "../styles/GlobeCircle_1.module.css";
 export default function GlobeCircle_1() {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
-  const [isWebkit, setIsWebkit] = useState(false);
-  const activeVideoRef = useRef<1 | 2>(1);
+  const isSwapping = useRef(false);
 
-  // Detect WebKit (Safari, GNOME Web) - not Chrome
-  useEffect(() => {
-    const ua = navigator.userAgent;
-    const webkit =
-      /Safari/.test(ua) &&
-      !/Chrome/.test(ua) &&
-      !/Chromium/.test(ua) &&
-      !/Edg/.test(ua);
-    setIsWebkit(webkit);
-  }, []);
+  // Check if WebKit on client side only
+  const isWebkit =
+    typeof navigator !== "undefined" &&
+    /Safari/.test(navigator.userAgent) &&
+    !/Chrome/.test(navigator.userAgent) &&
+    !/Chromium/.test(navigator.userAgent) &&
+    !/Edg/.test(navigator.userAgent);
 
   useEffect(() => {
-    const video = video1Ref.current;
-    if (!video) return;
+    const v1 = video1Ref.current;
+    const v2 = video2Ref.current;
+    if (!v1) return;
 
-    video.muted = true;
-    video.defaultMuted = true;
+    v1.muted = true;
+    v1.playsInline = true;
 
     const playVideo = () => {
-      video.play().catch(() => {});
+      v1.play().catch(() => {});
     };
 
-    if (video.readyState >= 2) {
+    if (v1.readyState >= 2) {
       playVideo();
     } else {
-      video.addEventListener("loadeddata", playVideo, { once: true });
+      v1.addEventListener("canplay", playVideo, { once: true });
+    }
+
+    // WebKit: dual video crossfade to prevent loop flash
+    if (isWebkit && v2) {
+      v2.muted = true;
+      v2.playsInline = true;
+
+      const handleTimeUpdate = () => {
+        if (isSwapping.current) return;
+
+        if (v1.duration > 0 && v1.currentTime >= v1.duration - 0.3) {
+          isSwapping.current = true;
+          v2.currentTime = 0;
+          v2.play().catch(() => {});
+          v2.style.opacity = "1";
+          v1.style.opacity = "0";
+
+          setTimeout(() => {
+            v1.pause();
+            v1.currentTime = 0;
+          }, 350);
+        }
+      };
+
+      const handleTimeUpdate2 = () => {
+        if (!isSwapping.current) return;
+
+        if (v2.duration > 0 && v2.currentTime >= v2.duration - 0.3) {
+          isSwapping.current = false;
+          v1.currentTime = 0;
+          v1.play().catch(() => {});
+          v1.style.opacity = "1";
+          v2.style.opacity = "0";
+
+          setTimeout(() => {
+            v2.pause();
+            v2.currentTime = 0;
+          }, 350);
+        }
+      };
+
+      v1.addEventListener("timeupdate", handleTimeUpdate);
+      v2.addEventListener("timeupdate", handleTimeUpdate2);
+
+      return () => {
+        v1.removeEventListener("timeupdate", handleTimeUpdate);
+        v2.removeEventListener("timeupdate", handleTimeUpdate2);
+        v1.removeEventListener("canplay", playVideo);
+      };
     }
 
     return () => {
-      video.removeEventListener("loadeddata", playVideo);
-    };
-  }, []);
-
-  // WebKit dual-video crossfade to eliminate loop flash
-  useEffect(() => {
-    if (!isWebkit) return;
-
-    const v1 = video1Ref.current;
-    const v2 = video2Ref.current;
-    if (!v1 || !v2) return;
-
-    // Setup video2
-    v2.volume = 0;
-    v2.muted = true;
-    v2.defaultMuted = true;
-    v2.style.opacity = "0";
-
-    const handleTimeUpdate = () => {
-      const activeVideo = activeVideoRef.current === 1 ? v1 : v2;
-      const standbyVideo = activeVideoRef.current === 1 ? v2 : v1;
-
-      // When active video is ~0.4s from end, crossfade to standby
-      if (
-        activeVideo.duration > 0 &&
-        activeVideo.duration - activeVideo.currentTime < 0.4
-      ) {
-        standbyVideo.currentTime = 0;
-        standbyVideo.play().catch(() => {});
-        standbyVideo.style.opacity = "1";
-        activeVideo.style.opacity = "0";
-        activeVideoRef.current = activeVideoRef.current === 1 ? 2 : 1;
-      }
-    };
-
-    v1.addEventListener("timeupdate", handleTimeUpdate);
-    v2.addEventListener("timeupdate", handleTimeUpdate);
-
-    return () => {
-      v1.removeEventListener("timeupdate", handleTimeUpdate);
-      v2.removeEventListener("timeupdate", handleTimeUpdate);
+      v1.removeEventListener("canplay", playVideo);
     };
   }, [isWebkit]);
 
-  // Styles for WebKit to fix jerkiness
-  const webkitStyle: React.CSSProperties = isWebkit
-    ? {
-        transform: "translateZ(0)",
-        WebkitTransform: "translateZ(0)",
-        willChange: "transform",
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
-      }
-    : {};
-
-  // For non-WebKit, render single video with native loop
-  if (!isWebkit) {
-    return (
-      <div className={styles.GlobeCircle_1_311_218}>
-        <video
-          ref={video1Ref}
-          className={styles.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/videos/globe4.mp4" type="video/mp4" />
-        </video>
-      </div>
-    );
-  }
-
-  // For WebKit, render dual videos for crossfade
   return (
     <div
       className={styles.GlobeCircle_1_311_218}
@@ -119,35 +94,33 @@ export default function GlobeCircle_1() {
       <video
         ref={video1Ref}
         className={styles.video}
-        style={{
-          ...webkitStyle,
-          position: "absolute",
-          inset: 0,
-          transition: "opacity 0.3s ease-out",
-        }}
+        style={{ position: "absolute", inset: 0 }}
         autoPlay
         muted
+        loop={!isWebkit}
         playsInline
         preload="auto"
       >
         <source src="/videos/globe4.mp4" type="video/mp4" />
       </video>
-      <video
-        ref={video2Ref}
-        className={styles.video}
-        style={{
-          ...webkitStyle,
-          position: "absolute",
-          inset: 0,
-          transition: "opacity 0.3s ease-out",
-          opacity: 0,
-        }}
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src="/videos/globe4.mp4" type="video/mp4" />
-      </video>
+
+      {isWebkit && (
+        <video
+          ref={video2Ref}
+          className={styles.video}
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: 0,
+            transition: "opacity 0.3s ease",
+          }}
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/globe4.mp4" type="video/mp4" />
+        </video>
+      )}
     </div>
   );
 }
