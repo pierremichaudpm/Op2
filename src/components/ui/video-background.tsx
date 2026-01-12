@@ -128,6 +128,7 @@ export function VideoBackground({
           preload="auto"
           onError={() => setHasError(true)}
         >
+          <source src={`${baseVideoPath}_webkit_fix.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_perfect_loop.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_seamless.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />

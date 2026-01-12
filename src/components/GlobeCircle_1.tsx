@@ -81,6 +81,7 @@ export default function GlobeCircle_1() {
         playsInline
         preload="auto"
       >
+        <source src="/videos/globe4_webkit_fix.mp4" type="video/mp4" />
         <source src="/videos/globe4_perfect_loop.mp4" type="video/mp4" />
         <source src="/videos/globe4_optimized.mp4" type="video/mp4" />
         <source src="/videos/globe4.mp4" type="video/mp4" />
