@@ -28,11 +28,11 @@ export function HeroSection() {
   const defaultBottomGradient =
     "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)";
 
-  // Webkit/Safari values (reduced but visible)
-  const webkitOverlayOpacity = 0.35;
-  const webkitOverlayBlend = "multiply" as const;
+  // Webkit/Safari values (reduced opacity, same blend mode)
+  const webkitOverlayOpacity = 0.3;
+  const webkitOverlayBlend = "color" as const;
   const webkitBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.55) 0%, rgba(243,105,17,0.35) 35%, rgba(243,105,17,0) 70%)";
+    "linear-gradient(0deg, rgba(243,105,17,0.6) 0%, rgba(243,105,17,0.4) 35%, rgba(243,105,17,0) 70%)";
 
   // Use webkit values if detected, otherwise use default
   const overlayOpacity =
