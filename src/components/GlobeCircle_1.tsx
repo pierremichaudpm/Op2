@@ -4,6 +4,7 @@ import styles from "../styles/GlobeCircle_1.module.css";
 export default function GlobeCircle_1() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isWebkit, setIsWebkit] = useState(false);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Detect Webkit browsers
@@ -36,19 +37,22 @@ export default function GlobeCircle_1() {
       });
     };
 
-    // Fix Webkit loop flash: seek to beginning just before loop
-    const handleTimeUpdate = () => {
-      if (
-        isWebkit &&
-        video.duration > 0 &&
-        video.currentTime > video.duration - 0.1
-      ) {
+    // Fix Webkit loop flash with requestAnimationFrame for precise timing
+    const checkLoopWebkit = () => {
+      if (!video || video.paused) {
+        rafRef.current = null;
+        return;
+      }
+
+      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
         video.currentTime = 0;
       }
+
+      rafRef.current = requestAnimationFrame(checkLoopWebkit);
     };
 
     if (isWebkit) {
-      video.addEventListener("timeupdate", handleTimeUpdate);
+      rafRef.current = requestAnimationFrame(checkLoopWebkit);
     }
 
     if (video.readyState >= 2) {
@@ -59,8 +63,9 @@ export default function GlobeCircle_1() {
 
     return () => {
       video.removeEventListener("loadeddata", playVideo);
-      if (isWebkit) {
-        video.removeEventListener("timeupdate", handleTimeUpdate);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
     };
   }, [isWebkit]);

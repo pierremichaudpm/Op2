@@ -21,6 +21,7 @@ export function VideoBackground({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasError, setHasError] = useState(false);
   const [isWebkit, setIsWebkit] = useState(false);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Detect Webkit browsers
@@ -52,15 +53,22 @@ export function VideoBackground({
       });
     };
 
-    // Fix Webkit loop flash: seek to beginning just before loop
-    const handleTimeUpdate = () => {
-      if (isWebkit && el.duration > 0 && el.currentTime > el.duration - 0.1) {
+    // Fix Webkit loop flash with requestAnimationFrame for precise timing
+    const checkLoopWebkit = () => {
+      if (!el || el.paused) {
+        rafRef.current = null;
+        return;
+      }
+
+      if (el.duration > 0 && el.currentTime >= el.duration - 0.05) {
         el.currentTime = 0;
       }
+
+      rafRef.current = requestAnimationFrame(checkLoopWebkit);
     };
 
     if (isWebkit) {
-      el.addEventListener("timeupdate", handleTimeUpdate);
+      rafRef.current = requestAnimationFrame(checkLoopWebkit);
     }
 
     // Démarrer la vidéo dès que possible
@@ -77,8 +85,15 @@ export function VideoBackground({
           if (!el) return;
           if (entry.isIntersecting) {
             playVideo();
+            if (isWebkit && !rafRef.current) {
+              rafRef.current = requestAnimationFrame(checkLoopWebkit);
+            }
           } else {
             el.pause();
+            if (rafRef.current) {
+              cancelAnimationFrame(rafRef.current);
+              rafRef.current = null;
+            }
           }
         });
       },
@@ -88,8 +103,9 @@ export function VideoBackground({
     return () => {
       io.disconnect();
       el.removeEventListener("loadeddata", playVideo);
-      if (isWebkit) {
-        el.removeEventListener("timeupdate", handleTimeUpdate);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
     };
   }, [isWebkit]);
