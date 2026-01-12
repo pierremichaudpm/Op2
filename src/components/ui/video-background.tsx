@@ -28,8 +28,9 @@ export function VideoBackground({
     // Force le volume à 0
     el.volume = 0;
     el.muted = true;
+    el.defaultMuted = true;
 
-    // Forcer le chargement et lecture immédiate pour Webkit
+    // Forcer le chargement et lecture immédiate
     const playVideo = () => {
       el.play().catch(() => {
         // Retry après un court délai si échec
@@ -85,6 +86,7 @@ export function VideoBackground({
           preload="auto"
           onError={() => setHasError(true)}
         >
+          <source src={`${baseVideoPath}_seamless.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
           <source src={videoSrc} type="video/mp4" />
           <source src={`${baseVideoPath}_optimized.webm`} type="video/webm" />
