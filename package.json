@@ -9,7 +9,8 @@
     "start": "next start -p ${PORT:-3000}",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "optimize-images": "node optimize-images.js"
+    "optimize-images": "node optimize-images.js",
+    "test-deepseek": "node test-deepseek-api.js"
   },
   "engines": {
     "node": ">=18.18.0",
