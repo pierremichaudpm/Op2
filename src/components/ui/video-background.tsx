@@ -24,6 +24,7 @@ export function VideoBackground({
   // Double-buffer state for WebKit seamless loop workaround
   const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
   const activeBufferRef = useRef<0 | 1>(0);
+  const isTransitioningRef = useRef(false);
   const v0Ref = useRef<HTMLVideoElement>(null);
   const v1Ref = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number>();
@@ -39,7 +40,6 @@ export function VideoBackground({
     }
   }, []);
 
-  // Multi-format source selection
   const getSources = useCallback(() => {
     const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
     if (isWebkit) {
@@ -65,7 +65,6 @@ export function VideoBackground({
 
   const sources = getSources();
 
-  // Seamless Loop Logic (WebKit Only)
   useEffect(() => {
     if (isWebkit !== true) return;
 
@@ -77,21 +76,31 @@ export function VideoBackground({
     v1.muted = true;
 
     // Start playback on initial buffer
-    v0.play().catch(() => {});
+    const startInitial = () => {
+      v0.play().catch(() => {
+        // Fallback for user interaction requirements
+        const retry = () => {
+          v0.play();
+          window.removeEventListener("click", retry);
+        };
+        window.addEventListener("click", retry);
+      });
+    };
+
+    startInitial();
 
     const checkLoop = () => {
       const currentIndex = activeBufferRef.current;
       const active = currentIndex === 0 ? v0 : v1;
       const next = currentIndex === 0 ? v1 : v0;
 
-      // SAFETY GATES:
-      // 1. Duration must be a valid number
-      // 2. We must be at least in the second half of the video to prevent "instant looping"
-      // 3. timeLeft must be below the 400ms threshold
       if (active.duration > 1 && active.currentTime > active.duration / 2) {
         const timeLeft = active.duration - active.currentTime;
 
-        if (timeLeft < 0.4 && next.paused) {
+        // Transition logic with lock to prevent multiple triggers
+        if (timeLeft < 0.5 && !isTransitioningRef.current) {
+          isTransitioningRef.current = true;
+
           next.currentTime = 0;
           next
             .play()
@@ -100,14 +109,15 @@ export function VideoBackground({
               activeBufferRef.current = nextIndex;
               setActiveBuffer(nextIndex);
 
-              // Pause old video after transition completes to save resources
+              // Hold the lock until we are well into the next video
               setTimeout(() => {
-                if (activeBufferRef.current !== currentIndex) {
-                  active.pause();
-                }
-              }, 600);
+                isTransitioningRef.current = false;
+                active.pause();
+              }, 800);
             })
-            .catch(() => {});
+            .catch(() => {
+              isTransitioningRef.current = false;
+            });
         }
       }
       rafRef.current = requestAnimationFrame(checkLoop);
@@ -142,7 +152,7 @@ export function VideoBackground({
   }
 
   return (
-    <div className={className} style={{ opacity }}>
+    <div className={className} style={{ opacity, position: "relative" }}>
       {isWebkit === true ? (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
@@ -151,7 +161,7 @@ export function VideoBackground({
               ...videoStyle,
               opacity: activeBuffer === 0 ? 1 : 0,
               zIndex: activeBuffer === 0 ? 1 : 0,
-              transition: "opacity 0.4s ease-in-out",
+              transition: "opacity 0.5s ease-in-out",
             }}
             muted
             playsInline
@@ -169,7 +179,7 @@ export function VideoBackground({
               ...videoStyle,
               opacity: activeBuffer === 1 ? 1 : 0,
               zIndex: activeBuffer === 1 ? 1 : 0,
-              transition: "opacity 0.4s ease-in-out",
+              transition: "opacity 0.5s ease-in-out",
             }}
             muted
             playsInline
