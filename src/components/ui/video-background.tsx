@@ -21,7 +21,7 @@ export function VideoBackground({
   const [isWebkit, setIsWebkit] = useState<boolean | null>(null);
   const [hasError, setHasError] = useState(false);
 
-  // Double-buffer state for WebKit seamless loop workaround
+  // Double-buffer state for WebKit
   const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
   const activeBufferRef = useRef<0 | 1>(0);
   const isTransitioningRef = useRef(false);
@@ -29,42 +29,28 @@ export function VideoBackground({
   const v1Ref = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number>();
 
-  // Detect WebKit browsers (Safari, iOS)
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const ua = navigator.userAgent;
-      const isSafari =
-        /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
-      const isIOS = /iPhone|iPad|iPod/.test(ua);
-      setIsWebkit(isSafari || isIOS);
-    }
+    // Detect Safari / WebKit specifically
+    const ua = navigator.userAgent;
+    const isSafari =
+      /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
+    const isIOS = /iPhone|iPad|iPod/.test(ua);
+    setIsWebkit(isSafari || isIOS);
   }, []);
 
   const getSources = useCallback(() => {
     const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
-    if (isWebkit) {
-      return [
-        { src: `${basePath}_optimized.webm`, type: "video/webm" },
-        { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
-        { src: `${basePath}_webkit_fix.mp4`, type: "video/mp4" },
-        {
-          src: videoSrc.includes(".") ? videoSrc : `${videoSrc}.mp4`,
-          type: "video/mp4",
-        },
-      ];
-    }
+    // WebKit often handles WebM poorly or not at all for background loops, prioritize optimized MP4
     return [
       { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
       { src: `${basePath}_optimized.webm`, type: "video/webm" },
-      {
-        src: videoSrc.includes(".") ? videoSrc : `${videoSrc}.mp4`,
-        type: "video/mp4",
-      },
+      { src: `${basePath}.mp4`, type: "video/mp4" },
     ];
-  }, [videoSrc, isWebkit]);
+  }, [videoSrc]);
 
   const sources = getSources();
 
+  // WebKit-only Loop Logic
   useEffect(() => {
     if (isWebkit !== true) return;
 
@@ -75,19 +61,16 @@ export function VideoBackground({
     v0.muted = true;
     v1.muted = true;
 
-    // Start playback on initial buffer
-    const startInitial = () => {
-      v0.play().catch(() => {
-        // Fallback for user interaction requirements
-        const retry = () => {
-          v0.play();
-          window.removeEventListener("click", retry);
-        };
-        window.addEventListener("click", retry);
-      });
-    };
-
-    startInitial();
+    // Start playback
+    v0.play().catch(() => {
+      const retry = () => {
+        v0.play();
+        window.removeEventListener("touchstart", retry);
+        window.removeEventListener("click", retry);
+      };
+      window.addEventListener("touchstart", retry);
+      window.addEventListener("click", retry);
+    });
 
     const checkLoop = () => {
       const currentIndex = activeBufferRef.current;
@@ -97,10 +80,9 @@ export function VideoBackground({
       if (active.duration > 1 && active.currentTime > active.duration / 2) {
         const timeLeft = active.duration - active.currentTime;
 
-        // Transition logic with lock to prevent multiple triggers
-        if (timeLeft < 0.5 && !isTransitioningRef.current) {
+        // Transition 400ms before end
+        if (timeLeft < 0.4 && !isTransitioningRef.current) {
           isTransitioningRef.current = true;
-
           next.currentTime = 0;
           next
             .play()
@@ -109,11 +91,12 @@ export function VideoBackground({
               activeBufferRef.current = nextIndex;
               setActiveBuffer(nextIndex);
 
-              // Hold the lock until we are well into the next video
               setTimeout(() => {
                 isTransitioningRef.current = false;
-                active.pause();
-              }, 800);
+                if (activeBufferRef.current !== currentIndex) {
+                  active.pause();
+                }
+              }, 600);
             })
             .catch(() => {
               isTransitioningRef.current = false;
@@ -136,10 +119,7 @@ export function VideoBackground({
     height: "100%",
     position: "absolute",
     inset: 0,
-    transform: "translate3d(0,0,0)",
-    WebkitTransform: "translate3d(0,0,0)",
-    backfaceVisibility: "hidden",
-    WebkitBackfaceVisibility: "hidden",
+    transform: "translateZ(0)",
     willChange: "transform",
   };
 
@@ -152,7 +132,7 @@ export function VideoBackground({
   }
 
   return (
-    <div className={className} style={{ opacity, position: "relative" }}>
+    <div className={className} style={{ opacity }}>
       {isWebkit === true ? (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
@@ -161,7 +141,7 @@ export function VideoBackground({
               ...videoStyle,
               opacity: activeBuffer === 0 ? 1 : 0,
               zIndex: activeBuffer === 0 ? 1 : 0,
-              transition: "opacity 0.5s ease-in-out",
+              transition: "opacity 0.4s ease-in-out",
             }}
             muted
             playsInline
@@ -179,7 +159,7 @@ export function VideoBackground({
               ...videoStyle,
               opacity: activeBuffer === 1 ? 1 : 0,
               zIndex: activeBuffer === 1 ? 1 : 0,
-              transition: "opacity 0.5s ease-in-out",
+              transition: "opacity 0.4s ease-in-out",
             }}
             muted
             playsInline
@@ -196,8 +176,7 @@ export function VideoBackground({
           className="h-full w-full object-cover"
           style={{
             objectPosition,
-            transform: "translate3d(0,0,0)",
-            willChange: "transform",
+            transform: "translateZ(0)",
           }}
           autoPlay
           muted
