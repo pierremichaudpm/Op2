@@ -28,11 +28,11 @@ export function HeroSection() {
   const defaultBottomGradient =
     "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)";
 
-  // Webkit/Safari values (minimal overlay to test clarity)
-  const webkitOverlayOpacity = 0.2;
-  const webkitOverlayBlend = "color" as const;
+  // Webkit/Safari values - NO blend mode, just simple opacity overlays
+  const webkitOverlayOpacity = 0.25;
+  const webkitOverlayBlend = "normal" as const;
   const webkitBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.3) 0%, rgba(243,105,17,0.2) 35%, rgba(243,105,17,0) 70%)";
+    "linear-gradient(0deg, rgba(243,105,17,0.4) 0%, rgba(243,105,17,0.25) 35%, rgba(243,105,17,0) 70%)";
 
   // Use webkit values if detected, otherwise use default
   const overlayOpacity =
@@ -79,7 +79,7 @@ export function HeroSection() {
                 height: "45%",
                 background: bottomGradient,
                 mixBlendMode: overlayBlend,
-                filter: isWebkit === true ? "blur(6px)" : "blur(12px)",
+                filter: isWebkit === true ? "blur(8px)" : "blur(12px)",
                 transition:
                   "background 0.1s ease-out, mix-blend-mode 0.1s ease-out",
               }}
