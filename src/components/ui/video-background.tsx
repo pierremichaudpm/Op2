@@ -20,6 +20,18 @@ export function VideoBackground({
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasError, setHasError] = useState(false);
+  const [isWebkit, setIsWebkit] = useState(false);
+
+  useEffect(() => {
+    // Detect Webkit browsers
+    const ua = navigator.userAgent;
+    const webkit =
+      /Safari/.test(ua) &&
+      !/Chrome/.test(ua) &&
+      !/Chromium/.test(ua) &&
+      !/Edg/.test(ua);
+    setIsWebkit(webkit);
+  }, []);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -39,6 +51,17 @@ export function VideoBackground({
         }, 100);
       });
     };
+
+    // Fix Webkit loop flash: seek to beginning just before loop
+    const handleTimeUpdate = () => {
+      if (isWebkit && el.duration > 0 && el.currentTime > el.duration - 0.1) {
+        el.currentTime = 0;
+      }
+    };
+
+    if (isWebkit) {
+      el.addEventListener("timeupdate", handleTimeUpdate);
+    }
 
     // Démarrer la vidéo dès que possible
     if (el.readyState >= 2) {
@@ -65,8 +88,11 @@ export function VideoBackground({
     return () => {
       io.disconnect();
       el.removeEventListener("loadeddata", playVideo);
+      if (isWebkit) {
+        el.removeEventListener("timeupdate", handleTimeUpdate);
+      }
     };
-  }, []);
+  }, [isWebkit]);
 
   // Extract base path without query string and extension
   const baseVideoPath = videoSrc.split("?")[0].replace(/\.(mp4|webm)$/, "");
@@ -86,6 +112,7 @@ export function VideoBackground({
           preload="auto"
           onError={() => setHasError(true)}
         >
+          <source src={`${baseVideoPath}_perfect_loop.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_seamless.mp4`} type="video/mp4" />
           <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
           <source src={videoSrc} type="video/mp4" />
