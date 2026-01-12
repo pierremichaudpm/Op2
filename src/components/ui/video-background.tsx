@@ -73,7 +73,6 @@ export function VideoBackground({
     const v1 = v1Ref.current;
     if (!v0 || !v1) return;
 
-    // Ensure they are muted for autoplay
     v0.muted = true;
     v1.muted = true;
 
@@ -81,29 +80,32 @@ export function VideoBackground({
     v0.play().catch(() => {});
 
     const checkLoop = () => {
-      const currentActiveIndex = activeBufferRef.current;
-      const active = currentActiveIndex === 0 ? v0 : v1;
-      const next = currentActiveIndex === 0 ? v1 : v0;
+      const currentIndex = activeBufferRef.current;
+      const active = currentIndex === 0 ? v0 : v1;
+      const next = currentIndex === 0 ? v1 : v0;
 
-      if (active.duration > 0) {
+      // SAFETY GATES:
+      // 1. Duration must be a valid number
+      // 2. We must be at least in the second half of the video to prevent "instant looping"
+      // 3. timeLeft must be below the 400ms threshold
+      if (active.duration > 1 && active.currentTime > active.duration / 2) {
         const timeLeft = active.duration - active.currentTime;
 
-        // Start crossfade 400ms before the end
         if (timeLeft < 0.4 && next.paused) {
           next.currentTime = 0;
           next
             .play()
             .then(() => {
-              const nextIndex = currentActiveIndex === 0 ? 1 : 0;
+              const nextIndex = currentIndex === 0 ? 1 : 0;
               activeBufferRef.current = nextIndex;
               setActiveBuffer(nextIndex);
 
-              // Pause the old video after the fade completes
+              // Pause old video after transition completes to save resources
               setTimeout(() => {
-                if (activeBufferRef.current !== currentActiveIndex) {
+                if (activeBufferRef.current !== currentIndex) {
                   active.pause();
                 }
-              }, 500);
+              }, 600);
             })
             .catch(() => {});
         }
