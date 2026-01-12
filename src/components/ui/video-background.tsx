@@ -23,6 +23,7 @@ export function VideoBackground({
 
   // Double-buffer state for WebKit seamless loop workaround
   const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
+  const activeBufferRef = useRef<0 | 1>(0);
   const v0Ref = useRef<HTMLVideoElement>(null);
   const v1Ref = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number>();
@@ -76,12 +77,13 @@ export function VideoBackground({
     v0.muted = true;
     v1.muted = true;
 
-    // Play the first buffer
+    // Start playback on initial buffer
     v0.play().catch(() => {});
 
     const checkLoop = () => {
-      const active = activeBuffer === 0 ? v0 : v1;
-      const next = activeBuffer === 0 ? v1 : v0;
+      const currentActiveIndex = activeBufferRef.current;
+      const active = currentActiveIndex === 0 ? v0 : v1;
+      const next = currentActiveIndex === 0 ? v1 : v0;
 
       if (active.duration > 0) {
         const timeLeft = active.duration - active.currentTime;
@@ -92,7 +94,16 @@ export function VideoBackground({
           next
             .play()
             .then(() => {
-              setActiveBuffer(activeBuffer === 0 ? 1 : 0);
+              const nextIndex = currentActiveIndex === 0 ? 1 : 0;
+              activeBufferRef.current = nextIndex;
+              setActiveBuffer(nextIndex);
+
+              // Pause the old video after the fade completes
+              setTimeout(() => {
+                if (activeBufferRef.current !== currentActiveIndex) {
+                  active.pause();
+                }
+              }, 500);
             })
             .catch(() => {});
         }
@@ -104,7 +115,7 @@ export function VideoBackground({
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [isWebkit, activeBuffer]);
+  }, [isWebkit]);
 
   const videoStyle: React.CSSProperties = {
     objectPosition,
