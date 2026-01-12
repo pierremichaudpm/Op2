@@ -82,6 +82,8 @@ export function HeroSection() {
                 filter: "blur(12px)",
                 transition:
                   "background 0.1s ease-out, mix-blend-mode 0.1s ease-out",
+                isolation: "isolate",
+                willChange: "filter",
               }}
             />
 

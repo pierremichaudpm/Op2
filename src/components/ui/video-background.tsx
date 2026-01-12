@@ -76,7 +76,15 @@ export function VideoBackground({
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
-          style={{ objectPosition }}
+          style={{
+            objectPosition,
+            WebkitTransform: "translateZ(0)",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            WebkitPerspective: 1000,
+            perspective: 1000,
+          }}
           autoPlay
           muted
           loop
@@ -84,10 +92,13 @@ export function VideoBackground({
           poster={posterSrc}
           preload="auto"
           onError={() => setHasError(true)}
+          // Webkit-specific attributes for crisp rendering
+          webkit-playsinline="true"
+          x-webkit-airplay="allow"
         >
-          <source src={`${baseVideoPath}_optimized.webm`} type="video/webm" />
           <source src={`${baseVideoPath}_optimized.mp4`} type="video/mp4" />
           <source src={videoSrc} type="video/mp4" />
+          <source src={`${baseVideoPath}_optimized.webm`} type="video/webm" />
         </video>
       )}
       {children}
