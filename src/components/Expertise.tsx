@@ -379,18 +379,6 @@ export default function Expertise() {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const globeVideoRef = useRef<HTMLVideoElement>(null);
-  const [isWebkit, setIsWebkit] = useState(false);
-
-  // Detect WebKit after mount (client-side only)
-  useEffect(() => {
-    const ua = navigator.userAgent;
-    const webkit =
-      /Safari/.test(ua) &&
-      !/Chrome/.test(ua) &&
-      !/Chromium/.test(ua) &&
-      !/Edg/.test(ua);
-    setIsWebkit(webkit);
-  }, []);
 
   // Start video playback
   useEffect(() => {
@@ -400,27 +388,6 @@ export default function Expertise() {
     video.muted = true;
     video.play().catch(() => {});
   }, []);
-
-  // WebKit-only fix for loop flash
-  useEffect(() => {
-    if (!isWebkit) return;
-
-    const video = globeVideoRef.current;
-    if (!video) return;
-
-    const handleTimeUpdate = () => {
-      if (video.duration > 0 && video.currentTime >= video.duration - 0.1) {
-        // Seek back to 0.1s before the end to hide the flash
-        video.currentTime = Math.max(0, video.duration - 0.1);
-      }
-    };
-
-    video.addEventListener("timeupdate", handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-    };
-  }, [isWebkit]);
 
   // Détection de visibilité avec IntersectionObserver
   useEffect(() => {

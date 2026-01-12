@@ -20,20 +20,7 @@ export function VideoBackground({
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasError, setHasError] = useState(false);
-  const [isWebkit, setIsWebkit] = useState(false);
 
-  // Detect WebKit after mount (client-side only)
-  useEffect(() => {
-    const ua = navigator.userAgent;
-    const webkit =
-      /Safari/.test(ua) &&
-      !/Chrome/.test(ua) &&
-      !/Chromium/.test(ua) &&
-      !/Edg/.test(ua);
-    setIsWebkit(webkit);
-  }, []);
-
-  // Start video playback
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -41,27 +28,6 @@ export function VideoBackground({
     video.muted = true;
     video.play().catch(() => {});
   }, []);
-
-  // WebKit-only fix for loop flash
-  useEffect(() => {
-    if (!isWebkit) return;
-
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleTimeUpdate = () => {
-      if (video.duration > 0 && video.currentTime >= video.duration - 0.1) {
-        // Seek back to 0.1s before the end to hide the flash
-        video.currentTime = Math.max(0, video.duration - 0.1);
-      }
-    };
-
-    video.addEventListener("timeupdate", handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-    };
-  }, [isWebkit]);
 
   if (hasError) {
     return (
