@@ -4,6 +4,7 @@ import styles from "../styles/Expertise.module.css";
 import { useI18n } from "@/lib/i18n";
 import { fr } from "@/lib/dictionaries/fr";
 import { en } from "@/lib/dictionaries/en";
+import { VideoBackground } from "@/components/ui/video-background";
 
 // Mapping des logos avec leurs fichiers correspondants
 const logoMapping = {
@@ -378,16 +379,7 @@ export default function Expertise() {
   const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const globeVideoRef = useRef<HTMLVideoElement>(null);
-
-  // Start video playback
-  useEffect(() => {
-    const video = globeVideoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.play().catch(() => {});
-  }, []);
+  // VideoBackground handles playback automatically
 
   // Détection de visibilité avec IntersectionObserver
   useEffect(() => {
@@ -453,17 +445,13 @@ export default function Expertise() {
     <div ref={containerRef} className={styles.Expertise_311_396}>
       {/* Globe avec vidéo */}
       <div className={styles.Globe_311_217}>
-        <video
-          ref={globeVideoRef}
+        <VideoBackground
+          videoSrc="/videos/globe4"
+          posterSrc=""
+          opacity={1}
+          objectPosition="center"
           className={styles.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/videos/globe4.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       {/* Cercle/Anneau autour du globe */}
