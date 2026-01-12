@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type VideoBackgroundProps = {
   videoSrc: string;
@@ -12,11 +11,10 @@ export type VideoBackgroundProps = {
 };
 
 /**
- * High-Performance VideoBackground Component
+ * Robust VideoBackground Component
  *
- * Engineered to solve the "Hydration Swap" and Safari looping bugs.
- * Uses a stable DOM structure that never changes between SSR and Client,
- * preventing Safari from blocking video elements due to DOM churn.
+ * Uses native browser attributes for maximum compatibility and reliability.
+ * Optimized for smooth playback on both Chrome and WebKit browsers.
  */
 export function VideoBackground({
   videoSrc,
@@ -26,130 +24,33 @@ export function VideoBackground({
   opacity = 0.6,
   objectPosition = "center",
 }: VideoBackgroundProps) {
-  const [isWebkit, setIsWebkit] = useState<boolean>(false);
-  const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [hasError, setHasError] = useState(false);
 
-  const activeBufferRef = useRef<0 | 1>(0);
-  const isTransitioningRef = useRef(false);
-  const v0Ref = useRef<HTMLVideoElement>(null);
-  const v1Ref = useRef<HTMLVideoElement>(null);
-  const rafRef = useRef<number>();
-
-  // Browser Detection
   useEffect(() => {
-    const ua = navigator.userAgent;
-    const isSafari =
-      /Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua);
-    const isIOS = /iPhone|iPad|iPod/.test(ua);
-    if (isSafari || isIOS) {
-      setIsWebkit(true);
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Ensure the video is muted (required for autoplay)
+    video.muted = true;
+
+    // Trigger playback
+    const startVideo = () => {
+      video.play().catch((err) => {
+        // If autoplay is blocked (e.g., Safari Low Power Mode),
+        // we attach a one-time listener to the next user interaction.
+        const handleInteraction = () => {
+          video.play().catch(() => {});
+          window.removeEventListener("click", handleInteraction);
+          window.removeEventListener("touchstart", handleInteraction);
+        };
+        window.addEventListener("click", handleInteraction);
+        window.addEventListener("touchstart", handleInteraction);
+      });
+    };
+
+    startVideo();
   }, []);
-
-  const getSources = useCallback(() => {
-    const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
-    return [
-      { src: `${basePath}_optimized.mp4`, type: "video/mp4" },
-      { src: `${basePath}_optimized.webm`, type: "video/webm" },
-      { src: `${basePath}.mp4`, type: "video/mp4" },
-    ];
-  }, [videoSrc]);
-
-  const sources = getSources();
-
-  // Core Playback & Looping Logic
-  useEffect(() => {
-    const v0 = v0Ref.current;
-    const v1 = v1Ref.current;
-    if (!v0 || !v1) return;
-
-    // Standard Setup for both buffers
-    v0.muted = true;
-    v1.muted = true;
-
-    // Initial Play
-    v0.play().catch(() => {
-      // Manual trigger for browsers with strict autoplay (Low Power Mode)
-      const forcePlay = () => {
-        if (activeBufferRef.current === 0) v0.play();
-        else v1.play();
-        window.removeEventListener("touchstart", forcePlay);
-        window.removeEventListener("click", forcePlay);
-      };
-      window.addEventListener("touchstart", forcePlay);
-      window.addEventListener("click", forcePlay);
-    });
-
-    const checkLoop = () => {
-      // If not Webkit, we rely on the native 'loop' attribute on V0
-      if (!isWebkit) {
-        if (v0.paused && v0.readyState >= 2) v0.play().catch(() => {});
-        rafRef.current = requestAnimationFrame(checkLoop);
-        return;
-      }
-
-      // WebKit Double-Buffer Relay logic
-      const currentIndex = activeBufferRef.current;
-      const active = currentIndex === 0 ? v0 : v1;
-      const next = currentIndex === 0 ? v1 : v0;
-
-      // Watchdog: prevent stalling
-      if (
-        active.paused &&
-        !isTransitioningRef.current &&
-        active.readyState >= 2
-      ) {
-        active.play().catch(() => {});
-      }
-
-      // Transition check (pass baton 450ms before end)
-      if (active.duration > 1 && active.currentTime > active.duration / 2) {
-        const timeLeft = active.duration - active.currentTime;
-
-        if (timeLeft < 0.45 && !isTransitioningRef.current) {
-          isTransitioningRef.current = true;
-
-          next.currentTime = 0;
-          next
-            .play()
-            .then(() => {
-              const nextIndex = currentIndex === 0 ? 1 : 0;
-              activeBufferRef.current = nextIndex;
-              setActiveBuffer(nextIndex);
-
-              setTimeout(() => {
-                isTransitioningRef.current = false;
-                if (activeBufferRef.current !== currentIndex) {
-                  active.pause();
-                }
-              }, 800);
-            })
-            .catch(() => {
-              isTransitioningRef.current = false;
-            });
-        }
-      }
-      rafRef.current = requestAnimationFrame(checkLoop);
-    };
-
-    rafRef.current = requestAnimationFrame(checkLoop);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [isWebkit]);
-
-  const videoStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition,
-    willChange: "transform, opacity",
-    transform: "translateZ(0)",
-    transition: "opacity 0.6s ease-in-out",
-  };
 
   if (hasError) {
     return (
@@ -159,56 +60,50 @@ export function VideoBackground({
     );
   }
 
+  // Generate source paths (tries optimized versions first)
+  const basePath = videoSrc.replace(/\.(mp4|webm)$/, "");
+
   return (
     <div
       className={className}
-      style={{ opacity, position: "relative", overflow: "hidden" }}
+      style={{
+        opacity,
+        position: "relative",
+        overflow: "hidden",
+        width: "100%",
+        height: "100%",
+      }}
     >
-      {/*
-        STABLE DOM STRUCTURE:
-        We always render exactly two videos.
-        In Chrome/Firefox, Video 1 is used with 'loop' and Video 2 is dormant.
-        In Safari/WebKit, we use both for the relay transition.
-        This prevents the "Hydration Swap" that causes Safari to block playback.
-      */}
       <video
-        ref={v0Ref}
+        ref={videoRef}
+        // Tailwind classes for perfect layout/ratio in Chrome and Safari
+        className="absolute inset-0 h-full w-full object-cover"
         style={{
-          ...videoStyle,
-          opacity: activeBuffer === 0 ? 1 : 0.01,
-          zIndex: activeBuffer === 0 ? 1 : 0,
+          objectPosition,
+          // Force GPU acceleration to eliminate jerkiness/stuttering
+          transform: "translateZ(0)",
+          WebkitTransform: "translateZ(0)",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
         }}
+        autoPlay
         muted
+        loop
         playsInline
-        preload="auto"
-        loop={!isWebkit} // Use native loop for non-webkit browsers
         poster={posterSrc}
+        preload="auto"
         onError={() => setHasError(true)}
       >
-        {sources.map((s, i) => (
-          <source key={i} src={s.src} type={s.type} />
-        ))}
+        {/* Source ordering optimized for modern browser performance */}
+        <source src={`${basePath}_optimized.mp4`} type="video/mp4" />
+        <source src={`${basePath}_optimized.webm`} type="video/webm" />
+        <source src={`${basePath}.mp4`} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
 
-      <video
-        ref={v1Ref}
-        style={{
-          ...videoStyle,
-          opacity: activeBuffer === 1 ? 1 : 0.01,
-          zIndex: activeBuffer === 1 ? 1 : 0,
-        }}
-        muted
-        playsInline
-        // Only preload the second buffer if we are actually in Webkit
-        preload={isWebkit ? "auto" : "none"}
-        onError={() => setHasError(true)}
-      >
-        {sources.map((s, i) => (
-          <source key={i} src={s.src} type={s.type} />
-        ))}
-      </video>
-
-      {children}
+      {/* Ensure children content stays above the video */}
+      <div className="relative z-10 w-full h-full">{children}</div>
     </div>
   );
 }
