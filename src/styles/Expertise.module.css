@@ -5,12 +5,8 @@
     position: relative;
     margin: 0;
     margin-left: 25px;
-    transform: scale(0.85) translateX(-100px) translateZ(0);
+    transform: scale(0.85) translateX(-100px);
     transform-origin: top center;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
 }
 
 .Globe_311_217 {
@@ -525,6 +521,9 @@
     z-index: 100;
     pointer-events: none;
     cursor: default;
+    /* Reset any inherited 3D context for Safari */
+    transform-style: flat;
+    -webkit-transform-style: flat;
 }
 
 .infoCircle {
@@ -550,22 +549,13 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     overflow-y: auto;
     pointer-events: auto;
     z-index: 200;
-    will-change: opacity;
-}
-
-@keyframes scaleIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    /* Safari-safe animation */
+    opacity: 1;
+    transform-style: flat;
+    -webkit-transform-style: flat;
 }
 
 .closeButton {
