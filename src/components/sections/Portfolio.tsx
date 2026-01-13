@@ -365,10 +365,10 @@ export function Portfolio() {
                       <p
                         className="des-projets-au-c-ur"
                         style={{
-                          fontSize: isIPadSafari ? "16px" : "44px",
+                          fontSize: isIPadSafari ? "32px" : "44px",
                           fontWeight: "bold",
                           lineHeight: isIPadSafari ? "1.15" : "1.15",
-                          marginBottom: isIPadSafari ? "8px" : "25px",
+                          marginBottom: isIPadSafari ? "16px" : "25px",
                           letterSpacing: "0.02em",
                           color: "#F36911",
                         }}
@@ -380,10 +380,10 @@ export function Portfolio() {
                       <p
                         className="sous-titre-modal"
                         style={{
-                          fontSize: isIPadSafari ? "9px" : "18px",
+                          fontSize: isIPadSafari ? "14px" : "18px",
                           fontWeight: 600,
                           color: "#FFD4B3",
-                          marginBottom: isIPadSafari ? "10px" : "30px",
+                          marginBottom: isIPadSafari ? "20px" : "30px",
                           lineHeight: "1.4",
                         }}
                       >
@@ -393,8 +393,8 @@ export function Portfolio() {
                       <p
                         className="notre-client-est-un"
                         style={{
-                          fontSize: isIPadSafari ? "10px" : "22px",
-                          lineHeight: isIPadSafari ? "1.4" : "1.65",
+                          fontSize: isIPadSafari ? "18px" : "22px",
+                          lineHeight: isIPadSafari ? "1.5" : "1.65",
                           opacity: 0.95,
                         }}
                       >

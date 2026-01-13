@@ -488,45 +488,14 @@ export default function Expertise() {
           >
             ×
           </button>
-          <div
-            className={styles.infoCircle}
-            style={
-              isIPadSafari
-                ? {
-                    width: "300px",
-                    height: "300px",
-                    padding: "15px",
-                  }
-                : undefined
-            }
-          >
+          <div className={styles.infoCircle}>
             <div className={styles.infoContent}>
               {/* Logo */}
-              <div
-                className={styles.logoHeader}
-                style={
-                  isIPadSafari
-                    ? {
-                        width: "80px",
-                        height: "30px",
-                        marginBottom: "5px",
-                        padding: "4px",
-                      }
-                    : undefined
-                }
-              >
+              <div className={styles.logoHeader}>
                 <img
                   src={`/images/logos/${logoMapping[selectedCompany as keyof typeof logoMapping]}`}
                   alt="Logo"
                   className={styles.overlayLogo}
-                  style={
-                    isIPadSafari
-                      ? {
-                          maxWidth: "70px",
-                          maxHeight: "24px",
-                        }
-                      : undefined
-                  }
                 />
               </div>
 
@@ -536,8 +505,8 @@ export default function Expertise() {
                 style={
                   isIPadSafari
                     ? {
-                        fontSize: "9px",
-                        marginBottom: "5px",
+                        fontSize: "14px",
+                        marginBottom: "8px",
                       }
                     : undefined
                 }
@@ -551,9 +520,8 @@ export default function Expertise() {
                   style={
                     isIPadSafari
                       ? {
-                          fontSize: "8px",
-                          lineHeight: "1.3",
-                          maxWidth: "250px",
+                          fontSize: "12px",
+                          lineHeight: "1.4",
                         }
                       : undefined
                   }

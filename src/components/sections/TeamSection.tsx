@@ -258,8 +258,8 @@ export function TeamSection() {
                   <h3
                     className="[font-family:'Gotham-Bold',Helvetica] font-bold text-white text-left tracking-[0] uppercase pl-4"
                     style={{
-                      fontSize: isIPadSafari ? "18px" : "30px",
-                      lineHeight: isIPadSafari ? "22px" : "38px",
+                      fontSize: isIPadSafari ? "24px" : "30px",
+                      lineHeight: isIPadSafari ? "30px" : "38px",
                     }}
                   >
                     {m.name}
@@ -278,8 +278,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Regular',Helvetica] font-normal text-white tracking-[0] text-left pl-4"
                     style={{
-                      fontSize: isIPadSafari ? "14px" : "28px",
-                      lineHeight: isIPadSafari ? "18px" : "36px",
+                      fontSize: isIPadSafari ? "22px" : "28px",
+                      lineHeight: isIPadSafari ? "28px" : "36px",
                     }}
                   >
                     {m.role}
@@ -298,8 +298,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Book',Helvetica] font-normal text-white tracking-[0] pl-4"
                     style={{
-                      fontSize: isIPadSafari ? "11px" : "20px",
-                      lineHeight: isIPadSafari ? "15px" : "28px",
+                      fontSize: isIPadSafari ? "16px" : "20px",
+                      lineHeight: isIPadSafari ? "22px" : "28px",
                     }}
                   >
                     {m.description}
