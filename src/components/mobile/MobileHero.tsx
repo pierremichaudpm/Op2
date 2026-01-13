@@ -1,67 +1,197 @@
 "use client";
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 export function MobileHero() {
   const { t, locale } = useI18n();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const v0Ref = useRef<HTMLVideoElement>(null);
+  const v1Ref = useRef<HTMLVideoElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const activeBufferRef = useRef<0 | 1>(0);
+  const isTransitioningRef = useRef(false);
+
+  const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
   const [isWebkit, setIsWebkit] = useState<boolean | null>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.volume = 0;
-      videoRef.current.muted = true;
+    // Detect pure Safari/Webkit (not Chrome/Edge) or iOS
+    const ua = navigator.userAgent;
+    const isSafari =
+      /Safari/.test(ua) &&
+      !/Chrome/.test(ua) &&
+      !/Chromium/.test(ua) &&
+      !/Edg/.test(ua);
+    const isIOS = /iPhone|iPad|iPod/.test(ua);
+    setIsWebkit(isSafari || isIOS);
+  }, []);
+
+  // Start video playback
+  const startPlayback = useCallback((video: HTMLVideoElement) => {
+    if (!video) return;
+
+    video.muted = true;
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked - wait for user interaction
+        const handleInteraction = () => {
+          video.play().catch(() => {});
+          window.removeEventListener("click", handleInteraction);
+          window.removeEventListener("touchstart", handleInteraction);
+        };
+        window.addEventListener("click", handleInteraction);
+        window.addEventListener("touchstart", handleInteraction);
+      });
     }
   }, []);
 
+  // Initialize videos and start playback
   useEffect(() => {
-    // Detect pure Safari/Webkit (not Chrome/Edge)
-    const isWebkitBrowser =
-      (typeof window !== "undefined" &&
-        /Safari/.test(navigator.userAgent) &&
-        !/Chrome/.test(navigator.userAgent) &&
-        !/Chromium/.test(navigator.userAgent) &&
-        !/Edg/.test(navigator.userAgent)) ||
-      /iPhone|iPad|iPod/.test(navigator.userAgent);
-    setIsWebkit(isWebkitBrowser);
-  }, []);
+    const v0 = v0Ref.current;
+    const v1 = v1Ref.current;
+    if (!v0 || !v1) return;
+
+    // Ensure both videos are muted for autoplay compliance
+    v0.muted = true;
+    v1.muted = true;
+
+    // Start primary video
+    startPlayback(v0);
+
+    // For non-WebKit browsers, v0 handles everything with native loop
+    if (!isWebkit) return;
+
+    // WebKit Double-Buffer Relay Logic
+    const checkLoop = () => {
+      const currentIndex = activeBufferRef.current;
+      const active = currentIndex === 0 ? v0 : v1;
+      const next = currentIndex === 0 ? v1 : v0;
+
+      // Watchdog: Resume if video got paused unexpectedly
+      if (
+        active.paused &&
+        active.readyState >= 2 &&
+        !isTransitioningRef.current
+      ) {
+        active.play().catch(() => {});
+      }
+
+      // Check if we need to transition (450ms before end)
+      const duration = active.duration;
+      const currentTime = active.currentTime;
+
+      if (
+        duration > 0 &&
+        !isNaN(duration) &&
+        currentTime > duration / 2 &&
+        duration - currentTime < 0.45 &&
+        !isTransitioningRef.current
+      ) {
+        isTransitioningRef.current = true;
+
+        // Prepare next buffer
+        next.currentTime = 0;
+        next
+          .play()
+          .then(() => {
+            // Swap active buffer
+            const nextIndex: 0 | 1 = currentIndex === 0 ? 1 : 0;
+            activeBufferRef.current = nextIndex;
+            setActiveBuffer(nextIndex);
+
+            // Clean up after transition completes
+            setTimeout(() => {
+              isTransitioningRef.current = false;
+              // Pause the old video to save resources
+              if (activeBufferRef.current !== currentIndex) {
+                active.pause();
+                active.currentTime = 0;
+              }
+            }, 600);
+          })
+          .catch(() => {
+            isTransitioningRef.current = false;
+          });
+      }
+
+      rafRef.current = requestAnimationFrame(checkLoop);
+    };
+
+    rafRef.current = requestAnimationFrame(checkLoop);
+
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [isWebkit, startPlayback]);
+
+  // Shared video styles
+  const videoStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center bottom",
+    transform: "translateZ(0)",
+    WebkitTransform: "translateZ(0)",
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    willChange: "opacity",
+    transition: "opacity 0.5s ease-in-out",
+  };
 
   return (
     <section
       style={{
         position: "relative",
         width: "100%",
-        marginTop: "80px", // Aligné avec la hauteur du header fixed
+        marginTop: "80px",
         marginBottom: "20px",
-        padding: "0 4.5%", // Padding proportionnel (17.5/393 = 4.5%)
+        padding: "0 4.5%",
       }}
     >
       {/* Hero container avec les VRAIES dimensions Figma (358x459) */}
       <div
         style={{
           position: "relative",
-          width: "100%", // Prend toute la largeur disponible (393 - 34 = 359px)
-          height: "459px", // Hauteur EXACTE du Figma
+          width: "100%",
+          height: "459px",
           borderRadius: "20px",
           overflow: "hidden",
         }}
       >
-        {/* Vidéo de fond - train */}
+        {/* Video Buffer 0: Primary for Chrome, relay buffer for Safari */}
         <video
-          ref={videoRef}
+          ref={v0Ref}
           autoPlay
-          loop
           muted
           playsInline
+          loop={!isWebkit}
+          preload="auto"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center bottom",
+            ...videoStyle,
+            opacity: activeBuffer === 0 ? 1 : 0,
+            zIndex: activeBuffer === 0 ? 1 : 0,
+          }}
+        >
+          <source src="/videos/hero_mobile_animation.mp4" type="video/mp4" />
+        </video>
+
+        {/* Video Buffer 1: Dormant in Chrome, relay buffer for Safari */}
+        <video
+          ref={v1Ref}
+          muted
+          playsInline
+          preload={isWebkit ? "auto" : "none"}
+          style={{
+            ...videoStyle,
+            opacity: activeBuffer === 1 ? 1 : 0,
+            zIndex: activeBuffer === 1 ? 1 : 0,
           }}
         >
           <source src="/videos/hero_mobile_animation.mp4" type="video/mp4" />
@@ -87,6 +217,7 @@ export function MobileHero() {
                   "linear-gradient(180deg, rgba(36,55,104,0.55) 0%, rgba(36,55,104,0.3) 50%, transparent 70%)",
                 borderRadius: "20px",
                 pointerEvents: "none",
+                zIndex: 2,
               }}
             />
             {/* Orange overlay - bottom portion */}
@@ -101,6 +232,7 @@ export function MobileHero() {
                   "linear-gradient(0deg, rgba(243,105,17,0.6) 0%, rgba(243,105,17,0.35) 25%, transparent 50%)",
                 borderRadius: "20px",
                 pointerEvents: "none",
+                zIndex: 2,
               }}
             />
             {/* Soft bottom glow */}
@@ -116,6 +248,7 @@ export function MobileHero() {
                 filter: "blur(20px)",
                 borderRadius: "0 0 20px 20px",
                 pointerEvents: "none",
+                zIndex: 2,
               }}
             />
           </>
@@ -132,6 +265,7 @@ export function MobileHero() {
                 height: "100%",
                 backgroundColor: "#243768",
                 opacity: 0.6,
+                zIndex: 2,
               }}
             />
 
@@ -146,6 +280,7 @@ export function MobileHero() {
                 background: "linear-gradient(180deg, #243768 0%, #F36911 100%)",
                 opacity: 0.42,
                 mixBlendMode: "color",
+                zIndex: 2,
               }}
             />
 
@@ -162,6 +297,7 @@ export function MobileHero() {
                 mixBlendMode: "color",
                 filter: "blur(12px)",
                 borderRadius: "0 0 20px 20px",
+                zIndex: 2,
               }}
             />
           </>
@@ -171,16 +307,16 @@ export function MobileHero() {
         <div
           style={{
             position: "absolute",
-            top: "calc(50% - 20px)", // Remonté de 40px (était +20px, maintenant -20px)
+            top: "calc(50% - 20px)",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "85%", // Largeur optimisée pour le texte
+            width: "85%",
             textAlign: "center",
             zIndex: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "25px", // Espacement uniforme entre les éléments
+            gap: "25px",
           }}
         >
           {/* Titre principal - plus grand et plus impactant */}
@@ -191,14 +327,14 @@ export function MobileHero() {
             style={{
               color: "#FFFFFF",
               fontFamily: "Gotham, sans-serif",
-              fontSize: "22px", // Réduit de 26px à 22px
-              fontWeight: 500, // Poids moyen, moins bold
-              lineHeight: "26px", // Proportionnel
+              fontSize: "22px",
+              fontWeight: 500,
+              lineHeight: "26px",
               textTransform: "uppercase",
               textShadow: "0 2px 4px rgba(0,0,0,0.3)",
               margin: 0,
-              letterSpacing: "-0.3px", // Resserrer légèrement les lettres
-              whiteSpace: "pre-line", // Force le respect des sauts de ligne
+              letterSpacing: "-0.3px",
+              whiteSpace: "pre-line",
             }}
           >
             {locale === "en"
@@ -212,14 +348,14 @@ export function MobileHero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             style={{
-              color: "#FFFFFF", // Blanc pour meilleure lisibilité
+              color: "#FFFFFF",
               fontFamily: "Gotham, sans-serif",
-              fontSize: "14px", // Réduit de 17px à 14px
+              fontSize: "14px",
               fontWeight: 400,
-              lineHeight: "20px", // Proportionnel à la nouvelle taille
+              lineHeight: "20px",
               margin: 0,
-              maxWidth: "320px", // Limite la largeur pour une meilleure lecture
-              textShadow: "0 1px 3px rgba(0,0,0,0.3)", // Ombre légère pour garantir la lisibilité
+              maxWidth: "320px",
+              textShadow: "0 1px 3px rgba(0,0,0,0.3)",
             }}
           >
             {locale === "en"
@@ -235,7 +371,7 @@ export function MobileHero() {
             onClick={() => {
               const element = document.querySelector("#experts");
               if (element) {
-                const yOffset = -80; // Offset pour arriver aux Experts
+                const yOffset = -80;
                 const y =
                   element.getBoundingClientRect().top +
                   window.pageYOffset +
@@ -247,16 +383,16 @@ export function MobileHero() {
               backgroundColor: "#F36911",
               color: "#FFFFFF",
               fontFamily: "Gotham, sans-serif",
-              fontSize: "15px", // Légèrement plus grand
-              fontWeight: 700, // Plus bold
-              width: "260px", // Légèrement plus large
-              height: "42px", // Plus de hauteur pour meilleur toucher mobile
+              fontSize: "15px",
+              fontWeight: 700,
+              width: "260px",
+              height: "42px",
               borderRadius: "50px",
               border: "none",
               cursor: "pointer",
-              boxShadow: "0 4px 12px rgba(243, 105, 17, 0.3)", // Ombre pour profondeur
+              boxShadow: "0 4px 12px rgba(243, 105, 17, 0.3)",
               transition: "all 0.3s ease",
-              marginTop: "-5px", // Encore remonté de 40px
+              marginTop: "-5px",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.05)";
