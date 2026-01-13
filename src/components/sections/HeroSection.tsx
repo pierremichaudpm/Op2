@@ -22,30 +22,48 @@ export function HeroSection() {
     setIsWebkit(isWebkitBrowser);
   }, []);
 
-  // Chrome/Firefox values (default)
-  const defaultOverlayOpacity = 0.48;
-  const defaultOverlayBlend = "color" as const;
-  const defaultBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)";
+  // Chrome/Firefox values (default) - uses 'color' blend mode for glittery effect
+  const chromeStyles = {
+    solidOverlayOpacity: 0.6,
+    gradientOverlayOpacity: 0.48,
+    gradientBlend: "color" as const,
+    bottomGradient:
+      "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)",
+    bottomBlur: 12,
+  };
 
-  // Webkit/Safari values - NO blend mode, just simple opacity overlays
-  const webkitOverlayOpacity = 0.25;
-  const webkitOverlayBlend = "normal" as const;
-  const webkitBottomGradient =
-    "linear-gradient(0deg, rgba(243,105,17,0.4) 0%, rgba(243,105,17,0.25) 35%, rgba(243,105,17,0) 70%)";
+  // WebKit/Safari values - uses 'multiply' blend mode which Safari handles without blur
+  // Multiply darkens, so we use lighter colors and lower opacity for similar effect
+  const webkitStyles = {
+    solidOverlayOpacity: 0.35,
+    gradientOverlayOpacity: 0.55,
+    gradientBlend: "multiply" as const,
+    bottomGradient:
+      "linear-gradient(0deg, rgba(255,140,60,0.85) 0%, rgba(255,150,80,0.5) 35%, rgba(255,150,80,0) 70%)",
+    bottomBlur: 10,
+  };
 
-  // Use webkit values if detected, otherwise use default
-  const overlayOpacity =
-    isWebkit === true ? webkitOverlayOpacity : defaultOverlayOpacity;
-  const overlayBlend =
-    isWebkit === true ? webkitOverlayBlend : defaultOverlayBlend;
-  const bottomGradient =
-    isWebkit === true ? webkitBottomGradient : defaultBottomGradient;
+  const styles = isWebkit === true ? webkitStyles : chromeStyles;
+
+  // GPU isolation styles for WebKit - prevents compositing blur
+  const gpuIsolation: React.CSSProperties = {
+    transform: "translate3d(0,0,0)",
+    WebkitTransform: "translate3d(0,0,0)",
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    perspective: 1000,
+    WebkitPerspective: 1000,
+  };
 
   return (
     <section className="relative overflow-hidden">
       <div className="container-wrapper pt-1 pb-5 max-w-[1728px]">
-        <div className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]">
+        <div
+          className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]"
+          style={{
+            isolation: "isolate", // Create new stacking context
+          }}
+        >
           {/* Fixed height per design (Figma: 896px) */}
           <div className="relative h-[896px] w-full">
             {/* Video as true background (poster = slider 1.png) */}
@@ -57,31 +75,39 @@ export function HeroSection() {
               className="absolute inset-0 z-0"
             />
 
-            {/* Overlays above video (adoucies) */}
+            {/* Solid navy overlay - GPU isolated for WebKit */}
             <div
-              className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]"
-              style={{ backgroundColor: "#243768" }}
+              className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]"
+              style={{
+                backgroundColor: "#243768",
+                opacity: styles.solidOverlayOpacity,
+                ...(isWebkit === true ? gpuIsolation : {}),
+              }}
             />
+
+            {/* Gradient overlay (navy to orange) - uses appropriate blend mode per browser */}
             <div
               className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
               style={{
-                background: "linear-gradient(180deg, #243768 0%, #F36911 100%)",
-                mixBlendMode: overlayBlend,
-                opacity: overlayOpacity,
-                transition:
-                  "opacity 0.1s ease-out, mix-blend-mode 0.1s ease-out",
+                background:
+                  isWebkit === true
+                    ? "linear-gradient(180deg, rgba(50,80,140,0.9) 0%, rgba(255,120,40,0.8) 100%)"
+                    : "linear-gradient(180deg, #243768 0%, #F36911 100%)",
+                mixBlendMode: styles.gradientBlend,
+                opacity: styles.gradientOverlayOpacity,
+                ...(isWebkit === true ? gpuIsolation : {}),
               }}
             />
+
             {/* Bottom orange emphasis (blurred) */}
             <div
               className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
               style={{
                 height: "45%",
-                background: bottomGradient,
-                mixBlendMode: overlayBlend,
-                filter: isWebkit === true ? "blur(8px)" : "blur(12px)",
-                transition:
-                  "background 0.1s ease-out, mix-blend-mode 0.1s ease-out",
+                background: styles.bottomGradient,
+                mixBlendMode: styles.gradientBlend,
+                filter: `blur(${styles.bottomBlur}px)`,
+                ...(isWebkit === true ? gpuIsolation : {}),
               }}
             />
 
