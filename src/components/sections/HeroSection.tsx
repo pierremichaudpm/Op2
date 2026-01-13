@@ -22,48 +22,10 @@ export function HeroSection() {
     setIsWebkit(isWebkitBrowser);
   }, []);
 
-  // Chrome/Firefox values (default) - uses 'color' blend mode for glittery effect
-  const chromeStyles = {
-    solidOverlayOpacity: 0.6,
-    gradientOverlayOpacity: 0.48,
-    gradientBlend: "color" as const,
-    bottomGradient:
-      "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)",
-    bottomBlur: 12,
-  };
-
-  // WebKit/Safari values - uses 'multiply' blend mode which Safari handles without blur
-  // Multiply darkens, so we use lighter colors and lower opacity for similar effect
-  const webkitStyles = {
-    solidOverlayOpacity: 0.35,
-    gradientOverlayOpacity: 0.55,
-    gradientBlend: "multiply" as const,
-    bottomGradient:
-      "linear-gradient(0deg, rgba(255,140,60,0.85) 0%, rgba(255,150,80,0.5) 35%, rgba(255,150,80,0) 70%)",
-    bottomBlur: 10,
-  };
-
-  const styles = isWebkit === true ? webkitStyles : chromeStyles;
-
-  // GPU isolation styles for WebKit - prevents compositing blur
-  const gpuIsolation: React.CSSProperties = {
-    transform: "translate3d(0,0,0)",
-    WebkitTransform: "translate3d(0,0,0)",
-    backfaceVisibility: "hidden",
-    WebkitBackfaceVisibility: "hidden",
-    perspective: 1000,
-    WebkitPerspective: 1000,
-  };
-
   return (
     <section className="relative overflow-hidden">
       <div className="container-wrapper pt-1 pb-5 max-w-[1728px]">
-        <div
-          className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]"
-          style={{
-            isolation: "isolate", // Create new stacking context
-          }}
-        >
+        <div className="relative mx-auto overflow-hidden rounded-[50px] border border-primary/10 w-[1728px]">
           {/* Fixed height per design (Figma: 896px) */}
           <div className="relative h-[896px] w-full">
             {/* Video as true background (poster = slider 1.png) */}
@@ -75,41 +37,70 @@ export function HeroSection() {
               className="absolute inset-0 z-0"
             />
 
-            {/* Solid navy overlay - GPU isolated for WebKit */}
-            <div
-              className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]"
-              style={{
-                backgroundColor: "#243768",
-                opacity: styles.solidOverlayOpacity,
-                ...(isWebkit === true ? gpuIsolation : {}),
-              }}
-            />
+            {/*
+              CHROME/FIREFOX: Use blend modes for glittery color effect
+              WEBKIT/SAFARI: Use simple overlays without blend modes to avoid blur
+            */}
 
-            {/* Gradient overlay (navy to orange) - uses appropriate blend mode per browser */}
-            <div
-              className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
-              style={{
-                background:
-                  isWebkit === true
-                    ? "linear-gradient(180deg, rgba(50,80,140,0.9) 0%, rgba(255,120,40,0.8) 100%)"
-                    : "linear-gradient(180deg, #243768 0%, #F36911 100%)",
-                mixBlendMode: styles.gradientBlend,
-                opacity: styles.gradientOverlayOpacity,
-                ...(isWebkit === true ? gpuIsolation : {}),
-              }}
-            />
-
-            {/* Bottom orange emphasis (blurred) */}
-            <div
-              className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
-              style={{
-                height: "45%",
-                background: styles.bottomGradient,
-                mixBlendMode: styles.gradientBlend,
-                filter: `blur(${styles.bottomBlur}px)`,
-                ...(isWebkit === true ? gpuIsolation : {}),
-              }}
-            />
+            {isWebkit === true ? (
+              <>
+                {/* WebKit: Simple semi-transparent overlays without blend modes */}
+                {/* Navy overlay - top portion */}
+                <div
+                  className="absolute inset-0 z-10 rounded-[50px] pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(36,55,104,0.55) 0%, rgba(36,55,104,0.3) 50%, transparent 70%)",
+                  }}
+                />
+                {/* Orange overlay - bottom portion */}
+                <div
+                  className="absolute inset-0 z-10 rounded-[50px] pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(0deg, rgba(243,105,17,0.6) 0%, rgba(243,105,17,0.35) 25%, transparent 50%)",
+                  }}
+                />
+                {/* Soft bottom glow */}
+                <div
+                  className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
+                  style={{
+                    height: "35%",
+                    background:
+                      "linear-gradient(0deg, rgba(243,105,17,0.45) 0%, transparent 100%)",
+                    filter: "blur(20px)",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                {/* Chrome/Firefox: Original blend mode approach */}
+                <div
+                  className="absolute inset-0 z-10 opacity-[0.6] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px]"
+                  style={{ backgroundColor: "#243768" }}
+                />
+                <div
+                  className="absolute inset-0 z-10 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[50px] pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #243768 0%, #F36911 100%)",
+                    mixBlendMode: "color",
+                    opacity: 0.48,
+                  }}
+                />
+                {/* Bottom orange emphasis (blurred) */}
+                <div
+                  className="absolute left-0 right-0 bottom-0 z-10 rounded-b-[50px] pointer-events-none"
+                  style={{
+                    height: "45%",
+                    background:
+                      "linear-gradient(0deg, rgba(243,105,17,0.92) 0%, rgba(243,105,17,0.65) 35%, rgba(243,105,17,0) 70%)",
+                    mixBlendMode: "color",
+                    filter: "blur(12px)",
+                  }}
+                />
+              </>
+            )}
 
             {/* Centered content */}
             <div
