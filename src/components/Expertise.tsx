@@ -6,6 +6,24 @@ import { fr } from "@/lib/dictionaries/fr";
 import { en } from "@/lib/dictionaries/en";
 import { VideoBackground } from "@/components/ui/video-background";
 
+// Check if we're on iPad Safari (WebKit + touch device)
+const useIsIPadSafari = () => {
+  const [isIPadSafari, setIsIPadSafari] = useState(false);
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isSafari =
+      /Safari/.test(ua) &&
+      !/Chrome/.test(ua) &&
+      !/Chromium/.test(ua) &&
+      !/Edg/.test(ua);
+    const isIPad =
+      /iPad/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    setIsIPadSafari(isSafari && isIPad);
+  }, []);
+  return isIPadSafari;
+};
+
 // Mapping des logos avec leurs fichiers correspondants
 const logoMapping = {
   Image006_10_311_221: "image006 10.png",
@@ -379,6 +397,7 @@ export default function Expertise() {
   const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isIPadSafari = useIsIPadSafari();
   // VideoBackground handles playback automatically
 
   // Détection de visibilité avec IntersectionObserver
@@ -469,25 +488,78 @@ export default function Expertise() {
           >
             ×
           </button>
-          <div className={styles.infoCircle}>
+          <div
+            className={styles.infoCircle}
+            style={
+              isIPadSafari
+                ? {
+                    width: "300px",
+                    height: "300px",
+                    padding: "15px",
+                  }
+                : undefined
+            }
+          >
             <div className={styles.infoContent}>
               {/* Logo */}
-              <div className={styles.logoHeader}>
+              <div
+                className={styles.logoHeader}
+                style={
+                  isIPadSafari
+                    ? {
+                        width: "80px",
+                        height: "30px",
+                        marginBottom: "5px",
+                        padding: "4px",
+                      }
+                    : undefined
+                }
+              >
                 <img
                   src={`/images/logos/${logoMapping[selectedCompany as keyof typeof logoMapping]}`}
                   alt="Logo"
                   className={styles.overlayLogo}
+                  style={
+                    isIPadSafari
+                      ? {
+                          maxWidth: "70px",
+                          maxHeight: "24px",
+                        }
+                      : undefined
+                  }
                 />
               </div>
 
               {/* Titre du projet */}
-              <h2 className={styles.companyName}>
+              <h2
+                className={styles.companyName}
+                style={
+                  isIPadSafari
+                    ? {
+                        fontSize: "9px",
+                        marginBottom: "5px",
+                      }
+                    : undefined
+                }
+              >
                 {selectedInfo.name || "Projet"}
               </h2>
 
               {/* Description */}
               <div className={styles.projectDescription}>
-                <p>{selectedInfo.description || "Description du projet"}</p>
+                <p
+                  style={
+                    isIPadSafari
+                      ? {
+                          fontSize: "8px",
+                          lineHeight: "1.3",
+                          maxWidth: "250px",
+                        }
+                      : undefined
+                  }
+                >
+                  {selectedInfo.description || "Description du projet"}
+                </p>
               </div>
             </div>
           </div>

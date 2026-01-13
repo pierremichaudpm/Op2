@@ -4,19 +4,22 @@ import { useEffect, useState } from "react";
 import { X, ArrowRight, Wind, Zap, Globe } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
-// Check if we're on iPad/tablet
-const useIsTablet = () => {
-  const [isTablet, setIsTablet] = useState(false);
+// Check if we're on iPad Safari (WebKit + touch device)
+const useIsIPadSafari = () => {
+  const [isIPadSafari, setIsIPadSafari] = useState(false);
   useEffect(() => {
-    const checkTablet = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= 768 && width <= 1024);
-    };
-    checkTablet();
-    window.addEventListener("resize", checkTablet);
-    return () => window.removeEventListener("resize", checkTablet);
+    const ua = navigator.userAgent;
+    const isSafari =
+      /Safari/.test(ua) &&
+      !/Chrome/.test(ua) &&
+      !/Chromium/.test(ua) &&
+      !/Edg/.test(ua);
+    const isIPad =
+      /iPad/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    setIsIPadSafari(isSafari && isIPad);
   }, []);
-  return isTablet;
+  return isIPadSafari;
 };
 
 // Images des projets (ordre correspond aux index de clic) - WebP pour meilleure qualité
@@ -35,7 +38,7 @@ export function Portfolio() {
   const [activeVariant, setActiveVariant] = useState(0);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
-  const isTablet = useIsTablet();
+  const isIPadSafari = useIsIPadSafari();
 
   // Accéder aux projets depuis le dictionnaire
   const projectsData = dict.portfolio.projects;
@@ -362,10 +365,10 @@ export function Portfolio() {
                       <p
                         className="des-projets-au-c-ur"
                         style={{
-                          fontSize: isTablet ? "16px" : "44px",
+                          fontSize: isIPadSafari ? "16px" : "44px",
                           fontWeight: "bold",
-                          lineHeight: isTablet ? "1.15" : "1.15",
-                          marginBottom: isTablet ? "8px" : "25px",
+                          lineHeight: isIPadSafari ? "1.15" : "1.15",
+                          marginBottom: isIPadSafari ? "8px" : "25px",
                           letterSpacing: "0.02em",
                           color: "#F36911",
                         }}
@@ -377,10 +380,10 @@ export function Portfolio() {
                       <p
                         className="sous-titre-modal"
                         style={{
-                          fontSize: isTablet ? "9px" : "18px",
+                          fontSize: isIPadSafari ? "9px" : "18px",
                           fontWeight: 600,
                           color: "#FFD4B3",
-                          marginBottom: isTablet ? "10px" : "30px",
+                          marginBottom: isIPadSafari ? "10px" : "30px",
                           lineHeight: "1.4",
                         }}
                       >
@@ -390,8 +393,8 @@ export function Portfolio() {
                       <p
                         className="notre-client-est-un"
                         style={{
-                          fontSize: isTablet ? "10px" : "22px",
-                          lineHeight: isTablet ? "1.4" : "1.65",
+                          fontSize: isIPadSafari ? "10px" : "22px",
+                          lineHeight: isIPadSafari ? "1.4" : "1.65",
                           opacity: 0.95,
                         }}
                       >

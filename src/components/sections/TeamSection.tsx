@@ -3,19 +3,22 @@ import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
-// Check if we're on iPad/tablet
-const useIsTablet = () => {
-  const [isTablet, setIsTablet] = useState(false);
+// Check if we're on iPad Safari (WebKit + touch device)
+const useIsIPadSafari = () => {
+  const [isIPadSafari, setIsIPadSafari] = useState(false);
   useEffect(() => {
-    const checkTablet = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= 768 && width <= 1024);
-    };
-    checkTablet();
-    window.addEventListener("resize", checkTablet);
-    return () => window.removeEventListener("resize", checkTablet);
+    const ua = navigator.userAgent;
+    const isSafari =
+      /Safari/.test(ua) &&
+      !/Chrome/.test(ua) &&
+      !/Chromium/.test(ua) &&
+      !/Edg/.test(ua);
+    const isIPad =
+      /iPad/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    setIsIPadSafari(isSafari && isIPad);
   }, []);
-  return isTablet;
+  return isIPadSafari;
 };
 
 const teamData = [
@@ -145,7 +148,7 @@ export function TeamSection() {
   const { t, locale } = useI18n();
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const isTablet = useIsTablet();
+  const isIPadSafari = useIsIPadSafari();
 
   // Préparer les données de l'équipe avec la bonne langue
   const team = teamData.map((member) => ({
@@ -255,8 +258,8 @@ export function TeamSection() {
                   <h3
                     className="[font-family:'Gotham-Bold',Helvetica] font-bold text-white text-left tracking-[0] uppercase pl-4"
                     style={{
-                      fontSize: isTablet ? "18px" : "30px",
-                      lineHeight: isTablet ? "22px" : "38px",
+                      fontSize: isIPadSafari ? "18px" : "30px",
+                      lineHeight: isIPadSafari ? "22px" : "38px",
                     }}
                   >
                     {m.name}
@@ -275,8 +278,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Regular',Helvetica] font-normal text-white tracking-[0] text-left pl-4"
                     style={{
-                      fontSize: isTablet ? "14px" : "28px",
-                      lineHeight: isTablet ? "18px" : "36px",
+                      fontSize: isIPadSafari ? "14px" : "28px",
+                      lineHeight: isIPadSafari ? "18px" : "36px",
                     }}
                   >
                     {m.role}
@@ -295,8 +298,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Book',Helvetica] font-normal text-white tracking-[0] pl-4"
                     style={{
-                      fontSize: isTablet ? "11px" : "20px",
-                      lineHeight: isTablet ? "15px" : "28px",
+                      fontSize: isIPadSafari ? "11px" : "20px",
+                      lineHeight: isIPadSafari ? "15px" : "28px",
                     }}
                   >
                     {m.description}
