@@ -255,8 +255,8 @@ export function TeamSection() {
                   <h3
                     className="[font-family:'Gotham-Bold',Helvetica] font-bold text-white text-left tracking-[0] uppercase pl-4"
                     style={{
-                      fontSize: isTablet ? "24px" : "30px",
-                      lineHeight: isTablet ? "30px" : "38px",
+                      fontSize: isTablet ? "18px" : "30px",
+                      lineHeight: isTablet ? "22px" : "38px",
                     }}
                   >
                     {m.name}
@@ -275,8 +275,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Regular',Helvetica] font-normal text-white tracking-[0] text-left pl-4"
                     style={{
-                      fontSize: isTablet ? "20px" : "28px",
-                      lineHeight: isTablet ? "26px" : "36px",
+                      fontSize: isTablet ? "14px" : "28px",
+                      lineHeight: isTablet ? "18px" : "36px",
                     }}
                   >
                     {m.role}
@@ -295,8 +295,8 @@ export function TeamSection() {
                   <p
                     className="[font-family:'Gotham-Book',Helvetica] font-normal text-white tracking-[0] pl-4"
                     style={{
-                      fontSize: isTablet ? "16px" : "20px",
-                      lineHeight: isTablet ? "22px" : "28px",
+                      fontSize: isTablet ? "11px" : "20px",
+                      lineHeight: isTablet ? "15px" : "28px",
                     }}
                   >
                     {m.description}

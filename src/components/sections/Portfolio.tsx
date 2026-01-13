@@ -362,10 +362,10 @@ export function Portfolio() {
                       <p
                         className="des-projets-au-c-ur"
                         style={{
-                          fontSize: isTablet ? "24px" : "44px",
+                          fontSize: isTablet ? "16px" : "44px",
                           fontWeight: "bold",
-                          lineHeight: isTablet ? "1.2" : "1.15",
-                          marginBottom: isTablet ? "12px" : "25px",
+                          lineHeight: isTablet ? "1.15" : "1.15",
+                          marginBottom: isTablet ? "8px" : "25px",
                           letterSpacing: "0.02em",
                           color: "#F36911",
                         }}
@@ -377,10 +377,10 @@ export function Portfolio() {
                       <p
                         className="sous-titre-modal"
                         style={{
-                          fontSize: isTablet ? "12px" : "18px",
+                          fontSize: isTablet ? "9px" : "18px",
                           fontWeight: 600,
                           color: "#FFD4B3",
-                          marginBottom: isTablet ? "15px" : "30px",
+                          marginBottom: isTablet ? "10px" : "30px",
                           lineHeight: "1.4",
                         }}
                       >
@@ -390,8 +390,8 @@ export function Portfolio() {
                       <p
                         className="notre-client-est-un"
                         style={{
-                          fontSize: isTablet ? "14px" : "22px",
-                          lineHeight: isTablet ? "1.5" : "1.65",
+                          fontSize: isTablet ? "10px" : "22px",
+                          lineHeight: isTablet ? "1.4" : "1.65",
                           opacity: 0.95,
                         }}
                       >
