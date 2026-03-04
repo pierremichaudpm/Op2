@@ -75,16 +75,20 @@ export function Portfolio() {
     };
   };
 
-  // Style commun pour l'overlay hover (gradient navy sans texte)
-  const hoverOverlayStyle = (idx: number): React.CSSProperties => ({
-    position: "absolute",
-    inset: 0,
-    background: "linear-gradient(to top, rgba(36, 55, 104, 0.7) 0%, rgba(36, 55, 104, 0.25) 50%, rgba(36, 55, 104, 0.05) 100%)",
-    opacity: hoveredIdx === idx ? 1 : 0,
-    transition: "opacity 0.4s ease",
-    zIndex: 2,
-    pointerEvents: "none" as const,
-  });
+  // Overlay hover alternant orange et navy
+  const hoverOverlayStyle = (idx: number): React.CSSProperties => {
+    const isOrange = idx % 2 === 0;
+    const color = isOrange ? "243, 105, 17" : "36, 55, 104"; // #F36911 / #243768
+    return {
+      position: "absolute",
+      inset: 0,
+      background: `linear-gradient(to top, rgba(${color}, 0.7) 0%, rgba(${color}, 0.25) 50%, rgba(${color}, 0.05) 100%)`,
+      opacity: hoveredIdx === idx ? 1 : 0,
+      transition: "opacity 0.4s ease",
+      zIndex: 2,
+      pointerEvents: "none" as const,
+    };
+  };
 
   return (
     <section
