@@ -80,6 +80,16 @@ html {
     -webkit-text-stroke: 0.25px rgba(36, 55, 104, 0.35);
 }
 
+/* Animation dissolve pour modales mobile */
+@keyframes dissolveIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* Animations pour la modale Portfolio */
 @keyframes fadeIn {
     from {

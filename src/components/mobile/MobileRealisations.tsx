@@ -484,12 +484,6 @@ export function MobileRealisations() {
         )}
       </div>
 
-      <style jsx>{`
-        @keyframes dissolveIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}</style>
     </section>
   );
 }
