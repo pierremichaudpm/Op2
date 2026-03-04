@@ -75,11 +75,9 @@ export function Portfolio() {
     };
   };
 
-  // Overlay hover : orange pour images côté gauche, navy pour côté droit
-  // (cohérent avec les rectangles décoratifs orange à gauche, bleu à droite)
-  const orangeIndices = new Set([2, 4, 6, 1]); // Image-10 (gauche), Image-14 (gauche), Image-11 (centre-gauche), Image-15 (centre)
+  // Overlay hover : alternance bleu / orange (0=bleu, 1=orange, 2=bleu, 3=orange...)
   const hoverOverlayStyle = (idx: number): React.CSSProperties => {
-    const color = orangeIndices.has(idx) ? "243, 105, 17" : "36, 55, 104";
+    const color = idx % 2 === 0 ? "36, 55, 104" : "243, 105, 17"; // bleu, orange, bleu, orange...
     return {
       position: "absolute",
       inset: 0,
