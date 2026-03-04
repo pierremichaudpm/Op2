@@ -571,6 +571,7 @@ export default function Expertise() {
         onClick={handleLogoClick}
         isSelected={selectedCompany === "Image006_17_311_227"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_18_311_228}
@@ -606,6 +607,7 @@ export default function Expertise() {
         onClick={handleLogoClick}
         isSelected={selectedCompany === "Image006_24_311_233"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_28_311_234}
@@ -641,6 +643,7 @@ export default function Expertise() {
         onClick={handleLogoClick}
         isSelected={selectedCompany === "Image006_27_311_236"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_23_311_237}
@@ -676,6 +679,7 @@ export default function Expertise() {
         onClick={handleLogoClick}
         isSelected={selectedCompany === "Image006_4_311_241"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_5_311_242}

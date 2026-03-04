@@ -167,7 +167,7 @@ export function MobileOffreGlobale() {
                   color: '#243768',
                   lineHeight: '1.4'
                 }}>
-                  {services.conseil.shortDesc}
+                  {services.conseil.shortDesc} <span style={{ color: '#F36911', fontSize: '14px' }}>›</span>
                 </p>
               </div>
             </div>
@@ -218,7 +218,7 @@ export function MobileOffreGlobale() {
                   color: '#243768',
                   lineHeight: '1.4'
                 }}>
-                  {services.placement.shortDesc}
+                  {services.placement.shortDesc} <span style={{ color: '#F36911', fontSize: '14px' }}>›</span>
                 </p>
               </div>
             </div>
@@ -269,7 +269,7 @@ export function MobileOffreGlobale() {
                   color: '#243768',
                   lineHeight: '1.4'
                 }}>
-                  {services.formation.shortDesc}
+                  {services.formation.shortDesc} <span style={{ color: '#F36911', fontSize: '14px' }}>›</span>
                 </p>
               </div>
             </div>

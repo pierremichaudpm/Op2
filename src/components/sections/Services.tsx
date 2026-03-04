@@ -161,7 +161,7 @@ export function Services() {
             {/* Image Conseil */}
             <div
               onClick={() => handleOpenModal('conseil')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
               style={{
                 width: '508px',
                 height: '479px',
@@ -181,12 +181,15 @@ export function Services() {
                 className="object-cover"
                 style={{ objectPosition: 'calc(50% + 50px) center' }}
               />
+              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
+                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image Placement */}
             <div
               onClick={() => handleOpenModal('placement')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
               style={{
                 width: '509px',
                 height: '479px',
@@ -206,12 +209,15 @@ export function Services() {
                 className="object-cover"
                 style={{ objectPosition: 'calc(50% + 20px) center' }}
               />
+              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
+                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image Formation */}
             <div
               onClick={() => handleOpenModal('formation')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
               style={{
                 width: '509px',
                 height: '478px',
@@ -230,6 +236,9 @@ export function Services() {
                 sizes="509px"
                 className="object-cover"
               />
+              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
+                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
           </>
 
@@ -389,6 +398,11 @@ export function Services() {
           </AnimatePresence>
         </div>
       </div>
+
+      <style jsx global>{`
+        .service-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        .service-card:hover .service-hint { opacity: 1; }
+      `}</style>
 
       {/* Overlay transparent pour capturer les clics en dehors */}
       {open && mounted && createPortal(

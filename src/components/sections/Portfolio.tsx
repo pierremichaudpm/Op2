@@ -74,6 +74,11 @@ export function Portfolio() {
     };
   };
 
+  const getProjectTitle = (clickIdx: number) => {
+    const projectId = indexToProject[clickIdx];
+    return projectsData[projectId]?.title || '';
+  };
+
   return (
     <section
       id="realisations"
@@ -100,7 +105,7 @@ export function Portfolio() {
 
           {/* Grille d'images style Figma */}
           <div
-            className="relative group"
+            className="relative group portfolio-grid"
             style={{
               height: "767px",
               left: "-15px",
@@ -135,6 +140,9 @@ export function Portfolio() {
                 sizes="12vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '6px 4px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '9px', fontWeight: 500, lineHeight: 1.2, display: 'block' }}>{getProjectTitle(0)}</span>
+              </div>
             </div>
 
             {/* Image-15 centrale (img dans Figma) */}
@@ -165,6 +173,9 @@ export function Portfolio() {
                 sizes="34vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(1)}</span>
+              </div>
             </div>
 
             {/* Image-10 en haut à gauche (image-2 dans Figma) */}
@@ -195,6 +206,9 @@ export function Portfolio() {
                 sizes="33vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(2)}</span>
+              </div>
             </div>
 
             {/* Image-12 droite centre (image-3 dans Figma) */}
@@ -225,6 +239,9 @@ export function Portfolio() {
                 sizes="27vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(3)}</span>
+              </div>
             </div>
 
             {/* Image-14 en bas à gauche (image-4 dans Figma) */}
@@ -255,6 +272,9 @@ export function Portfolio() {
                 sizes="40vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(4)}</span>
+              </div>
             </div>
 
             {/* Image-16 en bas à droite (image dans Figma) */}
@@ -285,6 +305,9 @@ export function Portfolio() {
                 sizes="27vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(5)}</span>
+              </div>
             </div>
 
             {/* Image-11 centre gauche (image-6 dans Figma) */}
@@ -315,6 +338,9 @@ export function Portfolio() {
                 sizes="28vw"
                 className="object-cover"
               />
+              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
+                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(6)}</span>
+              </div>
             </div>
             {/* Modal qui couvre exactement la grille - Style Figma exact */}
             {openIdx !== null &&
@@ -475,6 +501,10 @@ export function Portfolio() {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        .portfolio-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        .portfolio-grid > .cursor-pointer:hover .portfolio-hint { opacity: 1; }
+      `}</style>
     </section>
   );
 }

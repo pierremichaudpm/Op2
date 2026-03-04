@@ -146,6 +146,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image 11 - Proportions: left:50.1%, top:0%, w:49.9%, h:30.6% */}
@@ -167,6 +170,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image 14 - Proportions: left:0%, top:25.3%, w:64.6%, h:39.7% */}
@@ -188,6 +194,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image 15 - Proportions: left:64%, top:30.6%, w:36%, h:34.4% */}
@@ -213,6 +222,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Rectangle 7 - Petit bloc orange du Figma */}
@@ -263,6 +275,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image 13 - Proportions: left:45.5%, top:65%, w:17.5%, h:35% */}
@@ -284,6 +299,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
 
             {/* Image 16 - Proportions: left:63%, top:65%, w:37%, h:35% */}
@@ -305,6 +323,9 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
+              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
+              </div>
             </div>
           </div>
         ) : (
