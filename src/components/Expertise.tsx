@@ -426,27 +426,22 @@ export default function Expertise() {
     return () => observer.disconnect();
   }, [isVisible]);
 
-  // Ouverture automatique de démo la première fois quand visible
+  // Preview automatique : simule un survol de logo quand la section devient visible
   useEffect(() => {
-    const hasSeenDemo = localStorage.getItem("expertise-demo-seen");
+    if (!isVisible) return;
 
-    if (!hasSeenDemo && isVisible) {
-      // Ouvrir automatiquement après 0.5 seconde
-      const openTimer = setTimeout(() => {
-        setSelectedCompany("Image006_10_311_221"); // Logo Pomerleau
-      }, 500);
+    const openTimer = setTimeout(() => {
+      setSelectedCompany("Image006_10_311_221"); // Logo Pomerleau
+    }, 800);
 
-      // Fermer automatiquement après 3 secondes
-      const closeTimer = setTimeout(() => {
-        setSelectedCompany(null);
-        localStorage.setItem("expertise-demo-seen", "true");
-      }, 3500);
+    const closeTimer = setTimeout(() => {
+      setSelectedCompany(null);
+    }, 4000);
 
-      return () => {
-        clearTimeout(openTimer);
-        clearTimeout(closeTimer);
-      };
-    }
+    return () => {
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+    };
   }, [isVisible]);
 
   const handleLogoClick = (logoKey: string) => {
