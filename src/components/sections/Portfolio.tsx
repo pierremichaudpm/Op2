@@ -38,6 +38,7 @@ export function Portfolio() {
   const [activeVariant, setActiveVariant] = useState(0);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const isIPadSafari = useIsIPadSafari();
 
   // Accéder aux projets depuis le dictionnaire
@@ -45,6 +46,9 @@ export function Portfolio() {
 
   // Mapping des indices aux projets
   const indexToProject = [3, 5, 0, 2, 4, 6, 1]; // Correspondance entre l'index de l'image cliquée et l'ID du projet
+
+  // Titre du projet pour l'overlay hover
+  const getTitle = (idx: number) => projectsData[indexToProject[idx]]?.title || "";
 
   // Fermer avec la touche Échap
   useEffect(() => {
@@ -74,9 +78,28 @@ export function Portfolio() {
     };
   };
 
-  const getProjectTitle = (clickIdx: number) => {
-    const projectId = indexToProject[clickIdx];
-    return projectsData[projectId]?.title || '';
+  // Style commun pour l'overlay hover
+  const hoverOverlayStyle = (idx: number): React.CSSProperties => ({
+    position: "absolute",
+    inset: 0,
+    background: "linear-gradient(to top, rgba(36, 55, 104, 0.88) 0%, rgba(36, 55, 104, 0.4) 50%, rgba(36, 55, 104, 0.1) 100%)",
+    opacity: hoveredIdx === idx ? 1 : 0,
+    transition: "opacity 0.4s ease",
+    display: "flex",
+    alignItems: "flex-end",
+    padding: "20px",
+    zIndex: 2,
+    pointerEvents: "none" as const,
+  });
+
+  // Style commun pour le titre dans l'overlay
+  const hoverTitleStyle: React.CSSProperties = {
+    color: "white",
+    fontSize: "20px",
+    fontWeight: 600,
+    letterSpacing: "0.02em",
+    lineHeight: "1.3",
+    textShadow: "0 2px 8px rgba(0,0,0,0.3)",
   };
 
   return (
@@ -122,15 +145,9 @@ export function Portfolio() {
                 height: "416px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(0)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(0)}
             >
               <Image
@@ -139,9 +156,13 @@ export function Portfolio() {
                 fill
                 sizes="12vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 0 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '6px 4px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '9px', fontWeight: 500, lineHeight: 1.2, display: 'block' }}>{getProjectTitle(0)}</span>
+              <div style={hoverOverlayStyle(0)}>
+                <span style={{ ...hoverTitleStyle, fontSize: "16px" }}>{getTitle(0)}</span>
               </div>
             </div>
 
@@ -155,15 +176,9 @@ export function Portfolio() {
                 height: "390px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(1)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(1)}
             >
               <Image
@@ -172,9 +187,13 @@ export function Portfolio() {
                 fill
                 sizes="34vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 1 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(1)}</span>
+              <div style={hoverOverlayStyle(1)}>
+                <span style={hoverTitleStyle}>{getTitle(1)}</span>
               </div>
             </div>
 
@@ -188,15 +207,9 @@ export function Portfolio() {
                 height: "286px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(2)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(2)}
             >
               <Image
@@ -205,9 +218,13 @@ export function Portfolio() {
                 fill
                 sizes="33vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 2 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(2)}</span>
+              <div style={hoverOverlayStyle(2)}>
+                <span style={hoverTitleStyle}>{getTitle(2)}</span>
               </div>
             </div>
 
@@ -221,15 +238,9 @@ export function Portfolio() {
                 height: "415px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(3)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(3)}
             >
               <Image
@@ -238,9 +249,13 @@ export function Portfolio() {
                 fill
                 sizes="27vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 3 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(3)}</span>
+              <div style={hoverOverlayStyle(3)}>
+                <span style={hoverTitleStyle}>{getTitle(3)}</span>
               </div>
             </div>
 
@@ -254,15 +269,9 @@ export function Portfolio() {
                 height: "451px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(4)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(4)}
             >
               <Image
@@ -271,9 +280,13 @@ export function Portfolio() {
                 fill
                 sizes="40vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 4 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(4)}</span>
+              <div style={hoverOverlayStyle(4)}>
+                <span style={hoverTitleStyle}>{getTitle(4)}</span>
               </div>
             </div>
 
@@ -287,15 +300,9 @@ export function Portfolio() {
                 height: "328px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(5)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(5)}
             >
               <Image
@@ -304,9 +311,13 @@ export function Portfolio() {
                 fill
                 sizes="27vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 5 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(5)}</span>
+              <div style={hoverOverlayStyle(5)}>
+                <span style={hoverTitleStyle}>{getTitle(5)}</span>
               </div>
             </div>
 
@@ -320,15 +331,9 @@ export function Portfolio() {
                 height: "352px",
                 zIndex: openIdx !== null ? 1 : 2,
                 pointerEvents: openIdx !== null ? "none" : "auto",
-                willChange: "transform",
-                transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.01)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={() => setHoveredIdx(6)}
+              onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setOpenIdx(6)}
             >
               <Image
@@ -337,9 +342,13 @@ export function Portfolio() {
                 fill
                 sizes="28vw"
                 className="object-cover"
+                style={{
+                  transform: hoveredIdx === 6 ? "scale(1.08)" : "scale(1)",
+                  transition: "transform 3s ease-out",
+                }}
               />
-              <div className="portfolio-hint" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px 12px', background: 'linear-gradient(transparent, rgba(0,0,0,0.45))', zIndex: 1 }}>
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: 500, letterSpacing: '0.02em' }}>{getProjectTitle(6)}</span>
+              <div style={hoverOverlayStyle(6)}>
+                <span style={hoverTitleStyle}>{getTitle(6)}</span>
               </div>
             </div>
             {/* Modal qui couvre exactement la grille - Style Figma exact */}

@@ -185,11 +185,18 @@ html {
     }
 }
 
-/* Discoverability hover hints */
-.portfolio-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-.portfolio-grid > .cursor-pointer:hover .portfolio-hint { opacity: 1; }
-.service-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-.service-card:hover .service-hint { opacity: 1; }
+/* Portfolio alternating breathing pulse */
+@keyframes portfolioPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+}
+
+.portfolio-grid > .cursor-pointer:nth-child(odd) {
+    animation: portfolioPulse 4s ease-in-out infinite;
+}
+.portfolio-grid > .cursor-pointer:nth-child(even) {
+    animation: portfolioPulse 4s ease-in-out infinite 2s;
+}
 
 /* iPad / Tablet adjustments for Team (Nos Experts) bio cards */
 @media (min-width: 768px) and (max-width: 1024px) {

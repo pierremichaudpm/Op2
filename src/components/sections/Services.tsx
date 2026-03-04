@@ -24,6 +24,7 @@ export function Services() {
   const { t } = useI18n();
   const [open, setOpen] = useState<null | ServiceKey>(null);
   const [mounted, setMounted] = useState(false);
+  const [hoveredService, setHoveredService] = useState<ServiceKey | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
@@ -68,21 +69,25 @@ export function Services() {
 
           {/* Titre Conseil */}
           <div 
-            className={`absolute font-display font-medium whitespace-pre-line transition-colors cursor-pointer ${
+            className={`absolute font-display font-medium whitespace-pre-line cursor-pointer ${
               open === 'conseil' ? 'text-[#DE5600]' : open ? 'text-[#DE5600]/20' : 'text-[#DE5600]'
             }`}
-            style={{ 
+            style={{
               left: '34px',
               top: '145px',
               fontSize: '45px',
               lineHeight: '50px',
               letterSpacing: '2.70px',
-              zIndex: open ? 45 : 1
+              zIndex: open ? 45 : 1,
+              transform: hoveredService === 'conseil' ? 'translateX(10px)' : 'translateX(0)',
+              transition: 'transform 0.3s ease, color 0.2s ease'
             }}
             onClick={() => handleOpenModal('conseil')}
+            onMouseEnter={() => setHoveredService('conseil')}
+            onMouseLeave={() => setHoveredService(null)}
           >
             {open === 'conseil' && (
-              <div 
+              <div
                 className="absolute bg-[#DE5600] rounded-full"
                 style={{
                   width: '12px',
@@ -97,22 +102,26 @@ export function Services() {
           </div>
 
           {/* Titre Placement */}
-          <div 
-            className={`absolute font-display font-medium whitespace-pre-line transition-colors cursor-pointer ${
+          <div
+            className={`absolute font-display font-medium whitespace-pre-line cursor-pointer ${
               open === 'placement' ? 'text-[#DE5600]' : open ? 'text-[#DE5600]/20' : 'text-[#DE5600]'
             }`}
-            style={{ 
+            style={{
               left: '609px',
               top: '144px',
               fontSize: '45px',
               lineHeight: '50px',
               letterSpacing: '2.70px',
-              zIndex: open ? 45 : 1
+              zIndex: open ? 45 : 1,
+              transform: hoveredService === 'placement' ? 'translateX(10px)' : 'translateX(0)',
+              transition: 'transform 0.3s ease, color 0.2s ease'
             }}
             onClick={() => handleOpenModal('placement')}
+            onMouseEnter={() => setHoveredService('placement')}
+            onMouseLeave={() => setHoveredService(null)}
           >
             {open === 'placement' && (
-              <div 
+              <div
                 className="absolute bg-[#DE5600] rounded-full"
                 style={{
                   width: '12px',
@@ -127,22 +136,26 @@ export function Services() {
           </div>
 
           {/* Titre Formation */}
-          <div 
-            className={`absolute font-display font-medium whitespace-pre-line transition-colors cursor-pointer ${
+          <div
+            className={`absolute font-display font-medium whitespace-pre-line cursor-pointer ${
               open === 'formation' ? 'text-[#DE5600]' : open ? 'text-[#DE5600]/20' : 'text-[#DE5600]'
             }`}
-            style={{ 
+            style={{
               left: '1216px',
               top: '144px',
               fontSize: '45px',
               lineHeight: '50px',
               letterSpacing: '2.70px',
-              zIndex: open ? 45 : 1
+              zIndex: open ? 45 : 1,
+              transform: hoveredService === 'formation' ? 'translateX(10px)' : 'translateX(0)',
+              transition: 'transform 0.3s ease, color 0.2s ease'
             }}
             onClick={() => handleOpenModal('formation')}
+            onMouseEnter={() => setHoveredService('formation')}
+            onMouseLeave={() => setHoveredService(null)}
           >
             {open === 'formation' && (
-              <div 
+              <div
                 className="absolute bg-[#DE5600] rounded-full"
                 style={{
                   width: '12px',
@@ -161,7 +174,9 @@ export function Services() {
             {/* Image Conseil */}
             <div
               onClick={() => handleOpenModal('conseil')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
+              onMouseEnter={() => setHoveredService('conseil')}
+              onMouseLeave={() => setHoveredService(null)}
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
               style={{
                 width: '508px',
                 height: '479px',
@@ -179,17 +194,20 @@ export function Services() {
                 fill
                 sizes="509px"
                 className="object-cover"
-                style={{ objectPosition: 'calc(50% + 50px) center' }}
+                style={{
+                  objectPosition: 'calc(50% + 50px) center',
+                  transform: hoveredService === 'conseil' ? 'scale(1.08)' : 'scale(1)',
+                  transition: 'transform 4s ease-out'
+                }}
               />
-              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
-                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image Placement */}
             <div
               onClick={() => handleOpenModal('placement')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
+              onMouseEnter={() => setHoveredService('placement')}
+              onMouseLeave={() => setHoveredService(null)}
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
               style={{
                 width: '509px',
                 height: '479px',
@@ -207,17 +225,20 @@ export function Services() {
                 fill
                 sizes="509px"
                 className="object-cover"
-                style={{ objectPosition: 'calc(50% + 20px) center' }}
+                style={{
+                  objectPosition: 'calc(50% + 20px) center',
+                  transform: hoveredService === 'placement' ? 'scale(1.08)' : 'scale(1)',
+                  transition: 'transform 4s ease-out'
+                }}
               />
-              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
-                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image Formation */}
             <div
               onClick={() => handleOpenModal('formation')}
-              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer service-card"
+              onMouseEnter={() => setHoveredService('formation')}
+              onMouseLeave={() => setHoveredService(null)}
+              className="absolute overflow-hidden rounded-[50px] border border-[#243768] cursor-pointer"
               style={{
                 width: '509px',
                 height: '478px',
@@ -235,10 +256,11 @@ export function Services() {
                 fill
                 sizes="509px"
                 className="object-cover"
+                style={{
+                  transform: hoveredService === 'formation' ? 'scale(1.08)' : 'scale(1)',
+                  transition: 'transform 4s ease-out'
+                }}
               />
-              <div className="service-hint" style={{ position: 'absolute', bottom: '20px', right: '20px', width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
-                <span style={{ color: 'white', fontSize: '18px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
           </>
 

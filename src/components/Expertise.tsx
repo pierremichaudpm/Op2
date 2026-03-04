@@ -323,6 +323,7 @@ function LogoContainer({
   className,
   logoKey,
   onClick,
+  onLeave,
   isSelected,
   hasAnySelection,
   isPulsing,
@@ -330,6 +331,7 @@ function LogoContainer({
   className: string;
   logoKey: string;
   onClick: (key: string) => void;
+  onLeave: () => void;
   isSelected: boolean;
   hasAnySelection: boolean;
   isPulsing?: boolean;
@@ -360,8 +362,14 @@ function LogoContainer({
   return (
     <div
       className={`${className} ${styles.logoContainer} ${isPulsing && !isSelected && !hasAnySelection ? styles.logoPulsing : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        onClick(logoKey);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        onLeave();
+      }}
       onClick={(e) => {
         e.stopPropagation();
         onClick(logoKey);
@@ -479,16 +487,7 @@ export default function Expertise() {
       {/* Overlay d'information */}
       {selectedInfo && (
         <div className={styles.infoOverlay}>
-          <button
-            className={styles.closeButton}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleCloseInfo();
-            }}
-          >
-            ×
-          </button>
-          <div className={styles.infoCircle}>
+          <div className={styles.infoCircle} onMouseLeave={handleCloseInfo}>
             <div className={styles.infoContent}>
               {/* Logo */}
               <div className={styles.logoHeader}>
@@ -539,6 +538,7 @@ export default function Expertise() {
         className={styles.Image006_10_311_221}
         logoKey="Image006_10_311_221"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_10_311_221"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -547,6 +547,7 @@ export default function Expertise() {
         className={styles.Image006_11_311_222}
         logoKey="Image006_11_311_222"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_11_311_222"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -555,20 +556,25 @@ export default function Expertise() {
         className={styles.Image006_12_311_223}
         logoKey="Image006_12_311_223"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_12_311_223"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_13_311_224}
         logoKey="Image006_13_311_224"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_13_311_224"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_17_311_227}
         logoKey="Image006_17_311_227"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_17_311_227"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -577,34 +583,43 @@ export default function Expertise() {
         className={styles.Image006_18_311_228}
         logoKey="Image006_18_311_228"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_18_311_228"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_19_311_229}
         logoKey="Image006_19_311_229"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_19_311_229"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_21_311_231}
         logoKey="Image006_21_311_231"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_21_311_231"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_22_311_232}
         logoKey="Image006_22_311_232"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_22_311_232"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_24_311_233}
         logoKey="Image006_24_311_233"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_24_311_233"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -613,34 +628,43 @@ export default function Expertise() {
         className={styles.Image006_28_311_234}
         logoKey="Image006_28_311_234"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_28_311_234"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_29_311_246}
         logoKey="Image006_29_311_246"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_29_311_246"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_30_311_247}
         logoKey="Image006_30_311_247"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_30_311_247"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_26_311_235}
         logoKey="Image006_26_311_235"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_26_311_235"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_27_311_236}
         logoKey="Image006_27_311_236"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_27_311_236"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -649,34 +673,43 @@ export default function Expertise() {
         className={styles.Image006_23_311_237}
         logoKey="Image006_23_311_237"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_23_311_237"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_16_311_238}
         logoKey="Image006_16_311_238"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_16_311_238"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_2_311_239}
         logoKey="Image006_2_311_239"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_2_311_239"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_3_311_240}
         logoKey="Image006_3_311_240"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_3_311_240"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_4_311_241}
         logoKey="Image006_4_311_241"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_4_311_241"}
         hasAnySelection={hasAnySelection}
         isPulsing={true}
@@ -685,29 +718,37 @@ export default function Expertise() {
         className={styles.Image006_5_311_242}
         logoKey="Image006_5_311_242"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_5_311_242"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_6_311_243}
         logoKey="Image006_6_311_243"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_6_311_243"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_7_311_244}
         logoKey="Image006_7_311_244"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_7_311_244"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
       <LogoContainer
         className={styles.Image006_8_311_245}
         logoKey="Image006_8_311_245"
         onClick={handleLogoClick}
+        onLeave={handleCloseInfo}
         isSelected={selectedCompany === "Image006_8_311_245"}
         hasAnySelection={hasAnySelection}
+        isPulsing={true}
       />
     </div>
   );

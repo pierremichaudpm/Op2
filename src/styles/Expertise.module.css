@@ -151,7 +151,7 @@
         transform: translate3d(0, 0, 0) scale(1);
     }
     50% {
-        transform: translate3d(0, 0, 0) scale(1.15);
+        transform: translate3d(0, 0, 0) scale(1.08);
     }
 }
 

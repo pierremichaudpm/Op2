@@ -128,16 +128,17 @@ export function MobileRealisations() {
             bottom: 0
           }}>
             {/* Image 10 - Proportions: left:0%, top:0%, w:54%, h:25.3% */}
-            <div 
+            <div
               onClick={() => handleImageClick(0)}
               style={{
                 position: 'absolute',
                 left: '0%',
                 top: '0%',
-                width: '54%', // 192.8/357 = 54%
-                height: '25.3%', // 85.89/340 = 25.3%
+                width: '54%',
+                height: '25.3%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite'
               }}
             >
               <Image
@@ -146,22 +147,20 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image 11 - Proportions: left:50.1%, top:0%, w:49.9%, h:30.6% */}
-            <div 
+            <div
               onClick={() => handleImageClick(1)}
               style={{
                 position: 'absolute',
-                left: '50.1%', // 179/357 = 50.1%
+                left: '50.1%',
                 top: '0%',
-                width: '49.9%', // 178/357 = 49.9%
-                height: '30.6%', // 104/340 = 30.6%
+                width: '49.9%',
+                height: '30.6%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite 2s'
               }}
             >
               <Image
@@ -170,22 +169,20 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image 14 - Proportions: left:0%, top:25.3%, w:64.6%, h:39.7% */}
-            <div 
+            <div
               onClick={() => handleImageClick(4)}
               style={{
                 position: 'absolute',
                 left: '0%',
-                top: '25.3%', // 86/340 = 25.3%
-                width: '64.6%', // 230.64/357 = 64.6%
-                height: '39.7%', // 134.84/340 = 39.7%
+                top: '25.3%',
+                width: '64.6%',
+                height: '39.7%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite'
               }}
             >
               <Image
@@ -194,26 +191,24 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image 15 - Proportions: left:64%, top:30.6%, w:36%, h:34.4% */}
-            <div 
+            <div
               onClick={() => handleImageClick(5)}
               style={{
                 position: 'absolute',
-                left: '64%', // Redonné 1% (3px)
-                top: '30.6%', // 104/340 = 30.6%
-                width: '36%', // Redonné 1% (3px)
-                height: '34.4%', // 116.82/340 = 34.4%
+                left: '64%',
+                top: '30.6%',
+                width: '36%',
+                height: '34.4%',
                 overflow: 'hidden',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                zIndex: 1 // Sous le rectangle orange
+                zIndex: 1,
+                animation: 'portfolioPulse 4s ease-in-out infinite 2s'
               }}
             >
               <Image
@@ -222,9 +217,6 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Rectangle 7 - Petit bloc orange du Figma */}
@@ -257,16 +249,17 @@ export function MobileRealisations() {
             />
 
             {/* Image 12 - Proportions: left:0%, top:57.9%, w:45.5%, h:42.1% */}
-            <div 
+            <div
               onClick={() => handleImageClick(2)}
               style={{
                 position: 'absolute',
                 left: '0%',
-                top: '57.9%', // 197/340 = 57.9%
-                width: '45.5%', // Réduit de 3% (environ 10px)
-                height: '42.1%', // 143/340 = 42.1%
+                top: '57.9%',
+                width: '45.5%',
+                height: '42.1%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite'
               }}
             >
               <Image
@@ -275,22 +268,20 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image 13 - Proportions: left:45.5%, top:65%, w:17.5%, h:35% */}
-            <div 
+            <div
               onClick={() => handleImageClick(3)}
               style={{
                 position: 'absolute',
-                left: '45.5%', // Collé à l'image de gauche
-                top: '65%', // 221/340 = 65%
-                width: '17.5%', // Largeur élargie de la fusée pour combler l'espace
-                height: '35%', // 119/340 = 35%
+                left: '45.5%',
+                top: '65%',
+                width: '17.5%',
+                height: '35%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite 2s'
               }}
             >
               <Image
@@ -299,22 +290,20 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
 
             {/* Image 16 - Proportions: left:63%, top:65%, w:37%, h:35% */}
-            <div 
+            <div
               onClick={() => handleImageClick(6)}
               style={{
                 position: 'absolute',
-                left: '63%', // Décalé pour enlever les pixels
-                top: '65%', // 221/340 = 65%
-                width: '37%', // Réduit comme demandé
-                height: '35%', // 119/340 = 35%
+                left: '63%',
+                top: '65%',
+                width: '37%',
+                height: '35%',
                 overflow: 'hidden',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                animation: 'portfolioPulse 4s ease-in-out infinite'
               }}
             >
               <Image
@@ -323,9 +312,6 @@ export function MobileRealisations() {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', bottom: '6px', right: '6px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'rgba(243, 105, 17, 0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
-                <span style={{ color: 'white', fontSize: '14px', fontWeight: 300, lineHeight: 1 }}>+</span>
-              </div>
             </div>
           </div>
         ) : (
