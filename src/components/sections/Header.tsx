@@ -1,12 +1,54 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { useI18n } from '@/lib/i18n';
+
+const SECTION_IDS = ['expertise', 'offres', 'realisations', 'equipe'] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const { t, locale } = useI18n();
   const logoSrc = locale === 'en' ? '/images/logo-site-en.png' : '/images/logo-1.png?v=2';
+
+  // Scroll-spy: track which section is currently in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Clear active section when at the very top
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 200) setActiveSection(null);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinkClass = (sectionId: string) =>
+    `text-[26px] font-medium transition-colors duration-200 ${
+      activeSection === sectionId
+        ? 'text-[#F36911]'
+        : 'text-[#243768] hover:text-[#F36911]'
+    }`;
+
   return (
     <header
       className="sticky top-0 z-50 relative overflow-hidden"
@@ -27,18 +69,16 @@ export function Header() {
         {/* Left: logo Op2 + Part of Accenture */}
         <div className="flex items-center gap-6 shrink-0 ml-[6px]">
           <a href="/" className="hidden md:flex flex-col items-start gap-2">
-            {/* Logo Op2 principal - réduit légèrement */}
-            <img
+            {/* Logo Op2 principal */}
+            <Image
               src={logoSrc}
               width={250}
               height={81}
               alt="Op2 logo"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = 'none';
-              }}
+              priority
             />
             {/* Logo Part of Accenture */}
-            <img
+            <Image
               src="/images/PartofAccenture_logo.png"
               width={180}
               height={24}
@@ -52,25 +92,25 @@ export function Header() {
         </div>
         {/* Right: nav + Eng group (equal gaps, Eng collé à droite) */}
         <div className="ml-auto hidden md:flex items-center gap-10">
-          <nav className="flex items-center gap-10 text-[#243768]">
-            <Link href={locale === 'en' ? '/en' : '/'} className="text-[26px] font-medium">{t('common.nav.home')}</Link>
-            <a href="#expertise" className="text-[26px] font-medium" onClick={(e) => {
+          <nav className="flex items-center gap-10">
+            <Link href={locale === 'en' ? '/en' : '/'} className={`text-[26px] font-medium transition-colors duration-200 ${activeSection === null ? 'text-[#F36911]' : 'text-[#243768] hover:text-[#F36911]'}`}>{t('common.nav.home')}</Link>
+            <a href="#expertise" className={navLinkClass('expertise')} onClick={(e) => {
               e.preventDefault();
               document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}>{t('common.nav.expertise')}</a>
-            <a href="#offres" className="text-[26px] font-medium" onClick={(e) => {
+            <a href="#offres" className={navLinkClass('offres')} onClick={(e) => {
               e.preventDefault();
               document.getElementById('offres')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}>{t('common.nav.offers')}</a>
-            <a href="#realisations" className="text-[26px] font-medium" onClick={(e) => {
+            <a href="#realisations" className={navLinkClass('realisations')} onClick={(e) => {
               e.preventDefault();
               document.getElementById('realisations')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}>{t('common.nav.projects')}</a>
-            <a href="#equipe" className="text-[26px] font-medium capitalize" onClick={(e) => {
+            <a href="#equipe" className={`${navLinkClass('equipe')} capitalize`} onClick={(e) => {
               e.preventDefault();
               document.getElementById('equipe')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}>{t('common.nav.team')}</a>
-            
+
           </nav>
           {locale === 'en' ? (
             <Link href="/" className="text-[26px] font-medium text-[#F36911]" aria-label="Basculer en français">{t('common.lang.switchToFrench')}</Link>

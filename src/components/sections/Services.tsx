@@ -15,9 +15,9 @@ type ServiceContentItem = {
 };
 
 const SERVICE_IMAGES: Record<ServiceKey, string> = {
-  conseil: '/images/image-7.png',
-  placement: '/images/image-8.png',
-  formation: '/images/image-9.png'
+  conseil: '/images/image-7.webp',
+  placement: '/images/image-8.webp',
+  formation: '/images/image-9.webp'
 };
 
 export function Services() {
@@ -173,10 +173,11 @@ export function Services() {
                 transition: 'all 0.2s ease-out'
               }}
             >
-              <Image 
+              <Image
                 src={SERVICE_IMAGES.conseil}
                 alt="Conseil en gestion de projet"
                 fill
+                sizes="509px"
                 className="object-cover"
                 style={{ objectPosition: 'calc(50% + 50px) center' }}
               />
@@ -197,10 +198,11 @@ export function Services() {
                 transition: 'all 0.2s ease-out'
               }}
             >
-              <Image 
+              <Image
                 src={SERVICE_IMAGES.placement}
                 alt="Placement opérationnel"
                 fill
+                sizes="509px"
                 className="object-cover"
                 style={{ objectPosition: 'calc(50% + 20px) center' }}
               />
@@ -221,10 +223,11 @@ export function Services() {
                 transition: 'all 0.2s ease-out'
               }}
             >
-              <Image 
+              <Image
                 src={SERVICE_IMAGES.formation}
                 alt="Formation spécialisée"
                 fill
+                sizes="509px"
                 className="object-cover"
               />
             </div>
@@ -265,10 +268,11 @@ export function Services() {
                   }}
                 >
               {/* Image de fond spécifique au service actif */}
-              <Image 
+              <Image
                 src={SERVICE_IMAGES[open]}
                 alt="Background"
                 fill
+                sizes="1689px"
                 className="object-cover"
               style={{ 
                 objectPosition: open === 'conseil' ? 'calc(50% + 50px) 60%' : 

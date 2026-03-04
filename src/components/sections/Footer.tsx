@@ -284,7 +284,7 @@ export function Footer() {
           fontSize: '21px',
           fontWeight: 400,
           lineHeight: '36px',
-          color: '#000000'
+          color: 'rgba(255, 255, 255, 0.5)'
         }}>
           © 2025 Op2. Tous droits réservés.
         </p>

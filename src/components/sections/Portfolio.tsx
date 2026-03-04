@@ -132,6 +132,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-13.webp"
                 alt="Réalisation"
                 fill
+                sizes="12vw"
                 className="object-cover"
               />
             </div>
@@ -161,6 +162,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-15.webp"
                 alt="Réalisation"
                 fill
+                sizes="34vw"
                 className="object-cover"
               />
             </div>
@@ -190,6 +192,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-10.webp"
                 alt="Réalisation"
                 fill
+                sizes="33vw"
                 className="object-cover"
               />
             </div>
@@ -219,6 +222,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-12.webp"
                 alt="Réalisation"
                 fill
+                sizes="27vw"
                 className="object-cover"
               />
             </div>
@@ -248,6 +252,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-14.webp"
                 alt="Réalisation"
                 fill
+                sizes="40vw"
                 className="object-cover"
               />
             </div>
@@ -277,6 +282,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-16.webp"
                 alt="Réalisation"
                 fill
+                sizes="27vw"
                 className="object-cover"
               />
             </div>
@@ -306,6 +312,7 @@ export function Portfolio() {
                 src="/images/nos_realisations/image-11.webp"
                 alt="Réalisation"
                 fill
+                sizes="28vw"
                 className="object-cover"
               />
             </div>
@@ -346,6 +353,7 @@ export function Portfolio() {
                         src={project.image}
                         alt={project.title}
                         fill
+                        sizes="45vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>

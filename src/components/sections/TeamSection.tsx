@@ -203,7 +203,7 @@ export function TeamSection() {
               className="group relative overflow-hidden rounded-[50px] border border-primary/20 shrink-0 snap-start"
               style={{ width: "448px", height: "735px", maxWidth: "100%" }}
             >
-              <Image src={m.image} alt={m.name} fill className="object-cover" />
+              <Image src={m.image} alt={m.name} fill sizes="448px" className="object-cover" />
 
               {/* Dégradé bas pour lisibilité des noms (atténué au hover) */}
               <div

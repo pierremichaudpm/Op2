@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [],
-    unoptimized: process.env.NODE_ENV === 'production'
+    formats: ['image/avif', 'image/webp'],
   },
   experimental: {},
   

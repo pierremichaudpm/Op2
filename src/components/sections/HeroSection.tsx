@@ -31,7 +31,7 @@ export function HeroSection() {
             {/* Video as true background (poster = slider 1.png) */}
             <VideoBackground
               videoSrc="/videos/hero_animation"
-              posterSrc="/images/slider-1.png"
+              posterSrc="/images/slider-1.webp"
               opacity={1}
               objectPosition="center bottom"
               className="absolute inset-0 z-0"

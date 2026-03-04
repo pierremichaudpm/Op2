@@ -41,6 +41,9 @@ export default function RootLayoutEN({
       <body 
         className={`${inter.className} ${montserrat.variable}`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-[#243768] focus:px-4 focus:py-2 focus:rounded focus:shadow-lg focus:text-sm focus:font-medium">
+          Skip to main content
+        </a>
         <NavigationMarker />
         <I18nProvider locale="en" dict={en}>
           {children}

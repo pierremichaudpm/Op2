@@ -37,7 +37,7 @@ export function MobileOffreGlobale() {
       bulletPoint4: locale === 'en'
         ? '• Turn around struggling projects.'
         : '• Redresser les projets en difficulté.',
-      image: '/images/image-7.png'
+      image: '/images/image-7.webp'
     },
     placement: {
       title: locale === 'en' ? 'Operational staffing' : 'Placement opérationnel', 
@@ -59,7 +59,7 @@ export function MobileOffreGlobale() {
       bulletPoint4: locale === 'en'
         ? '• Strengthen your teams during critical moments.'
         : '• Renforcer vos équipes dans les moments critiques.',
-      image: '/images/image-8.png'
+      image: '/images/image-8.webp'
     },
     formation: {
       title: locale === 'en' ? 'Specialised training' : 'Formation spécialisée',
@@ -81,7 +81,7 @@ export function MobileOffreGlobale() {
       bulletPoint4: locale === 'en'
         ? '• Explore new challenges (AI applied to projects, benefits management, etc.).'
         : '• Explorer de nouveaux enjeux (IA appliquée aux projets, gestion des bénéfices, etc.).',
-      image: '/images/image-9.png'
+      image: '/images/image-9.webp'
     }
   };
 

@@ -7,10 +7,11 @@ import { Services } from '@/components/sections/Services';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { TeamSection } from '@/components/sections/TeamSection';
+import { BackToTop } from '@/components/ui/back-to-top';
 
 export default function HomePageEN() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main id="main-content" className="min-h-screen flex flex-col">
       <Header />
       <HeroSection />
       <WorldExpertise />
@@ -20,6 +21,7 @@ export default function HomePageEN() {
       <TeamSection />
       <ContactSection />
       <Footer />
+      <BackToTop />
     </main>
   );
 }
