@@ -405,8 +405,8 @@ export default function Expertise() {
   const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isIPadSafari = useIsIPadSafari();
-  // VideoBackground handles playback automatically
 
   // Détection de visibilité avec IntersectionObserver
   useEffect(() => {
@@ -445,11 +445,20 @@ export default function Expertise() {
   }, [isVisible]);
 
   const handleLogoClick = (logoKey: string) => {
+    // Annuler toute fermeture en cours pour une transition fluide
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setSelectedCompany(logoKey);
   };
 
   const handleCloseInfo = () => {
-    setSelectedCompany(null);
+    // Délai avant fermeture pour éviter le flash entre deux logos
+    closeTimeoutRef.current = setTimeout(() => {
+      setSelectedCompany(null);
+      closeTimeoutRef.current = null;
+    }, 150);
   };
 
   // Obtenir la traduction depuis les dictionnaires, avec fallback sur companyInfo
