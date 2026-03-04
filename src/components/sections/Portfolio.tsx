@@ -501,10 +501,6 @@ export function Portfolio() {
           </div>
         </div>
       </div>
-      <style jsx global>{`
-        .portfolio-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-        .portfolio-grid > .cursor-pointer:hover .portfolio-hint { opacity: 1; }
-      `}</style>
     </section>
   );
 }

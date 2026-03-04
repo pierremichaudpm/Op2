@@ -399,11 +399,6 @@ export function Services() {
         </div>
       </div>
 
-      <style jsx global>{`
-        .service-hint { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-        .service-card:hover .service-hint { opacity: 1; }
-      `}</style>
-
       {/* Overlay transparent pour capturer les clics en dehors */}
       {open && mounted && createPortal(
         <div 
