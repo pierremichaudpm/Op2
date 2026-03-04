@@ -54,27 +54,22 @@ export function MobileExpertiseMondiale() {
     return () => observer.disconnect();
   }, [isVisible]);
 
-  // Ouverture automatique de démo la première fois quand visible
+  // Preview automatique : laisse le globe tourner 3s avant de montrer la modale
   useEffect(() => {
-    const hasSeenDemo = localStorage.getItem('expertise-mobile-demo-seen');
-    
-    if (!hasSeenDemo && isVisible) {
-      // Ouvrir automatiquement après 0.5 seconde
-      const openTimer = setTimeout(() => {
-        setSelectedLogo('10'); // Logo Pomerleau
-      }, 500);
-      
-      // Fermer automatiquement après 3 secondes
-      const closeTimer = setTimeout(() => {
-        setSelectedLogo(null);
-        localStorage.setItem('expertise-mobile-demo-seen', 'true');
-      }, 3500);
-      
-      return () => {
-        clearTimeout(openTimer);
-        clearTimeout(closeTimer);
-      };
-    }
+    if (!isVisible) return;
+
+    const openTimer = setTimeout(() => {
+      setSelectedLogo('10'); // Logo Pomerleau
+    }, 3000);
+
+    const closeTimer = setTimeout(() => {
+      setSelectedLogo(null);
+    }, 6500);
+
+    return () => {
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+    };
   }, [isVisible]);
 
   // Variant 1 (Default) - Adapté depuis Figma avec positionnement proportionnel
