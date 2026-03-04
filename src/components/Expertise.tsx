@@ -426,17 +426,17 @@ export default function Expertise() {
     return () => observer.disconnect();
   }, [isVisible]);
 
-  // Preview automatique : simule un survol de logo quand la section devient visible
+  // Preview automatique : laisse le globe tourner 3s avant de montrer la modale
   useEffect(() => {
     if (!isVisible) return;
 
     const openTimer = setTimeout(() => {
       setSelectedCompany("Image006_10_311_221"); // Logo Pomerleau
-    }, 800);
+    }, 3000);
 
     const closeTimer = setTimeout(() => {
       setSelectedCompany(null);
-    }, 4000);
+    }, 6500);
 
     return () => {
       clearTimeout(openTimer);
