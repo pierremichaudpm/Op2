@@ -47,9 +47,6 @@ export function Portfolio() {
   // Mapping des indices aux projets
   const indexToProject = [3, 5, 0, 2, 4, 6, 1]; // Correspondance entre l'index de l'image cliquée et l'ID du projet
 
-  // Titre du projet pour l'overlay hover
-  const getTitle = (idx: number) => projectsData[indexToProject[idx]]?.title || "";
-
   // Fermer avec la touche Échap
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -78,29 +75,16 @@ export function Portfolio() {
     };
   };
 
-  // Style commun pour l'overlay hover
+  // Style commun pour l'overlay hover (gradient navy sans texte)
   const hoverOverlayStyle = (idx: number): React.CSSProperties => ({
     position: "absolute",
     inset: 0,
-    background: "linear-gradient(to top, rgba(36, 55, 104, 0.88) 0%, rgba(36, 55, 104, 0.4) 50%, rgba(36, 55, 104, 0.1) 100%)",
+    background: "linear-gradient(to top, rgba(36, 55, 104, 0.7) 0%, rgba(36, 55, 104, 0.25) 50%, rgba(36, 55, 104, 0.05) 100%)",
     opacity: hoveredIdx === idx ? 1 : 0,
     transition: "opacity 0.4s ease",
-    display: "flex",
-    alignItems: "flex-end",
-    padding: "20px",
     zIndex: 2,
     pointerEvents: "none" as const,
   });
-
-  // Style commun pour le titre dans l'overlay
-  const hoverTitleStyle: React.CSSProperties = {
-    color: "white",
-    fontSize: "20px",
-    fontWeight: 600,
-    letterSpacing: "0.02em",
-    lineHeight: "1.3",
-    textShadow: "0 2px 8px rgba(0,0,0,0.3)",
-  };
 
   return (
     <section
@@ -161,9 +145,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(0)}>
-                <span style={{ ...hoverTitleStyle, fontSize: "16px" }}>{getTitle(0)}</span>
-              </div>
+              <div style={hoverOverlayStyle(0)} />
             </div>
 
             {/* Image-15 centrale (img dans Figma) */}
@@ -192,9 +174,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(1)}>
-                <span style={hoverTitleStyle}>{getTitle(1)}</span>
-              </div>
+              <div style={hoverOverlayStyle(1)} />
             </div>
 
             {/* Image-10 en haut à gauche (image-2 dans Figma) */}
@@ -223,9 +203,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(2)}>
-                <span style={hoverTitleStyle}>{getTitle(2)}</span>
-              </div>
+              <div style={hoverOverlayStyle(2)} />
             </div>
 
             {/* Image-12 droite centre (image-3 dans Figma) */}
@@ -254,9 +232,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(3)}>
-                <span style={hoverTitleStyle}>{getTitle(3)}</span>
-              </div>
+              <div style={hoverOverlayStyle(3)} />
             </div>
 
             {/* Image-14 en bas à gauche (image-4 dans Figma) */}
@@ -285,9 +261,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(4)}>
-                <span style={hoverTitleStyle}>{getTitle(4)}</span>
-              </div>
+              <div style={hoverOverlayStyle(4)} />
             </div>
 
             {/* Image-16 en bas à droite (image dans Figma) */}
@@ -316,9 +290,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(5)}>
-                <span style={hoverTitleStyle}>{getTitle(5)}</span>
-              </div>
+              <div style={hoverOverlayStyle(5)} />
             </div>
 
             {/* Image-11 centre gauche (image-6 dans Figma) */}
@@ -347,9 +319,7 @@ export function Portfolio() {
                   transition: "transform 3s ease-out",
                 }}
               />
-              <div style={hoverOverlayStyle(6)}>
-                <span style={hoverTitleStyle}>{getTitle(6)}</span>
-              </div>
+              <div style={hoverOverlayStyle(6)} />
             </div>
             {/* Modal qui couvre exactement la grille - Style Figma exact */}
             {openIdx !== null &&
